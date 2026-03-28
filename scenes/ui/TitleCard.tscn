@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://cfvmxbqbqbbsj"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1224337153]
+layer = 10
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1045914700]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -167.5
+offset_top = -118.0
+offset_right = 167.5
+offset_bottom = 118.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1359671677]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="CenterContainer/VBoxContainer" unique_id=3807195]
+layout_mode = 2
+theme_override_font_sizes/font_size = 120
+text = "TITLE "
+horizontal_alignment = 1
+
+[node name="SubtitleLabel" type="Label" parent="CenterContainer/VBoxContainer" unique_id=2048060299]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "subtitle"
+horizontal_alignment = 1

@@ -1,0 +1,434 @@
+[gd_scene format=3 uid="uid://j5cg6l5qp28f"]
+
+[ext_resource type="Script" uid="uid://c2gqx0rsrwylf" path="res://scripts/ui/MenuController.gd" id="1_knu5i"]
+[ext_resource type="Script" uid="uid://c01d864jvab8g" path="res://scripts/ui/SystemTab.gd" id="2_ndy4n"]
+[ext_resource type="Script" uid="uid://du1fwn1efchwb" path="res://scripts/ui/InventoryTab.gd" id="2_o42nd"]
+[ext_resource type="Script" uid="uid://c5l3b8tcjag7j" path="res://scripts/ui/EquipmentTab.gd" id="3_bq6k8"]
+
+[node name="CharacterMenu" type="CanvasLayer" unique_id=495359763 groups=["character_menu"]]
+layer = 10
+script = ExtResource("1_knu5i")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1685049627]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5058824)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=632489800]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -134.0
+offset_top = 9.84
+offset_right = 134.0
+offset_bottom = 49.84
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="HBoxContainer" unique_id=798982890]
+layout_mode = 2
+text = "< LB"
+
+[node name="Tab_Items" type="Button" parent="HBoxContainer" unique_id=706995361]
+layout_mode = 2
+text = "Items"
+
+[node name="Tab_Equipment" type="Button" parent="HBoxContainer" unique_id=1955655042]
+layout_mode = 2
+text = "Equipment"
+
+[node name="Tab_Stats" type="Button" parent="HBoxContainer" unique_id=352518062]
+layout_mode = 2
+text = "Stats"
+
+[node name="Tab_System" type="Button" parent="HBoxContainer" unique_id=943946325]
+layout_mode = 2
+text = "System"
+
+[node name="Label2" type="Label" parent="HBoxContainer" unique_id=742320961]
+layout_mode = 2
+text = "RB >"
+
+[node name="Content" type="Control" parent="." unique_id=537289686]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 200.0
+offset_right = 20.0
+offset_bottom = 240.0
+grow_horizontal = 2
+
+[node name="ItemsPanel" type="Panel" parent="Content" unique_id=1567026482]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -457.0
+offset_top = -98.0
+offset_right = 457.0
+offset_bottom = -96.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_o42nd")
+
+[node name="CategoryBar" type="HBoxContainer" parent="Content/ItemsPanel" unique_id=1905342168]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -312.5
+offset_top = -15.5
+offset_right = 312.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ConsumablesTab" type="Button" parent="Content/ItemsPanel/CategoryBar" unique_id=1073738178]
+layout_mode = 2
+text = "Consumables"
+
+[node name="KeysTab" type="Button" parent="Content/ItemsPanel/CategoryBar" unique_id=296414835]
+layout_mode = 2
+text = "Keys"
+
+[node name="MaterialsTab" type="Button" parent="Content/ItemsPanel/CategoryBar" unique_id=2145058228]
+layout_mode = 2
+text = "Materials"
+
+[node name="SpellsTab" type="Button" parent="Content/ItemsPanel/CategoryBar" unique_id=1734075806]
+layout_mode = 2
+text = "Spells"
+
+[node name="WeaponsTab" type="Button" parent="Content/ItemsPanel/CategoryBar" unique_id=561984210]
+layout_mode = 2
+text = "Weapons"
+
+[node name="AmmoTab" type="Button" parent="Content/ItemsPanel/CategoryBar" unique_id=1807883818]
+layout_mode = 2
+text = "Ammo"
+
+[node name="ArmorTab" type="Button" parent="Content/ItemsPanel/CategoryBar" unique_id=1934194076]
+layout_mode = 2
+text = "Armor"
+
+[node name="RingsTab" type="Button" parent="Content/ItemsPanel/CategoryBar" unique_id=205954684]
+layout_mode = 2
+text = "Rings"
+
+[node name="QuestTab" type="Button" parent="Content/ItemsPanel/CategoryBar" unique_id=1126420977]
+layout_mode = 2
+text = "Quest"
+
+[node name="MainContainer" type="HBoxContainer" parent="Content/ItemsPanel" unique_id=1895041004]
+custom_minimum_size = Vector2(600, 400)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 43.5
+offset_bottom = 401.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ItemScroll" type="ScrollContainer" parent="Content/ItemsPanel/MainContainer" unique_id=1189989087]
+layout_mode = 2
+follow_focus = true
+horizontal_scroll_mode = 0
+
+[node name="ItemGrid" type="GridContainer" parent="Content/ItemsPanel/MainContainer/ItemScroll" unique_id=1204877762]
+custom_minimum_size = Vector2(400, 300)
+layout_mode = 2
+
+[node name="DetailsPanel" type="Panel" parent="Content/ItemsPanel/MainContainer" unique_id=1364372063]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Icon" type="TextureRect" parent="Content/ItemsPanel/MainContainer/DetailsPanel" unique_id=220937675]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="NameLabel" type="Label" parent="Content/ItemsPanel/MainContainer/DetailsPanel" unique_id=926379730]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Name"
+
+[node name="DescriptionLabel" type="Label" parent="Content/ItemsPanel/MainContainer/DetailsPanel" unique_id=1409317038]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Description"
+
+[node name="EquipmentPanel" type="Panel" parent="Content" unique_id=1369969822]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -442.0
+offset_top = -139.0
+offset_right = 442.0
+offset_bottom = 373.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_bq6k8")
+
+[node name="TopBar" type="HBoxContainer" parent="Content/EquipmentPanel" unique_id=189524462]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TitleLabel" type="Label" parent="Content/EquipmentPanel/TopBar" unique_id=2010808701]
+layout_mode = 2
+text = "Equipment
+"
+
+[node name="CategoryIcons" type="HBoxContainer" parent="Content/EquipmentPanel/TopBar" unique_id=313758599]
+layout_mode = 2
+
+[node name="MainContainer" type="HBoxContainer" parent="Content/EquipmentPanel" unique_id=772539092]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -142.0
+offset_top = -274.5
+offset_right = 142.0
+offset_bottom = 274.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SlotsContainer" type="VBoxContainer" parent="Content/EquipmentPanel/MainContainer" unique_id=255514387]
+custom_minimum_size = Vector2(280, 48)
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="RightHand1" type="Button" parent="Content/EquipmentPanel/MainContainer/SlotsContainer" unique_id=826992243]
+layout_mode = 2
+text = "right hand 1"
+
+[node name="RightHand2" type="Button" parent="Content/EquipmentPanel/MainContainer/SlotsContainer" unique_id=124032443]
+layout_mode = 2
+text = "RightHand2"
+
+[node name="LeftHand1" type="Button" parent="Content/EquipmentPanel/MainContainer/SlotsContainer" unique_id=2008189763]
+layout_mode = 2
+text = "LeftHand1"
+
+[node name="LeftHand2" type="Button" parent="Content/EquipmentPanel/MainContainer/SlotsContainer" unique_id=561358820]
+layout_mode = 2
+text = "LeftHand2"
+
+[node name="Head" type="Button" parent="Content/EquipmentPanel/MainContainer/SlotsContainer" unique_id=905239646]
+layout_mode = 2
+text = "Head"
+
+[node name="Body" type="Button" parent="Content/EquipmentPanel/MainContainer/SlotsContainer" unique_id=1643157631]
+layout_mode = 2
+text = "body"
+
+[node name="Arms" type="Button" parent="Content/EquipmentPanel/MainContainer/SlotsContainer" unique_id=163013052]
+layout_mode = 2
+text = "arms"
+
+[node name="Legs" type="Button" parent="Content/EquipmentPanel/MainContainer/SlotsContainer" unique_id=2071508631]
+layout_mode = 2
+text = "legs"
+
+[node name="Arrow1" type="Button" parent="Content/EquipmentPanel/MainContainer/SlotsContainer" unique_id=432327273]
+layout_mode = 2
+text = "arrow1"
+
+[node name="Arrow2" type="Button" parent="Content/EquipmentPanel/MainContainer/SlotsContainer" unique_id=553315523]
+layout_mode = 2
+text = "arrow2"
+
+[node name="Use1" type="Button" parent="Content/EquipmentPanel/MainContainer/SlotsContainer" unique_id=661281611]
+layout_mode = 2
+text = "use1"
+
+[node name="Use2" type="Button" parent="Content/EquipmentPanel/MainContainer/SlotsContainer" unique_id=1761567740]
+layout_mode = 2
+text = "use2"
+
+[node name="Use3" type="Button" parent="Content/EquipmentPanel/MainContainer/SlotsContainer" unique_id=1412301339]
+layout_mode = 2
+text = "use3"
+
+[node name="Use4" type="Button" parent="Content/EquipmentPanel/MainContainer/SlotsContainer" unique_id=197244026]
+layout_mode = 2
+text = "use4"
+
+[node name="Use5" type="Button" parent="Content/EquipmentPanel/MainContainer/SlotsContainer" unique_id=101025341]
+layout_mode = 2
+text = "use5"
+
+[node name="DetailsPanel" type="Panel" parent="Content/EquipmentPanel/MainContainer" unique_id=520422111]
+layout_mode = 2
+
+[node name="StatsVbox" type="VBoxContainer" parent="Content/EquipmentPanel/MainContainer/DetailsPanel" unique_id=1375180799]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SelectionPanel" type="Panel" parent="Content/EquipmentPanel" unique_id=996848135]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -312.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Content/EquipmentPanel/SelectionPanel" unique_id=1914756162]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 3.0
+offset_bottom = -41.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SelectionGrid" type="GridContainer" parent="Content/EquipmentPanel/SelectionPanel/ScrollContainer" unique_id=1123173771]
+layout_mode = 2
+
+[node name="BackHint" type="Label" parent="Content/EquipmentPanel/SelectionPanel" unique_id=2133088170]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+offset_right = 61.0
+grow_vertical = 0
+text = "B : Back"
+
+[node name="StatsPanel" type="Panel" parent="Content" unique_id=1261166960]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Content/StatsPanel" unique_id=1784687532]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Stats
+"
+
+[node name="SystemPanel" type="Panel" parent="Content" unique_id=159159143]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -163.0
+offset_top = -114.0
+offset_right = 163.0
+offset_bottom = 114.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_ndy4n")
+
+[node name="SystemVBox" type="VBoxContainer" parent="Content/SystemPanel" unique_id=513024699]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_right = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ResumeButton" type="Button" parent="Content/SystemPanel/SystemVBox" unique_id=1971880746]
+layout_mode = 2
+text = "Resume"
+
+[node name="SaveButton" type="Button" parent="Content/SystemPanel/SystemVBox" unique_id=167391923]
+layout_mode = 2
+text = "Save"
+
+[node name="DebugPrintButton" type="Button" parent="Content/SystemPanel/SystemVBox" unique_id=302096773]
+layout_mode = 2
+text = "Debug Print"
+
+[node name="DebugResetButton" type="Button" parent="Content/SystemPanel/SystemVBox" unique_id=1712777011]
+layout_mode = 2
+text = "Debug Reset
+"
+
+[node name="QuitButton" type="Button" parent="Content/SystemPanel/SystemVBox" unique_id=1734028641]
+layout_mode = 2
+text = "Quit"
+
+[node name="FeedbackLabel" type="Label" parent="Content/SystemPanel/SystemVBox" unique_id=1551869738]
+layout_mode = 2
+text = "Feedback"
+horizontal_alignment = 1
+
+[node name="ConfirmationContainer" type="VBoxContainer" parent="Content/SystemPanel/SystemVBox" unique_id=198223234]
+layout_mode = 2
+
+[node name="ConfirmLabel" type="Label" parent="Content/SystemPanel/SystemVBox/ConfirmationContainer" unique_id=1478322604]
+layout_mode = 2
+text = "Save and Quit?"
+horizontal_alignment = 1
+
+[node name="YesButton" type="Button" parent="Content/SystemPanel/SystemVBox/ConfirmationContainer" unique_id=190469431]
+layout_mode = 2
+text = "Yes"
+
+[node name="NoButton" type="Button" parent="Content/SystemPanel/SystemVBox/ConfirmationContainer" unique_id=17979299]
+layout_mode = 2
+text = "No"
+
+[node name="CloseHint" type="Label" parent="." unique_id=1938654]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -32.5
+offset_top = -34.0
+offset_right = 32.5
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "B : Close"

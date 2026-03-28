@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="GameItem" format=3 uid="uid://c1u5skuxrvvsa"]
+
+[ext_resource type="Texture2D" uid="uid://ba0qhrefe7g3s" path="res://art/objects/items/armor/irongloves.png" id="1_120bc"]
+[ext_resource type="Script" uid="uid://b7ouuvly1l65f" path="res://resources/items/Item.gd" id="2_r1h0x"]
+
+[resource]
+script = ExtResource("2_r1h0x")
+id = "ironarms"
+display_name = "Iron Arms"
+description = "Place Holder Armor"
+icon = ExtResource("1_120bc")
+category = "Armor"
+armor_slot = "Arms"
+weight = 10.0
+quantity_per_use = 0
+metadata/_custom_type_script = "uid://b7ouuvly1l65f"

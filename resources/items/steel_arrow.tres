@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="GameItem" format=3 uid="uid://cw8kkwrq71sxi"]
+
+[ext_resource type="Texture2D" uid="uid://b5olr5mqxkeup" path="res://art/objects/items/ammo/steelarrow.png" id="1_rvd4r"]
+[ext_resource type="Script" uid="uid://b7ouuvly1l65f" path="res://resources/items/Item.gd" id="2_177pv"]
+
+[resource]
+script = ExtResource("2_177pv")
+id = "steel_arrow"
+display_name = "Steel Arrow"
+description = "Steel Arrow, made of hopes and dreams"
+icon = ExtResource("1_rvd4r")
+category = "Ammo"
+max_stack = 999
+weight = 0.1
+rarity = 2
+damage = 15
+ammo_type = "Arrow"
+metadata/_custom_type_script = "uid://b7ouuvly1l65f"

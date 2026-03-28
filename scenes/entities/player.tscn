@@ -1,0 +1,277 @@
+[gd_scene format=3 uid="uid://bwf821riba1dp"]
+
+[ext_resource type="Shader" uid="uid://b7rpdpftgksyi" path="res://art/shaders/flash.gdshader" id="1_c5rqy"]
+[ext_resource type="Script" uid="uid://bdr6rj0cdsi67" path="res://scripts/entities/player.gd" id="1_dnykm"]
+[ext_resource type="SpriteFrames" uid="uid://t5hcbpouharn" path="res://art/characters/player_animations.tres" id="2_08t41"]
+[ext_resource type="Script" uid="uid://bm5txjtto3n8a" path="res://scripts/components/AnimationComponent.gd" id="3_42nxq"]
+[ext_resource type="Script" uid="uid://bsahnrj5uq1ml" path="res://scripts/components/MovementComponent.gd" id="4_5u6hq"]
+[ext_resource type="Script" uid="uid://b7urcot2kj1yn" path="res://scripts/components/StaminaComponent.gd" id="5_5u6hq"]
+[ext_resource type="Script" uid="uid://dpejf1kwt6rdj" path="res://scripts/components/HealthComponent.gd" id="6_d4qa6"]
+[ext_resource type="Script" uid="uid://bc8jla0wcrk8s" path="res://scenes/components/ManaComponent.gd" id="7_b6tgf"]
+[ext_resource type="Script" uid="uid://dvjeabiifit3" path="res://scripts/components/DeathHandler.gd" id="7_ss7kx"]
+[ext_resource type="Script" uid="uid://cf1bhsobouyhv" path="res://scripts/components/EstusComponent.gd" id="8_dnykm"]
+[ext_resource type="Texture2D" uid="uid://dfodyf523g2em" path="res://art/particles/rainsplash.png" id="10_n5sgd"]
+[ext_resource type="Texture2D" uid="uid://upn7gxbwwnmw" path="res://art/particles/rain.png" id="11_5ki56"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c5rqy"]
+shader = ExtResource("1_c5rqy")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/flash_intensity = 0.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5u6hq"]
+radius = 6.0
+
+[sub_resource type="Curve" id="Curve_1yk18"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.11309523, 0.6199112), 0.0, 0.0, 0, 0, Vector2(0.8015872, 0.5910437), 0.0, 0.0, 0, 0, Vector2(0.92063487, 0.0040711164), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_n5sgd"]
+curve = SubResource("Curve_1yk18")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_b4o2o"]
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(100, -400, 0)
+emission_shape_scale = Vector3(1, 0.1, 1)
+emission_shape = 3
+emission_box_extents = Vector3(750, 1, 1)
+angle_min = 10.0000105
+angle_max = 10.0000105
+direction = Vector3(-0.4, 1, 0)
+spread = 0.0
+initial_velocity_min = 450.0
+initial_velocity_max = 470.0
+gravity = Vector3(-2, 25, 0)
+alpha_curve = SubResource("CurveTexture_n5sgd")
+sub_emitter_mode = 2
+sub_emitter_amount_at_end = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_saib0"]
+particles_animation = true
+particles_anim_h_frames = 3
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_ogpgs"]
+_data = [Vector2(0, 0.5477424), 0.0, 0.0, 0, 0, Vector2(0.23015872, 0.49000746), 0.0, 0.0, 0, 0, Vector2(0.32738093, 0), 0.0, 0.0, 0, 0, Vector2(0.7738095, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_5ki56"]
+curve = SubResource("Curve_ogpgs")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_spk56"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+alpha_curve = SubResource("CurveTexture_5ki56")
+anim_speed_min = 4.0
+anim_speed_max = 4.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_c5rqy"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, -1, 0)
+gravity = Vector3(0, 60.295, 0)
+scale_min = 0.0
+scale_max = 1.55
+scale_over_velocity_min = 474.52
+scale_over_velocity_max = 477.56998
+sub_emitter_mode = 2
+sub_emitter_amount_at_end = 1
+
+[sub_resource type="Gradient" id="Gradient_b6tgf"]
+offsets = PackedFloat32Array(0, 0.52162164, 1)
+colors = PackedColorArray(0.89330304, 0.5442987, 0.1212484, 1, 0.84717673, 0.8461406, 0.2704496, 1, 1, 1, 0.54901963, 0.27058825)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_73kkf"]
+gradient = SubResource("Gradient_b6tgf")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_n5sgd"]
+lifetime_randomness = 0.4
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 12.0
+direction = Vector3(0, 0.1, 0)
+gravity = Vector3(0, 0, 0)
+damping_min = 25.000002
+damping_max = 25.000002
+scale_min = 0.59999996
+scale_max = 1.8
+color_ramp = SubResource("GradientTexture1D_73kkf")
+
+[sub_resource type="Gradient" id="Gradient_c5rqy"]
+offsets = PackedFloat32Array(0, 0.715)
+colors = PackedColorArray(1, 1, 1, 0.1764706, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_b6tgf"]
+gradient = SubResource("Gradient_c5rqy")
+width = 40
+height = 50
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.8974359, 0.91880345)
+
+[sub_resource type="Gradient" id="Gradient_n5sgd"]
+offsets = PackedFloat32Array(0, 0.48258707, 0.62852407, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.8673653, 0.8673653, 0.8673653, 1, 0.109452724, 0.109452724, 0.109452724, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5ki56"]
+gradient = SubResource("Gradient_n5sgd")
+fill = 1
+fill_from = Vector2(0.525641, 0.47008547)
+fill_to = Vector2(0.85897434, 0.7863248)
+
+[node name="Player" type="CharacterBody2D" unique_id=481059393 groups=["player"]]
+y_sort_enabled = true
+script = ExtResource("1_dnykm")
+
+[node name="SpriteContainer" type="Node2D" parent="." unique_id=387349450]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SpriteContainer" unique_id=1213505854]
+material = SubResource("ShaderMaterial_c5rqy")
+position = Vector2(0, -14)
+sprite_frames = ExtResource("2_08t41")
+animation = &"stand"
+frame = 3
+frame_progress = 1.0
+
+[node name="ColorRect2" type="ColorRect" parent="SpriteContainer/AnimatedSprite2D" unique_id=270748073]
+visible = false
+offset_left = -16.0
+offset_top = -10.0
+offset_right = 24.0
+offset_bottom = 30.0
+color = Color(0.09602364, 7.556528e-06, 0.4491707, 0.70980394)
+
+[node name="AnimationComponent" type="Node" parent="." unique_id=1680668245]
+script = ExtResource("3_42nxq")
+metadata/_custom_type_script = "uid://bm5txjtto3n8a"
+
+[node name="MovementComponent" type="Node" parent="." unique_id=1795499153]
+script = ExtResource("4_5u6hq")
+base_speed = 40.0
+sprint_multiplier = 1.5
+backstep_distance = 100.0
+dodge_roll_distance = 120.0
+metadata/_custom_type_script = "uid://bsahnrj5uq1ml"
+
+[node name="StaminaComponent" type="Node" parent="." unique_id=970520090]
+script = ExtResource("5_5u6hq")
+metadata/_custom_type_script = "uid://b7urcot2kj1yn"
+
+[node name="ManaComponent" type="Node" parent="." unique_id=1191559652]
+script = ExtResource("7_b6tgf")
+metadata/_custom_type_script = "uid://bc8jla0wcrk8s"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=291062422]
+position = Vector2(0, -3)
+shape = SubResource("CircleShape2D_5u6hq")
+
+[node name="HealthComponent" type="Node" parent="." unique_id=1945349878]
+script = ExtResource("6_d4qa6")
+max_health = 101.0
+metadata/_custom_type_script = "uid://dpejf1kwt6rdj"
+
+[node name="DeathHandler" type="Node" parent="." unique_id=1927761598]
+script = ExtResource("7_ss7kx")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=735539643]
+unique_name_in_owner = true
+position = Vector2(0, -20)
+zoom = Vector2(4.5, 4.5)
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
+[node name="WeatherFollower" type="RemoteTransform2D" parent="Camera2D" unique_id=1421406245]
+remote_path = NodePath("RainDrops")
+
+[node name="RainDrops" type="GPUParticles2D" parent="Camera2D/WeatherFollower" unique_id=1968740389]
+visible = false
+z_index = 2
+texture_filter = 1
+amount = 1000
+sub_emitter = NodePath("../RainSplash")
+texture = ExtResource("11_5ki56")
+lifetime = 2.0
+randomness = 1.0
+visibility_rect = Rect2(-1000, -1000, 2000, 2000)
+process_material = SubResource("ParticleProcessMaterial_b4o2o")
+
+[node name="RainSplash" type="GPUParticles2D" parent="Camera2D/WeatherFollower" unique_id=1822419675]
+visible = false
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_saib0")
+emitting = false
+amount = 1000
+texture = ExtResource("10_n5sgd")
+lifetime = 1.2
+one_shot = true
+preprocess = 0.01
+explosiveness = 0.5
+process_material = SubResource("ParticleProcessMaterial_spk56")
+
+[node name="EstusComponent" type="Node" parent="." unique_id=260269387]
+script = ExtResource("8_dnykm")
+metadata/_custom_type_script = "uid://cf1bhsobouyhv"
+
+[node name="Effects" type="Node2D" parent="." unique_id=105091656]
+
+[node name="EstusHealParticles" type="GPUParticles2D" parent="Effects" unique_id=776423751]
+modulate = Color(1, 0.7294118, 0.3372549, 1)
+y_sort_enabled = true
+texture_filter = 1
+position = Vector2(1, -3)
+emitting = false
+amount = 32
+amount_ratio = 0.385
+sub_emitter = NodePath("../EstusGroundResidue")
+lifetime = 0.44
+one_shot = true
+speed_scale = 0.52
+explosiveness = 0.35
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_c5rqy")
+
+[node name="EstusGroundResidue" type="GPUParticles2D" parent="Effects" unique_id=454059329]
+visible = false
+z_index = -1
+texture_filter = 1
+emitting = false
+amount = 12
+lifetime = 2.0
+one_shot = true
+speed_scale = 0.5
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_n5sgd")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=541073599]
+visible = false
+offset_left = -21.0
+offset_top = -38.0
+offset_right = 47.0
+offset_bottom = 20.0
+color = Color(0.06637282, 0.18680316, 0.11857245, 1)
+
+[node name="ImpactLight" type="PointLight2D" parent="." unique_id=1790886629]
+visible = false
+position = Vector2(1, -3)
+texture = SubResource("GradientTexture2D_b6tgf")
+texture_scale = 1.43
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1390131800]
+visible = false
+energy = 0.23
+range_z_max = 1
+texture = SubResource("GradientTexture2D_5ki56")
+
+[node name="PointLight2D2" type="PointLight2D" parent="." unique_id=323548188]
+energy = 0.12
+range_z_max = 1
+texture = SubResource("GradientTexture2D_5ki56")
+texture_scale = 3.35
+
+[node name="PointLight2D3" type="PointLight2D" parent="." unique_id=1699744082]
+energy = 0.44
+range_z_max = 1
+texture = SubResource("GradientTexture2D_5ki56")
+texture_scale = 6.3

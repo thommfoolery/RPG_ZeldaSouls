@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="GameItem" format=3 uid="uid://ckevsyll63e5j"]
+
+[ext_resource type="Texture2D" uid="uid://b7bg8xqmtymex" path="res://art/objects/items/consumables/goldring.png" id="1_qbk4c"]
+[ext_resource type="Script" uid="uid://b7ouuvly1l65f" path="res://resources/items/Item.gd" id="2_fa2xy"]
+
+[resource]
+script = ExtResource("2_fa2xy")
+id = "goldring"
+display_name = "Gold Ring"
+description = "The other ring, less fancy"
+icon = ExtResource("1_qbk4c")
+category = "Rings"
+weight = 2.0
+rarity = 100
+metadata/_custom_type_script = "uid://b7ouuvly1l65f"

@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://dkklr2xotuii8"]
+
+[ext_resource type="Texture2D" uid="uid://dag41cdrwkvof" path="res://art/objects/items/chest/wooden_chest_closed.png" id="1_fbj6e"]
+[ext_resource type="Script" uid="uid://bcmvh7ftiq6og" path="res://scenes/interactables/chest/LootChest.gd" id="1_iqfdi"]
+[ext_resource type="Texture2D" uid="uid://b5n2lcsch7cxm" path="res://art/objects/items/chest/wooden_chest_open.png" id="2_iqfdi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dybik"]
+radius = 82.43818
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iqfdi"]
+size = Vector2(41.683167, 17.920792)
+
+[node name="LootChest" type="StaticBody2D" unique_id=2066414525]
+script = ExtResource("1_iqfdi")
+
+[node name="ClosedSprite" type="Sprite2D" parent="." unique_id=117541355]
+visible = false
+position = Vector2(0.14999962, -7.8500004)
+scale = Vector2(0.505, 0.505)
+texture = ExtResource("1_fbj6e")
+
+[node name="OpenSprite" type="Sprite2D" parent="." unique_id=1511000038]
+y_sort_enabled = true
+position = Vector2(0.14999962, -7.8500004)
+scale = Vector2(0.505, 0.505)
+texture = ExtResource("2_iqfdi")
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=1511245759]
+position = Vector2(0.14999962, 8.15)
+scale = Vector2(0.505, 0.505)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=134884402]
+position = Vector2(-0.2970283, -30)
+scale = Vector2(0.505, 0.505)
+shape = SubResource("CircleShape2D_dybik")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1764478938]
+position = Vector2(0.4749999, -4.525)
+scale = Vector2(0.505, 0.505)
+shape = SubResource("RectangleShape2D_iqfdi")
+
+[node name="PromptLabel" type="Label" parent="." unique_id=1981038337]
+visible = false
+offset_left = -8.0
+offset_top = -38.0
+offset_right = 32.0
+offset_bottom = -15.0
+theme_override_font_sizes/font_size = 10
+text = "text"

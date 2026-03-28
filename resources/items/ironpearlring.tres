@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="GameItem" format=3 uid="uid://cta3e6x2aassj"]
+
+[ext_resource type="Texture2D" uid="uid://c4f1xcmgyaq7k" path="res://art/objects/items/consumables/ironpearlring.png" id="1_fwg7i"]
+[ext_resource type="Script" uid="uid://b7ouuvly1l65f" path="res://resources/items/Item.gd" id="1_ysk0a"]
+
+[resource]
+script = ExtResource("1_ysk0a")
+id = "ironpearlring"
+display_name = "Iron Pearl Ring"
+description = "Fancy Drawing, huh?"
+icon = ExtResource("1_fwg7i")
+category = "Rings"
+weight = 2.0
+rarity = 100
+metadata/_custom_type_script = "uid://b7ouuvly1l65f"

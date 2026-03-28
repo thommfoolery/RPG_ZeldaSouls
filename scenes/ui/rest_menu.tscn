@@ -1,0 +1,295 @@
+[gd_scene format=3 uid="uid://b1frgjf0t3yp0"]
+
+[ext_resource type="Script" uid="uid://ccvh7llxqox2r" path="res://scripts/ui/rest_menu.gd" id="1_b4faj"]
+
+[sub_resource type="Theme" id="Theme_b4faj"]
+
+[sub_resource type="FontVariation" id="FontVariation_nl3e8"]
+
+[node name="RestMenu" type="CanvasLayer" unique_id=1287871201]
+process_mode = 3
+layer = 100
+script = ExtResource("1_b4faj")
+
+[node name="MenuContainer" type="Control" parent="." unique_id=1855575836]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="MenuContainer" unique_id=31961000]
+layout_mode = 0
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 1279.0
+offset_bottom = 724.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0.11764706)
+
+[node name="Background" type="ColorRect" parent="MenuContainer" unique_id=1592832688]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="Background" type="ColorRect" parent="MenuContainer/Background" unique_id=301741353]
+layout_mode = 0
+offset_left = 258.0
+offset_top = 98.0
+offset_right = 1009.0
+offset_bottom = 688.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0.78431374)
+
+[node name="SoulsLabel" type="Label" parent="MenuContainer/Background" unique_id=439442827]
+layout_mode = 0
+offset_left = 417.0
+offset_top = 531.0
+offset_right = 491.0
+offset_bottom = 559.0
+theme_override_font_sizes/font_size = 20
+text = "Souls: 0"
+
+[node name="AfterSpendLabel" type="Label" parent="MenuContainer/Background" unique_id=133262260]
+layout_mode = 0
+offset_left = 806.0
+offset_top = 531.0
+offset_right = 941.0
+offset_bottom = 559.0
+theme_override_font_sizes/font_size = 20
+text = "After spend: 0"
+
+[node name="StatsVBox" type="VBoxContainer" parent="MenuContainer/Background" unique_id=1023382635]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.5
+offset_top = -57.5
+offset_right = 150.5
+offset_bottom = 57.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 1
+
+[node name="VitalityHBox" type="HBoxContainer" parent="MenuContainer/Background/StatsVBox" unique_id=185101012]
+layout_mode = 2
+alignment = 1
+
+[node name="Vitality" type="Label" parent="MenuContainer/Background/StatsVBox/VitalityHBox" unique_id=357079410]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Vitality"
+
+[node name="MinusButton" type="Button" parent="MenuContainer/Background/StatsVBox/VitalityHBox" unique_id=331987718]
+layout_mode = 2
+theme_override_font_sizes/font_size = 4
+text = "<"
+
+[node name="Current" type="Label" parent="MenuContainer/Background/StatsVBox/VitalityHBox" unique_id=843472942]
+layout_mode = 2
+theme = SubResource("Theme_b4faj")
+theme_override_font_sizes/font_size = 20
+text = "1"
+
+[node name="PlusButton" type="Button" parent="MenuContainer/Background/StatsVBox/VitalityHBox" unique_id=1386347097]
+layout_mode = 2
+theme_override_font_sizes/font_size = 4
+text = ">"
+
+[node name="PreviewLabel" type="Label" parent="MenuContainer/Background/StatsVBox/VitalityHBox" unique_id=1138530237]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "?"
+
+[node name="EffectLabel" type="Label" parent="MenuContainer/Background/StatsVBox/VitalityHBox" unique_id=803212297]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Max HP:"
+
+[node name="EnduranceHBox" type="HBoxContainer" parent="MenuContainer/Background/StatsVBox" unique_id=1566284679]
+layout_mode = 2
+alignment = 1
+
+[node name="Endurance" type="Label" parent="MenuContainer/Background/StatsVBox/EnduranceHBox" unique_id=1330237539]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Endurance"
+
+[node name="MinusButton" type="Button" parent="MenuContainer/Background/StatsVBox/EnduranceHBox" unique_id=788946963]
+layout_mode = 2
+theme_override_font_sizes/font_size = 4
+text = "<"
+
+[node name="Current" type="Label" parent="MenuContainer/Background/StatsVBox/EnduranceHBox" unique_id=1644434734]
+layout_mode = 2
+theme = SubResource("Theme_b4faj")
+theme_override_font_sizes/font_size = 20
+text = "1"
+
+[node name="PlusButton" type="Button" parent="MenuContainer/Background/StatsVBox/EnduranceHBox" unique_id=627521716]
+layout_mode = 2
+theme_override_font_sizes/font_size = 4
+text = ">"
+
+[node name="PreviewLabel" type="Label" parent="MenuContainer/Background/StatsVBox/EnduranceHBox" unique_id=1857007562]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "?"
+
+[node name="EffectLabel" type="Label" parent="MenuContainer/Background/StatsVBox/EnduranceHBox" unique_id=126127135]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Max Stamina:"
+
+[node name="StrengthHBox" type="HBoxContainer" parent="MenuContainer/Background/StatsVBox" unique_id=2147157036]
+layout_mode = 2
+alignment = 1
+
+[node name="Strength" type="Label" parent="MenuContainer/Background/StatsVBox/StrengthHBox" unique_id=453871025]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Strength"
+
+[node name="MinusButton" type="Button" parent="MenuContainer/Background/StatsVBox/StrengthHBox" unique_id=1475173304]
+layout_mode = 2
+theme_override_font_sizes/font_size = 4
+text = "<"
+
+[node name="Current" type="Label" parent="MenuContainer/Background/StatsVBox/StrengthHBox" unique_id=1259158164]
+layout_mode = 2
+theme = SubResource("Theme_b4faj")
+theme_override_font_sizes/font_size = 20
+text = "1"
+
+[node name="PlusButton" type="Button" parent="MenuContainer/Background/StatsVBox/StrengthHBox" unique_id=1976962901]
+layout_mode = 2
+theme_override_font_sizes/font_size = 4
+text = ">"
+
+[node name="PreviewLabel" type="Label" parent="MenuContainer/Background/StatsVBox/StrengthHBox" unique_id=490158096]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "?"
+
+[node name="EffectLabel" type="Label" parent="MenuContainer/Background/StatsVBox/StrengthHBox" unique_id=858629078]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Attack Damage:"
+
+[node name="DexterityHBox" type="HBoxContainer" parent="MenuContainer/Background/StatsVBox" unique_id=1986039153]
+layout_mode = 2
+alignment = 1
+
+[node name="Dexterity" type="Label" parent="MenuContainer/Background/StatsVBox/DexterityHBox" unique_id=2134185522]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Dexterity"
+
+[node name="MinusButton" type="Button" parent="MenuContainer/Background/StatsVBox/DexterityHBox" unique_id=1633613082]
+layout_mode = 2
+theme_override_font_sizes/font_size = 4
+text = "<"
+
+[node name="Current" type="Label" parent="MenuContainer/Background/StatsVBox/DexterityHBox" unique_id=1523666059]
+layout_mode = 2
+theme = SubResource("Theme_b4faj")
+theme_override_font_sizes/font_size = 20
+text = "1"
+
+[node name="PlusButton" type="Button" parent="MenuContainer/Background/StatsVBox/DexterityHBox" unique_id=2124100790]
+layout_mode = 2
+theme_override_font_sizes/font_size = 4
+text = ">"
+
+[node name="PreviewLabel" type="Label" parent="MenuContainer/Background/StatsVBox/DexterityHBox" unique_id=196644880]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "?"
+
+[node name="EffectLabel" type="Label" parent="MenuContainer/Background/StatsVBox/DexterityHBox" unique_id=2018163049]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Attack Speed:"
+
+[node name="ConfirmButton" type="Button" parent="MenuContainer/Background" unique_id=1575809516]
+layout_mode = 0
+offset_left = 392.0
+offset_top = 628.0
+offset_right = 544.0
+offset_bottom = 664.0
+theme_override_font_sizes/font_size = 20
+disabled = true
+text = "Confirm Spend"
+
+[node name="ExitButton" type="Button" parent="MenuContainer/Background" unique_id=681896601]
+layout_mode = 0
+offset_left = 739.0
+offset_top = 626.0
+offset_right = 880.0
+offset_bottom = 662.0
+theme_override_font_sizes/font_size = 20
+text = "Leave Bonfire"
+
+[node name="TotalQueuedCostLabel" type="Label" parent="MenuContainer/Background" unique_id=2082676313]
+layout_mode = 0
+offset_left = 588.0
+offset_top = 532.0
+offset_right = 732.0
+offset_bottom = 560.0
+theme_override_font_sizes/font_size = 20
+text = "Next level at: 0"
+
+[node name="TotalLevelLabel" type="Label" parent="MenuContainer/Background" unique_id=665515563]
+layout_mode = 0
+offset_left = 598.0
+offset_top = 237.0
+offset_right = 671.0
+offset_bottom = 265.0
+theme_override_colors/font_color = Color(1, 0.80946815, 0, 0.68700004)
+theme_override_font_sizes/font_size = 20
+text = "Level: 1"
+horizontal_alignment = 1
+
+[node name="BonfireTitleLabel" type="Label" parent="." unique_id=264530078]
+unique_name_in_owner = true
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -271.5
+offset_top = 124.0
+offset_right = 271.5
+offset_bottom = 211.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0.6172059, 0.36074692, 0.735)
+theme_override_font_sizes/font_size = 63
+text = "Resting at Bonfire"
+horizontal_alignment = 1
+
+[node name="BonfireSubtitleLabel" type="Label" parent="." unique_id=2030224977]
+unique_name_in_owner = true
+modulate = Color(1, 0.9411765, 0.5254902, 0.83137256)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -236.0
+offset_top = 202.0
+offset_right = 236.0
+offset_bottom = 229.0
+grow_horizontal = 2
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = SubResource("FontVariation_nl3e8")
+theme_override_font_sizes/font_size = 19
+text = "sexy subtitle text"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="MenuContainer/Background/ConfirmButton" to="." method="_on_level_up_button_pressed"]
+[connection signal="pressed" from="MenuContainer/Background/ExitButton" to="." method="_on_exit_button_pressed"]

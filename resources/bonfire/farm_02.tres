@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="BonfireEntry" format=3 uid="uid://4xqc7wllbl7v"]
+
+[ext_resource type="Script" uid="uid://bsiq2wmovcrwu" path="res://resources/bonfire/BonfireEntry.gd" id="1_qc225"]
+[ext_resource type="Texture2D" uid="uid://cm40mbufqebhl" path="res://art/ui/bonfire_area_art/farm002.png" id="1_x3nri"]
+
+[resource]
+script = ExtResource("1_qc225")
+area_name = "farm"
+bonfire_id = "farm_02"
+scene_path = "uid://cl8tepx1il5u3"
+spawn_position = Vector2(54, 160)
+title = "TREE (fidy)"
+subtitle = "treeefidy"
+is_lit_on_first_rest = false
+preview_texture = ExtResource("1_x3nri")
+sort_order = 2
+metadata/_custom_type_script = "uid://bsiq2wmovcrwu"

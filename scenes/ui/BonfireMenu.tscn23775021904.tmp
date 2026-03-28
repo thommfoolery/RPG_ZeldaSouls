@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://yyu73dv8j4e4"]
+
+[ext_resource type="Script" uid="uid://cs7vgelbw2oie" path="res://scenes/ui/BonfireMenu.gd" id="1_q74ih"]
+
+[node name="BonfireMenu" type="CanvasLayer" unique_id=828862458]
+script = ExtResource("1_q74ih")
+
+[node name="Background" type="Panel" parent="." unique_id=160723088]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainContentPanel" type="Panel" parent="." unique_id=2078781256]
+custom_minimum_size = Vector2(500, 400)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -444.0
+offset_top = -285.0
+offset_right = 444.0
+offset_bottom = 285.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleLabel" type="Label" parent="MainContentPanel" unique_id=1997954553]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 48
+text = "BONFIRE TITLE"
+horizontal_alignment = 1
+
+[node name="SubtitleLabel" type="Label" parent="MainContentPanel" unique_id=1455297704]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 68.0
+offset_bottom = 91.0
+grow_horizontal = 2
+text = "subtitle"
+horizontal_alignment = 1
+
+[node name="OptionsContainer" type="VBoxContainer" parent="MainContentPanel" unique_id=680232376]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.5
+offset_top = -33.0
+offset_right = 65.5
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+theme_override_constants/separation = 16
+
+[node name="LevelUpButton" type="Button" parent="MainContentPanel/OptionsContainer" unique_id=1934704898]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Level Up"
+
+[node name="WarpButton" type="Button" parent="MainContentPanel/OptionsContainer" unique_id=223794124]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Warp to Bonfire"
+
+[node name="BackHint" type="Label" parent="MainContentPanel" unique_id=323045025]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "B : EXIT"
+horizontal_alignment = 1
+
+[node name="SubContent" type="Control" parent="MainContentPanel" unique_id=116162134]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 61.0
+grow_horizontal = 2
+grow_vertical = 2

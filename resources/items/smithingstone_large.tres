@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="GameItem" format=3 uid="uid://co0jhtyx8w4be"]
+
+[ext_resource type="Texture2D" uid="uid://61x0fd7malwe" path="res://art/objects/items/consumables/largesmithingstone.png" id="1_xpdt6"]
+[ext_resource type="Script" uid="uid://b7ouuvly1l65f" path="res://resources/items/Item.gd" id="2_rdi2p"]
+
+[resource]
+script = ExtResource("2_rdi2p")
+id = "smithingstone_large"
+display_name = "Large Smithing Stone"
+description = "Upgrade your shit even more"
+icon = ExtResource("1_xpdt6")
+category = "Materials"
+rarity = 15
+metadata/_custom_type_script = "uid://b7ouuvly1l65f"

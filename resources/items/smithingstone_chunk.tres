@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="GameItem" format=3 uid="uid://cnutyw57xarcx"]
+
+[ext_resource type="Texture2D" uid="uid://pvy3s7nn71am" path="res://art/objects/items/consumables/smithingstonechunk.png" id="1_1ylki"]
+[ext_resource type="Script" uid="uid://b7ouuvly1l65f" path="res://resources/items/Item.gd" id="2_fux1j"]
+
+[resource]
+script = ExtResource("2_fux1j")
+id = "smithingstone_chunk"
+display_name = "Smithing Stone Chunk"
+description = "Upgrade your shit the most"
+icon = ExtResource("1_1ylki")
+category = "Materials"
+rarity = 15
+metadata/_custom_type_script = "uid://b7ouuvly1l65f"

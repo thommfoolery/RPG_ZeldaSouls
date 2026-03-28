@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="GameItem" format=3 uid="uid://c52bescqentdi"]
+
+[ext_resource type="Texture2D" uid="uid://wln3s7mknp7e" path="res://art/objects/items/weapons/dagger.png" id="1_25keo"]
+[ext_resource type="Script" uid="uid://b7ouuvly1l65f" path="res://resources/items/Item.gd" id="1_mkiuy"]
+
+[resource]
+script = ExtResource("1_mkiuy")
+id = "dagger"
+display_name = "Dagger"
+description = "\"You call that a knife?\""
+icon = ExtResource("1_25keo")
+category = "Weapons"
+weight = 0.5
+damage = 5
+quantity_per_use = 0
+metadata/_custom_type_script = "uid://b7ouuvly1l65f"

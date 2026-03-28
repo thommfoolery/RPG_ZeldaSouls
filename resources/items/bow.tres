@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="GameItem" format=3 uid="uid://bo3jhawo7gxhi"]
+
+[ext_resource type="Script" uid="uid://b7ouuvly1l65f" path="res://resources/items/Item.gd" id="1_keg3j"]
+[ext_resource type="Texture2D" uid="uid://tuax3mnp1cv5" path="res://art/objects/items/weapons/bow.png" id="1_nbp8g"]
+
+[resource]
+script = ExtResource("1_keg3j")
+id = "bow"
+display_name = "bow"
+description = "stick and string"
+icon = ExtResource("1_nbp8g")
+category = "Weapons"
+weight = 2.0
+ammo_type = "Arrow"
+metadata/_custom_type_script = "uid://b7ouuvly1l65f"

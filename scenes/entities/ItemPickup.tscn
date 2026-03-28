@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://bc2ftyv842nux"]
+
+[ext_resource type="Script" uid="uid://dtolw1x2wt3xo" path="res://scripts/entities/ItemPickup.gd" id="1_7t2rs"]
+[ext_resource type="Texture2D" uid="uid://7bdfmi0qcj8d" path="res://art/icons/item_sparkle.png" id="1_f1fxr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7t2rs"]
+radius = 26.683329
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lem8c"]
+radius = 21.095022
+
+[sub_resource type="Gradient" id="Gradient_7t2rs"]
+offsets = PackedFloat32Array(0, 0.40724948)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lem8c"]
+gradient = SubResource("Gradient_7t2rs")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7rq2w"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 31.24
+gravity = Vector3(0, -10, 0)
+
+[node name="ItemPickup" type="Area2D" unique_id=1276688924]
+position = Vector2(0, -7)
+scale = Vector2(0.25, 0.25)
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_7t2rs")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1350520561]
+position = Vector2(-2, 0)
+texture = ExtResource("1_f1fxr")
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=1075645766]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=760891469]
+shape = SubResource("CircleShape2D_7t2rs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1246634986]
+position = Vector2(-2, 0)
+shape = SubResource("CircleShape2D_lem8c")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1046838037]
+texture = SubResource("GradientTexture2D_lem8c")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1835077131]
+position = Vector2(0, 8)
+process_material = SubResource("ParticleProcessMaterial_7rq2w")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="InteractionArea" to="." method="_on_interaction_area_body_exited"]

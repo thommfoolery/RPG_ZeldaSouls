@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="BonfireEntry" format=3 uid="uid://bxfpdk1l0y1x0"]
+
+[ext_resource type="Script" uid="uid://bsiq2wmovcrwu" path="res://resources/bonfire/BonfireEntry.gd" id="1_14lxi"]
+[ext_resource type="Texture2D" uid="uid://c3ksmx6xg32dm" path="res://art/ui/bonfire_area_art/farm001.png" id="1_lciac"]
+
+[resource]
+script = ExtResource("1_14lxi")
+area_name = "farm"
+bonfire_id = "farm_01"
+scene_path = "uid://cl8tepx1il5u3"
+spawn_position = Vector2(243, 150)
+title = "Farming Sim"
+subtitle = "No way bro"
+is_lit_on_first_rest = false
+preview_texture = ExtResource("1_lciac")
+sort_order = 1
+metadata/_custom_type_script = "uid://bsiq2wmovcrwu"

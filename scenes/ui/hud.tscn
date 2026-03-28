@@ -1,0 +1,565 @@
+[gd_scene format=3 uid="uid://buxwaqcks6p0a"]
+
+[ext_resource type="Script" uid="uid://b4ubpupiedl1q" path="res://scripts/ui/hud.gd" id="1_rbyyf"]
+[ext_resource type="Texture2D" uid="uid://ccso1wgcango" path="res://art/ui/saveicon.png" id="2_hqnrr"]
+[ext_resource type="Script" uid="uid://cn03ibe6xn4ka" path="res://scenes/ui/debug_overlay.gd" id="4_8qguk"]
+[ext_resource type="Script" uid="uid://c6dghi4qm58ly" path="res://scenes/ui/CrossHUD.gd" id="4_136eg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_546lt"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0.06100855, 0.57123643, 0.050708726, 0.58400005)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ihmi"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(1, 1, 1, 0.4)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rbyyf"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0.8491474, 0, 0.036341123, 0.3019608)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_276te"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(1, 1, 1, 0.4)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8qguk"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0.1, 0.1, 0.1, 0.3)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_136eg"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(1, 1, 1, 0.4)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bo48s"]
+bg_color = Color(0.14767182, 0.14767182, 0.14767176, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[node name="HUD" type="CanvasLayer" unique_id=723237430 groups=["hud"]]
+script = ExtResource("1_rbyyf")
+
+[node name="HUDContainer" type="Control" parent="." unique_id=521254940]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TopLeftHUD" type="MarginContainer" parent="HUDContainer" unique_id=1195912389]
+layout_mode = 0
+offset_right = 361.0
+offset_bottom = 138.0
+
+[node name="ColorRect" type="ColorRect" parent="HUDContainer" unique_id=1308411600]
+custom_minimum_size = Vector2(1.72, 0)
+layout_mode = 0
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 377.0
+offset_bottom = 68.0
+color = Color(0.050708726, 0.050708726, 0.050708726, 0.91600007)
+
+[node name="SoulCounterBackground" type="Panel" parent="HUDContainer" unique_id=714767963]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -185.0
+offset_top = -44.0
+offset_right = -7.0
+offset_bottom = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="SoulsLabel" type="Label" parent="HUDContainer" unique_id=1884511914]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -171.0
+offset_top = -44.0
+offset_right = -41.0
+offset_bottom = -17.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 19
+text = "Souls: 0"
+
+[node name="EstusContainer" type="Control" parent="HUDContainer" unique_id=917326412]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = -65.0
+offset_right = 216.0
+offset_bottom = -9.0
+grow_vertical = 0
+
+[node name="EstusLabel" type="Label" parent="HUDContainer/EstusContainer" unique_id=1831427302]
+unique_name_in_owner = true
+z_index = 10
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 187.355
+offset_top = -74.124
+offset_right = 276.42212
+offset_bottom = -32.124
+grow_vertical = 0
+scale = Vector2(1.005, 1.005)
+theme_override_font_sizes/font_size = 30
+text = " 0/0"
+
+[node name="StaminaBar" type="ProgressBar" parent="HUDContainer" unique_id=1304940779]
+unique_name_in_owner = true
+modulate = Color(0.24705882, 0.5058824, 0, 1)
+layout_mode = 0
+offset_left = 14.0
+offset_top = 31.0
+offset_right = 375.0
+offset_bottom = 46.0
+theme_override_styles/background = SubResource("StyleBoxFlat_546lt")
+theme_override_styles/fill = SubResource("StyleBoxFlat_7ihmi")
+max_value = 50.0
+value = 50.0
+show_percentage = false
+
+[node name="HealthBar" type="ProgressBar" parent="HUDContainer" unique_id=442479151]
+unique_name_in_owner = true
+modulate = Color(0.9964171, 0.005288607, 0.002562096, 1)
+layout_mode = 0
+offset_left = 14.0
+offset_top = 15.0
+offset_right = 375.0
+offset_bottom = 29.0
+theme_override_styles/background = SubResource("StyleBoxFlat_rbyyf")
+theme_override_styles/fill = SubResource("StyleBoxFlat_276te")
+value = 100.0
+show_percentage = false
+
+[node name="ManaBar" type="ProgressBar" parent="HUDContainer" unique_id=329103787]
+unique_name_in_owner = true
+modulate = Color(0.16134188, 0.39091292, 1, 1)
+layout_mode = 0
+offset_left = 14.0
+offset_top = 48.0
+offset_right = 375.0
+offset_bottom = 66.0
+theme_override_styles/background = SubResource("StyleBoxFlat_8qguk")
+theme_override_styles/fill = SubResource("StyleBoxFlat_136eg")
+max_value = 200.0
+show_percentage = false
+
+[node name="SavingIcon" type="Control" parent="." unique_id=1295497736]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -50.0
+offset_top = 15.0
+offset_right = -10.0
+offset_bottom = 55.0
+grow_horizontal = 0
+
+[node name="ColorRect" type="ColorRect" parent="SavingIcon" unique_id=906010157]
+layout_mode = 0
+offset_left = -28.0
+offset_top = -9.0
+offset_right = 42.0
+offset_bottom = 77.0
+color = Color(0, 0, 0, 0.15686275)
+
+[node name="Icon" type="TextureRect" parent="SavingIcon" unique_id=1154366211]
+modulate = Color(1, 1, 1, 0.53333336)
+layout_mode = 0
+offset_left = -23.0
+offset_top = -4.0
+offset_right = 35.0
+offset_bottom = 54.0
+texture = ExtResource("2_hqnrr")
+
+[node name="Label" type="Label" parent="SavingIcon" unique_id=1663458339]
+layout_mode = 0
+offset_left = -22.0
+offset_top = 53.0
+offset_right = 42.0
+offset_bottom = 76.0
+theme_override_colors/font_color = Color(1, 1, 1, 0.53333336)
+text = "Saving..."
+
+[node name="DebugOverlay" type="Control" parent="." unique_id=672635160]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+script = ExtResource("4_8qguk")
+
+[node name="PhaseLabel" type="Label" parent="DebugOverlay" unique_id=1087812697]
+layout_mode = 0
+offset_left = -135.0
+offset_top = 6.0
+offset_right = -95.0
+offset_bottom = 29.0
+text = "phaselabel
+"
+
+[node name="FPSLabel" type="Label" parent="DebugOverlay" unique_id=404936823]
+layout_mode = 0
+offset_left = -136.0
+offset_top = 37.0
+offset_right = -75.0
+offset_bottom = 60.0
+text = "fpslabel"
+
+[node name="WeatherLabel" type="Label" parent="DebugOverlay" unique_id=1714494478]
+layout_mode = 0
+offset_left = -143.0
+offset_top = 65.0
+offset_right = -41.0
+offset_bottom = 88.0
+text = "weatherlabel"
+
+[node name="QuickUseCross" type="Control" parent="." unique_id=264902250]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 175)
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 27.125
+offset_top = -232.0
+offset_right = 242.805
+offset_bottom = -40.42798
+grow_vertical = 0
+pivot_offset = Vector2(-205.32, 62.42798)
+script = ExtResource("4_136eg")
+
+[node name="ColorRect" type="ColorRect" parent="QuickUseCross" unique_id=555620951]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 13.0
+offset_right = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(388.555, 113.95999)
+color = Color(0, 0, 0, 0.078431375)
+
+[node name="AttunementSlot" type="Panel" parent="QuickUseCross" unique_id=256477136]
+custom_minimum_size = Vector2(65, 80)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -19.5
+offset_right = 45.5
+offset_bottom = 80.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bo48s")
+
+[node name="AttunementIcon" type="TextureRect" parent="QuickUseCross/AttunementSlot" unique_id=909372200]
+custom_minimum_size = Vector2(65, 80)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.5
+offset_right = 32.5
+offset_bottom = 65.0
+grow_horizontal = 2
+
+[node name="AttunementLabel" type="Label" parent="QuickUseCross/AttunementSlot" unique_id=184279353]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -17.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 12
+
+[node name="LeftHandSlot" type="Panel" parent="QuickUseCross" unique_id=1907727577]
+custom_minimum_size = Vector2(65, 80)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 13.0
+offset_top = -40.0
+offset_right = 78.0
+offset_bottom = 40.0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bo48s")
+
+[node name="LeftHandIcon" type="TextureRect" parent="QuickUseCross/LeftHandSlot" unique_id=406996457]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(65, 80)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -32.5
+offset_right = 65.0
+offset_bottom = 32.5
+grow_vertical = 2
+
+[node name="LeftHandLabel" type="Label" parent="QuickUseCross/LeftHandSlot" unique_id=1451024349]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -17.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 12
+
+[node name="AmmoSlot1" type="Panel" parent="QuickUseCross" unique_id=1713490479]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 50)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 30.0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_bo48s")
+
+[node name="AmmoIcon1" type="TextureRect" parent="QuickUseCross/AmmoSlot1" unique_id=2134860544]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(30, 40)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="QuickUseCross/AmmoSlot1" unique_id=186705186]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -31.125
+offset_top = -14.5720215
+offset_right = -1.125
+offset_bottom = -0.26000214
+grow_horizontal = 0
+grow_vertical = 0
+color = Color(0, 0, 0, 1)
+
+[node name="AmmoQuantityLabel1" type="Label" parent="QuickUseCross/AmmoSlot1" unique_id=1714366770]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -34.32
+offset_top = -17.0
+offset_right = -11.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 12
+horizontal_alignment = 2
+
+[node name="AmmoSlot2" type="Panel" parent="QuickUseCross" unique_id=782947148]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 50)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 44.49
+offset_top = -50.000015
+offset_right = 84.4901
+offset_bottom = -1.5258789e-05
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_bo48s")
+
+[node name="AmmoIcon2" type="TextureRect" parent="QuickUseCross/AmmoSlot2" unique_id=1899491434]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(30, 40)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="QuickUseCross/AmmoSlot2" unique_id=1265799465]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -30.6151
+offset_top = -14.5720215
+offset_bottom = -1.5258789e-05
+grow_horizontal = 0
+grow_vertical = 0
+color = Color(0.072842635, 0.072842635, 0.072842635, 1)
+
+[node name="AmmoQuantityLabel2" type="Label" parent="QuickUseCross/AmmoSlot2" unique_id=667926001]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -33.46
+offset_top = -17.0
+offset_right = -11.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 12
+horizontal_alignment = 2
+
+[node name="RightHandSlot" type="Panel" parent="QuickUseCross" unique_id=1882547775]
+custom_minimum_size = Vector2(65, 80)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -52.0
+offset_top = -40.0
+offset_right = 13.0000305
+offset_bottom = 40.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bo48s")
+
+[node name="RightHandIcon" type="TextureRect" parent="QuickUseCross/RightHandSlot" unique_id=210029239]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(65, 80)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -65.0
+offset_top = -32.5
+offset_bottom = 32.5
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="RightHandLabel" type="Label" parent="QuickUseCross/RightHandSlot" unique_id=1260300233]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -17.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 12
+
+[node name="BottomSlot" type="Panel" parent="QuickUseCross" unique_id=1141974174]
+custom_minimum_size = Vector2(65, 80)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -16.484993
+offset_top = -80.00003
+offset_right = 48.51503
+offset_bottom = -3.0517578e-05
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_bo48s")
+
+[node name="QuickUseIcon" type="TextureRect" parent="QuickUseCross/BottomSlot" unique_id=1479625420]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(65, 80)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -32.5
+offset_top = -80.0
+offset_right = 32.5
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="DownQuantityLabel" type="Label" parent="QuickUseCross/BottomSlot" unique_id=1262856423]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -30.82
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "999"
+horizontal_alignment = 2
+
+[node name="ColorRect2" type="ColorRect" parent="QuickUseCross" unique_id=1615310628]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -51.804993
+offset_top = -42.57202
+offset_right = 14.515015
+grow_horizontal = 0
+grow_vertical = 0
+color = Color(0, 0, 0, 0.43529412)

@@ -1,0 +1,274 @@
+[gd_scene format=3 uid="uid://wddb37wa8cgf"]
+
+[ext_resource type="Script" uid="uid://bq042btrg0fnd" path="res://scenes/ui/menus/AttuneMenu.gd" id="1_wmyap"]
+[ext_resource type="Texture2D" uid="uid://cgsueecjv2g4k" path="res://art/objects/items/item_ui/EmptySlot.png" id="2_tvsah"]
+
+[sub_resource type="Theme" id="Theme_wmyap"]
+
+[node name="AttuneMenu" type="Control" unique_id=1689301925]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_wmyap")
+
+[node name="Panel" type="Panel" parent="." unique_id=1991151586]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect2" type="ColorRect" parent="Panel" unique_id=2060873570]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Sort" type="VBoxContainer" parent="Panel" unique_id=624456000]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleLabel" type="Label" parent="Panel/Sort" unique_id=2108860671]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "Attune Spells"
+horizontal_alignment = 1
+
+[node name="AttunementSlotsContainer" type="HBoxContainer" parent="Panel/Sort" unique_id=1937226514]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+
+[node name="AttunementSlot0" type="Panel" parent="Panel/Sort/AttunementSlotsContainer" unique_id=1995976207]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme = SubResource("Theme_wmyap")
+
+[node name="Background0" type="TextureRect" parent="Panel/Sort/AttunementSlotsContainer/AttunementSlot0" unique_id=531214261]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+texture = ExtResource("2_tvsah")
+
+[node name="Icon0" type="TextureRect" parent="Panel/Sort/AttunementSlotsContainer/AttunementSlot0" unique_id=789825149]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 0
+expand_mode = 2
+stretch_mode = 5
+
+[node name="AttunementSlot1" type="Panel" parent="Panel/Sort/AttunementSlotsContainer" unique_id=143015193]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="Background1" type="TextureRect" parent="Panel/Sort/AttunementSlotsContainer/AttunementSlot1" unique_id=1328936551]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+texture = ExtResource("2_tvsah")
+
+[node name="Icon1" type="TextureRect" parent="Panel/Sort/AttunementSlotsContainer/AttunementSlot1" unique_id=434107474]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 0
+expand_mode = 2
+stretch_mode = 5
+
+[node name="AttunementSlot2" type="Panel" parent="Panel/Sort/AttunementSlotsContainer" unique_id=1003292402]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="Background2" type="TextureRect" parent="Panel/Sort/AttunementSlotsContainer/AttunementSlot2" unique_id=667075407]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_tvsah")
+
+[node name="Icon2" type="TextureRect" parent="Panel/Sort/AttunementSlotsContainer/AttunementSlot2" unique_id=1436934699]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 2
+stretch_mode = 5
+
+[node name="AttunementSlot3" type="Panel" parent="Panel/Sort/AttunementSlotsContainer" unique_id=864398921]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="Background3" type="TextureRect" parent="Panel/Sort/AttunementSlotsContainer/AttunementSlot3" unique_id=840683176]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+texture = ExtResource("2_tvsah")
+
+[node name="Icon3" type="TextureRect" parent="Panel/Sort/AttunementSlotsContainer/AttunementSlot3" unique_id=1076471503]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 0
+expand_mode = 2
+stretch_mode = 5
+
+[node name="AttunementSlot4" type="Panel" parent="Panel/Sort/AttunementSlotsContainer" unique_id=910000038]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="Background4" type="TextureRect" parent="Panel/Sort/AttunementSlotsContainer/AttunementSlot4" unique_id=867584976]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+texture = ExtResource("2_tvsah")
+
+[node name="Icon4" type="TextureRect" parent="Panel/Sort/AttunementSlotsContainer/AttunementSlot4" unique_id=419159403]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 0
+expand_mode = 2
+stretch_mode = 5
+
+[node name="AttunementSlot5" type="Panel" parent="Panel/Sort/AttunementSlotsContainer" unique_id=1442743760]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="Background5" type="TextureRect" parent="Panel/Sort/AttunementSlotsContainer/AttunementSlot5" unique_id=1271929632]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+texture = ExtResource("2_tvsah")
+
+[node name="Icon5" type="TextureRect" parent="Panel/Sort/AttunementSlotsContainer/AttunementSlot5" unique_id=2113350041]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 0
+expand_mode = 2
+stretch_mode = 5
+
+[node name="AttunementSlot6" type="Panel" parent="Panel/Sort/AttunementSlotsContainer" unique_id=176567153]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="Background6" type="TextureRect" parent="Panel/Sort/AttunementSlotsContainer/AttunementSlot6" unique_id=1249630763]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+texture = ExtResource("2_tvsah")
+
+[node name="Icon6" type="TextureRect" parent="Panel/Sort/AttunementSlotsContainer/AttunementSlot6" unique_id=1491947406]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 0
+expand_mode = 2
+stretch_mode = 5
+
+[node name="AttunementSlot7" type="Panel" parent="Panel/Sort/AttunementSlotsContainer" unique_id=1840219288]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="Background7" type="TextureRect" parent="Panel/Sort/AttunementSlotsContainer/AttunementSlot7" unique_id=1251901880]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+texture = ExtResource("2_tvsah")
+
+[node name="Icon7" type="TextureRect" parent="Panel/Sort/AttunementSlotsContainer/AttunementSlot7" unique_id=1717826166]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 0
+expand_mode = 2
+stretch_mode = 5
+
+[node name="AttunementSlot8" type="Panel" parent="Panel/Sort/AttunementSlotsContainer" unique_id=213201648]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="Background8" type="TextureRect" parent="Panel/Sort/AttunementSlotsContainer/AttunementSlot8" unique_id=2062264671]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+texture = ExtResource("2_tvsah")
+
+[node name="Icon8" type="TextureRect" parent="Panel/Sort/AttunementSlotsContainer/AttunementSlot8" unique_id=1248186213]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 0
+expand_mode = 2
+stretch_mode = 5
+
+[node name="SpellScroll" type="ScrollContainer" parent="Panel/Sort" unique_id=20269311]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+follow_focus = true
+
+[node name="SpellGrid" type="GridContainer" parent="Panel/Sort/SpellScroll" unique_id=12188682]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1000, 300)
+layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 6
+
+[node name="BottomDescription" type="HBoxContainer" parent="Panel/Sort" unique_id=1352969814]
+custom_minimum_size = Vector2(1000, 100)
+layout_mode = 2
+
+[node name="SpellIcon" type="TextureRect" parent="Panel/Sort/BottomDescription" unique_id=1674135930]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="SpellName" type="Label" parent="Panel/Sort/BottomDescription" unique_id=498769897]
+unique_name_in_owner = true
+layout_mode = 2
+text = "test"
+
+[node name="SpellDescription" type="Label" parent="Panel/Sort/BottomDescription" unique_id=2015933215]
+unique_name_in_owner = true
+layout_mode = 2
+text = "test"
+
+[node name="ColorRect" type="ColorRect" parent="Panel/Sort" unique_id=1708845523]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+color = Color(0, 0, 0, 0.80784315)
+
+[node name="Label" type="Label" parent="Panel/Sort/ColorRect" unique_id=876180672]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -197.5
+offset_top = -11.5
+offset_right = 197.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "D PAD : Movement - A : Select - X : Unequip - B : Exit"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="BonfireEntry" format=3 uid="uid://vyltegac4taj"]
+
+[ext_resource type="Script" uid="uid://bsiq2wmovcrwu" path="res://resources/bonfire/BonfireEntry.gd" id="1_5uthn"]
+[ext_resource type="Texture2D" uid="uid://bkaqqwawq3s1h" path="res://art/ui/bonfire_area_art/world001_01.png" id="1_dfvrc"]
+
+[resource]
+script = ExtResource("1_5uthn")
+area_name = "world001"
+bonfire_id = "world1_001"
+scene_path = "uid://up75iqrm1bpp"
+spawn_position = Vector2(163, 110)
+title = "World 001"
+subtitle = "Aw shit here we go again.."
+is_lit_on_first_rest = false
+preview_texture = ExtResource("1_dfvrc")
+sort_order = 1
+metadata/_custom_type_script = "uid://bsiq2wmovcrwu"

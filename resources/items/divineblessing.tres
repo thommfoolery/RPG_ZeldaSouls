@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="GameItem" format=3 uid="uid://bcqv0pvhk2mai"]
+
+[ext_resource type="Texture2D" uid="uid://b5ae0wix2saa3" path="res://art/objects/items/consumables/divineblessing.png" id="1_6t0et"]
+[ext_resource type="Script" uid="uid://b7ouuvly1l65f" path="res://resources/items/Item.gd" id="1_trvfj"]
+
+[resource]
+script = ExtResource("1_trvfj")
+id = "divineblessing"
+display_name = "Divine Blessing"
+description = "Healing Item which restores all health and removes all negative status ailments except for Curse."
+icon = ExtResource("1_6t0et")
+weight = 1.0
+rarity = 10
+metadata/_custom_type_script = "uid://b7ouuvly1l65f"

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="GameItem" format=3 uid="uid://de4ykxa3w4xq"]
+
+[ext_resource type="Texture2D" uid="uid://cyn3o50683cux" path="res://art/objects/items/armor/ironhelm.png" id="1_a7b8m"]
+[ext_resource type="Script" uid="uid://b7ouuvly1l65f" path="res://resources/items/Item.gd" id="1_mg01o"]
+
+[resource]
+script = ExtResource("1_mg01o")
+id = "ironhelm"
+display_name = "Iron Helm"
+description = "Place Holder Armor"
+icon = ExtResource("1_a7b8m")
+category = "Armor"
+armor_slot = "Head"
+weight = 10.0
+quantity_per_use = 0
+metadata/_custom_type_script = "uid://b7ouuvly1l65f"

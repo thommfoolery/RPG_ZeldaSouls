@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="AreaEntry" format=3 uid="uid://x7026yiomsug"]
+
+[ext_resource type="Script" uid="uid://vog6paxai2fp" path="res://resources/area/AreaEntry.gd" id="1_a3q7h"]
+
+[resource]
+script = ExtResource("1_a3q7h")
+area_id = "farm"
+scene_path = "uid://cl8tepx1il5u3"
+title = "farm"
+subtitle = "this ain't farmvile"
+first_visit_subtitle = "sheeeesh"
+sort_order = 4
+metadata/_custom_type_script = "uid://vog6paxai2fp"

@@ -1,0 +1,156 @@
+[gd_scene format=3 uid="uid://boaiy1mitftie"]
+
+[ext_resource type="Script" uid="uid://ddyfm12xy5jyf" path="res://scenes/entities/bloodstain/bloodstain.gd" id="1_gl7r4"]
+[ext_resource type="Texture2D" uid="uid://c5vlvxj4sfk65" path="res://art/objects/bloodstain.png" id="2_lxaah"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xs4d2"]
+atlas = ExtResource("2_lxaah")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k81wa"]
+atlas = ExtResource("2_lxaah")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oh2pm"]
+atlas = ExtResource("2_lxaah")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1yl6"]
+atlas = ExtResource("2_lxaah")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8mrqv"]
+atlas = ExtResource("2_lxaah")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dlvet"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xs4d2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k81wa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oh2pm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1yl6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8mrqv")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pxlxl"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(7, 1, 1)
+emission_shape = 1
+emission_sphere_radius = 2.2
+gravity = Vector3(0, -98, 0)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_pxlxl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pxlxl"]
+radius = 18.110771
+
+[sub_resource type="Gradient" id="Gradient_pxlxl"]
+offsets = PackedFloat32Array(0, 0.58635396)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_uq3bk"]
+gradient = SubResource("Gradient_pxlxl")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="Bloodstain" type="Area2D" unique_id=1831528865]
+position = Vector2(0, -12)
+script = ExtResource("1_gl7r4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=406650655]
+position = Vector2(1, 3)
+sprite_frames = SubResource("SpriteFrames_dlvet")
+animation = &"idle"
+frame_progress = 0.20390353
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1685307614]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(-1, 7)
+lifetime = 0.05
+speed_scale = 0.5
+randomness = 1.0
+collision_base_size = 0.0
+process_material = SubResource("ParticleProcessMaterial_pxlxl")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="GPUParticles2D" unique_id=753515935]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(-1, 7)
+sub_emitter = NodePath("GPUParticles2D/GPUParticles2D/GPUParticles2D")
+texture = SubResource("PlaceholderTexture2D_pxlxl")
+lifetime = 0.12
+speed_scale = 0.5
+randomness = 1.0
+collision_base_size = 0.0
+process_material = SubResource("ParticleProcessMaterial_pxlxl")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="GPUParticles2D/GPUParticles2D" unique_id=908565026]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(-1, -5)
+lifetime = 0.67
+speed_scale = 0.5
+randomness = 1.0
+collision_base_size = 0.0
+process_material = SubResource("ParticleProcessMaterial_pxlxl")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="GPUParticles2D/GPUParticles2D/GPUParticles2D" unique_id=1712590695]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(2, -2)
+lifetime = 0.67
+speed_scale = 0.5
+randomness = 1.0
+collision_base_size = 0.0
+process_material = SubResource("ParticleProcessMaterial_pxlxl")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="GPUParticles2D/GPUParticles2D/GPUParticles2D/GPUParticles2D" unique_id=456443711]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(0.235, -3.77)
+lifetime = 0.67
+speed_scale = 0.5
+randomness = 1.0
+collision_base_size = 0.0
+process_material = SubResource("ParticleProcessMaterial_pxlxl")
+
+[node name="PickupArea" type="Area2D" parent="." unique_id=1373743144]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea" unique_id=476742319]
+shape = SubResource("CircleShape2D_pxlxl")
+
+[node name="SoulsLabel" type="Label" parent="." unique_id=1511317772]
+modulate = Color(0.76862746, 0, 0, 0.8039216)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -5.6000004
+offset_top = -13.285
+offset_right = 3.3999996
+offset_bottom = 8.715
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 11
+text = "0"
+metadata/_edit_use_anchors_ = true
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1681038311]
+position = Vector2(0, 1.0000014)
+scale = Vector2(0.90625, 1.34375)
+color = Color(0.7738555, 2.23808e-06, 9.62615e-07, 1)
+texture = SubResource("GradientTexture2D_uq3bk")
+
+[connection signal="body_entered" from="PickupArea" to="." method="_on_pickup_area_body_entered"]

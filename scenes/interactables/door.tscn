@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://cgnr4idasyjpp"]
+
+[ext_resource type="Script" uid="uid://fuimflmb6rxe" path="res://scenes/interactables/Door.gd" id="1_qq3h0"]
+[ext_resource type="Texture2D" uid="uid://ch73u1p4fvpjk" path="res://art/objects/items/shut_door_hor.png" id="2_xetrc"]
+[ext_resource type="Texture2D" uid="uid://beirkjmpjv37m" path="res://art/objects/items/open_door_hor.png" id="3_nmwkn"]
+[ext_resource type="Texture2D" uid="uid://dtbto67tw82e1" path="res://art/objects/items/shut_door_ver.png" id="4_iyt8h"]
+[ext_resource type="Texture2D" uid="uid://cvmxlim37vkya" path="res://art/objects/items/open_door_ver.png" id="5_8lim4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iyt8h"]
+size = Vector2(142, 160)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8lim4"]
+size = Vector2(108, 103)
+
+[node name="Door" type="StaticBody2D" unique_id=1620950315]
+script = ExtResource("1_qq3h0")
+
+[node name="HClosed" type="Sprite2D" parent="." unique_id=1616384027]
+position = Vector2(0, -35)
+texture = ExtResource("2_xetrc")
+
+[node name="HOpen" type="Sprite2D" parent="." unique_id=447704975]
+position = Vector2(0, -35)
+texture = ExtResource("3_nmwkn")
+
+[node name="VClosed" type="Sprite2D" parent="." unique_id=645739142]
+position = Vector2(10, -70)
+texture = ExtResource("4_iyt8h")
+
+[node name="VOpen" type="Sprite2D" parent="." unique_id=1893244280]
+position = Vector2(17, -63)
+rotation = 0.082030475
+texture = ExtResource("5_8lim4")
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=70949800]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=754878675]
+position = Vector2(0, -38)
+shape = SubResource("RectangleShape2D_iyt8h")
+
+[node name="PromptLabel" type="Label" parent="." unique_id=1383577407]
+offset_left = -46.0
+offset_top = -62.0
+offset_right = -6.0
+offset_bottom = -39.0
+text = "test"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1266004945]
+position = Vector2(-1, -37)
+shape = SubResource("RectangleShape2D_8lim4")

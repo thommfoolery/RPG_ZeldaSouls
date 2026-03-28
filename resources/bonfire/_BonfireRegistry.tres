@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="BonfireRegistry" format=3 uid="uid://by1mw8r53q6fy"]
+
+[ext_resource type="Script" uid="uid://beja2u8y35pmb" path="res://resources/bonfire/BonfireRegistry.gd" id="1_k3kgx"]
+[ext_resource type="Script" uid="uid://bsiq2wmovcrwu" path="res://resources/bonfire/BonfireEntry.gd" id="1_tnymc"]
+[ext_resource type="Resource" uid="uid://i5w3bal2maum" path="res://resources/bonfire/test_001.tres" id="2_wvjvy"]
+[ext_resource type="Resource" uid="uid://dm5d8ce255hxo" path="res://resources/bonfire/test_002.tres" id="3_ny0li"]
+[ext_resource type="Resource" uid="uid://bmuutav6vpnn6" path="res://resources/bonfire/test_003.tres" id="4_n5eoc"]
+[ext_resource type="Resource" uid="uid://t1t2qq61e4hx" path="res://resources/bonfire/test_004.tres" id="5_ulqkk"]
+[ext_resource type="Resource" uid="uid://vyltegac4taj" path="res://resources/bonfire/world1_001.tres" id="6_ny0li"]
+[ext_resource type="Resource" uid="uid://cvdokn33vab1j" path="res://resources/bonfire/world2_001.tres" id="7_n5eoc"]
+[ext_resource type="Resource" uid="uid://bxfpdk1l0y1x0" path="res://resources/bonfire/farm_01.tres" id="8_mmtm6"]
+[ext_resource type="Resource" uid="uid://4xqc7wllbl7v" path="res://resources/bonfire/farm_02.tres" id="9_3mlyi"]
+
+[resource]
+script = ExtResource("1_k3kgx")
+entries = Array[ExtResource("1_tnymc")]([ExtResource("2_wvjvy"), ExtResource("3_ny0li"), ExtResource("4_n5eoc"), ExtResource("5_ulqkk"), ExtResource("6_ny0li"), ExtResource("7_n5eoc"), ExtResource("8_mmtm6"), ExtResource("9_3mlyi")])

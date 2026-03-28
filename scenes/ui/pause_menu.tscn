@@ -1,0 +1,162 @@
+[gd_scene format=3 uid="uid://dujdxpoa3uf4w"]
+
+[sub_resource type="GDScript" id="GDScript_pu0qw"]
+script/source = "# ui/pause_menu.gd
+extends CanvasLayer
+
+@onready var resume_button: Button = %ResumeButton
+@onready var save_button: Button = %SaveButton
+@onready var debug_print_button: Button = %DebugPrintButton
+@onready var debug_reset_button: Button = %DebugResetButton
+@onready var quit_button: Button = %QuitButton
+@onready var feedback_label: Label = %FeedbackLabel
+
+var is_open: bool = false
+
+func _ready() -> void:
+	visible = false
+	feedback_label.visible = false
+	process_mode = PROCESS_MODE_ALWAYS
+	
+	resume_button.pressed.connect(_on_resume)
+	save_button.pressed.connect(_on_save)
+	debug_print_button.pressed.connect(_on_debug_print)
+	debug_reset_button.pressed.connect(_on_debug_reset)
+	quit_button.pressed.connect(_on_quit)
+	
+	InputManager.menu_toggled.connect(_on_menu_toggled)
+	
+
+func _on_menu_toggled() -> void:
+	if is_open:
+		_on_resume()
+	else:
+		open_menu()
+
+func open_menu() -> void:
+	if is_open:
+		return
+	is_open = true
+	Global.is_in_menu = true
+	InputManager.block_input()
+	visible = true
+
+func _on_resume() -> void:
+	is_open = false
+	Global.is_in_menu = false
+	InputManager.unblock_input()
+	visible = false
+	feedback_label.visible = false
+
+func _on_save() -> void:
+	if SaveManager:
+		Global.is_death_respawn = false
+		SaveManager.request_save()
+		_show_feedback(\"Game Saved ✓\", 1.5, Color(0.2, 1.0, 0.3))
+	else:
+		_show_feedback(\"SaveManager missing!\", 2.0, Color.RED)
+
+func _on_debug_print() -> void:
+	if WorldStateManager:
+		print(\"\\n=== WORLD STATE DEBUG ===\")
+		for path in WorldStateManager.world_state:
+			var s = WorldStateManager.world_state[path]
+			print(\"Scene: \", path.get_file())
+			print(\" Regular dead: \", s.get(\"regular_dead_enemies\", []))
+			print(\" Permanent: \", s.get(\"permanent\", {}))
+		_show_feedback(\"World state printed\", 2.0)
+	else:
+		_show_feedback(\"WorldStateManager missing\", 2.0, Color.RED)
+
+func _on_debug_reset() -> void:
+	if WorldStateManager:
+		WorldStateManager.reset_all_regular_enemies()
+		_show_feedback(\"Regular enemies reset\", 2.0)
+	else:
+		_show_feedback(\"WorldStateManager missing\", 2.0, Color.RED)
+
+func _on_quit() -> void:
+	_on_resume()
+	if SaveManager:
+		SaveManager.request_save()
+	get_tree().change_scene_to_file(\"res://scenes/ui/man_menu.tscn\")
+
+func _show_feedback(text: String, duration: float = 2.0, color: Color = Color(0.2, 1.0, 0.3)) -> void:
+	feedback_label.modulate = color
+	feedback_label.text = text
+	feedback_label.visible = true
+	var timer = get_tree().create_timer(duration)
+	timer.timeout.connect(_hide_feedback)
+
+func _hide_feedback() -> void:
+	feedback_label.visible = false
+
+# ─── Input handling ─────────────────────────────────────────────────────
+func _input(event: InputEvent) -> void:
+	if not visible:
+		return
+	
+	if event.is_action_pressed(\"ui_cancel\") or event.is_action_pressed(\"menu_pause\"):
+		_on_resume()
+		get_viewport().set_input_as_handled()
+"
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=1031534839]
+layer = 128
+script = SubResource("GDScript_pu0qw")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1302816378]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.09803922, 0.09803922, 0.09803922, 0.6745098)
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1922832028]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=636289988]
+layout_mode = 2
+alignment = 1
+
+[node name="ResumeButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1642782231]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Resume"
+
+[node name="SaveButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1226332169]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Save Game"
+
+[node name="DebugPrintButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1154451797]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Print World State"
+
+[node name="DebugResetButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1679359055]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Reset All Regular Enemies"
+
+[node name="QuitButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1257702547]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Quite to Main Menu"
+
+[node name="FeedbackLabel" type="Label" parent="." unique_id=374035835]
+unique_name_in_owner = true
+offset_right = 40.0
+offset_bottom = 23.0

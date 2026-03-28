@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="GameItem" format=3 uid="uid://dyo0lujpyg8ap"]
+
+[ext_resource type="Script" uid="uid://b7ouuvly1l65f" path="res://resources/items/Item.gd" id="1_gw862"]
+[ext_resource type="Texture2D" uid="uid://cpolsb8vpmio7" path="res://art/objects/items/consumables/greenblossom.png" id="1_ibb02"]
+
+[resource]
+script = ExtResource("1_gw862")
+id = "greenblossom"
+display_name = "Green Blossom"
+description = "Temporary boost to stamina recovery speed"
+icon = ExtResource("1_ibb02")
+weight = 0.2
+metadata/_custom_type_script = "uid://b7ouuvly1l65f"

@@ -1,0 +1,46 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://ba2sxc0bnopnu"]
+
+[ext_resource type="Texture2D" uid="uid://c5vlvxj4sfk65" path="res://art/objects/bloodstain.png" id="1_d3lhn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xs4d2"]
+atlas = ExtResource("1_d3lhn")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k81wa"]
+atlas = ExtResource("1_d3lhn")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oh2pm"]
+atlas = ExtResource("1_d3lhn")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1yl6"]
+atlas = ExtResource("1_d3lhn")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8mrqv"]
+atlas = ExtResource("1_d3lhn")
+region = Rect2(128, 0, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xs4d2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k81wa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oh2pm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1yl6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8mrqv")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]

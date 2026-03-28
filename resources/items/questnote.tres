@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="GameItem" format=3 uid="uid://dgivfw3uo1cm2"]
+
+[ext_resource type="Texture2D" uid="uid://dm6gnj4xutu3f" path="res://art/objects/items/consumables/questnote.png" id="1_n6kpp"]
+[ext_resource type="Script" uid="uid://b7ouuvly1l65f" path="res://resources/items/Item.gd" id="1_t2cyf"]
+
+[resource]
+script = ExtResource("1_t2cyf")
+id = "questnote"
+display_name = "Quest Note (from a stranger)"
+description = "A long note from someone who really wants you to to finish the game! Please.... FINISH THE GAME! It can't be that hard right? It's just script!"
+icon = ExtResource("1_n6kpp")
+category = "Quest"
+metadata/_custom_type_script = "uid://b7ouuvly1l65f"

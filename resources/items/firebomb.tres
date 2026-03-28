@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="GameItem" format=3 uid="uid://bknr465j0uho"]
+
+[ext_resource type="Script" uid="uid://b7ouuvly1l65f" path="res://resources/items/Item.gd" id="1_27efu"]
+[ext_resource type="Texture2D" uid="uid://kwdrh2dyrsw5" path="res://art/objects/items/consumables/firebomb.png" id="1_bh0ae"]
+
+[resource]
+script = ExtResource("1_27efu")
+id = "firebomb"
+display_name = "Fire Bomb"
+description = "Throwable item. Deals heavy AOE fire damage."
+icon = ExtResource("1_bh0ae")
+weight = 0.5
+metadata/_custom_type_script = "uid://b7ouuvly1l65f"

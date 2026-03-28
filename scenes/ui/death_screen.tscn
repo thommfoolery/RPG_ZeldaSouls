@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://crdggai8i2n70"]
+
+[ext_resource type="Script" uid="uid://oe5p2xru0uns" path="res://scenes/ui/death_screen.gd" id="1_j0ehl"]
+
+[node name="death_screen" type="CanvasLayer" unique_id=1423211559]
+script = ExtResource("1_j0ehl")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=609653017]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -770.0
+offset_top = -478.0
+offset_right = 770.0
+offset_bottom = 478.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.808)
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect" unique_id=356882391]
+layout_mode = 0
+offset_top = 30.0
+offset_right = 1558.0
+offset_bottom = 1019.0
+color = Color(0, 0, 0, 0.23500001)
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect/ColorRect" unique_id=2062171214]
+visible = false
+layout_mode = 0
+offset_top = 12.0
+offset_right = 1412.0
+offset_bottom = 866.0
+color = Color(0, 0, 0, 0.23500001)
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect/ColorRect/ColorRect" unique_id=1288351381]
+visible = false
+layout_mode = 0
+offset_left = -2.0
+offset_top = 178.0
+offset_right = 1499.0
+offset_bottom = 615.0
+color = Color(0, 0, 0, 0.7764706)
+
+[node name="YouDiedLabel" type="Label" parent="." unique_id=799235825]
+modulate = Color(1, 1, 1, 0.83137256)
+offset_left = 135.0
+offset_top = 181.0
+offset_right = 1138.0
+offset_bottom = 472.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 213
+text = "YOU DIED"
+horizontal_alignment = 1

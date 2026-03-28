@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="GameItem" format=3 uid="uid://mwotqvl6cgrg"]
+
+[ext_resource type="Texture2D" uid="uid://cvk4i22iroxnt" path="res://art/objects/items/weapons/woodsheild.png" id="1_7t4k0"]
+[ext_resource type="Script" uid="uid://b7ouuvly1l65f" path="res://resources/items/Item.gd" id="1_j8a0o"]
+
+[resource]
+script = ExtResource("1_j8a0o")
+id = "woodshield"
+display_name = "Wooden Shield"
+description = "Barely counts as a shield"
+icon = ExtResource("1_7t4k0")
+category = "Weapons"
+weight = 5.0
+quantity_per_use = 0
+metadata/_custom_type_script = "uid://b7ouuvly1l65f"

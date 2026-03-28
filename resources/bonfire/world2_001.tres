@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="BonfireEntry" format=3 uid="uid://cvdokn33vab1j"]
+
+[ext_resource type="Texture2D" uid="uid://ci7qjhrnnpg5o" path="res://art/ui/bonfire_area_art/world002_01.png" id="1_6y4vh"]
+[ext_resource type="Script" uid="uid://bsiq2wmovcrwu" path="res://resources/bonfire/BonfireEntry.gd" id="1_sr3va"]
+
+[resource]
+script = ExtResource("1_sr3va")
+area_name = "world002"
+bonfire_id = "world2_001"
+scene_path = "uid://tw6es82unsjl"
+spawn_position = Vector2(500, 400)
+title = "World 2"
+subtitle = "are you still there?"
+is_lit_on_first_rest = false
+preview_texture = ExtResource("1_6y4vh")
+sort_order = 2
+metadata/_custom_type_script = "uid://bsiq2wmovcrwu"

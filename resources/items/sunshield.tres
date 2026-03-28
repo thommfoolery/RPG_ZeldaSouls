@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="GameItem" format=3 uid="uid://dpxojxu6m3jf8"]
+
+[ext_resource type="Texture2D" uid="uid://bxyqg6rakyv70" path="res://art/objects/items/weapons/sunsheild.png" id="1_6golp"]
+[ext_resource type="Script" uid="uid://b7ouuvly1l65f" path="res://resources/items/Item.gd" id="1_6okw0"]
+
+[resource]
+script = ExtResource("1_6okw0")
+id = "sunshield"
+display_name = "Sun Shield"
+description = "Praise the motha fuckin' Sun"
+icon = ExtResource("1_6golp")
+category = "Weapons"
+weight = 10.0
+metadata/_custom_type_script = "uid://b7ouuvly1l65f"

@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://x48tdln67657"]
+
+[ext_resource type="Texture2D" uid="uid://upn7gxbwwnmw" path="res://art/particles/rain.png" id="1_mopfy"]
+[ext_resource type="Texture2D" uid="uid://dfodyf523g2em" path="res://art/particles/rainsplash.png" id="2_8h6a7"]
+
+[sub_resource type="Curve" id="Curve_syrsw"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.11309523, 0.6199112), 0.0, 0.0, 0, 0, Vector2(0.8015872, 0.5910437), 0.0, 0.0, 0, 0, Vector2(0.92063487, 0.0040711164), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_2hppw"]
+curve = SubResource("Curve_syrsw")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_meipa"]
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(100, -400, 0)
+emission_shape_scale = Vector3(1, 0.1, 1)
+emission_shape = 3
+emission_box_extents = Vector3(750, 1, 1)
+angle_min = 10.0000105
+angle_max = 10.0000105
+direction = Vector3(-0.4, 1, 0)
+spread = 0.0
+initial_velocity_min = 450.0
+initial_velocity_max = 470.0
+gravity = Vector3(-2, 25, 0)
+alpha_curve = SubResource("CurveTexture_2hppw")
+sub_emitter_mode = 2
+sub_emitter_amount_at_end = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_fcbb3"]
+particles_animation = true
+particles_anim_h_frames = 3
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_rr2f2"]
+_data = [Vector2(0, 0.5477424), 0.0, 0.0, 0, 0, Vector2(0.23015872, 0.49000746), 0.0, 0.0, 0, 0, Vector2(0.32738093, 0), 0.0, 0.0, 0, 0, Vector2(0.7738095, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_kbctq"]
+curve = SubResource("Curve_rr2f2")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xpxmg"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+alpha_curve = SubResource("CurveTexture_kbctq")
+anim_speed_min = 4.0
+anim_speed_max = 4.0
+
+[node name="WeatherLayer" type="CanvasLayer" unique_id=515811797]
+
+[node name="RainDrops" type="GPUParticles2D" parent="." unique_id=1922046978]
+z_index = 2
+texture_filter = 1
+position = Vector2(677, 353)
+amount = 1000
+sub_emitter = NodePath("../RainSplash")
+texture = ExtResource("1_mopfy")
+lifetime = 2.0
+randomness = 1.0
+visibility_rect = Rect2(-1000, -1000, 2000, 2000)
+process_material = SubResource("ParticleProcessMaterial_meipa")
+
+[node name="RainSplash" type="GPUParticles2D" parent="." unique_id=487437857]
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_fcbb3")
+position = Vector2(423, 306)
+emitting = false
+amount = 1000
+texture = ExtResource("2_8h6a7")
+lifetime = 1.2
+one_shot = true
+preprocess = 0.01
+explosiveness = 0.5
+process_material = SubResource("ParticleProcessMaterial_xpxmg")
+
+[node name="WeatherModulate" type="CanvasModulate" parent="." unique_id=1498190624]
+position = Vector2(0, 145)

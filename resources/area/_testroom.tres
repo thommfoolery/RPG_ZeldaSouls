@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AreaEntry" format=3 uid="uid://brfcddfutmem8"]
+
+[ext_resource type="Script" uid="uid://vog6paxai2fp" path="res://resources/area/AreaEntry.gd" id="1_l3c4j"]
+
+[resource]
+script = ExtResource("1_l3c4j")
+area_id = "_testroom"
+scene_path = "uid://b2q563ev4ywoh"
+sort_order = 1
+metadata/_custom_type_script = "uid://vog6paxai2fp"

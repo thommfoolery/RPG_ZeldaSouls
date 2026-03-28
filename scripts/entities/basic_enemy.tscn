@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://c25njrx36mpci"]
+
+[ext_resource type="Script" uid="uid://cfbmojctko20s" path="res://scripts/entities/test_dummy.gd" id="1_64lvo"]
+[ext_resource type="Script" uid="uid://dpejf1kwt6rdj" path="res://scripts/components/HealthComponent.gd" id="2_qhash"]
+[ext_resource type="SpriteFrames" uid="uid://t5hcbpouharn" path="res://art/characters/player_animations.tres" id="3_bxqhj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t73rh"]
+radius = 12.0
+
+[node name="BasicEnemy" type="CharacterBody2D" unique_id=701525225]
+script = ExtResource("1_64lvo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=243441201]
+position = Vector2(-1, -7)
+shape = SubResource("CircleShape2D_t73rh")
+
+[node name="HealthComponent" type="Node" parent="." unique_id=1496325201]
+script = ExtResource("2_qhash")
+max_health = 200.0
+metadata/_custom_type_script = "uid://dpejf1kwt6rdj"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1778323101]
+modulate = Color(0.91764706, 0, 0, 1)
+self_modulate = Color(0.7473944, 0.46426386, 0, 1)
+position = Vector2(0, -20)
+scale = Vector2(1.405, 1.405)
+sprite_frames = ExtResource("3_bxqhj")
+animation = &"attack_front"

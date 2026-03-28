@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dlu5qgtdli2om"]
+
+[ext_resource type="Texture2D" uid="uid://u05yop1leus6" path="res://art/particles/SoulOrb.png" id="1_u4d5q"]
+[ext_resource type="Script" uid="uid://df3b3r1v6vprw" path="res://scripts/soul_orb.gd" id="1_xq73u"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u4d5q"]
+radius = 3.1622777
+
+[node name="SoulOrb" type="Area2D" unique_id=1620690942]
+script = ExtResource("1_xq73u")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=138017798]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_u4d5q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=462483523]
+shape = SubResource("CircleShape2D_u4d5q")

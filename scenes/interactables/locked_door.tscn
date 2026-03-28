@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://c65wf1od3pdjp"]
+
+[ext_resource type="Script" uid="uid://cf0ylj216pd2q" path="res://scenes/interactables/LockedDoor.gd" id="1_f3v15"]
+[ext_resource type="Texture2D" uid="uid://dju8yp4fy4xau" path="res://art/objects/items/locked_door.png" id="1_qt4a1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f3v15"]
+size = Vector2(27, 195)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6x36v"]
+size = Vector2(96, 248)
+
+[node name="LockedDoor" type="StaticBody2D" unique_id=501774910]
+script = ExtResource("1_f3v15")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1145211589]
+position = Vector2(3.5, -7.5)
+shape = SubResource("RectangleShape2D_f3v15")
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=725056776]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1089494922]
+shape = SubResource("RectangleShape2D_6x36v")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=731835829]
+position = Vector2(4.0000005, -1.0000001)
+scale = Vector2(0.6226415, 0.6226415)
+texture = ExtResource("1_qt4a1")
+
+[node name="PromptLabel" type="Label" parent="." unique_id=471984853]
+offset_left = -53.0
+offset_top = -137.0
+offset_right = 26.0
+offset_bottom = -114.0
+text = "Locked AF"

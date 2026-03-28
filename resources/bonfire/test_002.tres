@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="BonfireEntry" format=3 uid="uid://dm5d8ce255hxo"]
+
+[ext_resource type="Script" uid="uid://bsiq2wmovcrwu" path="res://resources/bonfire/BonfireEntry.gd" id="1_84nuj"]
+[ext_resource type="Texture2D" uid="uid://ble2cgsd0wqq8" path="res://art/ui/bonfire_area_art/test003.png" id="1_m115f"]
+
+[resource]
+script = ExtResource("1_84nuj")
+area_name = "testroom"
+bonfire_id = "test_002"
+scene_path = "uid://b2q563ev4ywoh"
+spawn_position = Vector2(48.29, 316.03)
+title = "bottom left testroom"
+subtitle = "subtext bottom left"
+is_lit_on_first_rest = false
+rest_particle_color = Color(0.13333334, 0.6, 0.3019608, 1)
+preview_texture = ExtResource("1_m115f")
+sort_order = 2
+metadata/_custom_type_script = "uid://bsiq2wmovcrwu"
