@@ -12,10 +12,10 @@ var right_heavy_press_time: float = -1.0
 var last_move_dir: Vector2 = Vector2.RIGHT
 
 # ─── SIGNALS ────────────────────────────────────────────────────────────
-signal right_hand_primary()
+signal right_hand_primary(charge_time: float)
 signal right_hand_heavy(charge_time: float)
-signal left_hand_primary()
-signal left_hand_heavy()
+signal left_hand_primary(charge_time: float)
+signal left_hand_heavy(charge_time: float)
 signal use_item_pressed()
 signal cycle_item_up()
 signal cycle_item_down()
@@ -113,6 +113,8 @@ func _input(event: InputEvent) -> void:
 		use_item_pressed.emit()
 	elif event.is_action_pressed("right_hand_primary"):
 		right_hand_primary.emit()
+	elif event.is_action_pressed("right_hand_heavy"):   
+		right_hand_heavy.emit()
 	elif event.is_action_pressed("left_hand_primary"):
 		left_hand_primary.emit()
 	elif event.is_action_pressed("left_hand_heavy"):

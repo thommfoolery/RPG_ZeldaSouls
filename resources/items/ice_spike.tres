@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="GameItem" format=3 uid="uid://r6njqth4hhwe"]
+
+[ext_resource type="Script" uid="uid://b7ouuvly1l65f" path="res://resources/items/Item.gd" id="1_bpt52"]
+[ext_resource type="Texture2D" uid="uid://bvybh86jnq4f1" path="res://art/objects/items/spells/ice_spike.png" id="1_vufrp"]
+[ext_resource type="Texture2D" uid="uid://taulrvwrn2aq" path="res://art/objects/items/Projectiles/icespike.png" id="2_o6b6l"]
+[ext_resource type="PackedScene" uid="uid://cgmwuii2ogpxa" path="res://scenes/vfx/ProjectileTrailVFXPlaceholder.tscn" id="3_pra43"]
+[ext_resource type="PackedScene" uid="uid://bw7n3fw1es7x7" path="res://scenes/entities/projectiles/Projectile.tscn" id="4_pra43"]
+[ext_resource type="PackedScene" uid="uid://brmlhewyst2rn" path="res://scenes/vfx/SpellVFXPlaceholder.tscn" id="5_o6b6l"]
+
+[resource]
+script = ExtResource("1_bpt52")
+id = "ice_spike"
+display_name = "Ice Spike"
+description = "Fires an ice spike"
+icon = ExtResource("1_vufrp")
+category = "Spells"
+mana_cost = 1
+cooldown = 0.5
+spell_vfx_scene = ExtResource("5_o6b6l")
+spell_projectile_scene = ExtResource("4_pra43")
+status_effect_to_apply = "Freeze"
+damage = 10
+effect_type = "Cast"
+speed = 500.0
+projectile_sprite = ExtResource("2_o6b6l")
+projectile_trail_vfx = ExtResource("3_pra43")
+use_vfx_scene = ExtResource("5_o6b6l")
+metadata/_custom_type_script = "uid://b7ouuvly1l65f"

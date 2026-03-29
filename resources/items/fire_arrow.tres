@@ -1,7 +1,9 @@
 [gd_resource type="Resource" script_class="GameItem" format=3 uid="uid://bfa3pko2yxh3w"]
 
 [ext_resource type="Texture2D" uid="uid://cub5v4vrsrnws" path="res://art/objects/items/ammo/firearrow.png" id="1_paavb"]
+[ext_resource type="Texture2D" uid="uid://djsewdrchvnxy" path="res://art/objects/items/Projectiles/arrow.png" id="2_niwd8"]
 [ext_resource type="Script" uid="uid://b7ouuvly1l65f" path="res://resources/items/Item.gd" id="2_v6qr3"]
+[ext_resource type="PackedScene" uid="uid://cgmwuii2ogpxa" path="res://scenes/vfx/ProjectileTrailVFXPlaceholder.tscn" id="3_niwd8"]
 
 [resource]
 script = ExtResource("2_v6qr3")
@@ -14,5 +16,8 @@ max_stack = 999
 weight = 0.1
 rarity = 3
 damage = 20
+speed = 300.0
+projectile_sprite = ExtResource("2_niwd8")
+projectile_trail_vfx = ExtResource("3_niwd8")
 ammo_type = "Arrow"
 metadata/_custom_type_script = "uid://b7ouuvly1l65f"

@@ -20,8 +20,6 @@
 [ext_resource type="Resource" uid="uid://dyo0lujpyg8ap" path="res://resources/items/greenblossom.tres" id="18_c3hln"]
 [ext_resource type="Resource" uid="uid://be0eh553ukvav" path="res://resources/items/throwingknife.tres" id="18_vhr36"]
 [ext_resource type="Resource" uid="uid://bcqv0pvhk2mai" path="res://resources/items/divineblessing.tres" id="19_8uwug"]
-[ext_resource type="Resource" uid="uid://bfpsy4dn5cj1l" path="res://resources/items/firespell.tres" id="21_8uwug"]
-[ext_resource type="Resource" uid="uid://bcb5jttmapccv" path="res://resources/items/icespell.tres" id="22_y5ibd"]
 [ext_resource type="Resource" uid="uid://de4ykxa3w4xq" path="res://resources/items/ironhelm.tres" id="23_mcwuk"]
 [ext_resource type="Resource" uid="uid://ctw6hysnyd2qx" path="res://resources/items/ironbody.tres" id="24_kqfu2"]
 [ext_resource type="Resource" uid="uid://c1u5skuxrvvsa" path="res://resources/items/ironarms.tres" id="25_2h0ec"]
@@ -29,6 +27,7 @@
 [ext_resource type="Resource" uid="uid://c52bescqentdi" path="res://resources/items/dagger.tres" id="27_kayd8"]
 [ext_resource type="Resource" uid="uid://dpxojxu6m3jf8" path="res://resources/items/sunshield.tres" id="28_ngmyt"]
 [ext_resource type="Resource" uid="uid://mwotqvl6cgrg" path="res://resources/items/woodshield.tres" id="29_xq2e6"]
+[ext_resource type="Resource" uid="uid://ksj2uq1ko50h" path="res://resources/items/estus.tres" id="30_ngmyt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x10hd"]
 size = Vector2(24.25, 135.5)
@@ -134,15 +133,15 @@ bonfire_id = "test_001"
 prompt_hide_distance = 20.0
 
 [node name="ItemPickup" parent="ysort" unique_id=1276688924 instance=ExtResource("7_x76ua")]
-position = Vector2(226, 158)
+position = Vector2(468, 107)
 item = ExtResource("8_73n2k")
-quantity = 30
+quantity = 99
 pickup_id = "testroom_iron_arrow_01"
 
 [node name="ItemPickup2" parent="ysort" unique_id=500911358 instance=ExtResource("7_x76ua")]
-position = Vector2(212, 139)
+position = Vector2(491, 105)
 item = ExtResource("8_ohs33")
-quantity = 20
+quantity = 99
 pickup_id = "testroom_steel_arrow_01"
 
 [node name="BasicEnemy" parent="ysort" unique_id=701525225 instance=ExtResource("8_j2kmb")]
@@ -153,8 +152,9 @@ position = Vector2(137, 55)
 unique_id = "test_dummy_002"
 
 [node name="ItemPickup4" parent="ysort" unique_id=440765712 instance=ExtResource("7_x76ua")]
-position = Vector2(202, 158)
+position = Vector2(291, 114)
 item = ExtResource("10_j2kmb")
+quantity = 99
 pickup_id = "testroom_fire_arrow_02"
 
 [node name="LootChest" parent="ysort" unique_id=2066414525 instance=ExtResource("12_0a8m8")]
@@ -364,77 +364,74 @@ preprocess = 0.01
 explosiveness = 0.5
 process_material = SubResource("ParticleProcessMaterial_vhr36")
 
-[node name="ItemPickup" parent="." unique_id=1447342693 instance=ExtResource("7_x76ua")]
-position = Vector2(4, 60)
+[node name="items" type="Node" parent="." unique_id=165512391]
+
+[node name="ItemPickup" parent="items" unique_id=1447342693 instance=ExtResource("7_x76ua")]
+position = Vector2(201, 169)
 item = ExtResource("16_peg3i")
-quantity = 10
+quantity = 99
 pickup_id = "testroom_firebomb01"
 
-[node name="ItemPickup2" parent="." unique_id=1536471653 instance=ExtResource("7_x76ua")]
-position = Vector2(30, 46)
+[node name="ItemPickup2" parent="items" unique_id=1536471653 instance=ExtResource("7_x76ua")]
+position = Vector2(202, 146)
 item = ExtResource("17_vhr36")
-quantity = 10
+quantity = 99
 pickup_id = "testroom_homebone_01"
 
-[node name="ItemPickup3" parent="." unique_id=561001862 instance=ExtResource("7_x76ua")]
-position = Vector2(2, 98)
+[node name="ItemPickup3" parent="items" unique_id=561001862 instance=ExtResource("7_x76ua")]
+position = Vector2(195, 89)
 item = ExtResource("18_vhr36")
-quantity = 50
+quantity = 99
 pickup_id = "testroom_throwingknife_01"
 
-[node name="ItemPickup4" parent="." unique_id=781907303 instance=ExtResource("7_x76ua")]
-position = Vector2(36, 86)
+[node name="ItemPickup4" parent="items" unique_id=781907303 instance=ExtResource("7_x76ua")]
+position = Vector2(174, 66)
 item = ExtResource("18_c3hln")
-quantity = 3
+quantity = 99
 pickup_id = "testroom_greenblossom_01"
 
-[node name="ItemPickup5" parent="." unique_id=142615541 instance=ExtResource("7_x76ua")]
-position = Vector2(55, 60)
+[node name="ItemPickup5" parent="items" unique_id=142615541 instance=ExtResource("7_x76ua")]
+position = Vector2(202, 116)
 item = ExtResource("19_8uwug")
-quantity = 5
+quantity = 99
 pickup_id = "testroom_divine_blessing_01"
 
-[node name="ItemPickup6" parent="." unique_id=657411359 instance=ExtResource("7_x76ua")]
-position = Vector2(16, 262)
-item = ExtResource("21_8uwug")
-pickup_id = "testroom_firespell"
-
-[node name="ItemPickup7" parent="." unique_id=1461230145 instance=ExtResource("7_x76ua")]
-position = Vector2(62, 260)
-item = ExtResource("22_y5ibd")
-pickup_id = "testroom_icespell"
-
-[node name="ItemPickup8" parent="." unique_id=1595425457 instance=ExtResource("7_x76ua")]
-position = Vector2(292, 268)
+[node name="ItemPickup8" parent="items" unique_id=1595425457 instance=ExtResource("7_x76ua")]
+position = Vector2(48, 268)
 item = ExtResource("23_mcwuk")
 pickup_id = "testroom_ironhelm"
 
-[node name="ItemPickup9" parent="." unique_id=1918253268 instance=ExtResource("7_x76ua")]
-position = Vector2(330, 271)
+[node name="ItemPickup9" parent="items" unique_id=1918253268 instance=ExtResource("7_x76ua")]
+position = Vector2(70, 250)
 item = ExtResource("24_kqfu2")
 pickup_id = "testroom_ironbody"
 
-[node name="ItemPickup10" parent="." unique_id=1467802029 instance=ExtResource("7_x76ua")]
-position = Vector2(289, 302)
+[node name="ItemPickup10" parent="items" unique_id=1467802029 instance=ExtResource("7_x76ua")]
+position = Vector2(24, 283)
 item = ExtResource("25_2h0ec")
 pickup_id = "testroom_irongloves"
 
-[node name="ItemPickup11" parent="." unique_id=2065709908 instance=ExtResource("7_x76ua")]
-position = Vector2(326, 304)
+[node name="ItemPickup11" parent="items" unique_id=2065709908 instance=ExtResource("7_x76ua")]
+position = Vector2(108, 233)
 item = ExtResource("26_kayd8")
 pickup_id = "testroom_ironlegs"
 
-[node name="ItemPickup12" parent="." unique_id=1918388533 instance=ExtResource("7_x76ua")]
-position = Vector2(279, 369)
+[node name="ItemPickup12" parent="items" unique_id=1918388533 instance=ExtResource("7_x76ua")]
+position = Vector2(382, 259)
 item = ExtResource("27_kayd8")
 pickup_id = "testroom_dagger"
 
-[node name="ItemPickup13" parent="." unique_id=2073857716 instance=ExtResource("7_x76ua")]
-position = Vector2(302, 367)
+[node name="ItemPickup13" parent="items" unique_id=2073857716 instance=ExtResource("7_x76ua")]
+position = Vector2(421, 277)
 item = ExtResource("28_ngmyt")
 pickup_id = "testroom_sunshield"
 
-[node name="ItemPickup14" parent="." unique_id=1409447806 instance=ExtResource("7_x76ua")]
-position = Vector2(328, 367)
+[node name="ItemPickup14" parent="items" unique_id=1409447806 instance=ExtResource("7_x76ua")]
+position = Vector2(453, 295)
 item = ExtResource("29_xq2e6")
 pickup_id = "testroom_woodshield"
+
+[node name="ItemPickup15_estus" parent="items" unique_id=1909011866 instance=ExtResource("7_x76ua")]
+position = Vector2(289, 217)
+item = ExtResource("30_ngmyt")
+pickup_id = "testroom_estus"

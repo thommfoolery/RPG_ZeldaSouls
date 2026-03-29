@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dtolw1x2wt3xo" path="res://scripts/entities/ItemPickup.gd" id="1_7t2rs"]
 [ext_resource type="Texture2D" uid="uid://7bdfmi0qcj8d" path="res://art/icons/item_sparkle.png" id="1_f1fxr"]
+[ext_resource type="Texture2D" uid="uid://bsyavq5rbcqpw" path="res://art/particles/SoulOrb.png" id="3_lem8c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7t2rs"]
 radius = 26.683329
@@ -24,16 +25,33 @@ emission_shape = 1
 emission_sphere_radius = 31.24
 gravity = Vector3(0, -10, 0)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_7rq2w"]
+radius = 16.492422
+
 [node name="ItemPickup" type="Area2D" unique_id=1276688924]
 position = Vector2(0, -7)
 scale = Vector2(0.25, 0.25)
-collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_7t2rs")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1350520561]
 position = Vector2(-2, 0)
 texture = ExtResource("1_f1fxr")
+
+[node name="TextureRect" type="TextureRect" parent="Sprite2D" unique_id=296217136]
+modulate = Color(0, 0, 0, 0.32941177)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -51.309998
+offset_top = -32.0
+offset_right = -2.7149982
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("3_lem8c")
 
 [node name="InteractionArea" type="Area2D" parent="." unique_id=1075645766]
 collision_layer = 2
@@ -51,6 +69,10 @@ texture = SubResource("GradientTexture2D_lem8c")
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1835077131]
 position = Vector2(0, 8)
 process_material = SubResource("ParticleProcessMaterial_7rq2w")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=901699474]
+position = Vector2(0, 20)
+shape = SubResource("CircleShape2D_7rq2w")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]

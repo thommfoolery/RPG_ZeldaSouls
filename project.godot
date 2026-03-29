@@ -44,6 +44,8 @@ CharacterMenu="*uid://j5cg6l5qp28f"
 PlayerInventory="*uid://tnle8ft4e2u5"
 EquipmentManager="*uid://jju1r2ruy68"
 WeatherManager="*uid://c0dpjfxdmsyql"
+QuickUseHandler="*uid://b0j2w2qrak1cx"
+ProjectileSpawner="*uid://d2m35pyfl64a6"
 
 [display]
 

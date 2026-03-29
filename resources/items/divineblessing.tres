@@ -11,4 +11,7 @@ description = "Healing Item which restores all health and removes all negative s
 icon = ExtResource("1_6t0et")
 weight = 1.0
 rarity = 10
+is_consumable = true
+effect_type = "Heal"
+effect_value = 100.0
 metadata/_custom_type_script = "uid://b7ouuvly1l65f"

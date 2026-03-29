@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="GameItem" format=3 uid="uid://ksj2uq1ko50h"]
+
+[ext_resource type="Script" uid="uid://b7ouuvly1l65f" path="res://resources/items/Item.gd" id="1_4c6ju"]
+[ext_resource type="Texture2D" uid="uid://7j6e82jba5wq" path="res://art/objects/items/consumables/estus.png" id="1_ox3rc"]
+
+[resource]
+script = ExtResource("1_4c6ju")
+id = "estus"
+display_name = "Estus"
+description = "Sunny D in my cup"
+icon = ExtResource("1_ox3rc")
+consumes_on_use = false
+effect_type = "Heal"
+special_component_ref = "EstusComponent"
+metadata/_custom_type_script = "uid://b7ouuvly1l65f"

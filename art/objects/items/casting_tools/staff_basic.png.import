@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dybtqugx1ry86"
-path="res://.godot/imported/icespell.png-3b603f99b7cfdf85d41a466eb9309da8.ctex"
+uid="uid://csnwwoh0noda2"
+path="res://.godot/imported/staff_basic.png-6e41bdecbd3fca3ae73573546e163775.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/objects/items/spells/icespell.png"
-dest_files=["res://.godot/imported/icespell.png-3b603f99b7cfdf85d41a466eb9309da8.ctex"]
+source_file="res://art/objects/items/casting_tools/staff_basic.png"
+dest_files=["res://.godot/imported/staff_basic.png-6e41bdecbd3fca3ae73573546e163775.ctex"]
 
 [params]
 

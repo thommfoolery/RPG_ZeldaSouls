@@ -43,7 +43,7 @@ func _create_ui_elements() -> void:
 	if not has_node("PickupNotification"):
 		pickup_notification = Control.new()
 		pickup_notification.name = "PickupNotification"
-		pickup_notification.position = Vector2(440, 280)
+		pickup_notification.position = Vector2(440, 580)
 		add_child(pickup_notification)
 		
 		var bg = Panel.new()

@@ -11,5 +11,6 @@ description = "stick and string"
 icon = ExtResource("1_nbp8g")
 category = "Weapons"
 weight = 2.0
+weapon_type = "Bow"
 ammo_type = "Arrow"
 metadata/_custom_type_script = "uid://b7ouuvly1l65f"

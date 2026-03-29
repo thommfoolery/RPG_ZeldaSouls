@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://cgmwuii2ogpxa"]
+
+[sub_resource type="Gradient" id="Gradient_butnh"]
+offsets = PackedFloat32Array(0, 0.8598131)
+colors = PackedColorArray(1, 1, 1, 0.8862745, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lp56m"]
+gradient = SubResource("Gradient_butnh")
+fill = 1
+fill_from = Vector2(0.4957265, 0.5)
+fill_to = Vector2(0.6666667, 0.34615386)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ykl6p"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 6.53
+gravity = Vector3(0, -10, 0)
+
+[node name="ProjectileTrailVfxPlaceholder" type="Node2D" unique_id=91231622]
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1245514467]
+texture = SubResource("GradientTexture2D_lp56m")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=868121738]
+amount = 20
+amount_ratio = 0.615
+explosiveness = 0.28
+process_material = SubResource("ParticleProcessMaterial_ykl6p")

@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://b7ouuvly1l65f" path="res://resources/items/Item.gd" id="1_27efu"]
 [ext_resource type="Texture2D" uid="uid://kwdrh2dyrsw5" path="res://art/objects/items/consumables/firebomb.png" id="1_bh0ae"]
+[ext_resource type="PackedScene" uid="uid://c3srcludvqix" path="res://scenes/vfx/ExplodeVFXPlaceholder.tscn" id="1_ikexr"]
+[ext_resource type="Texture2D" uid="uid://bji4q1fbewntj" path="res://art/objects/items/Projectiles/firebomb_project.png" id="2_hqxma"]
 
 [resource]
 script = ExtResource("1_27efu")
@@ -10,4 +12,12 @@ display_name = "Fire Bomb"
 description = "Throwable item. Deals heavy AOE fire damage."
 icon = ExtResource("1_bh0ae")
 weight = 0.5
+is_consumable = true
+damage = 45
+effect_type = "Damage"
+trajectory_type = "Arc"
+speed = 200.0
+lifetime = 1.0
+explosion_scene = ExtResource("1_ikexr")
+projectile_sprite = ExtResource("2_hqxma")
 metadata/_custom_type_script = "uid://b7ouuvly1l65f"

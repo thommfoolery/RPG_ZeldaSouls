@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="GameItem" format=3 uid="uid://csia2ydnyj8tp"]
+
+[ext_resource type="Texture2D" uid="uid://cu2kayergucet" path="res://art/objects/items/casting_tools/chime_basic.png" id="1_45vy6"]
+[ext_resource type="Script" uid="uid://b7ouuvly1l65f" path="res://resources/items/Item.gd" id="1_i3832"]
+
+[resource]
+script = ExtResource("1_i3832")
+id = "chime_basic"
+display_name = "Basic Chime"
+description = "Casting tool for Miracles"
+icon = ExtResource("1_45vy6")
+category = "Weapons"
+max_stack = 1
+weapon_type = "Chime"
+metadata/_custom_type_script = "uid://b7ouuvly1l65f"

@@ -10,4 +10,5 @@ display_name = "Homeward Bone"
 description = "Transports player to the last visited Bonfire without loss of souls or humanity."
 icon = ExtResource("1_oixwa")
 weight = 0.1
+effect_type = "Teleport"
 metadata/_custom_type_script = "uid://b7ouuvly1l65f"

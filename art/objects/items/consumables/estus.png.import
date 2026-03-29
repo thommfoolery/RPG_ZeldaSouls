@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cffbh35hdbsuk"
-path="res://.godot/imported/firespell.png-9dcdb4a17efe819283805233b09a497f.ctex"
+uid="uid://7j6e82jba5wq"
+path="res://.godot/imported/estus.png-0cf189eae41efb0598a405b53b3ce243.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/objects/items/spells/firespell.png"
-dest_files=["res://.godot/imported/firespell.png-9dcdb4a17efe819283805233b09a497f.ctex"]
+source_file="res://art/objects/items/consumables/estus.png"
+dest_files=["res://.godot/imported/estus.png-0cf189eae41efb0598a405b53b3ce243.ctex"]
 
 [params]
 

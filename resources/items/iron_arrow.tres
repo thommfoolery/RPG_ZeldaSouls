@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b5pdm1cm14bpn" path="res://art/objects/items/ammo/ironarrow.png" id="1_4q5bx"]
 [ext_resource type="Script" uid="uid://b7ouuvly1l65f" path="res://resources/items/Item.gd" id="1_rde35"]
+[ext_resource type="Texture2D" uid="uid://djsewdrchvnxy" path="res://art/objects/items/Projectiles/arrow.png" id="2_4jdon"]
 
 [resource]
 script = ExtResource("1_rde35")
@@ -13,5 +14,7 @@ category = "Ammo"
 max_stack = 999
 weight = 0.1
 damage = 12
+speed = 300.0
+projectile_sprite = ExtResource("2_4jdon")
 ammo_type = "Arrow"
 metadata/_custom_type_script = "uid://b7ouuvly1l65f"

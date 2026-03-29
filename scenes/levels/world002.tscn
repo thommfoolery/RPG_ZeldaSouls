@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://bc2ftyv842nux" path="res://scenes/entities/ItemPickup.tscn" id="6_8js7t"]
 [ext_resource type="PackedScene" uid="uid://dkklr2xotuii8" path="res://scenes/interactables/chest/loot_chest.tscn" id="7_j13yu"]
 [ext_resource type="Resource" uid="uid://mn8t0tv8rl51" path="res://resources/items/test_key_001.tres" id="7_opnmq"]
+[ext_resource type="Texture2D" uid="uid://upn7gxbwwnmw" path="res://art/particles/rain.png" id="9_u0v5x"]
+[ext_resource type="Texture2D" uid="uid://dfodyf523g2em" path="res://art/particles/rainsplash.png" id="10_8jpmv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mi3c8"]
 size = Vector2(107, 99)
@@ -20,6 +22,51 @@ size = Vector2(298, 333.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e10jm"]
 size = Vector2(146, 54)
+
+[sub_resource type="Curve" id="Curve_1rxhx"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.11309523, 0.6199112), 0.0, 0.0, 0, 0, Vector2(0.8015872, 0.5910437), 0.0, 0.0, 0, 0, Vector2(0.92063487, 0.0040711164), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_n5sgd"]
+curve = SubResource("Curve_1rxhx")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_px76o"]
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(100, -400, 0)
+emission_shape_scale = Vector3(1, 0.1, 1)
+emission_shape = 3
+emission_box_extents = Vector3(750, 1, 1)
+angle_min = 10.0000105
+angle_max = 10.0000105
+direction = Vector3(-0.4, 1, 0)
+spread = 0.0
+initial_velocity_min = 450.0
+initial_velocity_max = 470.0
+gravity = Vector3(-2, 25, 0)
+alpha_curve = SubResource("CurveTexture_n5sgd")
+sub_emitter_mode = 2
+sub_emitter_amount_at_end = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_msnsw"]
+particles_animation = true
+particles_anim_h_frames = 3
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_l4cwj"]
+_data = [Vector2(0, 0.5477424), 0.0, 0.0, 0, 0, Vector2(0.23015872, 0.49000746), 0.0, 0.0, 0, 0, Vector2(0.32738093, 0), 0.0, 0.0, 0, 0, Vector2(0.7738095, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_5ki56"]
+curve = SubResource("Curve_l4cwj")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6ah4f"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+alpha_curve = SubResource("CurveTexture_5ki56")
+anim_speed_min = 4.0
+anim_speed_max = 4.0
 
 [node name="world002" type="Node2D" unique_id=175521609]
 y_sort_enabled = true
@@ -121,3 +168,28 @@ polygon = PackedVector2Array(3.9900055, 3, 86.5575, 168.71413, 86.907936, 79.809
 
 [node name="DefaultSpawn" type="Node2D" parent="." unique_id=1625421850]
 position = Vector2(572, 318)
+
+[node name="RainDrops" type="GPUParticles2D" parent="." unique_id=2101254302]
+z_index = 2
+texture_filter = 1
+position = Vector2(491, -48)
+amount = 1000
+sub_emitter = NodePath("../RainSplash")
+texture = ExtResource("9_u0v5x")
+lifetime = 2.0
+randomness = 1.0
+visibility_rect = Rect2(-1000, -1000, 2000, 2000)
+process_material = SubResource("ParticleProcessMaterial_px76o")
+
+[node name="RainSplash" type="GPUParticles2D" parent="." unique_id=1824693215]
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_msnsw")
+position = Vector2(491, -28)
+emitting = false
+amount = 1000
+texture = ExtResource("10_8jpmv")
+lifetime = 1.2
+one_shot = true
+preprocess = 0.01
+explosiveness = 0.5
+process_material = SubResource("ParticleProcessMaterial_6ah4f")

@@ -117,3 +117,20 @@ func get_total_item_count() -> int:
 	for cat in inventory:
 		total += inventory[cat].size()
 	return total
+
+# Add this at the very bottom of PlayerInventory.gd
+func consume_item(item_id: String, qty: int = 1) -> void:
+	print("[INVENTORY-DEBUG] consume_item called → id=", item_id, " qty=", qty)
+	for cat in inventory:
+		for i in range(inventory[cat].size()):
+			var entry = inventory[cat][i]
+			if entry and entry.id == item_id:
+				if entry.quantity > qty:
+					entry.quantity -= qty
+					print("[INVENTORY-DEBUG] Reduced ", item_id, " from ", entry.quantity + qty, " to ", entry.quantity)
+				else:
+					inventory[cat].remove_at(i)
+					print("[INVENTORY-DEBUG] Removed last ", item_id, " from inventory")
+				inventory_changed.emit()
+				return
+	print("[INVENTORY-DEBUG] Could not find item ", item_id, " to consume")

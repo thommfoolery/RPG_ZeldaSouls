@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="GameItem" format=3 uid="uid://bwdrxacv0qpfs"]
+
+[ext_resource type="Script" uid="uid://b7ouuvly1l65f" path="res://resources/items/Item.gd" id="1_2y4id"]
+[ext_resource type="Texture2D" uid="uid://di7yjvdifltjm" path="res://art/objects/items/spells/poison_cloud.png" id="1_bhclh"]
+
+[resource]
+script = ExtResource("1_2y4id")
+id = "poison_cloud"
+display_name = "Poison Cloud"
+description = "Releases a poison cloud"
+icon = ExtResource("1_bhclh")
+category = "Spells"
+spell_type = "Hex"
+mana_cost = 1
+attunement_slots = 2
+cast_time = 2.0
+cooldown = 5.0
+status_effect_to_apply = "Poison"
+metadata/_custom_type_script = "uid://b7ouuvly1l65f"

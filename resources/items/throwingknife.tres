@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://b7ouuvly1l65f" path="res://resources/items/Item.gd" id="1_ak7bt"]
 [ext_resource type="Texture2D" uid="uid://dg53t6dafwsce" path="res://art/objects/items/consumables/throwingknife.png" id="1_h7f4u"]
+[ext_resource type="Texture2D" uid="uid://wqb22tgppus6" path="res://art/objects/items/Projectiles/throwingknife.png" id="2_dsoik"]
+[ext_resource type="PackedScene" uid="uid://c5ewquu51cewh" path="res://scenes/vfx/useitemVFXplaceholder.tscn" id="4_korsi"]
 
 [resource]
 script = ExtResource("1_ak7bt")
@@ -10,5 +12,10 @@ display_name = "Throwing Knife"
 description = "Projectile that deals light damage."
 icon = ExtResource("1_h7f4u")
 weight = 0.1
-damage = 10
+damage = 22
+effect_type = "Damage"
+speed = 300.0
+lifetime = 2.5
+projectile_sprite = ExtResource("2_dsoik")
+use_vfx_scene = ExtResource("4_korsi")
 metadata/_custom_type_script = "uid://b7ouuvly1l65f"

@@ -7,11 +7,13 @@
 [ext_resource type="Script" uid="uid://bsahnrj5uq1ml" path="res://scripts/components/MovementComponent.gd" id="4_5u6hq"]
 [ext_resource type="Script" uid="uid://b7urcot2kj1yn" path="res://scripts/components/StaminaComponent.gd" id="5_5u6hq"]
 [ext_resource type="Script" uid="uid://dpejf1kwt6rdj" path="res://scripts/components/HealthComponent.gd" id="6_d4qa6"]
-[ext_resource type="Script" uid="uid://bc8jla0wcrk8s" path="res://scenes/components/ManaComponent.gd" id="7_b6tgf"]
+[ext_resource type="Script" uid="uid://bc8jla0wcrk8s" path="res://scripts/components/ManaComponent.gd" id="7_b6tgf"]
 [ext_resource type="Script" uid="uid://dvjeabiifit3" path="res://scripts/components/DeathHandler.gd" id="7_ss7kx"]
 [ext_resource type="Script" uid="uid://cf1bhsobouyhv" path="res://scripts/components/EstusComponent.gd" id="8_dnykm"]
+[ext_resource type="Script" uid="uid://dl2a0r7fvawub" path="res://scripts/components/SpellCasterComponent.gd" id="9_saib0"]
 [ext_resource type="Texture2D" uid="uid://dfodyf523g2em" path="res://art/particles/rainsplash.png" id="10_n5sgd"]
 [ext_resource type="Texture2D" uid="uid://upn7gxbwwnmw" path="res://art/particles/rain.png" id="11_5ki56"]
+[ext_resource type="Script" uid="uid://spjg53sonygo" path="res://scripts/components/BowComponent.gd" id="13_5ki56"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_c5rqy"]
 shader = ExtResource("1_c5rqy")
@@ -131,9 +133,7 @@ script = ExtResource("1_dnykm")
 material = SubResource("ShaderMaterial_c5rqy")
 position = Vector2(0, -14)
 sprite_frames = ExtResource("2_08t41")
-animation = &"stand"
-frame = 3
-frame_progress = 1.0
+animation = &"idle_front"
 
 [node name="ColorRect2" type="ColorRect" parent="SpriteContainer/AnimatedSprite2D" unique_id=270748073]
 visible = false
@@ -143,13 +143,16 @@ offset_right = 24.0
 offset_bottom = 30.0
 color = Color(0.09602364, 7.556528e-06, 0.4491707, 0.70980394)
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=291062422]
+position = Vector2(0, -3)
+shape = SubResource("CircleShape2D_5u6hq")
+
 [node name="AnimationComponent" type="Node" parent="." unique_id=1680668245]
 script = ExtResource("3_42nxq")
 metadata/_custom_type_script = "uid://bm5txjtto3n8a"
 
 [node name="MovementComponent" type="Node" parent="." unique_id=1795499153]
 script = ExtResource("4_5u6hq")
-base_speed = 40.0
 sprint_multiplier = 1.5
 backstep_distance = 100.0
 dodge_roll_distance = 120.0
@@ -163,9 +166,13 @@ metadata/_custom_type_script = "uid://b7urcot2kj1yn"
 script = ExtResource("7_b6tgf")
 metadata/_custom_type_script = "uid://bc8jla0wcrk8s"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=291062422]
-position = Vector2(0, -3)
-shape = SubResource("CircleShape2D_5u6hq")
+[node name="BowComponent" type="Node" parent="." unique_id=1339498999]
+script = ExtResource("13_5ki56")
+metadata/_custom_type_script = "uid://spjg53sonygo"
+
+[node name="SpellCasterComponent" type="Node" parent="." unique_id=783520485]
+script = ExtResource("9_saib0")
+metadata/_custom_type_script = "uid://dl2a0r7fvawub"
 
 [node name="HealthComponent" type="Node" parent="." unique_id=1945349878]
 script = ExtResource("6_d4qa6")
@@ -178,7 +185,7 @@ script = ExtResource("7_ss7kx")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=735539643]
 unique_name_in_owner = true
 position = Vector2(0, -20)
-zoom = Vector2(4.5, 4.5)
+zoom = Vector2(3.5, 3.5)
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
@@ -253,10 +260,11 @@ offset_bottom = 20.0
 color = Color(0.06637282, 0.18680316, 0.11857245, 1)
 
 [node name="ImpactLight" type="PointLight2D" parent="." unique_id=1790886629]
-visible = false
 position = Vector2(1, -3)
 texture = SubResource("GradientTexture2D_b6tgf")
 texture_scale = 1.43
+
+[node name="Lights" type="Node" parent="." unique_id=428727738]
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1390131800]
 visible = false
@@ -265,12 +273,14 @@ range_z_max = 1
 texture = SubResource("GradientTexture2D_5ki56")
 
 [node name="PointLight2D2" type="PointLight2D" parent="." unique_id=323548188]
+visible = false
 energy = 0.12
 range_z_max = 1
 texture = SubResource("GradientTexture2D_5ki56")
 texture_scale = 3.35
 
 [node name="PointLight2D3" type="PointLight2D" parent="." unique_id=1699744082]
+visible = false
 energy = 0.44
 range_z_max = 1
 texture = SubResource("GradientTexture2D_5ki56")

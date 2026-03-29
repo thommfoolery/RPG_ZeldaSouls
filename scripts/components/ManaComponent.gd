@@ -30,6 +30,11 @@ func spend_mana(amount: float) -> bool:
 		return true
 	return false
 
+# Add this at the bottom of ManaComponent.gd
+func drain(amount: float) -> bool:
+	return spend_mana(amount)
+
+########################
 # Called from bonfire
 func restore_full() -> void:
 	current_mana = max_mana

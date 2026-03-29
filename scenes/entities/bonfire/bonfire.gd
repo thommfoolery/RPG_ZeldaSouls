@@ -151,43 +151,64 @@ func light_bonfire() -> void:
 	just_lit = false
 
 func rest_at_bonfire() -> void:
-	if is_resting or just_lit: return
+	if is_resting or just_lit: 
+		return
+	
 	is_resting = true
 	print("[Bonfire] Rest initiated → ", bonfire_id)
-	
+
 	# Nice burst on rest too
-	if embers: embers.emitting = true
+	if embers: 
+		embers.emitting = true
 	if flash_light:
 		flash_light.energy = 3.8
 		var tween = create_tween()
 		tween.tween_property(flash_light, "energy", 0.0, 0.5).set_trans(Tween.TRANS_QUAD)
-	
+
+	# Set checkpoint
 	var spawn_pos := global_position + Vector2(0, spawn_offset_y)
 	var scene_path := get_tree().current_scene.scene_file_path
 	var entry = BonfireManager.get_entry(bonfire_id)
 	if entry and entry.spawn_position != Vector2.ZERO:
 		spawn_pos = entry.spawn_position
-	
+
 	if CheckpointManager:
 		CheckpointManager.set_checkpoint(bonfire_id, scene_path, spawn_pos)
-	
+
+	# ─── RESTORE PLAYER RESOURCES ───
 	var player = PlayerManager.current_player
 	if player:
+		# Health
 		var health = player.get_node_or_null("HealthComponent")
-		if health: health.heal(health.max_health)
-		
+		if health:
+			health.heal(health.max_health)
+
+		# Stamina
 		var stamina = player.get_node_or_null("StaminaComponent")
 		if stamina:
 			stamina.current_stamina = stamina.max_stamina
 			stamina.stamina_changed.emit(stamina.current_stamina, stamina.max_stamina)
-	
+
+		# MANA - NEW
+		var mana = player.get_node_or_null("ManaComponent")
+		if mana:
+			if mana.has_method("restore_full"):
+				mana.restore_full()
+			else:
+				# Fallback if restore_full doesn't exist yet
+				mana.current_mana = mana.max_mana
+				if mana.has_signal("mana_changed"):
+					mana.mana_changed.emit(mana.current_mana, mana.max_mana)
+			print("[Bonfire] Mana fully restored")
+
+	# Reset enemies
 	if WorldStateManager:
 		WorldStateManager.reset_regular_enemies()
-	
-	# ─── NEW: Use the proper integrated BonfireMenu instead of old rest_menu ───
+
+	# Show the proper bonfire menu
 	if UIManager:
-		UIManager.show_bonfire_menu(bonfire_id)   # ← This is the only line that changed
-	
+		UIManager.show_bonfire_menu(bonfire_id)
+
 	await get_tree().create_timer(0.1).timeout
 	is_resting = false  # safety fallback
 
@@ -221,24 +242,3 @@ func _on_interaction_area_body_exited(body: Node2D) -> void:
 		prompt_label.visible = false
 		update_prompt()
 		print("[Bonfire] Player exited interaction range → ", bonfire_id)
-
-# ── ANIMATION HELPERS (using AnimationComponent) ──
-func _play_sit_animation() -> void:
-	var player = PlayerManager.current_player
-	if not player: return
-	
-	var anim_comp = player.get_node_or_null("AnimationComponent")
-	if anim_comp and anim_comp.has_method("play_sit"):
-		anim_comp.play_sit()
-	else:
-		print("[Bonfire-DEBUG] AnimationComponent or play_sit() method not found")
-
-func _play_stand_animation() -> void:
-	var player = PlayerManager.current_player
-	if not player: return
-	
-	var anim_comp = player.get_node_or_null("AnimationComponent")
-	if anim_comp and anim_comp.has_method("play_stand"):
-		anim_comp.play_stand()
-	else:
-		print("[Bonfire-DEBUG] AnimationComponent or play_stand() method not found")

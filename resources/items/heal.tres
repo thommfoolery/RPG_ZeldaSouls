@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="GameItem" format=3 uid="uid://ct8bsu3r7wm7r"]
+
+[ext_resource type="Texture2D" uid="uid://duhs2mj320uff" path="res://art/objects/items/spells/heal.png" id="1_gkg6s"]
+[ext_resource type="Script" uid="uid://b7ouuvly1l65f" path="res://resources/items/Item.gd" id="1_gsm86"]
+[ext_resource type="PackedScene" uid="uid://brmlhewyst2rn" path="res://scenes/vfx/SpellVFXPlaceholder.tscn" id="3_gkg6s"]
+[ext_resource type="Script" uid="uid://ddksgxy20ja3h" path="res://scripts/spells/HealScript.gd" id="3_lvwh6"]
+
+[resource]
+script = ExtResource("1_gsm86")
+id = "heal"
+display_name = "Heal"
+description = "Restores health"
+icon = ExtResource("1_gkg6s")
+category = "Spells"
+consumes_on_use = false
+spell_type = "Miracle"
+mana_cost = 1
+cast_time = 3.0
+cooldown = 3.0
+spell_vfx_scene = ExtResource("3_gkg6s")
+spell_effect_script = ExtResource("3_lvwh6")
+effect_type = "Cast"
+use_vfx_scene = ExtResource("3_gkg6s")
+metadata/_custom_type_script = "uid://b7ouuvly1l65f"

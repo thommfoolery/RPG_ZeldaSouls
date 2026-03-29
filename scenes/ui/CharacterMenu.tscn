@@ -177,7 +177,7 @@ layout_mode = 2
 layout_mode = 2
 theme = SubResource("Theme_7otbg")
 theme_override_constants/h_separation = 6
-theme_override_constants/v_separation = 11
+theme_override_constants/v_separation = 30
 columns = 10
 
 [node name="RightHandIcon" type="TextureRect" parent="Content/EquipmentPanel/MainContainer/GridContainer" unique_id=2133973517]
@@ -236,6 +236,23 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("5_fsly8")
 
+[node name="Quick1Qty" type="Label" parent="Content/EquipmentPanel/MainContainer/GridContainer/Quick1" unique_id=1802068459]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -5.0
+offset_right = 20.0
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "test"
+horizontal_alignment = 1
+
 [node name="Quick2" type="TextureRect" parent="Content/EquipmentPanel/MainContainer/GridContainer" unique_id=2077237059]
 unique_name_in_owner = true
 z_index = 2
@@ -249,6 +266,23 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("5_fsly8")
+
+[node name="Quick2Qty" type="Label" parent="Content/EquipmentPanel/MainContainer/GridContainer/Quick2" unique_id=1482318248]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -26.0
+offset_top = -5.0
+offset_right = 26.0
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "test"
+horizontal_alignment = 1
 
 [node name="Quick3" type="TextureRect" parent="Content/EquipmentPanel/MainContainer/GridContainer" unique_id=1256200983]
 unique_name_in_owner = true
@@ -264,6 +298,23 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("5_fsly8")
 
+[node name="Quick3Qty" type="Label" parent="Content/EquipmentPanel/MainContainer/GridContainer/Quick3" unique_id=177824766]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -6.0
+offset_right = 20.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "test"
+horizontal_alignment = 1
+
 [node name="Quick4" type="TextureRect" parent="Content/EquipmentPanel/MainContainer/GridContainer" unique_id=459136664]
 unique_name_in_owner = true
 z_index = 2
@@ -278,6 +329,24 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("5_fsly8")
 
+[node name="Quick4Qty" type="Label" parent="Content/EquipmentPanel/MainContainer/GridContainer/Quick4" unique_id=1520624435]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -6.0
+offset_right = 20.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "test"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Quick5" type="TextureRect" parent="Content/EquipmentPanel/MainContainer/GridContainer" unique_id=1988810640]
 unique_name_in_owner = true
 z_index = 2
@@ -291,6 +360,24 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("5_fsly8")
+
+[node name="Quick5Qty" type="Label" parent="Content/EquipmentPanel/MainContainer/GridContainer/Quick5" unique_id=1094372121]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -6.0
+offset_right = 20.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "test"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="LeftHandIcon" type="TextureRect" parent="Content/EquipmentPanel/MainContainer/GridContainer" unique_id=589671180]
 unique_name_in_owner = true
@@ -347,6 +434,24 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("5_fsly8")
 
+[node name="Ammo1Qty" type="Label" parent="Content/EquipmentPanel/MainContainer/GridContainer/Ammo1" unique_id=247722261]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -5.0
+offset_right = 20.0
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "test"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Ammo2" type="TextureRect" parent="Content/EquipmentPanel/MainContainer/GridContainer" unique_id=1969376422]
 unique_name_in_owner = true
 z_index = 1
@@ -360,6 +465,24 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("5_fsly8")
+
+[node name="Ammo2Qty" type="Label" parent="Content/EquipmentPanel/MainContainer/GridContainer/Ammo2" unique_id=867559148]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -5.0
+offset_right = 20.0
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "test"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Control10" type="Control" parent="Content/EquipmentPanel/MainContainer/GridContainer" unique_id=1286190836]
 layout_mode = 2

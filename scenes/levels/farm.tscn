@@ -10,6 +10,13 @@
 [ext_resource type="PackedScene" uid="uid://c25njrx36mpci" path="res://scripts/entities/basic_enemy.tscn" id="8_kbctq"]
 [ext_resource type="PackedScene" uid="uid://bc2ftyv842nux" path="res://scenes/entities/ItemPickup.tscn" id="9_jam0k"]
 [ext_resource type="Resource" uid="uid://dgivfw3uo1cm2" path="res://resources/items/questnote.tres" id="10_mkf7d"]
+[ext_resource type="Resource" uid="uid://bwdrxacv0qpfs" path="res://resources/items/poison_cloud.tres" id="11_uet47"]
+[ext_resource type="Resource" uid="uid://bhygoeyy7mhih" path="res://resources/items/fireball.tres" id="12_n0ttf"]
+[ext_resource type="Resource" uid="uid://ct8bsu3r7wm7r" path="res://resources/items/heal.tres" id="13_xsjtd"]
+[ext_resource type="Resource" uid="uid://r6njqth4hhwe" path="res://resources/items/ice_spike.tres" id="14_ktv82"]
+[ext_resource type="Resource" uid="uid://csia2ydnyj8tp" path="res://resources/items/chime_basic.tres" id="15_1uenk"]
+[ext_resource type="Resource" uid="uid://ckv3ybjgth7ji" path="res://resources/items/staff_basic.tres" id="16_1kqwi"]
+[ext_resource type="Resource" uid="uid://bqmi5sfomvhbf" path="res://resources/items/heretical_catalyst.tres" id="17_48lln"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kbctq"]
 size = Vector2(107, 107)
@@ -163,3 +170,38 @@ position = Vector2(139, 224)
 position = Vector2(107, 269)
 item = ExtResource("10_mkf7d")
 pickup_id = "world001_testnote"
+
+[node name="ItemPickup2" parent="." unique_id=2146686494 instance=ExtResource("9_jam0k")]
+position = Vector2(413, 273)
+item = ExtResource("11_uet47")
+pickup_id = "farm_poisoncloud"
+
+[node name="ItemPickup3" parent="." unique_id=1787752413 instance=ExtResource("9_jam0k")]
+position = Vector2(391, 262)
+item = ExtResource("12_n0ttf")
+pickup_id = "farm_fireball"
+
+[node name="ItemPickup4" parent="." unique_id=477995830 instance=ExtResource("9_jam0k")]
+position = Vector2(461, 268)
+item = ExtResource("13_xsjtd")
+pickup_id = "farm_heal"
+
+[node name="ItemPickup5" parent="." unique_id=1479727059 instance=ExtResource("9_jam0k")]
+position = Vector2(372, 267)
+item = ExtResource("14_ktv82")
+pickup_id = "farm_icespike"
+
+[node name="ItemPickup6" parent="." unique_id=1616567429 instance=ExtResource("9_jam0k")]
+position = Vector2(459, 302)
+item = ExtResource("15_1uenk")
+pickup_id = "farm_chime"
+
+[node name="ItemPickup7" parent="." unique_id=598087586 instance=ExtResource("9_jam0k")]
+position = Vector2(411, 307)
+item = ExtResource("16_1kqwi")
+pickup_id = "farm_staff"
+
+[node name="ItemPickup8" parent="." unique_id=512843926 instance=ExtResource("9_jam0k")]
+position = Vector2(363, 307)
+item = ExtResource("17_48lln")
+pickup_id = "farm_catalyst"
