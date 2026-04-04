@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://bbh4sx7cw5iwt"]
+
+[ext_resource type="Texture2D" uid="uid://o0b0lv61ik8y" path="res://art/grass/blad2.png" id="1_40bhs"]
+[ext_resource type="Script" uid="uid://cwm5agpkte1qm" path="res://scenes/foliage/GrassBlade.gd" id="1_jjpcn"]
+[ext_resource type="Texture2D" uid="uid://bsyavq5rbcqpw" path="res://art/particles/SoulOrb.png" id="2_fd85a"]
+[ext_resource type="Texture2D" uid="uid://bnml1inb04x42" path="res://art/grass/blade1.png" id="2_jjpcn"]
+
+[sub_resource type="Animation" id="Animation_40bhs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BladeBack:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BladeFront:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_jjpcn"]
+resource_name = "wind_sway"
+length = 3.3666666
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BladeBack:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.1333333, 2.1333334, 3.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.12217305, -0.06108652381980153, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BladeFront:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.033333335, 0.96666664, 2.5666666),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.03490658503988659, -0.03490658503988659]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fd85a"]
+_data = {
+&"RESET": SubResource("Animation_40bhs"),
+&"wind_sway": SubResource("Animation_jjpcn")
+}
+
+[node name="Node2D" type="Node2D" unique_id=541045557]
+y_sort_enabled = true
+script = ExtResource("1_jjpcn")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=510997496]
+modulate = Color(0, 0, 0, 0.14901961)
+offset_left = -3.0
+offset_top = -1.0
+offset_right = 3.0
+offset_bottom = 1.0
+texture = ExtResource("2_fd85a")
+expand_mode = 1
+
+[node name="BladeBack" type="Sprite2D" parent="." unique_id=1347772432]
+position = Vector2(1, 2)
+texture = ExtResource("1_40bhs")
+centered = false
+offset = Vector2(-7, -18)
+
+[node name="BladeFront" type="Sprite2D" parent="." unique_id=433928414]
+modulate = Color(0.8848981, 0.8848981, 0.8848981, 1)
+position = Vector2(0, -2)
+texture = ExtResource("2_jjpcn")
+centered = false
+offset = Vector2(-6, -13.6)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1085258776]
+libraries/ = SubResource("AnimationLibrary_fd85a")
+speed_scale = 0.671

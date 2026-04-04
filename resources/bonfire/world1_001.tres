@@ -5,12 +5,12 @@
 
 [resource]
 script = ExtResource("1_5uthn")
-area_name = "world001"
+area_name = "world_001"
 bonfire_id = "world1_001"
 scene_path = "uid://up75iqrm1bpp"
 spawn_position = Vector2(163, 110)
-title = "World 001"
-subtitle = "Aw shit here we go again.."
+title = "Aw Shit"
+subtitle = "here we go again.."
 is_lit_on_first_rest = false
 preview_texture = ExtResource("1_dfvrc")
 sort_order = 1

@@ -5,12 +5,12 @@
 
 [resource]
 script = ExtResource("1_b8a0e")
-area_name = "testroom"
+area_name = "Starting Zone"
 bonfire_id = "test_004"
 scene_path = "uid://b2q563ev4ywoh"
 spawn_position = Vector2(482.34, 339.465)
-title = "bottom right testroom"
-subtitle = "subtext for bottom right in testroom"
+title = "The Grassy Knoll"
+subtitle = "a hill in downtown Dallas"
 rest_particle_color = Color(1, 0.5241375, 0.8201549, 1)
 preview_texture = ExtResource("1_gp57y")
 sort_order = 4

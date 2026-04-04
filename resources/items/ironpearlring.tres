@@ -10,6 +10,7 @@ display_name = "Iron Pearl Ring"
 description = "Fancy Drawing, huh?"
 icon = ExtResource("1_fwg7i")
 category = "Rings"
+stacks = false
 weight = 2.0
 rarity = 100
 metadata/_custom_type_script = "uid://b7ouuvly1l65f"

@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="GameItem" format=3 uid="uid://bhygoeyy7mhih"]
 
+[ext_resource type="PackedScene" uid="uid://3lys7uj6ovdg" path="res://scenes/vfx/ProjectileTrailVFXPlaceholder_warm.tscn" id="1_8gi0b"]
 [ext_resource type="Texture2D" uid="uid://ckqkjmlj117fu" path="res://art/objects/items/spells/fireball.png" id="1_8143y"]
 [ext_resource type="PackedScene" uid="uid://c3srcludvqix" path="res://scenes/vfx/ExplodeVFXPlaceholder.tscn" id="1_atybp"]
 [ext_resource type="Script" uid="uid://b7ouuvly1l65f" path="res://resources/items/Item.gd" id="1_ubp36"]
 [ext_resource type="Texture2D" uid="uid://b0on5rtpam5eq" path="res://art/objects/items/Projectiles/fireball.png" id="2_3xqjl"]
-[ext_resource type="PackedScene" uid="uid://cgmwuii2ogpxa" path="res://scenes/vfx/ProjectileTrailVFXPlaceholder.tscn" id="3_8gi0b"]
 [ext_resource type="PackedScene" uid="uid://bw7n3fw1es7x7" path="res://scenes/entities/projectiles/Projectile.tscn" id="4_8gi0b"]
 [ext_resource type="PackedScene" uid="uid://brmlhewyst2rn" path="res://scenes/vfx/SpellVFXPlaceholder.tscn" id="5_3xqjl"]
 
@@ -15,7 +15,7 @@ display_name = "Fireball"
 description = "Hurls a fireball"
 icon = ExtResource("1_8143y")
 category = "Spells"
-mana_cost = 1
+mana_cost = 10
 cast_time = 0.5
 cooldown = 1.5
 spell_vfx_scene = ExtResource("5_3xqjl")
@@ -23,10 +23,11 @@ spell_projectile_scene = ExtResource("4_8gi0b")
 status_effect_to_apply = "Fire"
 damage = 50
 effect_type = "Cast"
+stamina_cost = 10.0
 speed = 200.0
 lifetime = 2.0
 explosion_scene = ExtResource("1_atybp")
 piercing = true
 projectile_sprite = ExtResource("2_3xqjl")
-projectile_trail_vfx = ExtResource("3_8gi0b")
+projectile_trail_vfx = ExtResource("1_8gi0b")
 metadata/_custom_type_script = "uid://b7ouuvly1l65f"

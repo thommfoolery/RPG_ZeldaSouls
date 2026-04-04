@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="GameItem" format=3 uid="uid://cb8bmwm7cgxyc"]
+
+[ext_resource type="Texture2D" uid="uid://bbp6viug4rmk7" path="res://art/objects/items/armor/armor_helm_gold.png" id="1_yehnc"]
+[ext_resource type="Script" uid="uid://b7ouuvly1l65f" path="res://resources/items/Item.gd" id="2_m81ur"]
+
+[resource]
+script = ExtResource("2_m81ur")
+use_tint = true
+id = "armor_helm_gold"
+display_name = "Gold Helm"
+description = "Place Holder Armor but expensive!"
+icon = ExtResource("1_yehnc")
+category = "Armor"
+stacks = false
+weight = 10.0
+armor_slot = "Head"
+quantity_per_use = 0
+metadata/_custom_type_script = "uid://b7ouuvly1l65f"

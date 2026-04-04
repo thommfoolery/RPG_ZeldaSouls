@@ -110,7 +110,7 @@ func _on_player_died() -> void:
 		print("[DeathHandler] → using CheckpointManager.respawn()")
 		Global.current_health = health.max_health
 		CheckpointManager.respawn()
-		Global.current_health = 101.0
+		Global.current_health = 122.0
 		if SaveManager:
 			SaveManager.request_save()
 			print("[DeathHandler] Autosave triggered after respawn — bonfire position now persisted to disk")

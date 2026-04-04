@@ -21,17 +21,17 @@ horizontal_alignment = 1
 
 [node name="PickupNotification" type="Control" parent="CanvasLayer" unique_id=1514849858]
 layout_mode = 3
-anchors_preset = 8
+anchors_preset = 7
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
+anchor_bottom = 1.0
 offset_left = -124.0
-offset_top = -20.0
-offset_right = 124.0
-offset_bottom = 20.0
+offset_top = -180.0
+offset_right = 124.000244
+offset_bottom = -140.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 
 [node name="Background" type="Panel" parent="CanvasLayer/PickupNotification" unique_id=1981709254]
 layout_mode = 1
@@ -54,7 +54,7 @@ offset_bottom = 40.0
 theme_override_constants/separation = 100
 
 [node name="Icon" type="TextureRect" parent="CanvasLayer/PickupNotification/Background/HBoxContainer" unique_id=1803425430]
-custom_minimum_size = Vector2(64, 64)
+custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PickupNotification/Background/HBoxContainer" unique_id=588414665]
@@ -63,8 +63,10 @@ alignment = 1
 
 [node name="ItemName" type="Label" parent="CanvasLayer/PickupNotification/Background/HBoxContainer/VBoxContainer" unique_id=2014955475]
 layout_mode = 2
+theme_override_font_sizes/font_size = 20
 text = "Item Name"
 
 [node name="Quantity" type="Label" parent="CanvasLayer/PickupNotification/Background/HBoxContainer/VBoxContainer" unique_id=1572931206]
 layout_mode = 2
+theme_override_font_sizes/font_size = 20
 text = "x1"

@@ -42,13 +42,13 @@ func fade_to_black(duration: float = 0.03) -> Tween:
 	)
 	return tween
 
-func fade_from_black(duration: float = 0.004) -> Tween:
+func fade_from_black(duration: float = 0.4) -> Tween:
 	loading_label.visible = false
 	if fade_rect == null or is_fading:
 		return null
 	is_fading = true
 	var tween = create_tween()
-	tween.tween_property(fade_rect, "modulate:a", 0.0, duration)
+	tween.tween_property(fade_rect, "modulate:a", 100.0, duration)
 	tween.finished.connect(func():
 		fade_rect.visible = false
 		is_fading = false

@@ -8,6 +8,10 @@ func _ready() -> void:
 		EventBus.bloodstain_collected.connect(_on_bloodstain_collected)
 		print("[SaveManager] Subscribed to EventBus.bloodstain_collected")
 	load_game()
+		# Auto-save when character menu is closed
+	if UIManager and UIManager.has_signal("character_menu_closed"):
+		UIManager.character_menu_closed.connect(request_save)
+		print("[SaveManager] Subscribed to UIManager.character_menu_closed → auto-save on equip screen close")
 
 func save_game() -> void:
 	var player = PlayerManager.current_player if PlayerManager else null
@@ -87,7 +91,6 @@ func load_game() -> void:
 	file.close()
 
 	print("!!! LOAD_GAME CALLED !!!")
-	print(" └─ Loaded scene path: ", data.get("last_saved_scene", "[none]").get_file() if data.has("last_saved_scene") else "[none]")
 
 	# World state
 	if WorldStateManager and data.has("world_state"):
@@ -98,7 +101,7 @@ func load_game() -> void:
 	if PlayerInventory and data.has("inventory"):
 		PlayerInventory.from_save_dict(data.inventory)
 
-	# NEW: Equipment
+	# Equipment - This is critical for CrossHUD
 	if EquipmentManager and data.has("equipped_items"):
 		EquipmentManager.from_save_dict(data.equipped_items)
 		print("[SaveManager] Loaded equipped items from save")
@@ -107,6 +110,7 @@ func load_game() -> void:
 		PlayerStats.from_save_dict(data.get("player_stats", {}))
 		PlayerStats.discovered_bonfires = data.get("discovered_bonfires", {})
 
+	# Checkpoint
 	if CheckpointManager and data.has("last_checkpoint"):
 		var cp = data.last_checkpoint
 		CheckpointManager.set_checkpoint(
@@ -116,7 +120,7 @@ func load_game() -> void:
 		)
 		print("[SaveManager] Restored last checkpoint: ", cp.bonfire_id if cp.bonfire_id else "[none]")
 
-	# Death / bloodstain state
+	# Death / bloodstain / Global state
 	Global.has_pending_bloodstain = data.get("has_pending_bloodstain", false)
 	Global.dropped_souls = data.get("dropped_souls", 0)
 	Global.last_death_pos = Vector2(data.get("last_death_pos_x", 0.0), data.get("last_death_pos_y", 0.0))
@@ -131,20 +135,30 @@ func load_game() -> void:
 		data.get("death_locked_pos_y", 0.0)
 	)
 
-	# Health, stamina, estus, world time
+	# Health, stamina, estus, etc.
 	if Global:
-		Global.current_health = data.get("current_health", 101.0)
+		Global.current_health = data.get("current_health", 122.0)
 		Global.current_stamina = data.get("current_stamina", 100.0)
 		Global.world_time = data.get("world_time", 0.0)
-		print("[Feature-DEBUG] Loaded persisted health/stamina from save → health: ", Global.current_health, " | stamina: ", Global.current_stamina)
 
 	if PlayerStats:
 		PlayerStats.current_estus = data.get("current_estus", PlayerStats.max_estus)
 		PlayerStats.estus_charges = PlayerStats.current_estus
 		PlayerStats.estus_changed.emit(PlayerStats.current_estus)
-		print("[Feature-DEBUG] Loaded persisted estus from save → current: ", PlayerStats.current_estus, " / max: ", PlayerStats.max_estus)
 
 	Global.last_saved_scene_path = data.get("last_saved_scene", "")
+
+	# ==================== IMPORTANT FIX ====================
+	# Force CrossHUD to refresh AFTER equipment and inventory are loaded
+	var cross_hud = get_tree().get_first_node_in_group("cross_hud") as CrossHUD
+	if cross_hud:
+		cross_hud.force_full_refresh()
+		print("[SaveManager] Forced CrossHUD full refresh after loading save data")
+	else:
+		print("[SaveManager] WARNING: CrossHUD not found in group 'cross_hud' yet")
+	# =======================================================
+
+	# Now change scene
 	var loaded_scene_path = data.get("current_scene_path", "")
 	if loaded_scene_path and ResourceLoader.exists(loaded_scene_path):
 		print("[SaveManager] Loading saved scene: ", loaded_scene_path.get_file())
@@ -152,7 +166,6 @@ func load_game() -> void:
 	else:
 		print("[SaveManager] No saved scene or invalid — falling back to _testroom")
 		get_tree().call_deferred("change_scene_to_file", "res://scenes/levels/_testroom.tscn")
-
 func _on_bloodstain_collected(souls: int) -> void:
 	print("[SaveManager] bloodstain_collected received (souls: ", souls, ") — clearing pending + forcing save")
 	Global.clear_pending_bloodstain()

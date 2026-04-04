@@ -10,6 +10,7 @@ display_name = "Basic Chime"
 description = "Casting tool for Miracles"
 icon = ExtResource("1_45vy6")
 category = "Weapons"
+stacks = false
 max_stack = 1
 weapon_type = "Chime"
 metadata/_custom_type_script = "uid://b7ouuvly1l65f"

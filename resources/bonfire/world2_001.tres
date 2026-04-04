@@ -5,11 +5,11 @@
 
 [resource]
 script = ExtResource("1_sr3va")
-area_name = "world002"
+area_name = "world_002"
 bonfire_id = "world2_001"
 scene_path = "uid://tw6es82unsjl"
 spawn_position = Vector2(500, 400)
-title = "World 2"
+title = "Red World"
 subtitle = "are you still there?"
 is_lit_on_first_rest = false
 preview_texture = ExtResource("1_6y4vh")

@@ -18,9 +18,9 @@ var saved_positions_per_scene: Dictionary = {}
 # ── MENU INPUT SAFETY ──
 var menu_close_cooldown_until: int = 0   # timestamp in msec
 
-# ─── HEALTH PERSISTENCE ───
-var current_health: float = 101.0
-var current_stamina: float = 100.0
+# ─── STAT PERSISTENCE ───
+var current_health: float = 122.0
+var current_stamina: float = 90.0
 
 # Death & bloodstain
 var last_death_pos: Vector2 = Vector2.ZERO

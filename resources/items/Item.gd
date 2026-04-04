@@ -3,6 +3,8 @@
 extends Resource
 class_name GameItem
 
+@export var use_tint: bool = false
+@export var tint_color: Color = Color(1.0, 0.85, 0.3)   # gold
 # ─────────────────────────────────────────────────────────────
 # CORE / GENERAL
 # ─────────────────────────────────────────────────────────────
@@ -12,6 +14,7 @@ class_name GameItem
 @export var quantity: int = 1
 @export var icon: Texture2D
 @export var category: String = "Consumables"
+@export var stacks: bool = true   # true = normal consumables/ammo, false = unique weapons, bows, rings, etc.
 @export var max_stack: int = 99
 @export var weight: float = 0.0
 @export var rarity: int = 1
@@ -79,6 +82,13 @@ class_name GameItem
 @export var projectile_sprite: Texture2D
 @export var projectile_trail_vfx: PackedScene
 # ─────────────────────────────────────────────────────────────
+# STICKING / EMBED VFX (new for arrows, knives, etc.)
+# ─────────────────────────────────────────────────────────────
+@export var sticks_on_impact: bool = false          # ← arrow = true, bomb = false
+@export var embed_depth: float = 12.0               # how far the tip sinks into target
+@export var stuck_lifetime_after_target_death: float = 5.0  # -1 = never auto-remove
+
+# ─────────────────────────────────────────────────────────────
 # STATUS EFFECTS & BUFFS
 # ─────────────────────────────────────────────────────────────
 @export var status_effects: Array[Dictionary] = []
@@ -96,3 +106,15 @@ class_name GameItem
 @export var tags: Array[String] = []
 @export var ammo_type: String = ""
 @export var quantity_per_use: int = 1
+
+
+# ─────────────────────────────────────────────────────────────
+# LAMP SPECIFIC (data-driven light properties)
+# ─────────────────────────────────────────────────────────────
+@export var is_lamp: bool = false
+@export var lamp_energy: float = 0.4
+@export var lamp_color: Color = Color(1.0, 0.95, 0.7)
+@export var lamp_range_scale: float = 5.0
+@export var lamp_flicker_enabled: bool = false
+@export var lamp_flicker_speed: float = 4.0
+@export var lamp_flicker_intensity: float = 0.15

@@ -94,9 +94,10 @@ layout_mode = 2
 
 [node name="Background2" type="TextureRect" parent="Panel/Sort/AttunementSlotsContainer/AttunementSlot2" unique_id=667075407]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 64.0
+offset_bottom = 64.0
 texture = ExtResource("2_tvsah")
 
 [node name="Icon2" type="TextureRect" parent="Panel/Sort/AttunementSlotsContainer/AttunementSlot2" unique_id=1436934699]
@@ -213,6 +214,24 @@ offset_bottom = 64.0
 texture = ExtResource("2_tvsah")
 
 [node name="Icon8" type="TextureRect" parent="Panel/Sort/AttunementSlotsContainer/AttunementSlot8" unique_id=1248186213]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 0
+expand_mode = 2
+stretch_mode = 5
+
+[node name="AttunementSlot9" type="Panel" parent="Panel/Sort/AttunementSlotsContainer" unique_id=1128983036]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="Background9" type="TextureRect" parent="Panel/Sort/AttunementSlotsContainer/AttunementSlot9" unique_id=1795105242]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+texture = ExtResource("2_tvsah")
+
+[node name="Icon9" type="TextureRect" parent="Panel/Sort/AttunementSlotsContainer/AttunementSlot9" unique_id=307156038]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 0

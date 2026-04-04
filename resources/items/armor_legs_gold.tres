@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="GameItem" format=3 uid="uid://beustjudn5fke"]
+
+[ext_resource type="Texture2D" uid="uid://b7q62o278l4ud" path="res://art/objects/items/armor/armor_legs_gold.png" id="1_etbqs"]
+[ext_resource type="Script" uid="uid://b7ouuvly1l65f" path="res://resources/items/Item.gd" id="2_6axgf"]
+
+[resource]
+script = ExtResource("2_6axgf")
+use_tint = true
+id = "armor_legs_gold"
+display_name = "Gold Legs"
+description = "Place Holder Armor but expensive!"
+icon = ExtResource("1_etbqs")
+category = "Armor"
+stacks = false
+weight = 10.0
+armor_slot = "Legs"
+quantity_per_use = 0
+metadata/_custom_type_script = "uid://b7ouuvly1l65f"

@@ -14,7 +14,7 @@ var details_icon: TextureRect
 var details_name: Label
 var details_description: Label
 
-var current_category_index: int = 5
+var current_category_index: int = 0
 var current_item_index: int = 0
 
 func _ready() -> void:

@@ -1,24 +1,26 @@
 # PlayerStats.gd (autoload)
 extends Node
 
+const MAX_STAT_LEVEL = 99
+
 var is_initial_load: bool = true
 
 # Basic stats
 var level: int = 4
-var souls_carried: int = 5000
+var souls_carried: int = 500000
 
 # Core stats
-var vitality: int = 1
-var endurance: int = 1
-var strength: int = 1
-var dexterity: int = 1
-var attunement: int = 1          # NEW - will control how many attunement slots you unlock
-var intelligence: int = 1
-var faith: int = 1
-var luck: int = 1
+var vitality: int = 5
+var endurance: int = 5
+var strength: int = 5
+var dexterity: int = 5
+var attunement: int = 5          # NEW - will control how many attunement slots you unlock
+var intelligence: int = 5
+var faith: int = 5
+var luck: int = 5
 
 # Attunement system (NEW)
-var attunement_slots_unlocked: int = 2          # Start with 2 slots as requested
+var attunement_slots_unlocked: int = 0         # Start with 0 slots as requested
 var attuned_spells: Array[GameItem] = []        # Will hold the actual spells in each slot
 
 # World / Bonfire data
@@ -200,16 +202,17 @@ func to_save_dict() -> Dictionary:
 	}
 
 func from_save_dict(data: Dictionary) -> void:
-	level = data.get("level", 1)
+	level = data.get("level", 4)
 	souls_carried = data.get("souls_carried", 0)
-	vitality = data.get("vitality", 1)
-	endurance = data.get("endurance", 1)
-	strength = data.get("strength", 1)
-	dexterity = data.get("dexterity", 1)
-	attunement = data.get("attunement", 1)
-	intelligence = data.get("intelligence", 1)
-	faith = data.get("faith", 1)
-	luck = data.get("luck", 1)
+	vitality = data.get("vitality", 5)
+	endurance = data.get("endurance", 5)
+	strength = data.get("strength", 5)
+	dexterity = data.get("dexterity", 5)
+	attunement = data.get("attunement", 5)
+	intelligence = data.get("intelligence", 5)
+	faith = data.get("faith", 5)
+	luck = data.get("luck", 5)
+
 	discovered_bonfires = data.get("discovered_bonfires", {})
 	current_estus = data.get("current_estus", max_estus)
 	estus_charges = current_estus
@@ -223,7 +226,7 @@ func from_save_dict(data: Dictionary) -> void:
 	attuned_spells.clear()
 	attuned_spells.resize(attunement_slots_unlocked)
 
-	for i in saved_ids.size():
+	for i in range(saved_ids.size()):
 		if i >= attuned_spells.size():
 			break
 		var spell_id = saved_ids[i]
@@ -240,8 +243,11 @@ func from_save_dict(data: Dictionary) -> void:
 			push_warning("[PlayerStats] Could not restore attuned spell: " + spell_id)
 			attuned_spells[i] = null
 
-	print("[PlayerStats] Restored attunement: ", attunement_slots_unlocked, " slots")
-	attunement_changed.emit()  # Refresh HUD + menus
+	# IMPORTANT: Re-calculate unlocked slots based on current Attunement stat
+	update_attunement_slots()
+
+	print("[PlayerStats] Restored attunement: ", attunement_slots_unlocked, " slots unlocked")
+	attunement_changed.emit()   # Refresh HUD + menus
 
 # ─── Stat changed signal helper (optional) ──────────────────────────
 func update_stat(stat_name: String, new_value: int) -> void:
@@ -255,3 +261,13 @@ func update_stat(stat_name: String, new_value: int) -> void:
 		"faith": faith = new_value
 		"luck": luck = new_value
 	stat_changed.emit(stat_name, new_value)
+
+func update_attunement_slots() -> void:
+	var new_slots = StatCalculator.get_attunement_slots(attunement)
+	if new_slots != attunement_slots_unlocked:
+		attunement_slots_unlocked = new_slots
+		# Resize attuned_spells array safely
+		attuned_spells.resize(attunement_slots_unlocked)
+		attunement_slots_changed.emit()
+		attunement_changed.emit()
+		print("[PlayerStats] Attunement slots updated to ", attunement_slots_unlocked)

@@ -10,7 +10,7 @@ extends CanvasLayer
 @onready var saving_label: Label = $SavingIcon/Label
 @onready var mana_bar: ProgressBar = %ManaBar
 
-# Reference to the Cross (assign this in the editor)
+# Reference to the Cross
 @onready var cross_hud: CrossHUD = $QuickUseCross
 
 # ─── Component references ───────────────────────────────────────────
@@ -23,8 +23,8 @@ func _ready() -> void:
 	_connect_to_player_manager()
 	saving_icon.visible = false
 	saving_icon.modulate.a = 0.0
-
 	_update_all_cross_slots()
+
 
 func _connect_to_player_manager() -> void:
 	if PlayerManager:
@@ -36,9 +36,11 @@ func _connect_to_player_manager() -> void:
 	else:
 		push_warning("[HUD] PlayerManager autoload not found!")
 
+
 func _on_player_changed(new_player: Node) -> void:
 	print("[HUD] Player changed signal received — reconnecting")
 	_connect_to_current_player()
+
 
 func _connect_to_current_player() -> void:
 	var player = PlayerManager.current_player
@@ -76,19 +78,26 @@ func _connect_to_current_player() -> void:
 	else:
 		push_warning("[HUD] ManaComponent not found on player")
 
+	# ── Reliable Souls connection ─────────────────────────────────────
 	if PlayerStats:
 		if not PlayerStats.souls_changed.is_connected(_on_souls_changed):
 			PlayerStats.souls_changed.connect(_on_souls_changed)
+			print("[HUD] Connected to PlayerStats.souls_changed")
+		
+		_update_souls()   # Force immediate update on connect
+
+	if PlayerStats:
 		if not PlayerStats.estus_changed.is_connected(_on_estus_changed):
 			PlayerStats.estus_changed.connect(_on_estus_changed)
+		_update_estus()
+
+	if PlayerStats:
 		if not PlayerStats.attunement_changed.is_connected(_on_attunement_changed):
 			PlayerStats.attunement_changed.connect(_on_attunement_changed)
 
-		_update_souls()
-		_update_estus()
-
 	print("[HUD] Successfully (re)connected to current player and all signals")
 	_update_all_cross_slots()
+
 
 # ─── Signal handlers ────────────────────────────────────────────────
 func _on_attunement_changed() -> void:
@@ -100,7 +109,7 @@ func _on_equipped_changed(slot_index: int, _new_item: GameItem) -> void:
 func _update_all_cross_slots() -> void:
 	cross_hud.refresh()
 
-# ─── Player stat / bar updates (unchanged) ─────────────────────────
+# ─── Player stat / bar updates ─────────────────────────────────────
 func _on_health_changed(current: float, max_health: float) -> void:
 	_update_health_bar()
 
@@ -135,6 +144,10 @@ func _on_souls_changed(_new: int) -> void:
 func _update_souls() -> void:
 	if souls_label and PlayerStats:
 		souls_label.text = "Souls: %d" % PlayerStats.souls_carried
+		souls_label.queue_redraw()          # Force visual refresh
+		print("[HUD] Souls label updated to ", PlayerStats.souls_carried)
+	else:
+		print("[HUD] Souls label or PlayerStats not ready")
 
 func _on_estus_changed(_new: int) -> void:
 	_update_estus()

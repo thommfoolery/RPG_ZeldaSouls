@@ -6,9 +6,17 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_uwln5"]
 radius = 5.0
 
+[sub_resource type="Curve" id="Curve_uwln5"]
+_data = [Vector2(0.010101013, 1), 0.0, 0.0, 0, 0, Vector2(0.9158249, 0.011643887), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_j8kwq"]
+curve = SubResource("Curve_uwln5")
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_uwln5"]
 particle_flag_disable_z = true
 gravity = Vector3(0, 98, 0)
+alpha_curve = SubResource("CurveTexture_j8kwq")
 
 [node name="Projectile" type="Area2D" unique_id=1303862156]
 script = ExtResource("1_75drf")
@@ -27,6 +35,8 @@ texture = ExtResource("2_uwln5")
 shape = SubResource("CircleShape2D_uwln5")
 
 [node name="Trail" type="GPUParticles2D" parent="." unique_id=1794632597]
+amount = 5
+lifetime = 0.13
 process_material = SubResource("ParticleProcessMaterial_uwln5")
 
 [node name="LifetimeTimer" type="Timer" parent="." unique_id=1874904508]

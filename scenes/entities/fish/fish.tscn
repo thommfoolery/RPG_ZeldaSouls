@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bx5a0jha0aip5"]
+
+[ext_resource type="Script" uid="uid://dhn5yb5fddf7l" path="res://scenes/entities/fish/fish.gd" id="1_84ta8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xrw6l"]
+
+[node name="Fish" type="Node2D" unique_id=1301276658]
+script = ExtResource("1_84ta8")
+
+[node name="Body" type="Polygon2D" parent="." unique_id=1626802591]
+unique_name_in_owner = true
+
+[node name="WanderTimer" type="Timer" parent="." unique_id=974991731]
+
+[node name="DetectionArea" type="Area2D" parent="." unique_id=1847548272]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=1865382172]
+shape = SubResource("CircleShape2D_xrw6l")

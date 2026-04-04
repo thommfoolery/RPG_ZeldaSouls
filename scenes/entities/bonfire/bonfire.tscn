@@ -128,9 +128,6 @@ animations = [{
 "speed": 1.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xr26i"]
-size = Vector2(14, 9.75)
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_7tbkx"]
 radius = 17.0
 
@@ -212,6 +209,9 @@ scale_max = 0.5
 color = Color(0.4506483, 0.4506483, 0.45064825, 1)
 color_ramp = SubResource("GradientTexture1D_tj45e")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xr26i"]
+size = Vector2(14, 9.75)
+
 [node name="Bonfire" type="Node2D" unique_id=213201991]
 y_sort_enabled = true
 script = ExtResource("1_8aldm")
@@ -223,16 +223,6 @@ sprite_frames = SubResource("SpriteFrames_1jl7a")
 animation = &"unlit"
 frame_progress = 0.19581628
 offset = Vector2(0, -17.175)
-
-[node name="Area2D" type="Area2D" parent="Flame" unique_id=1987778982]
-y_sort_enabled = true
-position = Vector2(0, 6)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Flame/Area2D" unique_id=1884283807]
-visible = false
-y_sort_enabled = true
-position = Vector2(0, -5.125)
-shape = SubResource("RectangleShape2D_xr26i")
 
 [node name="InteractionArea" type="Area2D" parent="." unique_id=908450286]
 visible = false
@@ -260,15 +250,18 @@ color = Color(0, 0, 0, 1)
 [node name="Effects" type="Node2D" parent="." unique_id=696327805]
 
 [node name="FlashLight" type="PointLight2D" parent="Effects" unique_id=21288491]
+scale = Vector2(1, 0.5)
 color = Color(1, 1, 0.21960784, 0.24705882)
 texture = SubResource("GradientTexture2D_gc5un")
 texture_scale = 2.7
 
 [node name="WarmLight" type="PointLight2D" parent="Effects" unique_id=641767345]
-position = Vector2(0, -12)
+position = Vector2(25, -5)
+scale = Vector2(1, 0.5)
 color = Color(0.64081186, 0.26919407, 3.85046e-07, 1)
 energy = 1.2
 texture = SubResource("GradientTexture2D_tkv7u")
+offset = Vector2(-25, 2)
 texture_scale = 0.95
 
 [node name="EmbersBurst" type="GPUParticles2D" parent="Effects" unique_id=752957479]
@@ -295,5 +288,21 @@ amount = 24
 lifetime = 2.0
 speed_scale = 0.2
 process_material = SubResource("ParticleProcessMaterial_vdxnd")
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1646160880]
+visible = false
+offset_left = -69.0
+offset_top = -94.0
+offset_right = 94.0
+offset_bottom = 43.0
+color = Color(0.62085146, 0.78699106, 0.67841107, 1)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1987778982]
+y_sort_enabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1884283807]
+y_sort_enabled = true
+position = Vector2(0, -5.125)
+shape = SubResource("RectangleShape2D_xr26i")
 
 [connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]

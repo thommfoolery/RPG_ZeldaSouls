@@ -31,6 +31,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+offset_left = -489.0
+offset_top = -310.0
+offset_right = 489.0
+offset_bottom = 310.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -45,7 +49,7 @@ anchor_bottom = 0.5
 offset_left = -481.865
 offset_top = -260.0
 offset_right = 482.135
-offset_bottom = 140.0
+offset_bottom = 204.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -55,318 +59,269 @@ layout_mode = 2
 
 [node name="StatsVBox" type="VBoxContainer" parent="MainPanel/ContentHBox/StatsPanel" unique_id=2079182758]
 layout_mode = 1
-anchors_preset = 12
+anchors_preset = 2
 anchor_top = 1.0
-anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -202.0
-grow_horizontal = 2
+offset_top = -341.0
+offset_right = 249.0
 grow_vertical = 0
-theme_override_constants/separation = 1
+theme_override_constants/separation = 3
 
 [node name="VitalityHBox" type="HBoxContainer" parent="MainPanel/ContentHBox/StatsPanel/StatsVBox" unique_id=18733147]
 layout_mode = 2
-alignment = 1
+theme_override_constants/separation = 12
 
 [node name="Vitality" type="Label" parent="MainPanel/ContentHBox/StatsPanel/StatsVBox/VitalityHBox" unique_id=763332247]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "Vitality"
+theme_override_font_sizes/font_size = 23
+text = "Vitality       	 	"
 
 [node name="MinusButton" type="Button" parent="MainPanel/ContentHBox/StatsPanel/StatsVBox/VitalityHBox" unique_id=840545696]
 layout_mode = 2
-theme_override_font_sizes/font_size = 4
+theme_override_font_sizes/font_size = 23
 text = "<"
 
 [node name="VitalityCurrent" type="Label" parent="MainPanel/ContentHBox/StatsPanel/StatsVBox/VitalityHBox" unique_id=1846268137]
 unique_name_in_owner = true
 layout_mode = 2
 theme = SubResource("Theme_aw7ja")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 23
 text = "1"
 
 [node name="PlusButton" type="Button" parent="MainPanel/ContentHBox/StatsPanel/StatsVBox/VitalityHBox" unique_id=1255411207]
 layout_mode = 2
-theme_override_font_sizes/font_size = 4
+theme_override_font_sizes/font_size = 23
 text = ">"
 
 [node name="VitalityPreview" type="Label" parent="MainPanel/ContentHBox/StatsPanel/StatsVBox/VitalityHBox" unique_id=657111691]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 23
 text = "?"
-
-[node name="VitalityEffect" type="Label" parent="MainPanel/ContentHBox/StatsPanel/StatsVBox/VitalityHBox" unique_id=400419304]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "Max HP:"
 
 [node name="EnduranceHBox" type="HBoxContainer" parent="MainPanel/ContentHBox/StatsPanel/StatsVBox" unique_id=1797339667]
 layout_mode = 2
-alignment = 1
+theme_override_constants/separation = 12
 
 [node name="Endurance" type="Label" parent="MainPanel/ContentHBox/StatsPanel/StatsVBox/EnduranceHBox" unique_id=1925571314]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "Endurance"
+theme_override_font_sizes/font_size = 23
+text = "Endurance "
 
 [node name="MinusButton" type="Button" parent="MainPanel/ContentHBox/StatsPanel/StatsVBox/EnduranceHBox" unique_id=346041783]
 layout_mode = 2
-theme_override_font_sizes/font_size = 4
+theme_override_font_sizes/font_size = 23
 text = "<"
 
 [node name="EnduranceCurrent" type="Label" parent="MainPanel/ContentHBox/StatsPanel/StatsVBox/EnduranceHBox" unique_id=221883707]
 unique_name_in_owner = true
 layout_mode = 2
 theme = SubResource("Theme_aw7ja")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 23
 text = "1"
 
 [node name="PlusButton" type="Button" parent="MainPanel/ContentHBox/StatsPanel/StatsVBox/EnduranceHBox" unique_id=276738696]
 layout_mode = 2
-theme_override_font_sizes/font_size = 4
+theme_override_font_sizes/font_size = 23
 text = ">"
 
 [node name="EndurancePreview" type="Label" parent="MainPanel/ContentHBox/StatsPanel/StatsVBox/EnduranceHBox" unique_id=1473366321]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 23
 text = "?"
-
-[node name="EnduranceEffect" type="Label" parent="MainPanel/ContentHBox/StatsPanel/StatsVBox/EnduranceHBox" unique_id=981133347]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "Max Stamina:"
 
 [node name="StrengthHBox" type="HBoxContainer" parent="MainPanel/ContentHBox/StatsPanel/StatsVBox" unique_id=629200763]
 layout_mode = 2
-alignment = 1
+theme_override_constants/separation = 12
 
 [node name="Strength" type="Label" parent="MainPanel/ContentHBox/StatsPanel/StatsVBox/StrengthHBox" unique_id=1140503623]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "Strength"
+theme_override_font_sizes/font_size = 23
+text = "Strength     "
 
 [node name="MinusButton" type="Button" parent="MainPanel/ContentHBox/StatsPanel/StatsVBox/StrengthHBox" unique_id=832398803]
 layout_mode = 2
-theme_override_font_sizes/font_size = 4
+theme_override_font_sizes/font_size = 23
 text = "<"
 
 [node name="StrengthCurrent" type="Label" parent="MainPanel/ContentHBox/StatsPanel/StatsVBox/StrengthHBox" unique_id=1790610199]
 unique_name_in_owner = true
 layout_mode = 2
 theme = SubResource("Theme_aw7ja")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 23
 text = "1"
 
 [node name="PlusButton" type="Button" parent="MainPanel/ContentHBox/StatsPanel/StatsVBox/StrengthHBox" unique_id=1086821958]
 layout_mode = 2
-theme_override_font_sizes/font_size = 4
+theme_override_font_sizes/font_size = 23
 text = ">"
 
 [node name="StrengthPreview" type="Label" parent="MainPanel/ContentHBox/StatsPanel/StatsVBox/StrengthHBox" unique_id=2006550016]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 23
 text = "?"
-
-[node name="StrengthEffect" type="Label" parent="MainPanel/ContentHBox/StatsPanel/StatsVBox/StrengthHBox" unique_id=36091249]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "Max Strength:"
 
 [node name="DexterityHBox" type="HBoxContainer" parent="MainPanel/ContentHBox/StatsPanel/StatsVBox" unique_id=442848031]
 layout_mode = 2
-alignment = 1
+theme_override_constants/separation = 12
 
 [node name="Dexterity" type="Label" parent="MainPanel/ContentHBox/StatsPanel/StatsVBox/DexterityHBox" unique_id=1286209112]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "Dexterity"
+theme_override_font_sizes/font_size = 23
+text = "Dexterity    "
 
 [node name="MinusButton" type="Button" parent="MainPanel/ContentHBox/StatsPanel/StatsVBox/DexterityHBox" unique_id=51786682]
 layout_mode = 2
-theme_override_font_sizes/font_size = 4
+theme_override_font_sizes/font_size = 23
 text = "<"
 
 [node name="DexterityCurrent" type="Label" parent="MainPanel/ContentHBox/StatsPanel/StatsVBox/DexterityHBox" unique_id=967416086]
 unique_name_in_owner = true
 layout_mode = 2
 theme = SubResource("Theme_aw7ja")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 23
 text = "1"
 
 [node name="PlusButton" type="Button" parent="MainPanel/ContentHBox/StatsPanel/StatsVBox/DexterityHBox" unique_id=1305349425]
 layout_mode = 2
-theme_override_font_sizes/font_size = 4
+theme_override_font_sizes/font_size = 23
 text = ">"
 
 [node name="DexterityPreview" type="Label" parent="MainPanel/ContentHBox/StatsPanel/StatsVBox/DexterityHBox" unique_id=1659434214]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 23
 text = "?"
-
-[node name="DexterityEffect" type="Label" parent="MainPanel/ContentHBox/StatsPanel/StatsVBox/DexterityHBox" unique_id=1333008739]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "Max Dexterity:"
 
 [node name="AttunementHBox" type="HBoxContainer" parent="MainPanel/ContentHBox/StatsPanel/StatsVBox" unique_id=949124509]
 layout_mode = 2
-alignment = 1
+theme_override_constants/separation = 12
 
-[node name="Luck" type="Label" parent="MainPanel/ContentHBox/StatsPanel/StatsVBox/AttunementHBox" unique_id=1604543688]
+[node name="Attunement" type="Label" parent="MainPanel/ContentHBox/StatsPanel/StatsVBox/AttunementHBox" unique_id=1604543688]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 23
 text = "Attunement"
 
 [node name="MinusButton" type="Button" parent="MainPanel/ContentHBox/StatsPanel/StatsVBox/AttunementHBox" unique_id=1660241091]
 layout_mode = 2
-theme_override_font_sizes/font_size = 4
+theme_override_font_sizes/font_size = 23
 text = "<"
 
 [node name="AttunementCurrent" type="Label" parent="MainPanel/ContentHBox/StatsPanel/StatsVBox/AttunementHBox" unique_id=1679532547]
 unique_name_in_owner = true
 layout_mode = 2
 theme = SubResource("Theme_aw7ja")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 23
 text = "1"
 
 [node name="PlusButton" type="Button" parent="MainPanel/ContentHBox/StatsPanel/StatsVBox/AttunementHBox" unique_id=1768394434]
 layout_mode = 2
-theme_override_font_sizes/font_size = 4
+theme_override_font_sizes/font_size = 23
 text = ">"
 
 [node name="AttunementPreview" type="Label" parent="MainPanel/ContentHBox/StatsPanel/StatsVBox/AttunementHBox" unique_id=55398458]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 23
 text = "?"
-
-[node name="AttunementEffect" type="Label" parent="MainPanel/ContentHBox/StatsPanel/StatsVBox/AttunementHBox" unique_id=56474753]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "Spell Slots:"
 
 [node name="FaithHBox" type="HBoxContainer" parent="MainPanel/ContentHBox/StatsPanel/StatsVBox" unique_id=1545759313]
 layout_mode = 2
-alignment = 1
+theme_override_constants/separation = 12
 
 [node name="Faith" type="Label" parent="MainPanel/ContentHBox/StatsPanel/StatsVBox/FaithHBox" unique_id=797974582]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "Faith"
+theme_override_font_sizes/font_size = 23
+text = "Faith             "
 
 [node name="MinusButton" type="Button" parent="MainPanel/ContentHBox/StatsPanel/StatsVBox/FaithHBox" unique_id=1542095910]
 layout_mode = 2
-theme_override_font_sizes/font_size = 4
+theme_override_font_sizes/font_size = 23
 text = "<"
 
 [node name="FaithCurrent" type="Label" parent="MainPanel/ContentHBox/StatsPanel/StatsVBox/FaithHBox" unique_id=819882621]
 unique_name_in_owner = true
 layout_mode = 2
 theme = SubResource("Theme_aw7ja")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 23
 text = "1"
 
 [node name="PlusButton" type="Button" parent="MainPanel/ContentHBox/StatsPanel/StatsVBox/FaithHBox" unique_id=837457310]
 layout_mode = 2
-theme_override_font_sizes/font_size = 4
+theme_override_font_sizes/font_size = 23
 text = ">"
 
 [node name="FaithPreview" type="Label" parent="MainPanel/ContentHBox/StatsPanel/StatsVBox/FaithHBox" unique_id=1362803089]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 23
 text = "?"
-
-[node name="FaithEffect" type="Label" parent="MainPanel/ContentHBox/StatsPanel/StatsVBox/FaithHBox" unique_id=178721709]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "Max Faith:"
 
 [node name="IntelligenceHBox" type="HBoxContainer" parent="MainPanel/ContentHBox/StatsPanel/StatsVBox" unique_id=1011752906]
 layout_mode = 2
-alignment = 1
+theme_override_constants/separation = 12
 
 [node name="Intelligence" type="Label" parent="MainPanel/ContentHBox/StatsPanel/StatsVBox/IntelligenceHBox" unique_id=1218459316]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "Intelligence"
+theme_override_font_sizes/font_size = 23
+text = "Intelligence "
 
 [node name="MinusButton" type="Button" parent="MainPanel/ContentHBox/StatsPanel/StatsVBox/IntelligenceHBox" unique_id=84178605]
 layout_mode = 2
-theme_override_font_sizes/font_size = 4
+theme_override_font_sizes/font_size = 23
 text = "<"
 
 [node name="IntelligenceCurrent" type="Label" parent="MainPanel/ContentHBox/StatsPanel/StatsVBox/IntelligenceHBox" unique_id=506129439]
 unique_name_in_owner = true
 layout_mode = 2
 theme = SubResource("Theme_aw7ja")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 23
 text = "1"
 
 [node name="PlusButton" type="Button" parent="MainPanel/ContentHBox/StatsPanel/StatsVBox/IntelligenceHBox" unique_id=884452599]
 layout_mode = 2
-theme_override_font_sizes/font_size = 4
+theme_override_font_sizes/font_size = 23
 text = ">"
 
 [node name="IntelligencePreview" type="Label" parent="MainPanel/ContentHBox/StatsPanel/StatsVBox/IntelligenceHBox" unique_id=195264682]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 23
 text = "?"
-
-[node name="IntelligenceEffect" type="Label" parent="MainPanel/ContentHBox/StatsPanel/StatsVBox/IntelligenceHBox" unique_id=478025332]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "Max Intelligence:"
 
 [node name="LuckHBox" type="HBoxContainer" parent="MainPanel/ContentHBox/StatsPanel/StatsVBox" unique_id=1643631438]
 layout_mode = 2
-alignment = 1
+theme_override_constants/separation = 12
 
 [node name="Luck" type="Label" parent="MainPanel/ContentHBox/StatsPanel/StatsVBox/LuckHBox" unique_id=1555822858]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "Luck"
+theme_override_font_sizes/font_size = 23
+text = "Luck              "
 
 [node name="MinusButton" type="Button" parent="MainPanel/ContentHBox/StatsPanel/StatsVBox/LuckHBox" unique_id=930588735]
 layout_mode = 2
-theme_override_font_sizes/font_size = 4
+theme_override_font_sizes/font_size = 23
 text = "<"
 
 [node name="LuckCurrent" type="Label" parent="MainPanel/ContentHBox/StatsPanel/StatsVBox/LuckHBox" unique_id=1162061402]
 unique_name_in_owner = true
 layout_mode = 2
 theme = SubResource("Theme_aw7ja")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 23
 text = "1"
 
 [node name="PlusButton" type="Button" parent="MainPanel/ContentHBox/StatsPanel/StatsVBox/LuckHBox" unique_id=123847494]
 layout_mode = 2
-theme_override_font_sizes/font_size = 4
+theme_override_font_sizes/font_size = 23
 text = ">"
 
 [node name="LuckPreview" type="Label" parent="MainPanel/ContentHBox/StatsPanel/StatsVBox/LuckHBox" unique_id=835423667]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 23
 text = "?"
-
-[node name="LuckEffect" type="Label" parent="MainPanel/ContentHBox/StatsPanel/StatsVBox/LuckHBox" unique_id=37885637]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "Max Luck:"
 
 [node name="SoulsVBox" type="VBoxContainer" parent="MainPanel/ContentHBox/StatsPanel" unique_id=341126594]
 layout_mode = 1
@@ -380,12 +335,6 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Souls: 0"
-
-[node name="AfterSpendLabel" type="Label" parent="MainPanel/ContentHBox/StatsPanel/SoulsVBox" unique_id=1322410622]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "After spend: 0"
 
 [node name="TotalQueuedCostLabel" type="Label" parent="MainPanel/ContentHBox/StatsPanel/SoulsVBox" unique_id=1516556649]
 unique_name_in_owner = true
@@ -405,6 +354,28 @@ horizontal_alignment = 1
 custom_minimum_size = Vector2(480, 0)
 layout_mode = 2
 
+[node name="PreviewVBox" type="VBoxContainer" parent="MainPanel/ContentHBox/PreviewPanel" unique_id=467473845]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PreviewTitle" type="Label" parent="MainPanel/ContentHBox/PreviewPanel/PreviewVBox" unique_id=40545515]
+unique_name_in_owner = true
+layout_mode = 2
+text = "PreviewTitle"
+
+[node name="PreviewStats" type="RichTextLabel" parent="MainPanel/ContentHBox/PreviewPanel/PreviewVBox" unique_id=2140662419]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 440)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 26
+bbcode_enabled = true
+text = "PreviewCost"
+vertical_alignment = 2
+
 [node name="BottomHBox" type="HBoxContainer" parent="." unique_id=403699450]
 layout_mode = 1
 anchors_preset = 7
@@ -412,21 +383,27 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -148.5
+offset_left = -377.0
 offset_top = -36.0
-offset_right = 148.5
+offset_right = 377.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_constants/separation = 100
+
+[node name="HintLabel" type="Label" parent="BottomHBox" unique_id=1446079759]
+layout_mode = 2
+theme_override_font_sizes/font_size = 17
+text = "Hint: D-Pad: Movement"
 
 [node name="ConfirmButton" type="Button" parent="BottomHBox" unique_id=1636719430]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 17
 disabled = true
-text = "Confirm Spend"
+text = "A: Confirm Spend"
 
 [node name="ExitButton" type="Button" parent="BottomHBox" unique_id=1251275784]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "Leave Bonfire"
+theme_override_font_sizes/font_size = 17
+text = "B: Leave Bonfire"

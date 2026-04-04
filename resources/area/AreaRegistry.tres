@@ -4,7 +4,7 @@
 [ext_resource type="Resource" uid="uid://twcqmcine8af" path="res://resources/area/worldarea_001.tres" id="2_4oik3"]
 [ext_resource type="Script" uid="uid://c6yj06xo7wl0q" path="res://resources/area/AreaRegistry.gd" id="2_7hqc0"]
 [ext_resource type="Resource" uid="uid://cidrws7mmlo0v" path="res://resources/area/worldarea_002.tres" id="3_kpt0c"]
-[ext_resource type="Resource" uid="uid://brfcddfutmem8" path="res://resources/area/_testroom.tres" id="4_kpt0c"]
+[ext_resource type="Resource" uid="uid://brfcddfutmem8" path="res://resources/area/testroom.tres" id="4_kpt0c"]
 [ext_resource type="Resource" uid="uid://x7026yiomsug" path="res://resources/area/farm.tres" id="5_6ojqe"]
 
 [resource]

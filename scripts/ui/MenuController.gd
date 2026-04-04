@@ -62,6 +62,7 @@ func _on_visibility_changed() -> void:
 		call_deferred("_final_focus_flush")
 		print("[MENU-DEBUG] [", Time.get_ticks_msec(), "] === MENU CLOSED ===")
 		menu_closed.emit()
+		UIManager.character_menu_closed.emit()   # NEW: triggers auto-save when character menu closes
 
 
 # ────────────────────────────────────────────────────────────────

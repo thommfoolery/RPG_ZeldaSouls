@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://3lys7uj6ovdg"]
+
+[sub_resource type="Gradient" id="Gradient_butnh"]
+offsets = PackedFloat32Array(0, 0.8598131)
+colors = PackedColorArray(1, 1, 1, 0.8862745, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lp56m"]
+gradient = SubResource("Gradient_butnh")
+fill = 1
+fill_from = Vector2(0.4957265, 0.5)
+fill_to = Vector2(0.6666667, 0.34615386)
+
+[sub_resource type="Curve" id="Curve_0yi1d"]
+_data = [Vector2(0.023569025, 0.9999999), 0.0, 0.0, 0, 0, Vector2(0.96632993, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_2a1ms"]
+curve = SubResource("Curve_0yi1d")
+
+[sub_resource type="Gradient" id="Gradient_buuwf"]
+colors = PackedColorArray(1, 0.39215687, 0, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_thfuv"]
+gradient = SubResource("Gradient_buuwf")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ykl6p"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 6.53
+gravity = Vector3(0, -10, 0)
+color = Color(1, 1, 0, 0.4862745)
+color_ramp = SubResource("GradientTexture1D_thfuv")
+alpha_curve = SubResource("CurveTexture_2a1ms")
+
+[node name="ProjectileTrailVfxPlaceholder" type="Node2D" unique_id=91231622]
+position = Vector2(22, 0)
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1245514467]
+color = Color(1, 0.49411765, 0.13333334, 0.8117647)
+texture = SubResource("GradientTexture2D_lp56m")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=868121738]
+modulate = Color(1, 0.49019608, 0.1764706, 1)
+amount = 50
+amount_ratio = 0.615
+explosiveness = 0.28
+process_material = SubResource("ParticleProcessMaterial_ykl6p")

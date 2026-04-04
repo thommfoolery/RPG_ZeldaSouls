@@ -2,6 +2,10 @@
 
 [ext_resource type="Script" uid="uid://bgxuoyc0iri5j" path="res://scenes/ui/menus/WarpMenu.gd" id="1_rcclx"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_rcclx"]
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 1)
+
 [node name="WarpMenu" type="Control" unique_id=1437000794]
 layout_mode = 3
 anchors_preset = 15
@@ -16,12 +20,13 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = -37.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="MainPanel" type="Panel" parent="." unique_id=40079148]
-custom_minimum_size = Vector2(900, 0)
+custom_minimum_size = Vector2(880, 0)
 layout_mode = 1
 anchors_preset = 13
 anchor_left = 0.5
@@ -45,6 +50,7 @@ grow_horizontal = 2
 unique_name_in_owner = true
 layout_mode = 2
 text = "- Warp Menu -"
+horizontal_alignment = 1
 
 [node name="TabBar" type="HBoxContainer" parent="MainPanel/VBoxContainer" unique_id=38222100]
 unique_name_in_owner = true
@@ -93,9 +99,13 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -23.0
-offset_right = 20.0
+offset_left = 21.0
+offset_top = -407.0
+offset_right = 168.0
+offset_bottom = -384.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "B : Exit"
+text = "A: Confirm - B : Exit"
+label_settings = SubResource("LabelSettings_rcclx")
+horizontal_alignment = 2
+vertical_alignment = 1

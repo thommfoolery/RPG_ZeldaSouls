@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://ci5l2s53r6l8s"]
+
+[ext_resource type="Script" uid="uid://cj85u58rw00nv" path="res://scenes/foliage/GrassPatch.gd" id="1_brdev"]
+[ext_resource type="PackedScene" uid="uid://bbh4sx7cw5iwt" path="res://scenes/foliage/GrassBlade.tscn" id="1_qhtl3"]
+
+[node name="Node2D" type="Node2D" unique_id=2098182417]
+y_sort_enabled = true
+script = ExtResource("1_brdev")
+grass_blade_scene = ExtResource("1_qhtl3")
+blade_count = 1
+push_radius = 10.0

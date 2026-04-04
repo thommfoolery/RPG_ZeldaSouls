@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="GameItem" format=3 uid="uid://r6njqth4hhwe"]
 
+[ext_resource type="PackedScene" uid="uid://d2iv4b7kc4mhd" path="res://scenes/vfx/IceExplodeVFXPlaceholder.tscn" id="1_61voa"]
 [ext_resource type="Script" uid="uid://b7ouuvly1l65f" path="res://resources/items/Item.gd" id="1_bpt52"]
 [ext_resource type="Texture2D" uid="uid://bvybh86jnq4f1" path="res://art/objects/items/spells/ice_spike.png" id="1_vufrp"]
 [ext_resource type="Texture2D" uid="uid://taulrvwrn2aq" path="res://art/objects/items/Projectiles/icespike.png" id="2_o6b6l"]
@@ -14,14 +15,16 @@ display_name = "Ice Spike"
 description = "Fires an ice spike"
 icon = ExtResource("1_vufrp")
 category = "Spells"
-mana_cost = 1
+mana_cost = 10
 cooldown = 0.5
 spell_vfx_scene = ExtResource("5_o6b6l")
 spell_projectile_scene = ExtResource("4_pra43")
 status_effect_to_apply = "Freeze"
 damage = 10
 effect_type = "Cast"
+stamina_cost = 10.0
 speed = 500.0
+explosion_scene = ExtResource("1_61voa")
 projectile_sprite = ExtResource("2_o6b6l")
 projectile_trail_vfx = ExtResource("3_pra43")
 use_vfx_scene = ExtResource("5_o6b6l")

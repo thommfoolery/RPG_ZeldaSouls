@@ -29,40 +29,59 @@ var quick_hold_timer: Timer
 var attunement_hold_timer: Timer
 
 func _ready() -> void:
-	# Timers
+	# Create timers first
 	quick_hold_timer = Timer.new()
 	quick_hold_timer.wait_time = 0.5
 	quick_hold_timer.one_shot = true
 	quick_hold_timer.timeout.connect(_on_quick_hold_timeout)
 	add_child(quick_hold_timer)
+
 	attunement_hold_timer = Timer.new()
 	attunement_hold_timer.wait_time = 0.5
 	attunement_hold_timer.one_shot = true
 	attunement_hold_timer.timeout.connect(_on_attunement_hold_timeout)
 	add_child(attunement_hold_timer)
 
-	# Connect to EquipmentManager
-	if EquipmentManager:
-		EquipmentManager.equipped_changed.connect(_on_equipped_changed)
-		print("[CrossHUD] Connected to EquipmentManager.equipped_changed")
-		
-		# NEW: Also listen to inventory changes (this fixes bow ammo qty live update)
-	if PlayerInventory and not PlayerInventory.inventory_changed.is_connected(_on_inventory_changed):
-		PlayerInventory.inventory_changed.connect(_on_inventory_changed)
-		print("[CrossHUD] Connected to PlayerInventory.inventory_changed for live ammo qty")
+	# Use call_deferred so we run after EquipmentManager finishes loading save data
+	call_deferred("_late_init")
 
-	# Safe initial update
+	print("[CrossHUD] _ready() - scheduling late init for post-save/load safety")
+
+
+func _late_init() -> void:
+	print("[CrossHUD] _late_init() running (post-save/load)")
+
+	# Safe signal connections
+	if EquipmentManager:
+		if not EquipmentManager.equipped_changed.is_connected(_on_equipped_changed):
+			EquipmentManager.equipped_changed.connect(_on_equipped_changed)
+			print("[CrossHUD] Connected to EquipmentManager.equipped_changed")
+
+	if PlayerInventory:
+		if not PlayerInventory.inventory_changed.is_connected(_on_inventory_changed):
+			PlayerInventory.inventory_changed.connect(_on_inventory_changed)
+			print("[CrossHUD] Connected to PlayerInventory.inventory_changed")
+
+	# Register with QuickUseHandler
+	if QuickUseHandler:
+		QuickUseHandler.cross_hud = self
+		print("[CrossHUD-DEBUG] Registered self with QuickUseHandler")
+
+	add_to_group("cross_hud")
+	print("[CrossHUD] Added to group 'cross_hud'")
+
+	# Multiple update attempts to handle timing issues after loading a save
 	_update_all_cross_slots()
 	_update_ammo_display()
 	_update_attunement_slot()
 
-	# REGISTER OURSELF WITH QUICKUSEHANDLER
-	if QuickUseHandler:
-		QuickUseHandler.cross_hud = self
-		print("[CrossHUD-DEBUG] Registered self with QuickUseHandler")
-	
-	add_to_group("cross_hud")
-	print("[CrossHUD] Added to group 'cross_hud'")
+	# One extra frame later - this fixes most save/load timing problems
+	await get_tree().process_frame
+	_update_all_cross_slots()
+	_update_ammo_display()
+	_update_attunement_slot()
+
+	print("[CrossHUD] Late initialization complete - CrossHUD should now respond to input")
 
 func _on_inventory_changed() -> void:
 	_update_ammo_display()
@@ -102,15 +121,8 @@ func get_current_attunement_spell() -> GameItem:
 func _input(event: InputEvent) -> void:
 	if Global.is_in_menu: return
 
-	if event.is_action_pressed("cycle_right_hand"):
-		active_right_index = 1 if active_right_index == 0 else 0
-		_update_right_hand_slot()
-		get_viewport().set_input_as_handled()
-	elif event.is_action_pressed("cycle_left_hand"):
-		active_left_index = 8 if active_left_index == 7 else 7
-		_update_left_hand_slot()
-		get_viewport().set_input_as_handled()
-	elif event.is_action_pressed("cycle_item_down"):
+
+	if event.is_action_pressed("cycle_item_down"):
 		quick_hold_timer.start()
 		get_viewport().set_input_as_handled()
 	elif event.is_action_released("cycle_item_down"):
@@ -357,3 +369,28 @@ func _is_valid_casting_tool(tool_item: GameItem, spell: GameItem) -> bool:
 # Public refresh
 func refresh() -> void:
 	_update_all_cross_slots()
+
+# Public method - call this after loading a save or when closing CharacterMenu
+func force_full_refresh() -> void:
+	_update_all_cross_slots()
+	_update_ammo_display()
+	_update_attunement_slot()
+	_update_ammo_tint_for_bow()
+	print("[CrossHUD] Force full refresh called")
+
+func _process(_delta: float) -> void:
+	if Global.is_in_menu or not visible:
+		return
+
+	# Hand cycling - moved here for reliability after save/load
+	if Input.is_action_just_pressed("cycle_right_hand"):
+		active_right_index = 1 if active_right_index == 0 else 0
+		_update_right_hand_slot()
+		_update_ammo_tint_for_bow()
+		print("[CrossHUD] Cycled RIGHT hand → slot ", active_right_index)
+
+	if Input.is_action_just_pressed("cycle_left_hand"):
+		active_left_index = 8 if active_left_index == 7 else 7
+		_update_left_hand_slot()
+		_update_ammo_tint_for_bow()
+		print("[CrossHUD] Cycled LEFT hand → slot ", active_left_index)

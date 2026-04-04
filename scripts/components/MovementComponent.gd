@@ -2,6 +2,7 @@
 extends Node
 class_name MovementComponent
 
+@export var can_move: bool = true   # ← THIS LINE MUST EXIST AND BE @export OR PUBLIC
 @export var base_speed: float = 80.0
 @export var sprint_multiplier: float = 1.6
 @export var sprint_drain_per_sec: float = 35.0

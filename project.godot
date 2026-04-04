@@ -43,16 +43,14 @@ WorldTimeManager="*uid://db8pd7722m5yj"
 CharacterMenu="*uid://j5cg6l5qp28f"
 PlayerInventory="*uid://tnle8ft4e2u5"
 EquipmentManager="*uid://jju1r2ruy68"
-WeatherManager="*uid://c0dpjfxdmsyql"
 QuickUseHandler="*uid://b0j2w2qrak1cx"
 ProjectileSpawner="*uid://d2m35pyfl64a6"
+StatCalculator="*uid://bd66ger83g8mv"
 
 [display]
 
-window/size/viewport_width=1280
-window/size/viewport_height=720
-window/size/window_width_override=1280
-window/size/window_height_override=720
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 
 [input]
 

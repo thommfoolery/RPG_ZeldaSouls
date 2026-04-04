@@ -5,12 +5,12 @@
 
 [resource]
 script = ExtResource("1_evpb2")
-area_name = "testroom"
+area_name = "Starting Zone"
 bonfire_id = "test_001"
 scene_path = "uid://b2q563ev4ywoh"
 spawn_position = Vector2(24.31, 27.955)
-title = "Test Bonfire"
-subtitle = "First light in the void..."
+title = "Foggy Pier"
+subtitle = "from smokin blunts"
 is_lit_on_first_rest = false
 preview_texture = ExtResource("1_spt2k")
 sort_order = 1

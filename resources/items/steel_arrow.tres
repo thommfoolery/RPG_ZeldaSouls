@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="GameItem" format=3 uid="uid://cw8kkwrq71sxi"]
 
+[ext_resource type="PackedScene" uid="uid://dyvvcyddwugjm" path="res://scenes/vfx/ArrowVFXPlaceholder.tscn" id="1_q88ag"]
 [ext_resource type="Texture2D" uid="uid://b5olr5mqxkeup" path="res://art/objects/items/ammo/steelarrow.png" id="1_rvd4r"]
 [ext_resource type="Script" uid="uid://b7ouuvly1l65f" path="res://resources/items/Item.gd" id="2_177pv"]
 [ext_resource type="Texture2D" uid="uid://djsewdrchvnxy" path="res://art/objects/items/Projectiles/arrow.png" id="2_q88ag"]
@@ -17,6 +18,7 @@ rarity = 2
 damage = 15
 speed = 300.0
 lifetime = 3.0
+explosion_scene = ExtResource("1_q88ag")
 projectile_sprite = ExtResource("2_q88ag")
 ammo_type = "Arrow"
 metadata/_custom_type_script = "uid://b7ouuvly1l65f"

@@ -93,20 +93,21 @@ func _start_warm_light_breathing() -> void:
 
 func _process(delta: float) -> void:
 	if not player_near: return
+	if Global.is_in_menu: return          # ← ADD THIS LINE
 	if player_node and player_node.global_position.distance_to(global_position) > prompt_hide_distance:
 		player_near = false
 		prompt_label.visible = false
 		update_prompt()
 
 func update_prompt() -> void:
-	if not player_near:
+	if not player_near or Global.is_in_menu:   # ← CHANGED
 		prompt_label.visible = false
 		return
 	prompt_label.text = "Press A to Rest" if is_lit else "Press A to Light"
 	prompt_label.visible = true
 
 func _unhandled_input(event: InputEvent) -> void:
-	if is_resting or not player_near or just_lit:
+	if Global.is_in_menu or is_resting or not player_near or just_lit:   # ← CHANGED
 		return
 	if not event.is_action_pressed("interact"):
 		return

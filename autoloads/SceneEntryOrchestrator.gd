@@ -37,6 +37,7 @@ func _on_scene_loaded() -> void:
 	await get_tree().process_frame
 	await get_tree().process_frame
 	
+	
 	var player = PlayerManager.current_player
 	if player and player.has_method("_on_scene_loaded"):
 		player._on_scene_loaded()
@@ -53,12 +54,20 @@ func _on_scene_loaded() -> void:
 	print("[Orchestrator] Activating player at ", target_pos.round())
 	PlayerActivationService.activate_and_position_player(target_pos)
 	
-	# Set initial checkpoint on first load if none exists yet
+# ─── INITIAL CHECKPOINT (only if we have NEVER rested at a real bonfire) ───
 	if CheckpointManager and CheckpointManager.initial_spawn_scene.is_empty():
-		CheckpointManager.set_initial_checkpoint(current_scene.scene_file_path, target_pos)
-		print("[Orchestrator] Initial checkpoint automatically set for first-death fallback")
-	
+		# Only set initial if we have no real bonfire yet
+		if CheckpointManager.current_bonfire_id.is_empty() or CheckpointManager.current_bonfire_id == "initial_start":
+			CheckpointManager.set_initial_checkpoint(current_scene.scene_file_path, target_pos)
+			print("[Orchestrator] Initial checkpoint automatically set for first-death fallback")
+		else:
+			print("[Orchestrator] Real bonfire already restored from save — skipping initial checkpoint overwrite")
+			
 	CameraManager.activate_player_camera()
+	
+	#Bring me the lamp
+	await get_tree().process_frame
+	EquipmentManager.reapply_dynamic_components()
 	
 	# Side effects
 	if BloodstainManager: BloodstainManager.spawn_if_pending()

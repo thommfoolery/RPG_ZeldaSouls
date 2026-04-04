@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="GameItem" format=3 uid="uid://3jcle1cbcfou"]
+
+[ext_resource type="Script" uid="uid://b7ouuvly1l65f" path="res://resources/items/Item.gd" id="1_j14g1"]
+[ext_resource type="Texture2D" uid="uid://j4rs45w4p1l7" path="res://art/objects/items/consumables/homebone_golden.png" id="1_sa25e"]
+
+[resource]
+script = ExtResource("1_j14g1")
+id = "homebone_golden"
+display_name = "Golden Bone"
+description = "Free Uber ride back to the Bonfire"
+icon = ExtResource("1_sa25e")
+stacks = false
+max_stack = 1
+consumes_on_use = false
+effect_type = "Teleport"
+metadata/_custom_type_script = "uid://b7ouuvly1l65f"

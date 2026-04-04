@@ -9,6 +9,7 @@ id = "divineblessing"
 display_name = "Divine Blessing"
 description = "Healing Item which restores all health and removes all negative status ailments except for Curse."
 icon = ExtResource("1_6t0et")
+stacks = false
 weight = 1.0
 rarity = 10
 is_consumable = true

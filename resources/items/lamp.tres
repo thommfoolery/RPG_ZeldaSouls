@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="GameItem" format=3 uid="uid://brmj51wirbcuo"]
+
+[ext_resource type="Texture2D" uid="uid://csf31q7r4qqn6" path="res://art/objects/items/weapons/lamp.png" id="1_4d6kc"]
+[ext_resource type="Script" uid="uid://b7ouuvly1l65f" path="res://resources/items/Item.gd" id="1_s6t7c"]
+
+[resource]
+script = ExtResource("1_s6t7c")
+id = "lamp"
+display_name = "Old Lantern"
+description = "So you can see in the dark. Works in offhand slot."
+icon = ExtResource("1_4d6kc")
+category = "Weapons"
+stacks = false
+weapon_type = "Other"
+is_lamp = true
+lamp_energy = 1.0
+lamp_color = Color(0.9999946, 0.53973675, 0.31839472, 1)
+lamp_flicker_enabled = true
+lamp_flicker_speed = 1.0
+lamp_flicker_intensity = 100.0
+metadata/_custom_type_script = "uid://b7ouuvly1l65f"

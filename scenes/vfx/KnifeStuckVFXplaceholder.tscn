@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dy0ybcl3d818c"]
+
+[ext_resource type="Texture2D" uid="uid://wqb22tgppus6" path="res://art/objects/items/Projectiles/throwingknife.png" id="1_yuwpq"]
+
+[node name="KnifeStuckVfXplaceholder" type="Node2D" unique_id=1492498900]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1632723796]
+position = Vector2(11, 0)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_yuwpq")

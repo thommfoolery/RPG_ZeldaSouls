@@ -10,6 +10,7 @@ display_name = "Wooden Shield"
 description = "Barely counts as a shield"
 icon = ExtResource("1_7t4k0")
 category = "Weapons"
+stacks = false
 weight = 5.0
 quantity_per_use = 0
 metadata/_custom_type_script = "uid://b7ouuvly1l65f"

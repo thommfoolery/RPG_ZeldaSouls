@@ -2,40 +2,70 @@
 extends Node
 class_name ManaComponent
 
-@export var base_mana: float = 80.0
-@export var attunement_scaling: float = 12.0
-
-var current_mana: float = 80.0
 var max_mana: float = 80.0
+var current_mana: float = 80.0
 
 signal mana_changed(current: float, max_mana: float)
 
 func _ready() -> void:
-	update_max_mana_from_stats()
+	if StatCalculator:
+		max_mana = StatCalculator.get_max_mana(PlayerStats.attunement)
+	else:
+		max_mana = 80.0
+	
 	current_mana = max_mana
 	mana_changed.emit(current_mana, max_mana)
+	call_deferred("_update_dynamic_bar")
 
-func update_max_mana_from_stats() -> void:
-	var attunement = 10
-	if PlayerStats and "attunement" in PlayerStats:
-		attunement = PlayerStats.attunement
-	
-	max_mana = base_mana + (attunement * attunement_scaling)
-	mana_changed.emit(current_mana, max_mana)
+
+func _enter_tree() -> void:
+	call_deferred("_update_dynamic_bar")
+
 
 func spend_mana(amount: float) -> bool:
 	if current_mana >= amount:
 		current_mana -= amount
 		mana_changed.emit(current_mana, max_mana)
+		call_deferred("_update_dynamic_bar")
 		return true
 	return false
 
-# Add this at the bottom of ManaComponent.gd
+
 func drain(amount: float) -> bool:
 	return spend_mana(amount)
 
-########################
-# Called from bonfire
+
 func restore_full() -> void:
 	current_mana = max_mana
 	mana_changed.emit(current_mana, max_mana)
+	call_deferred("_update_dynamic_bar")
+
+
+# Called from LevelUpMenu when Attunement is leveled
+func fill_to_new_max() -> void:
+	if StatCalculator:
+		max_mana = StatCalculator.get_max_mana(PlayerStats.attunement)
+	current_mana = max_mana
+	mana_changed.emit(current_mana, max_mana)
+	call_deferred("_update_dynamic_bar")
+	print("[ManaComponent] Filled to new max: ", max_mana)
+
+
+func get_normalized() -> float:
+	return current_mana / max_mana if max_mana > 0 else 0.0
+
+
+func _update_dynamic_bar() -> void:
+	if not is_inside_tree():
+		return
+	
+	var hud = get_tree().get_first_node_in_group("hud")
+	if not hud:
+		return
+	
+	var dynamic_bar = hud.get_node_or_null("HUDContainer/ManaBar/DynamicManaBar") as DynamicStatBar
+	if dynamic_bar:
+		dynamic_bar.update_bar(max_mana)
+		print("[Mana DEBUG] Called DynamicManaBar.update_bar with max = ", max_mana)
+	else:
+		print("[Mana DEBUG] Could not find DynamicManaBar")

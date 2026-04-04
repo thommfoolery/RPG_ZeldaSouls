@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bax33uyglkwmp"]
+
+[ext_resource type="Script" uid="uid://ckxykap1776u7" path="res://scenes/entities/fish/worm.gd" id="1_kd33h"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_53vva"]
+radius = 83.546394
+
+[node name="Worm" type="Node2D" unique_id=632450943]
+y_sort_enabled = true
+script = ExtResource("1_kd33h")
+
+[node name="Body" type="Line2D" parent="." unique_id=333231678]
+unique_name_in_owner = true
+
+[node name="WanderTimer" type="Timer" parent="." unique_id=2048694686]
+unique_name_in_owner = true
+
+[node name="DetectionArea" type="Area2D" parent="." unique_id=1511666145]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=812928563]
+shape = SubResource("CircleShape2D_53vva")
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

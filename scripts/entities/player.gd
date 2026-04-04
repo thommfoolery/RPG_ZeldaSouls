@@ -8,6 +8,8 @@ extends CharacterBody2D
 
 @onready var movement: MovementComponent = $MovementComponent
 
+
+
 var last_dir := Vector2.RIGHT  # default facing right
 var input_dir := Vector2.ZERO
 

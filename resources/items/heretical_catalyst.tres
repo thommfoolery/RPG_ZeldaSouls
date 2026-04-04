@@ -6,10 +6,11 @@
 [resource]
 script = ExtResource("1_2odeo")
 id = "heretical_catalyst"
-display_name = "Heretical Catalyst"
+display_name = "Catalyst"
 description = "Casting tool for all spell types. You is a bad bitch."
 icon = ExtResource("1_ifa7b")
 category = "Weapons"
+stacks = false
 max_stack = 1
 weapon_type = "Heretical"
 metadata/_custom_type_script = "uid://b7ouuvly1l65f"

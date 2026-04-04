@@ -19,34 +19,29 @@ func add_item(new_item: GameItem, qty: int = 1) -> void:
 	var cat = new_item.category
 	if not inventory.has(cat):
 		inventory[cat] = []
-	
-	# ── KEYS DEBUG (uncomment when needed) ──
-	#if cat == "Keys":
-		#print("[KEYS-DEBUG] add_item() called for Key → id='", new_item.id, "' | name='", new_item.display_name, "' | qty=", qty)
-	
-	# Stack if possible
-	for entry in inventory[cat]:
-		if entry and entry.id == new_item.id:
-			entry.quantity += qty
-			
-			#if cat == "Keys":
-				#print("[KEYS-DEBUG] Stacked Key → id='", new_item.id, "' | new qty=", entry.quantity)
-			#else:
-				#print("[PlayerInventory] Stacked +", qty, "x ", new_item.display_name)
-			
-			inventory_changed.emit()
-			return
-	
-	# Add new
+
+	# DEBUG: Tell us what item we're adding and whether it should stack
+	print("[DEBUG] add_item() → ", new_item.display_name, " | id=", new_item.id, " | stacks=", new_item.stacks, " | qty=", qty)
+
+	# ─── NEW: Respect stacks flag ───
+	if new_item.stacks:
+		# Stackable items (consumables, ammo, etc.)
+		for entry in inventory[cat]:
+			if entry and entry.id == new_item.id:
+				entry.quantity += qty
+				print("[DEBUG] Stacked → new quantity = ", entry.quantity)
+				inventory_changed.emit()
+				return
+	else:
+		# Non-stacking items (bows, unique weapons, etc.)
+		print("[DEBUG] Non-stacking item → adding as separate entry")
+
+	# Add as new entry
 	var copy = new_item.duplicate()
 	copy.quantity = qty
 	inventory[cat].append(copy)
 	
-	#if cat == "Keys":
-		#print("[KEYS-DEBUG] NEW Key added → id='", copy.id, "' | name='", copy.display_name, "'")
-	#else:
-		#print("[PlayerInventory] Added new item: ", new_item.display_name, " x", qty, " to ", cat)
-	
+	print("[DEBUG] Added new separate item: ", new_item.display_name)
 	inventory_changed.emit()
 
 

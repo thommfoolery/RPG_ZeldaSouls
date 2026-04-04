@@ -110,3 +110,6 @@ func _teleport_after_respawn() -> void:
 			print("[CheckpointManager] BloodstainManager missing!")
 	else:
 		print("[Checkpoint] ERROR: No valid player found for teleport")
+
+func has_real_bonfire() -> bool:
+	return not current_bonfire_id.is_empty() and current_bonfire_id != "initial_start"

@@ -114,14 +114,14 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.8974359, 0.91880345)
 
 [sub_resource type="Gradient" id="Gradient_n5sgd"]
-offsets = PackedFloat32Array(0, 0.48258707, 0.62852407, 1)
+offsets = PackedFloat32Array(0, 0.16507937, 0.8, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0.8673653, 0.8673653, 0.8673653, 1, 0.109452724, 0.109452724, 0.109452724, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_5ki56"]
 gradient = SubResource("Gradient_n5sgd")
 fill = 1
-fill_from = Vector2(0.525641, 0.47008547)
-fill_to = Vector2(0.85897434, 0.7863248)
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.8333333, 0.8803419)
 
 [node name="Player" type="CharacterBody2D" unique_id=481059393 groups=["player"]]
 y_sort_enabled = true
@@ -153,13 +153,17 @@ metadata/_custom_type_script = "uid://bm5txjtto3n8a"
 
 [node name="MovementComponent" type="Node" parent="." unique_id=1795499153]
 script = ExtResource("4_5u6hq")
-sprint_multiplier = 1.5
+base_speed = 45.0
+sprint_multiplier = 1.4
+sprint_drain_per_sec = 45.0
 backstep_distance = 100.0
-dodge_roll_distance = 120.0
+dodge_roll_distance = 80.0
+evade_stamina_cost = 30.0
 metadata/_custom_type_script = "uid://bsahnrj5uq1ml"
 
 [node name="StaminaComponent" type="Node" parent="." unique_id=970520090]
 script = ExtResource("5_5u6hq")
+regen_rate = 50.0
 metadata/_custom_type_script = "uid://b7urcot2kj1yn"
 
 [node name="ManaComponent" type="Node" parent="." unique_id=1191559652]
@@ -176,7 +180,6 @@ metadata/_custom_type_script = "uid://dl2a0r7fvawub"
 
 [node name="HealthComponent" type="Node" parent="." unique_id=1945349878]
 script = ExtResource("6_d4qa6")
-max_health = 101.0
 metadata/_custom_type_script = "uid://dpejf1kwt6rdj"
 
 [node name="DeathHandler" type="Node" parent="." unique_id=1927761598]
@@ -185,7 +188,7 @@ script = ExtResource("7_ss7kx")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=735539643]
 unique_name_in_owner = true
 position = Vector2(0, -20)
-zoom = Vector2(3.5, 3.5)
+zoom = Vector2(4, 4)
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
@@ -279,9 +282,10 @@ range_z_max = 1
 texture = SubResource("GradientTexture2D_5ki56")
 texture_scale = 3.35
 
-[node name="PointLight2D3" type="PointLight2D" parent="." unique_id=1699744082]
-visible = false
-energy = 0.44
+[node name="LampLight" type="PointLight2D" parent="." unique_id=1699744082]
+unique_name_in_owner = true
+enabled = false
+energy = 0.78
 range_z_max = 1
 texture = SubResource("GradientTexture2D_5ki56")
-texture_scale = 6.3
+texture_scale = 1.97

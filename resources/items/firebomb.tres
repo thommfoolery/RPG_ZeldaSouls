@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://kwdrh2dyrsw5" path="res://art/objects/items/consumables/firebomb.png" id="1_bh0ae"]
 [ext_resource type="PackedScene" uid="uid://c3srcludvqix" path="res://scenes/vfx/ExplodeVFXPlaceholder.tscn" id="1_ikexr"]
 [ext_resource type="Texture2D" uid="uid://bji4q1fbewntj" path="res://art/objects/items/Projectiles/firebomb_project.png" id="2_hqxma"]
+[ext_resource type="PackedScene" uid="uid://3lys7uj6ovdg" path="res://scenes/vfx/ProjectileTrailVFXPlaceholder_warm.tscn" id="4_45lyi"]
 
 [resource]
 script = ExtResource("1_27efu")
@@ -16,8 +17,9 @@ is_consumable = true
 damage = 45
 effect_type = "Damage"
 trajectory_type = "Arc"
-speed = 200.0
+speed = 100.0
 lifetime = 1.0
 explosion_scene = ExtResource("1_ikexr")
 projectile_sprite = ExtResource("2_hqxma")
+projectile_trail_vfx = ExtResource("4_45lyi")
 metadata/_custom_type_script = "uid://b7ouuvly1l65f"

@@ -10,6 +10,7 @@ display_name = "Dagger"
 description = "\"You call that a knife?\""
 icon = ExtResource("1_25keo")
 category = "Weapons"
+stacks = false
 weight = 0.5
 damage = 5
 quantity_per_use = 0
