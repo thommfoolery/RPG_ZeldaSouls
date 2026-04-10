@@ -12,5 +12,7 @@ icon = ExtResource("1_45vy6")
 category = "Weapons"
 stacks = false
 max_stack = 1
+consumes_on_use = false
 weapon_type = "Chime"
+can_use = false
 metadata/_custom_type_script = "uid://b7ouuvly1l65f"

@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dckdotesafjwj"]
+
+[ext_resource type="Script" uid="uid://dsm2pbllg356b" path="res://scenes/camera/CameraZone.gd" id="1_22luq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_elkt5"]
+
+[node name="CameraZone" type="Area2D" unique_id=118229900]
+script = ExtResource("1_22luq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1752265140]
+shape = SubResource("RectangleShape2D_elkt5")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

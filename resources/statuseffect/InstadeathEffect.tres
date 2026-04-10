@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="StatusEffect" format=3 uid="uid://cq11hx1c1rma"]
+
+[ext_resource type="Script" uid="uid://dy878h0sgofkj" path="res://resources/statuseffect/StatusEffect.gd" id="1_5kl2n"]
+[ext_resource type="Texture2D" uid="uid://ci2npvupedjq" path="res://art/icons/statuseffect/death.png" id="1_44h2e"]
+
+[resource]
+script = ExtResource("1_5kl2n")
+id = "instadeath"
+display_name = "Death"
+icon = ExtResource("1_44h2e")
+color = Color(0.21950102, 0.21950102, 0.21950102, 1)
+is_positive = false
+is_mortal = true
+build_up_required = 100.0
+max_duration = 999.0
+build_up_rate = 15.0
+decay_rate = 10.0
+cure_item_id = "death_antidote"
+metadata/_custom_type_script = "uid://dy878h0sgofkj"

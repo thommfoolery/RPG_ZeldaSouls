@@ -68,7 +68,7 @@ func respawn() -> void:
 			print("[CheckpointManager] FORCED souls = 0 after death respawn")
 		
 		Global.is_death_respawn = false
-		
+		StatusEffectManager.on_player_respawned()
 		# ─── AUTOSAVE AFTER FADE FINISHES (minimal one-line addition) ───
 		if SaveManager:
 			SaveManager.request_save()
@@ -78,6 +78,7 @@ func respawn() -> void:
 	, 0.25, 0.35)
 	
 	print("[CheckpointManager] respawn() FINISHED")
+	
 
 
 func _after_scene_change() -> void:

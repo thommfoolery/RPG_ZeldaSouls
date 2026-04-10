@@ -21,6 +21,9 @@ func _on_player_died() -> void:
 	player_body.collision_mask = 0
 	player_body.process_mode = Node.PROCESS_MODE_DISABLED
 	
+	StatusEffectManager.clear_all_effects()
+	# ← REMOVED the early on_player_respawned() call here
+	
 	# ─── Use AnimationComponent for death animation ───
 	var anim = player_body.get_node_or_null("AnimationComponent")
 	if anim and anim.has_method("play_death"):
@@ -30,7 +33,6 @@ func _on_player_died() -> void:
 		print("[DeathHandler] Death animation finished")
 	else:
 		print("[DeathHandler] WARNING: No AnimationComponent or play_death method")
-		# Safe fallback
 		var sprite = player_body.get_node_or_null("SpriteContainer/AnimatedSprite2D")
 		if sprite and sprite.sprite_frames.has_animation("death"):
 			sprite.stop()

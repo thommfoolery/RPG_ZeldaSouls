@@ -12,4 +12,5 @@ icon = ExtResource("1_ibb02")
 weight = 0.2
 is_consumable = true
 effect_type = "Buff"
+upgrade_level = null
 metadata/_custom_type_script = "uid://b7ouuvly1l65f"

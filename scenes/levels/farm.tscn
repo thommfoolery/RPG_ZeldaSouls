@@ -1,7 +1,9 @@
 [gd_scene format=4 uid="uid://cl8tepx1il5u3"]
 
+[ext_resource type="Script" uid="uid://b2ub4722t5yj7" path="res://scenes/levels/TestRoomConfig.gd" id="1_bsvre"]
 [ext_resource type="TileSet" uid="uid://8mbq6anwsvba" path="res://art/tilesets/new_tile_set.tres" id="1_lxvqf"]
 [ext_resource type="TileSet" uid="uid://8s85at4vgrv" path="res://art/tilesets/epictiles.tres" id="2_1kqwi"]
+[ext_resource type="Resource" uid="uid://cokd5cxyuanhn" path="res://resources/camera/farm_camera.tres" id="2_bsvre"]
 [ext_resource type="PackedScene" uid="uid://1rwr7gbdxrin" path="res://scenes/entities/bonfire/bonfire.tscn" id="3_b7tlr"]
 [ext_resource type="Script" uid="uid://b8ebidmjcomuh" path="res://scenes/levels/DamageZone.gd" id="4_2hppw"]
 [ext_resource type="Script" uid="uid://dhi6u661755eg" path="res://scenes/components/TransitionMarker.gd" id="4_a4dy8"]
@@ -90,7 +92,15 @@ alpha_curve = SubResource("CurveTexture_n0ttf")
 sub_emitter_mode = 2
 sub_emitter_amount_at_end = 1
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bsvre"]
+size = Vector2(5, 476.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lf5w2"]
+size = Vector2(656.75, 10)
+
 [node name="Node2D" type="Node2D" unique_id=438174184]
+script = ExtResource("1_bsvre")
+camera_config = ExtResource("2_bsvre")
 
 [node name="ground" type="TileMapLayer" parent="." unique_id=330315057]
 y_sort_enabled = true
@@ -139,6 +149,30 @@ marker_id = "farm"
 position = Vector2(188, 41)
 script = ExtResource("4_a4dy8")
 marker_id = "DefaultSpawn"
+
+[node name="ItemPickup" parent="ysort" unique_id=1792406937 instance=ExtResource("9_jam0k")]
+y_sort_enabled = true
+position = Vector2(369, 131)
+item = ExtResource("19_48lln")
+pickup_id = "goldarmor_01"
+
+[node name="ItemPickup2" parent="ysort" unique_id=468067503 instance=ExtResource("9_jam0k")]
+y_sort_enabled = true
+position = Vector2(369, 165)
+item = ExtResource("20_ckq0u")
+pickup_id = "goldarmor_02"
+
+[node name="ItemPickup3" parent="ysort" unique_id=169672735 instance=ExtResource("9_jam0k")]
+y_sort_enabled = true
+position = Vector2(404, 161)
+item = ExtResource("21_qvlpn")
+pickup_id = "goldarmor_03"
+
+[node name="ItemPickup4" parent="ysort" unique_id=306378228 instance=ExtResource("9_jam0k")]
+y_sort_enabled = true
+position = Vector2(406, 131)
+item = ExtResource("22_bsvre")
+pickup_id = "goldarmor_04"
 
 [node name="DamageZone" type="Area2D" parent="." unique_id=662102037]
 script = ExtResource("4_2hppw")
@@ -249,22 +283,20 @@ position = Vector2(363, 307)
 item = ExtResource("17_48lln")
 pickup_id = "farm_catalyst"
 
-[node name="ItemPickup" parent="." unique_id=1792406937 instance=ExtResource("9_jam0k")]
-position = Vector2(369, 131)
-item = ExtResource("19_48lln")
-pickup_id = "goldarmor_01"
+[node name="OB" type="StaticBody2D" parent="." unique_id=683380238]
 
-[node name="ItemPickup2" parent="." unique_id=468067503 instance=ExtResource("9_jam0k")]
-position = Vector2(369, 165)
-item = ExtResource("20_ckq0u")
-pickup_id = "goldarmor_02"
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OB" unique_id=571478268]
+position = Vector2(-31.5, 206.875)
+shape = SubResource("RectangleShape2D_bsvre")
 
-[node name="ItemPickup3" parent="." unique_id=169672735 instance=ExtResource("9_jam0k")]
-position = Vector2(404, 161)
-item = ExtResource("21_qvlpn")
-pickup_id = "goldarmor_03"
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="OB" unique_id=1686732014]
+position = Vector2(591, 221.25)
+shape = SubResource("RectangleShape2D_bsvre")
 
-[node name="ItemPickup4" parent="." unique_id=306378228 instance=ExtResource("9_jam0k")]
-position = Vector2(406, 131)
-item = ExtResource("22_bsvre")
-pickup_id = "goldarmor_04"
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="OB" unique_id=1904868208]
+position = Vector2(260.625, -5)
+shape = SubResource("RectangleShape2D_lf5w2")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="OB" unique_id=1798738740]
+position = Vector2(288.25, 447)
+shape = SubResource("RectangleShape2D_lf5w2")

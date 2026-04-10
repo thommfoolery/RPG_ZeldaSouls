@@ -19,6 +19,7 @@ signal quick_use_changed(new_index: int)
 @onready var attunement_icon: TextureRect = $AttunementSlot/AttunementIcon
 @onready var attunement_label: Label = $AttunementSlot/AttunementLabel
 @onready var estus_container: Control = $HUDContainer/EstusContainer
+@onready var quick_slot_label: Label = $BottomSlot/QuickSlotLabel   
 
 # ─── State ──────────────────────────────────────────────────────────
 var active_right_index: int = 0
@@ -80,7 +81,7 @@ func _late_init() -> void:
 	_update_all_cross_slots()
 	_update_ammo_display()
 	_update_attunement_slot()
-
+	print("[CrossHUD] QuickSlotLabel found: ", quick_slot_label != null)
 	print("[CrossHUD] Late initialization complete - CrossHUD should now respond to input")
 
 func _on_inventory_changed() -> void:
@@ -243,27 +244,51 @@ func _update_quick_use_slot() -> void:
 		quick_use_icon.texture = item.icon
 		quick_use_icon.visible = true
 		
-		# Hide qty label for Estus (we have dedicated estus label)
+		# === BUILD DISPLAY NAME ===
+		var display_text = item.display_name
+		
+		# Special Estus handling - use the REAL saved potency level from PlayerStats
+		if item.id == "estus" or item.display_name.to_lower() == "estus":
+			var potency = PlayerStats.estus_heal_level if "estus_heal_level" in PlayerStats else 0
+			
+			if potency > 0:
+				display_text = "Estus +" + str(potency)
+			else:
+				display_text = "Estus"
+			
+			print("[CrossHUD-DEBUG] Estus potency from PlayerStats = ", potency, " → QuickSlotLabel: '", display_text, "'")
+		
+		# Apply to label
+		if quick_slot_label:
+			quick_slot_label.text = display_text
+			quick_slot_label.visible = true
+		else:
+			print("[CrossHUD-DEBUG] WARNING: quick_slot_label is NULL!")
+		
+		# === ESTUS SPECIAL HANDLING (your original logic, untouched) ===
 		if item.id == "estus" or item.display_name.to_lower() == "estus":
 			quick_use_qty.visible = false
+			var estus_cont = find_child("EstusContainer", true, false) as Control
+			if estus_cont:
+				estus_cont.visible = true
 		else:
+			# Normal consumable
 			quick_use_qty.text = str(item.quantity)
 			quick_use_qty.visible = true
-		
+			var estus_cont = find_child("EstusContainer", true, false) as Control
+			if estus_cont:
+				estus_cont.visible = false
+			
 	else:
-		quick_use_icon.texture = null
+		# Nothing equipped
 		quick_use_icon.visible = false
 		quick_use_qty.visible = false
-
-	# ─── ESTUS CONTAINER LOGIC — always evaluated ───
-	var estus_cont = find_child("EstusContainer", true, false) as Control
-	if estus_cont:
-		var is_estus = item and (item.id == "estus" or item.display_name.to_lower() == "estus")
-		estus_cont.visible = is_estus
-		print("[CrossHUD-DEBUG] EstusContainer ", "VISIBLE" if is_estus else "HIDDEN", " (quick slot has Estus)")
-	else:
-		print("[CrossHUD-DEBUG] WARNING: Could not find EstusContainer")
-	_update_ammo_tint_for_bow()   # ← add at the very end
+		if quick_slot_label:
+			quick_slot_label.visible = false
+			quick_slot_label.text = ""
+		var estus_cont = find_child("EstusContainer", true, false) as Control
+		if estus_cont:
+			estus_cont.visible = false
 
 func _update_ammo_display() -> void:
 	print("[CrossHUD-DEBUG] _update_ammo_display() CALLED")

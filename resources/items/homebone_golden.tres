@@ -13,4 +13,6 @@ stacks = false
 max_stack = 1
 consumes_on_use = false
 effect_type = "Teleport"
+can_drop = false
+can_discard = false
 metadata/_custom_type_script = "uid://b7ouuvly1l65f"

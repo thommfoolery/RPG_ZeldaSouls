@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="GameItem" format=3 uid="uid://ccnt4cbtcpmnn"]
+
+[ext_resource type="Texture2D" uid="uid://dno72vh6pbt0k" path="res://art/objects/items/materials/estus_capacity.png" id="1_4eyvi"]
+[ext_resource type="Script" uid="uid://b7ouuvly1l65f" path="res://resources/items/Item.gd" id="1_jilam"]
+
+[resource]
+script = ExtResource("1_jilam")
+id = "estus_capacity"
+display_name = "Estus Capacity"
+description = "Increases the number of Estus charges. aka Bigger Cup = More Drank"
+icon = ExtResource("1_4eyvi")
+category = "Materials"
+stacks = false
+consumes_on_use = false
+can_use = false
+can_drop = false
+can_discard = false
+metadata/_custom_type_script = "uid://b7ouuvly1l65f"

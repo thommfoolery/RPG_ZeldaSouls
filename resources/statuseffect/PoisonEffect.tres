@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="StatusEffect" format=3 uid="uid://dfcuwbpby4brp"]
+
+[ext_resource type="Texture2D" uid="uid://doderwomcmp01" path="res://art/icons/statuseffect/poison.png" id="1_baiv8"]
+[ext_resource type="Script" uid="uid://dy878h0sgofkj" path="res://resources/statuseffect/StatusEffect.gd" id="1_twnkj"]
+
+[resource]
+script = ExtResource("1_twnkj")
+id = "poison"
+display_name = "Poison"
+icon = ExtResource("1_baiv8")
+color = Color(0.16078432, 0.26666668, 0.105882354, 1)
+is_positive = false
+build_up_required = 100.0
+max_duration = 25.0
+tick_rate = 2.0
+tick_value = -10.0
+build_up_rate = 25.0
+decay_rate = 10.0
+cure_item_id = "poison_antidote"
+metadata/_custom_type_script = "uid://dy878h0sgofkj"

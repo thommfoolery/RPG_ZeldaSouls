@@ -1,0 +1,81 @@
+[gd_resource type="Resource" script_class="VendorRegistry" format=3 uid="uid://cs5jlc58ywti0"]
+
+[ext_resource type="Script" uid="uid://dauwtpuooxaq8" path="res://resources/vendors/VendorEntry.gd" id="1_6lcbe"]
+[ext_resource type="Script" uid="uid://ck6qheo21ifpr" path="res://resources/vendors/VendorRegistry.gd" id="2_i8lpa"]
+[ext_resource type="Script" uid="uid://f0y4ph71vtpr" path="res://resources/vendors/ShopListing.gd" id="2_wigrp"]
+[ext_resource type="Texture2D" uid="uid://c7mmjqvcj62h8" path="res://art/NPC/OldBlacksmith.png" id="2_xc2aq"]
+[ext_resource type="Resource" uid="uid://ccnt4cbtcpmnn" path="res://resources/items/estus_capacity.tres" id="4_q2v82"]
+[ext_resource type="Resource" uid="uid://bwelo1l2gj6bh" path="res://resources/items/iron_arrow.tres" id="5_mn4dy"]
+[ext_resource type="Resource" uid="uid://dolq15istyqtp" path="res://resources/items/estus_potency.tres" id="5_vrm0u"]
+[ext_resource type="Resource" uid="uid://cuhe2ksfh1n38" path="res://resources/items/bleed_antidote.tres" id="7_og82x"]
+[ext_resource type="Resource" uid="uid://byaoor6j2gfci" path="res://resources/items/death_antidote.tres" id="8_r62yn"]
+[ext_resource type="Resource" uid="uid://cyobbo8ytva8r" path="res://resources/items/frost_antidote.tres" id="9_dmwkh"]
+[ext_resource type="Resource" uid="uid://df51v0gmrtptp" path="res://resources/items/poison_antidote.tres" id="10_bnsj3"]
+
+[sub_resource type="Resource" id="Resource_iw5ui"]
+script = ExtResource("2_wigrp")
+item = ExtResource("4_q2v82")
+buy_price = 10000
+sell_price_multiplier = 0.75
+max_stock = 12
+current_stock = 12
+metadata/_custom_type_script = "uid://f0y4ph71vtpr"
+
+[sub_resource type="Resource" id="Resource_cko2e"]
+script = ExtResource("2_wigrp")
+item = ExtResource("5_vrm0u")
+buy_price = 10000
+sell_price_multiplier = 0.75
+max_stock = 12
+current_stock = 12
+metadata/_custom_type_script = "uid://f0y4ph71vtpr"
+
+[sub_resource type="Resource" id="Resource_mxxfn"]
+script = ExtResource("2_wigrp")
+item = ExtResource("5_mn4dy")
+buy_price = 15
+max_stock = 100
+current_stock = 100
+metadata/_custom_type_script = "uid://f0y4ph71vtpr"
+
+[sub_resource type="Resource" id="Resource_gfv5i"]
+script = ExtResource("2_wigrp")
+item = ExtResource("7_og82x")
+buy_price = 10
+current_stock = 10
+metadata/_custom_type_script = "uid://f0y4ph71vtpr"
+
+[sub_resource type="Resource" id="Resource_ai1ma"]
+script = ExtResource("2_wigrp")
+item = ExtResource("8_r62yn")
+buy_price = 10
+current_stock = 10
+metadata/_custom_type_script = "uid://f0y4ph71vtpr"
+
+[sub_resource type="Resource" id="Resource_yxt32"]
+script = ExtResource("2_wigrp")
+item = ExtResource("9_dmwkh")
+buy_price = 10
+current_stock = 10
+metadata/_custom_type_script = "uid://f0y4ph71vtpr"
+
+[sub_resource type="Resource" id="Resource_r4mqg"]
+script = ExtResource("2_wigrp")
+item = ExtResource("10_bnsj3")
+buy_price = 10
+current_stock = 10
+metadata/_custom_type_script = "uid://f0y4ph71vtpr"
+
+[sub_resource type="Resource" id="Resource_ymhim"]
+script = ExtResource("1_6lcbe")
+vendor_id = "blacksmith_01"
+display_name = "Old Blacksmith"
+greeting = "Got some fine steel for ye... What are you buying?"
+portrait = ExtResource("2_xc2aq")
+shop_listings = Array[ExtResource("2_wigrp")]([SubResource("Resource_iw5ui"), SubResource("Resource_cko2e"), SubResource("Resource_mxxfn"), SubResource("Resource_gfv5i"), SubResource("Resource_ai1ma"), SubResource("Resource_yxt32"), SubResource("Resource_r4mqg")])
+metadata/_custom_type_script = "uid://dauwtpuooxaq8"
+
+[resource]
+script = ExtResource("2_i8lpa")
+entries = Array[ExtResource("1_6lcbe")]([SubResource("Resource_ymhim")])
+metadata/_custom_type_script = "uid://ck6qheo21ifpr"

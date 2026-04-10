@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dex21ig348sxg" path="res://art/objects/bonfire_spark.png" id="1_jmhiw"]
 [ext_resource type="Texture2D" uid="uid://cdasdwpvu028m" path="res://art/objects/bonefire_lit.png" id="2_8aldm"]
 [ext_resource type="Texture2D" uid="uid://cqap1t0r0hkgi" path="res://art/objects/bonefire_not_lit.png" id="3_jev0p"]
+[ext_resource type="PackedScene" uid="uid://dckdotesafjwj" path="res://scenes/camera/CameraZone.tscn" id="5_tj45e"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o0yqv"]
 atlas = ExtResource("1_jmhiw")
@@ -210,7 +211,7 @@ color = Color(0.4506483, 0.4506483, 0.45064825, 1)
 color_ramp = SubResource("GradientTexture1D_tj45e")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xr26i"]
-size = Vector2(14, 9.75)
+size = Vector2(14, 7)
 
 [node name="Bonfire" type="Node2D" unique_id=213201991]
 y_sort_enabled = true
@@ -225,19 +226,12 @@ frame_progress = 0.19581628
 offset = Vector2(0, -17.175)
 
 [node name="InteractionArea" type="Area2D" parent="." unique_id=908450286]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1882097353]
 position = Vector2(0, -5)
+rotation = -0.705113
+scale = Vector2(0.685, 0.685)
 shape = SubResource("CircleShape2D_7tbkx")
-
-[node name="PromptLabel" type="Label" parent="." unique_id=1522019723]
-offset_left = -20.0
-offset_top = -2.0
-offset_right = 20.0
-offset_bottom = 21.0
-theme_override_font_sizes/font_size = 8
-text = "test"
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=2058976103]
 visible = false
@@ -250,19 +244,25 @@ color = Color(0, 0, 0, 1)
 [node name="Effects" type="Node2D" parent="." unique_id=696327805]
 
 [node name="FlashLight" type="PointLight2D" parent="Effects" unique_id=21288491]
+position = Vector2(0, -7)
 scale = Vector2(1, 0.5)
 color = Color(1, 1, 0.21960784, 0.24705882)
+shadow_enabled = true
 texture = SubResource("GradientTexture2D_gc5un")
+offset = Vector2(0, 14)
 texture_scale = 2.7
+metadata/_edit_lock_ = true
 
 [node name="WarmLight" type="PointLight2D" parent="Effects" unique_id=641767345]
-position = Vector2(25, -5)
+position = Vector2(0, -7)
 scale = Vector2(1, 0.5)
 color = Color(0.64081186, 0.26919407, 3.85046e-07, 1)
 energy = 1.2
+shadow_enabled = true
 texture = SubResource("GradientTexture2D_tkv7u")
-offset = Vector2(-25, 2)
+offset = Vector2(0, 6)
 texture_scale = 0.95
+metadata/_edit_lock_ = true
 
 [node name="EmbersBurst" type="GPUParticles2D" parent="Effects" unique_id=752957479]
 position = Vector2(0, -7)
@@ -289,20 +289,33 @@ lifetime = 2.0
 speed_scale = 0.2
 process_material = SubResource("ParticleProcessMaterial_vdxnd")
 
-[node name="ColorRect2" type="ColorRect" parent="." unique_id=1646160880]
-visible = false
-offset_left = -69.0
-offset_top = -94.0
-offset_right = 94.0
-offset_bottom = 43.0
-color = Color(0.62085146, 0.78699106, 0.67841107, 1)
-
-[node name="Area2D" type="Area2D" parent="." unique_id=1987778982]
+[node name="Area2D" type="StaticBody2D" parent="." unique_id=74687140]
 y_sort_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1884283807]
 y_sort_enabled = true
-position = Vector2(0, -5.125)
+position = Vector2(0, -6.5)
 shape = SubResource("RectangleShape2D_xr26i")
 
+[node name="PromptLabel" type="Label" parent="." unique_id=1522019723]
+z_index = 1
+texture_filter = 1
+offset_left = -31.0
+offset_top = -35.0
+offset_right = 31.0
+offset_bottom = -12.0
+size_flags_vertical = 1
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 8
+text = "test"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="CameraZone" parent="." unique_id=118229900 instance=ExtResource("5_tj45e")]
+position = Vector2(0, -5)
+target_zoom = Vector2(6, 6)
+transition_time = 2.0
+
 [connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="InteractionArea" to="." method="_on_interaction_area_body_exited"]

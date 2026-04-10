@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="GameItem" format=3 uid="uid://cuhe2ksfh1n38"]
+
+[ext_resource type="Script" uid="uid://b7ouuvly1l65f" path="res://resources/items/Item.gd" id="1_r8pk2"]
+[ext_resource type="Texture2D" uid="uid://bwa6fy462mqt1" path="res://art/objects/items/consumables/bleed_antidote.png" id="1_ra21e"]
+
+[resource]
+script = ExtResource("1_r8pk2")
+id = "bleed_antidote"
+display_name = "Bleed Antidote"
+description = "Removes Bleed Build Up"
+icon = ExtResource("1_ra21e")
+is_consumable = true
+effect_type = "StatusClear"
+status_to_clear = "bleed"
+metadata/_custom_type_script = "uid://b7ouuvly1l65f"

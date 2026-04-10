@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://ccso1wgcango" path="res://art/ui/saveicon.png" id="2_hqnrr"]
 [ext_resource type="Script" uid="uid://cn03ibe6xn4ka" path="res://scenes/ui/debug_overlay.gd" id="4_8qguk"]
 [ext_resource type="Script" uid="uid://c6dghi4qm58ly" path="res://scenes/ui/CrossHUD.gd" id="4_136eg"]
+[ext_resource type="Script" uid="uid://btptxmkssiace" path="res://scenes/ui/StatusBarHUD.gd" id="6_gss2c"]
+[ext_resource type="Script" uid="uid://syc3bue4tb1b" path="res://scenes/ui/BuffHUD.gd" id="7_h022r"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_546lt"]
 content_margin_left = 2.0
@@ -18,9 +20,9 @@ border_width_right = 2
 border_width_bottom = 2
 border_color = Color(0, 0, 0, 1)
 corner_detail = 1
-expand_margin_left = 2.0
+expand_margin_left = 3.0
 expand_margin_top = 2.0
-expand_margin_right = 2.0
+expand_margin_right = 3.0
 expand_margin_bottom = 2.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ihmi"]
@@ -43,10 +45,10 @@ border_width_right = 2
 border_width_bottom = 2
 border_color = Color(0, 0, 0, 1)
 corner_detail = 1
-expand_margin_left = 2.0
+expand_margin_left = 3.0
 expand_margin_top = 2.0
-expand_margin_right = 2.0
-expand_margin_bottom = 1.0
+expand_margin_right = 3.0
+expand_margin_bottom = 2.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_276te"]
 content_margin_left = 2.0
@@ -68,9 +70,9 @@ border_width_right = 2
 border_width_bottom = 2
 border_color = Color(0, 0, 0, 1)
 corner_detail = 1
-expand_margin_left = 2.0
+expand_margin_left = 3.0
 expand_margin_top = 2.0
-expand_margin_right = 2.0
+expand_margin_right = 3.0
 expand_margin_bottom = 2.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_136eg"]
@@ -82,7 +84,7 @@ bg_color = Color(0.09597821, 0, 0.7456061, 1)
 corner_detail = 1
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bo48s"]
-bg_color = Color(0.14767182, 0.14767182, 0.14767176, 1)
+bg_color = Color(0.14901961, 0.14901961, 0.14901961, 0.78431374)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
@@ -101,14 +103,20 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ColorRect" type="ColorRect" parent="HUDContainer" unique_id=1308411600]
-visible = false
-custom_minimum_size = Vector2(1.72, 0)
 layout_mode = 0
-offset_left = 12.0
-offset_top = 12.0
-offset_right = 377.0
-offset_bottom = 65.0
+offset_left = 32.0
+offset_top = 39.0
+offset_right = 80.0
+offset_bottom = 87.0
 color = Color(0.050708726, 0.050708726, 0.050708726, 0.91600007)
+
+[node name="ColorRect2" type="ColorRect" parent="HUDContainer" unique_id=1859080582]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 42.0
+offset_right = 77.0
+offset_bottom = 84.0
+color = Color(0.2592937, 0.2592937, 0.2592937, 0.91764706)
 
 [node name="SoulCounterBackground" type="Panel" parent="HUDContainer" unique_id=714767963]
 layout_mode = 1
@@ -145,10 +153,10 @@ text = "Souls: 0"
 unique_name_in_owner = true
 modulate = Color(0.24705882, 0.5058824, 0, 1)
 layout_mode = 0
-offset_left = 14.0
-offset_top = 31.0
-offset_right = 375.0
-offset_bottom = 46.0
+offset_left = 95.0
+offset_top = 58.0
+offset_right = 456.0
+offset_bottom = 67.0
 theme_override_styles/background = SubResource("StyleBoxFlat_546lt")
 theme_override_styles/fill = SubResource("StyleBoxFlat_7ihmi")
 max_value = 50.0
@@ -165,10 +173,10 @@ max_expected_value = 160.0
 unique_name_in_owner = true
 modulate = Color(0.9964171, 0.005288607, 0.002562096, 1)
 layout_mode = 0
-offset_left = 14.0
-offset_top = 15.0
-offset_right = 375.0
-offset_bottom = 29.0
+offset_left = 95.0
+offset_top = 42.0
+offset_right = 456.0
+offset_bottom = 50.0
 theme_override_styles/background = SubResource("StyleBoxFlat_rbyyf")
 theme_override_styles/fill = SubResource("StyleBoxFlat_276te")
 value = 100.0
@@ -178,15 +186,17 @@ show_percentage = false
 unique_name_in_owner = true
 script = ExtResource("2_136eg")
 progress_bar = NodePath("..")
+max_width = 900.0
+max_expected_value = 1600.0
 
 [node name="ManaBar" type="ProgressBar" parent="HUDContainer" unique_id=329103787]
 unique_name_in_owner = true
 modulate = Color(0.16134188, 0.39091292, 1, 1)
 layout_mode = 0
-offset_left = 14.0
-offset_top = 48.0
-offset_right = 375.0
-offset_bottom = 63.0
+offset_left = 95.0
+offset_top = 75.0
+offset_right = 456.0
+offset_bottom = 84.0
 theme_override_styles/background = SubResource("StyleBoxFlat_8qguk")
 theme_override_styles/fill = SubResource("StyleBoxFlat_136eg")
 max_value = 200.0
@@ -306,6 +316,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 2.6699982
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.43529412)
@@ -319,9 +330,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -27.0
+offset_left = -26.0
 offset_top = -21.0
-offset_right = 27.0
+offset_right = 28.0
 offset_bottom = 21.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -330,7 +341,7 @@ theme_override_constants/shadow_offset_x = 4
 theme_override_constants/shadow_offset_y = 4
 theme_override_constants/outline_size = 5
 theme_override_constants/shadow_outline_size = 7
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 26
 text = " 0/0"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -392,6 +403,7 @@ offset_top = -7.1299973
 offset_bottom = 9.870026
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 12
 horizontal_alignment = 1
 
@@ -443,6 +455,7 @@ offset_top = -11.786011
 offset_bottom = 5.2139893
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 12
 horizontal_alignment = 1
 
@@ -610,6 +623,7 @@ offset_top = -11.464996
 offset_bottom = 5.535034
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 12
 horizontal_alignment = 1
 
@@ -658,3 +672,77 @@ grow_horizontal = 0
 grow_vertical = 0
 text = "999"
 horizontal_alignment = 2
+
+[node name="ColorRect" type="ColorRect" parent="QuickUseCross/BottomSlot" unique_id=2093776044]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -2.2888184e-05
+offset_bottom = 29.427979
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0, 0, 0, 1)
+
+[node name="QuickSlotLabel" type="Label" parent="QuickUseCross/BottomSlot" unique_id=1760362170]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.35999298
+offset_top = -1.5720215
+offset_right = 0.35999298
+offset_bottom = 29.427979
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/line_spacing = -4
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 12
+text = "test"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="StatusBarsHUD" type="Control" parent="." unique_id=774355191]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 28.0
+offset_top = 271.0
+offset_right = 605.0
+offset_bottom = 602.0
+script = ExtResource("6_gss2c")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="StatusBarsHUD" unique_id=735724544]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -84.5
+offset_right = -335.0
+offset_bottom = 84.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ActiveEfffectsVBox" type="VBoxContainer" parent="StatusBarsHUD/VBoxContainer" unique_id=541677144]
+custom_minimum_size = Vector2(0, 500)
+layout_mode = 2
+
+[node name="BuffHUD" type="Control" parent="." unique_id=574683442]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 29.0
+offset_top = 92.0
+offset_right = 1475.0
+offset_bottom = 133.0
+script = ExtResource("7_h022r")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BuffHUD" unique_id=61212784]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

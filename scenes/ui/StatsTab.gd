@@ -26,6 +26,8 @@ extends Panel
 @onready var faith_scaling_value: Label = %FaithScalingValue
 @onready var luck_discovery_value: Label = %LuckDiscoveryValue
 
+@onready var active_effects_container: VBoxContainer = $VBoxContainer/ActiveEffectsVBox
+
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_INHERIT
 	
@@ -75,7 +77,7 @@ func _refresh_stats_tab() -> void:
 		return
 	
 	print("[STATS-TAB-DEBUG] Full refresh triggered")
-	
+	_refresh_active_effects()
 	# Level & Souls
 	level_value.text = str(PlayerStats.level)
 	souls_value.text = "%d" % PlayerStats.souls_carried
@@ -105,3 +107,18 @@ func _refresh_stats_tab() -> void:
 	luck_discovery_value.text = str(100 + PlayerStats.luck)
 	
 	print("[STATS-TAB] Display updated — Level ", PlayerStats.level, " | HP ", max_hp_value.text)
+
+
+func _refresh_active_effects() -> void:
+	# Safety check until we add the UI node
+	if not active_effects_container:
+		return
+	
+	for child in active_effects_container.get_children():
+		child.queue_free()
+	
+	for ae in StatusEffectManager.active_effects:
+		var lbl = Label.new()
+		lbl.text = ae.effect.display_name + " (" + str(ae.remaining_time).pad_decimals(1) + "s)"
+		lbl.modulate = ae.effect.color
+		active_effects_container.add_child(lbl)

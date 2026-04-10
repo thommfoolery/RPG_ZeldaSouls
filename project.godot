@@ -46,6 +46,8 @@ EquipmentManager="*uid://jju1r2ruy68"
 QuickUseHandler="*uid://b0j2w2qrak1cx"
 ProjectileSpawner="*uid://d2m35pyfl64a6"
 StatCalculator="*uid://bd66ger83g8mv"
+VendorManager="*uid://ufi18q06jmgt"
+StatusEffectManager="*uid://plake33gt1ip"
 
 [display]
 
@@ -231,6 +233,10 @@ equipment_unequip={
 "events": [Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":2,"pressure":0.0,"pressed":true,"script":null)
 ]
 }
+
+[layer_names]
+
+2d_render/layer_5="Water"
 
 [physics]
 

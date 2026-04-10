@@ -13,4 +13,6 @@ category = "Rings"
 stacks = false
 weight = 2.0
 rarity = 100
+consumes_on_use = false
+can_use = false
 metadata/_custom_type_script = "uid://b7ouuvly1l65f"

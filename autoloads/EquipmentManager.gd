@@ -34,6 +34,8 @@ func equip_to_slot(slot_index: int, item: GameItem) -> bool:
 	# Actually equip
 	equipped[slot_index] = item.duplicate(true)
 	equipped_changed.emit(slot_index, equipped[slot_index])
+	
+	_handle_item_buff(item, true)
 
 	# ─── SIMPLE LAMP SYSTEM ─────────────────────────────
 	if _is_lamp_item(item):
@@ -51,6 +53,9 @@ func unequip_slot(slot_index: int) -> bool:
 		return false
 
 	var item = equipped[slot_index]
+
+	if item:
+		_handle_item_buff(item, false)
 
 	# Clean up lamp if this was one
 	if _is_lamp_item(item):
@@ -78,6 +83,28 @@ func reapply_dynamic_components() -> void:
 			print("[EquipmentManager] Re-instantiating lamp from slot ", i, " → ", item.display_name)
 			_instantiate_lamp_component(i, item)
 			return  # only one lamp at a time
+
+# ─── GENERAL EQUIPMENT BUFF SYSTEM ───
+func _handle_item_buff(item: GameItem, equipped: bool) -> void:
+	if not item or item.buff_effect_id.is_empty():
+		return
+	
+	var buff_effect = load("res://resources/statuseffect/" + item.buff_effect_id + ".tres") as StatusEffect
+	if not buff_effect:
+		push_warning("[EquipmentManager] Could not load buff effect: " + item.buff_effect_id)
+		return
+	
+	if equipped:
+		StatusEffectManager.apply_effect(buff_effect, null)  # null source = permanent equipment buff
+		print("[EquipmentManager] Applied buff from item: ", item.display_name, " → ", buff_effect.display_name)
+	else:
+		# Remove the buff when unequipped
+		for i in range(StatusEffectManager.active_effects.size() - 1, -1, -1):
+			if StatusEffectManager.active_effects[i].effect.id == buff_effect.id:
+				StatusEffectManager.active_effects.remove_at(i)
+				StatusEffectManager.effect_removed.emit(buff_effect.id)
+				print("[EquipmentManager] Removed buff from item: ", item.display_name)
+				break
 
 # ─── LAMP HELPERS (simple & reliable) ─────────────────────────────
 func _is_lamp_item(item: GameItem) -> bool:

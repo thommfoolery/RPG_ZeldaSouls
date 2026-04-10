@@ -16,4 +16,7 @@ attunement_slots = 2
 cast_time = 2.0
 cooldown = 5.0
 status_effect_to_apply = "Poison"
+can_use = false
+can_drop = false
+can_discard = false
 metadata/_custom_type_script = "uid://b7ouuvly1l65f"

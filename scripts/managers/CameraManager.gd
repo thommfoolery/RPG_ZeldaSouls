@@ -2,80 +2,103 @@
 extends Node
 
 var active_camera: Camera2D = null
-var target: Node2D = null  # the player
-
-signal camera_changed(new_camera: Camera2D)
+var target: Node2D = null
+var current_config: CameraConfig = null
+var tween: Tween
 
 func _ready() -> void:
 	PlayerManager.player_changed.connect(_on_player_changed)
-	print("[CameraManager] Ready — will follow player once camera is activated")
+	tween = create_tween()
+	tween.stop()
+	print("[CameraManager] Ready")
 
 func _on_player_changed(new_player: Node) -> void:
 	target = new_player
-	if active_camera:
-		_snap_to_target()
 
-# ── CONTINUOUS FOLLOW (this is what was missing) ─────────────────────
-func _physics_process(delta: float) -> void:
-	if active_camera and target:
-		smooth_follow(delta)
-
-# ── PUBLIC METHODS ───────────────────────────────────────────────────
-func set_active_camera(cam: Camera2D) -> void:
-	if not cam or not cam is Camera2D:
-		push_error("[CameraManager] Invalid camera passed!")
-		return
-	
-	if active_camera:
-		active_camera.current = false
-	
-	active_camera = cam
-	active_camera.current = true
-	
-	if target:
-		active_camera.global_position = target.global_position
-	
-	print("[CameraManager] SUCCESS - camera current = true at ", cam.get_path())
-
+# ── Activation ───────────────────────────────────────────────────────────
 func activate_player_camera() -> void:
 	if not target:
 		push_error("[CameraManager] No player target!")
 		return
 	
-	var cam_node = target.get_node_or_null("%Camera2D") or target.get_node_or_null("Camera2D")
-	if not cam_node or not cam_node is Camera2D:
-		push_error("[CameraManager] No valid Camera2D found on player!")
+	var cam = target.get_node_or_null("Camera2D")
+	if not cam or not cam is Camera2D:
+		push_error("[CameraManager] No Camera2D found on player!")
 		return
 	
-	print("[CameraManager] Found camera, activating...")
-	call_deferred("_really_activate_camera", cam_node as Camera2D)
+	call_deferred("set_active_camera", cam)
 
-func smooth_follow(delta: float) -> void:
-	if not target or not active_camera:
+func set_active_camera(cam: Camera2D) -> void:
+	if not cam or not cam is Camera2D:
+		push_error("[CameraManager] Invalid camera passed!")
 		return
 	
-	# Classic Souls-like feel — camera leads the player slightly
-	var target_pos = target.global_position
-	active_camera.global_position = active_camera.global_position.lerp(target_pos, 0.12)
-
-func _snap_to_target() -> void:
-	if target and active_camera:
-		active_camera.global_position = target.global_position
-
-func _really_activate_camera(cam: Camera2D) -> void:
-	if not cam or not is_instance_valid(cam):
-		push_error("[CameraManager] Camera is invalid!")
-		return
+	# Safely deactivate previous camera without touching .current directly
+	if active_camera and is_instance_valid(active_camera) and active_camera != cam:
+		active_camera.clear_current()
 	
-	if active_camera:
-		active_camera.current = false
-	
+	# Activate the new camera
 	active_camera = cam
+	cam.make_current()
 	
-	# THIS is the important change
-	cam.make_current()                    # ← use the method, not .current = true
+	print("[CameraManager] Camera activated: ", cam.get_path())
 	
-	if target:
-		cam.global_position = target.global_position
+	_load_scene_config()
+
+# ── Per-Scene Config ─────────────────────────────────────────────────────
+func _load_scene_config() -> void:
+	var scene_root = get_tree().current_scene
+	if not scene_root:
+		print("[CameraManager] ERROR: No current_scene")
+		return
 	
-	print("[CameraManager] CAMERA ACTIVATED with make_current() → ", cam.get_path())
+	# Look for the attached CameraConfig property on the root node
+	if scene_root.has_meta("camera_config") or "camera_config" in scene_root:
+		var config = scene_root.get("camera_config")
+		if config and config is CameraConfig:
+			current_config = config
+			_apply_config(current_config)
+			print("[CameraManager] Loaded attached CameraConfig from scene root")
+			return
+	
+	# Fallback
+	var fallback = CameraConfig.new()
+	current_config = fallback
+	_apply_config(fallback)
+	print("[CameraManager] No attached CameraConfig found - using fallback")
+
+func _apply_config(config: CameraConfig) -> void:
+	if not active_camera or not config:
+		return
+	
+	active_camera.zoom = config.default_zoom
+	
+	active_camera.limit_left = config.limit_left
+	active_camera.limit_right = config.limit_right
+	active_camera.limit_top = config.limit_top
+	active_camera.limit_bottom = config.limit_bottom
+	active_camera.limit_smoothed = true
+	
+	print("[CameraManager] Applied config → Zoom: ", config.default_zoom, 
+		  " | Limits L:", config.limit_left, " R:", config.limit_right)
+
+# ── Smooth Zoom (for later) ──────────────────────────────────────────────
+func smooth_zoom_to(new_zoom: Vector2, duration: float = 0.8) -> void:
+	if tween and tween.is_running():
+		tween.kill()
+	tween = create_tween()
+	tween.tween_property(active_camera, "zoom", new_zoom, duration)\
+		.set_trans(Tween.TRANS_SINE)\
+		.set_ease(Tween.EASE_OUT)
+
+# Add these at the bottom of CameraManager.gd
+
+func enter_camera_zone(new_zoom: Vector2, duration: float = 0.6) -> void:
+	if not active_camera: return
+	smooth_zoom_to(new_zoom, duration)
+	print("[CameraManager] ENTER zone → target zoom ", new_zoom)
+
+func exit_camera_zone() -> void:
+	if not active_camera or not current_config: return
+	smooth_zoom_to(current_config.default_zoom, 0.9)
+	print("[CameraManager] EXIT zone → returning to default zoom ", current_config.default_zoom)

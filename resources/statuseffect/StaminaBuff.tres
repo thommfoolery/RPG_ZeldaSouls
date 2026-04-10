@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="StatusEffect" format=3 uid="uid://beyj2ayy7ap5a"]
+
+[ext_resource type="Script" uid="uid://dy878h0sgofkj" path="res://resources/statuseffect/StatusEffect.gd" id="1_3pduf"]
+[ext_resource type="Texture2D" uid="uid://dq2fk5iv82td1" path="res://art/icons/statuseffect/stamina_buff.png" id="1_41jsh"]
+
+[resource]
+script = ExtResource("1_3pduf")
+id = "stamina_regen"
+display_name = "Stamina Regen"
+icon = ExtResource("1_41jsh")
+color = Color(1.347661e-06, 0.78510785, 0.22257686, 1)
+max_duration = 45.0
+tick_value = 8.0
+metadata/_custom_type_script = "uid://dy878h0sgofkj"

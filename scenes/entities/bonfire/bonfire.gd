@@ -201,6 +201,12 @@ func rest_at_bonfire() -> void:
 				if mana.has_signal("mana_changed"):
 					mana.mana_changed.emit(mana.current_mana, mana.max_mana)
 			print("[Bonfire] Mana fully restored")
+# ─── CLEAR ALL STATUS EFFECTS ON REST (this was completely missing) ───
+		if StatusEffectManager:
+			StatusEffectManager.clear_all_effects()
+			print("[Bonfire] All status effects cleared on rest")
+		else:
+			push_warning("[Bonfire] StatusEffectManager not found — status effects will not clear!")
 
 	# Reset enemies
 	if WorldStateManager:

@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://bwf821riba1dp"]
 
-[ext_resource type="Shader" uid="uid://b7rpdpftgksyi" path="res://art/shaders/flash.gdshader" id="1_c5rqy"]
 [ext_resource type="Script" uid="uid://bdr6rj0cdsi67" path="res://scripts/entities/player.gd" id="1_dnykm"]
 [ext_resource type="SpriteFrames" uid="uid://t5hcbpouharn" path="res://art/characters/player_animations.tres" id="2_08t41"]
 [ext_resource type="Script" uid="uid://bm5txjtto3n8a" path="res://scripts/components/AnimationComponent.gd" id="3_42nxq"]
@@ -14,11 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://dfodyf523g2em" path="res://art/particles/rainsplash.png" id="10_n5sgd"]
 [ext_resource type="Texture2D" uid="uid://upn7gxbwwnmw" path="res://art/particles/rain.png" id="11_5ki56"]
 [ext_resource type="Script" uid="uid://spjg53sonygo" path="res://scripts/components/BowComponent.gd" id="13_5ki56"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_c5rqy"]
-shader = ExtResource("1_c5rqy")
-shader_parameter/flash_color = Color(1, 1, 1, 1)
-shader_parameter/flash_intensity = 0.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5u6hq"]
 radius = 6.0
@@ -123,6 +117,9 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.8333333, 0.8803419)
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_5ki56"]
+polygon = PackedVector2Array(-4, 3, 5, 3, 5, -6, -4, -6)
+
 [node name="Player" type="CharacterBody2D" unique_id=481059393 groups=["player"]]
 y_sort_enabled = true
 script = ExtResource("1_dnykm")
@@ -130,18 +127,9 @@ script = ExtResource("1_dnykm")
 [node name="SpriteContainer" type="Node2D" parent="." unique_id=387349450]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SpriteContainer" unique_id=1213505854]
-material = SubResource("ShaderMaterial_c5rqy")
 position = Vector2(0, -14)
 sprite_frames = ExtResource("2_08t41")
 animation = &"idle_front"
-
-[node name="ColorRect2" type="ColorRect" parent="SpriteContainer/AnimatedSprite2D" unique_id=270748073]
-visible = false
-offset_left = -16.0
-offset_top = -10.0
-offset_right = 24.0
-offset_bottom = 30.0
-color = Color(0.09602364, 7.556528e-06, 0.4491707, 0.70980394)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=291062422]
 position = Vector2(0, -3)
@@ -188,7 +176,7 @@ script = ExtResource("7_ss7kx")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=735539643]
 unique_name_in_owner = true
 position = Vector2(0, -20)
-zoom = Vector2(4, 4)
+zoom = Vector2(5, 5)
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
@@ -289,3 +277,8 @@ energy = 0.78
 range_z_max = 1
 texture = SubResource("GradientTexture2D_5ki56")
 texture_scale = 1.97
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=1474117987]
+position = Vector2(0, 3)
+scale = Vector2(1.0224515, 0.18787433)
+occluder = SubResource("OccluderPolygon2D_5ki56")

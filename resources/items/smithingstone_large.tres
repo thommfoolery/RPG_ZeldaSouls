@@ -11,4 +11,5 @@ description = "Upgrade your shit even more"
 icon = ExtResource("1_xpdt6")
 category = "Materials"
 rarity = 15
+can_use = false
 metadata/_custom_type_script = "uid://b7ouuvly1l65f"

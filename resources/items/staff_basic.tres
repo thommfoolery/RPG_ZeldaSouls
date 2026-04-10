@@ -12,4 +12,5 @@ icon = ExtResource("1_r5d5s")
 category = "Weapons"
 stacks = false
 weapon_type = "Staff"
+can_use = false
 metadata/_custom_type_script = "uid://b7ouuvly1l65f"

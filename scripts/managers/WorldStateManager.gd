@@ -198,3 +198,16 @@ func discover_bonfire(bonfire_id: String) -> bool:
 
 func is_bonfire_discovered(bonfire_id: String) -> bool:
 	return PlayerStats.discovered_bonfires.has(bonfire_id)
+
+# In WorldStateManager.gd
+
+# Add to your regular world state dictionary (or permanent if you prefer)
+func set_vendor_stock(vendor_id: String, listing_index: int, stock: int) -> void:
+	var key = "vendor_stock_" + vendor_id + "_" + str(listing_index)
+	# Assuming you have a dict like world_state or regular_state
+	world_state[key] = stock   # or permanent_state if it's never reset
+	print("[WorldStateManager] Saved vendor stock: ", key, " = ", stock)
+
+func get_vendor_stock(vendor_id: String, listing_index: int) -> int:
+	var key = "vendor_stock_" + vendor_id + "_" + str(listing_index)
+	return world_state.get(key, -1)  # -1 = not saved yet

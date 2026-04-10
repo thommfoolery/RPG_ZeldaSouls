@@ -6,12 +6,16 @@
 [resource]
 script = ExtResource("1_keg3j")
 id = "bow"
-display_name = "bow"
-description = "stick and string"
+display_name = "Long Bow"
+description = "Bow: stick and string. Equip arrows to use."
 icon = ExtResource("1_nbp8g")
 category = "Weapons"
 stacks = false
 weight = 2.0
+consumes_on_use = false
+buff_effect_id = null
 weapon_type = "Bow"
+status_to_clear = null
+can_use = false
 ammo_type = "Arrow"
 metadata/_custom_type_script = "uid://b7ouuvly1l65f"

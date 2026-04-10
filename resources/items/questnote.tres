@@ -10,4 +10,7 @@ display_name = "Quest Note "
 description = "A long note from someone who really wants you to to finish the game! Please.... FINISH THE GAME! It can't be that hard right? It's just script!"
 icon = ExtResource("1_n6kpp")
 category = "Quest"
+can_use = false
+can_drop = false
+can_discard = false
 metadata/_custom_type_script = "uid://b7ouuvly1l65f"

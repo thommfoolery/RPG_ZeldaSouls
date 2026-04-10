@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CameraConfig" format=3 uid="uid://dhtdv6j13k16f"]
+
+[ext_resource type="Script" uid="uid://4vlssw84plc4" path="res://resources/camera/CameraConfig.gd" id="1_a8htq"]
+
+[resource]
+script = ExtResource("1_a8htq")
+default_zoom = Vector2(5, 5)
+limit_left = -100.0
+limit_right = 900.0
+limit_top = -100.0
+limit_bottom = 480.0
+metadata/_custom_type_script = "uid://4vlssw84plc4"

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="StatusEffect" format=3 uid="uid://dtapm8p6pcub6"]
+
+[ext_resource type="Script" uid="uid://dy878h0sgofkj" path="res://resources/statuseffect/StatusEffect.gd" id="1_hmr31"]
+[ext_resource type="Texture2D" uid="uid://uxly7qklpn5a" path="res://art/icons/statuseffect/bleed.png" id="1_oqo36"]
+
+[resource]
+script = ExtResource("1_hmr31")
+id = "bleed"
+display_name = "Bleed"
+icon = ExtResource("1_oqo36")
+color = Color(0.54569125, 0, 0.028329086, 1)
+is_positive = false
+build_up_required = 100.0
+max_duration = 0.0
+tick_rate = 0.0
+build_up_rate = 15.0
+decay_rate = 10.0
+on_full_damage_percent = 0.2
+cure_item_id = "bleed_antidote"
+metadata/_custom_type_script = "uid://dy878h0sgofkj"

@@ -23,12 +23,11 @@ func _ready() -> void:
 	health_changed.emit(current_health, max_health)
 	print("[HealthComponent] Initialized — Max HP = ", max_health, " | Current HP = ", current_health)
 	
-	# Safe delayed update
-	call_deferred("_update_dynamic_bar")
+	# We no longer connect here — StatusEffectManager now owns mortal logic
+	# StatusEffectManager.effect_applied.connect(_on_status_effect_applied)  ← COMMENTED OUT
 
 
 func _enter_tree() -> void:
-	# Extra safety for when player is added to the scene
 	call_deferred("_update_dynamic_bar")
 
 
@@ -88,3 +87,10 @@ func _update_dynamic_bar() -> void:
 		print("[Health DEBUG] Called DynamicStatBar.update_bar with max = ", max_health)
 	else:
 		print("[Health DEBUG] Could not find DynamicStatBar at HUDContainer/HealthBar/DynamicStatBar")
+
+
+# OLD MORTAL CODE REMOVED — StatusEffectManager now handles this
+# func _on_status_effect_applied(effect: StatusEffect, active) -> void:
+#     if effect.is_mortal:
+#         current_health = 0
+#         died.emit()

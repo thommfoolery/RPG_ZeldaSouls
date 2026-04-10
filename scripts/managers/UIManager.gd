@@ -31,10 +31,12 @@ func _create_ui_elements() -> void:
 	if not has_node("InteractPrompt"):
 		interact_prompt = Label.new()
 		interact_prompt.name = "InteractPrompt"
-		interact_prompt.add_theme_font_size_override("font_size", 28)
-		interact_prompt.add_theme_color_override("font_color", Color(1.0, 0.9, 0.6))
+		interact_prompt.add_theme_font_size_override("font_size", 30)
+		interact_prompt.add_theme_constant_override("outline_size", 10)
+		interact_prompt.add_theme_color_override("font_outline_color", Color(0,0,0,1))
+		interact_prompt.add_theme_color_override("font_color", Color(1,1,1,1))
 		interact_prompt.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-		interact_prompt.position = Vector2(960, 900)   # Center X + lower Y for 1080p
+		interact_prompt.position = Vector2(820, 900)
 		add_child(interact_prompt)
 	else:
 		interact_prompt = $InteractPrompt
@@ -44,7 +46,7 @@ func _create_ui_elements() -> void:
 	if not has_node("PickupNotification"):
 		pickup_notification = Control.new()
 		pickup_notification.name = "PickupNotification"
-		pickup_notification.position = Vector2(960, 540)   # Center of 1080p screen
+		pickup_notification.position = Vector2(745, 900)   # Center of 1080p screen
 		add_child(pickup_notification)
 
 		var bg = Panel.new()
@@ -87,7 +89,7 @@ func _create_ui_elements() -> void:
 # ─── Interact Prompt ─────────────────────────────────────────────────
 func show_interact_prompt(text: String = "Pick up item") -> void:
 	if interact_prompt:
-		interact_prompt.text = "A " + text
+		interact_prompt.text = "A : " + text
 		interact_prompt.visible = true
 
 func hide_interact_prompt() -> void:

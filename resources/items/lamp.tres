@@ -12,6 +12,7 @@ icon = ExtResource("1_4d6kc")
 category = "Weapons"
 stacks = false
 weapon_type = "Other"
+can_use = false
 is_lamp = true
 lamp_energy = 1.0
 lamp_color = Color(0.9999946, 0.53973675, 0.31839472, 1)

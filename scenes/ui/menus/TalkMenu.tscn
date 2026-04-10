@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://5kdd5hvparhf"]
+
+[ext_resource type="Script" uid="uid://c76hcteaoxlnk" path="res://scenes/ui/menus/TalkMenu.gd" id="1_rxq4g"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_aw3pu"]
+
+[sub_resource type="Gradient" id="Gradient_b0swu"]
+offsets = PackedFloat32Array(0.13461539, 0.3846154, 0.5048077, 0.59134614)
+colors = PackedColorArray(0, 0, 0, 0.16862746, 0, 0, 0, 0.5058824, 0.105882354, 0.07058824, 0, 0.5058824, 0, 0, 0, 0.16862746)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0o208"]
+gradient = SubResource("Gradient_b0swu")
+fill_from = Vector2(1, 1)
+
+[node name="TalkMenu" type="CanvasLayer" unique_id=626565269]
+script = ExtResource("1_rxq4g")
+
+[node name="ColorRect" type="TextureRect" parent="." unique_id=368810911]
+material = SubResource("CanvasItemMaterial_aw3pu")
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 504.0
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_0o208")
+
+[node name="Panel" type="Panel" parent="." unique_id=2085202584]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 43.0
+offset_top = -288.0
+offset_right = 455.0
+offset_bottom = 288.0
+grow_vertical = 2
+
+[node name="TitleLabel" type="Label" parent="Panel" unique_id=1107821733]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -184.5
+offset_top = 6.0
+offset_right = 186.5
+offset_bottom = 48.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 40
+text = "Speaking Person"
+horizontal_alignment = 1
+
+[node name="GreetingLabel" type="Label" parent="Panel" unique_id=2112316665]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -197.0
+offset_top = 75.0
+offset_right = 197.0
+offset_bottom = 98.0
+grow_horizontal = 2
+text = "vendor greeting"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="OptionsContainer" type="VBoxContainer" parent="Panel" unique_id=1029430135]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -115.0
+offset_bottom = 203.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BuyButton" type="Button" parent="Panel/OptionsContainer" unique_id=1704275375]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "Buy"
+
+[node name="TalkButton" type="Button" parent="Panel/OptionsContainer" unique_id=1284911159]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "Talk"
+
+[node name="LeaveButton" type="Button" parent="Panel/OptionsContainer" unique_id=682987559]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "Leave"

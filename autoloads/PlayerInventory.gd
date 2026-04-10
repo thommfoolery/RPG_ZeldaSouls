@@ -44,6 +44,12 @@ func add_item(new_item: GameItem, qty: int = 1) -> void:
 	print("[DEBUG] Added new separate item: ", new_item.display_name)
 	inventory_changed.emit()
 
+func has_enough(item_id: String, qty: int = 1) -> bool:
+	for cat in inventory:
+		for item in inventory[cat]:
+			if item and item.id == item_id and item.quantity >= qty:
+				return true
+	return false
 
 # ─── SAVE / LOAD ─────────────────────────────────────────────────────
 

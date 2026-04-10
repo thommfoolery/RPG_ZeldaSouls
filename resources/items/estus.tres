@@ -12,4 +12,6 @@ icon = ExtResource("1_ox3rc")
 consumes_on_use = false
 effect_type = "Heal"
 special_component_ref = "EstusComponent"
+can_drop = false
+can_discard = false
 metadata/_custom_type_script = "uid://b7ouuvly1l65f"

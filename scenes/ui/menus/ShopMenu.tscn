@@ -1,0 +1,239 @@
+[gd_scene format=3 uid="uid://4b4x7qi5vtwr"]
+
+[ext_resource type="Script" uid="uid://r3eaaodk2s5h" path="res://scenes/ui/menus/ShopMenu.gd" id="1_n6g0b"]
+
+[node name="ShopMenu" type="CanvasLayer" unique_id=1886361399]
+script = ExtResource("1_n6g0b")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=514097868]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 325.0
+offset_right = -325.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.8745098)
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1687069277]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.8745098)
+
+[node name="Content" type="Panel" parent="." unique_id=1985039666]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 330.0
+offset_top = 31.0
+offset_right = -330.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleLabel" type="Label" parent="Content" unique_id=946319496]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -88.5
+offset_top = -31.0
+offset_right = 88.5
+offset_bottom = -8.0
+grow_horizontal = 2
+text = "SHOP - NAME OF SHOP"
+
+[node name="MainContainer" type="HBoxContainer" parent="Content" unique_id=1383350323]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -602.0
+offset_top = 45.0
+offset_right = 602.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ItemScroll" type="ScrollContainer" parent="Content/MainContainer" unique_id=159763876]
+custom_minimum_size = Vector2(800, 600)
+layout_mode = 2
+
+[node name="ItemGrid" type="GridContainer" parent="Content/MainContainer/ItemScroll" unique_id=1191099719]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 600)
+layout_mode = 2
+columns = 4
+
+[node name="DetailsPanel" type="Panel" parent="Content/MainContainer" unique_id=1747163033]
+custom_minimum_size = Vector2(400, 600)
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="Content/MainContainer/DetailsPanel" unique_id=1856232372]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -46.5
+offset_right = 46.5
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Name Label"
+
+[node name="Icon" type="TextureRect" parent="Content/MainContainer/DetailsPanel" unique_id=477617220]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -159.0
+offset_top = 47.0
+offset_right = 159.0
+offset_bottom = 365.0
+grow_horizontal = 2
+
+[node name="DescriptionLabel" type="Label" parent="Content/MainContainer/DetailsPanel" unique_id=1902814925]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -113.0
+offset_top = -97.0
+offset_right = 113.0
+offset_bottom = -74.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Description Text"
+autowrap_mode = 3
+
+[node name="QuantitySelector" type="Control" parent="Content" unique_id=1078525567]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -83.0
+offset_top = -271.5
+offset_right = 83.0
+offset_bottom = -175.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Content/QuantitySelector" unique_id=1859131085]
+layout_mode = 0
+offset_left = -119.0
+offset_top = -98.0
+offset_right = 286.0
+offset_bottom = 138.0
+color = Color(0, 0, 0, 0.50980395)
+
+[node name="QTYLabel" type="Label" parent="Content/QuantitySelector" unique_id=1446711516]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -191.96155
+offset_top = -131.0
+offset_right = 191.96155
+offset_bottom = 86.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 35
+text = "QTY LABEL DYNAMIC"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Content/QuantitySelector" unique_id=832645266]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -138.0
+offset_top = -33.0
+offset_right = 138.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="ConfirmButton" type="Button" parent="Content/QuantitySelector/HBoxContainer" unique_id=1001184046]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Confirm"
+
+[node name="HSeparator" type="HSeparator" parent="Content/QuantitySelector/HBoxContainer" unique_id=1933828888]
+layout_mode = 2
+
+[node name="CancelButton" type="Button" parent="Content/QuantitySelector/HBoxContainer" unique_id=1505081391]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Cancel"
+
+[node name="ContextMenu" type="Control" parent="Content" unique_id=1049037382]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -105.0
+offset_top = -30.5
+offset_right = 105.0
+offset_bottom = 30.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Content/ContextMenu" unique_id=2134685421]
+layout_mode = 0
+offset_left = -18.876595
+offset_top = -69.0
+offset_right = 248.0
+offset_bottom = 10.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Content/ContextMenu" unique_id=206959588]
+layout_mode = 0
+offset_left = -5.9136353
+offset_top = -60.0
+offset_right = 239.0
+offset_bottom = -6.0
+color = Color(0.21230483, 0.21230483, 0.21230483, 1)
+
+[node name="BuyButton" type="Button" parent="Content/ContextMenu" unique_id=624731741]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 82.0
+offset_top = -80.5
+offset_right = 122.0
+offset_bottom = -49.5
+grow_vertical = 2
+text = "BUY"
+
+[node name="BottomHint" type="Label" parent="." unique_id=363805459]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -90.0
+offset_top = -48.0
+offset_right = 90.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "text = \"A: Buy  -  B: Exit\""

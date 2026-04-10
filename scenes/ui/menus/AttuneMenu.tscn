@@ -3,7 +3,17 @@
 [ext_resource type="Script" uid="uid://bq042btrg0fnd" path="res://scenes/ui/menus/AttuneMenu.gd" id="1_wmyap"]
 [ext_resource type="Texture2D" uid="uid://cgsueecjv2g4k" path="res://art/objects/items/item_ui/EmptySlot.png" id="2_tvsah"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tvsah"]
+bg_color = Color(0, 0, 0, 0.6156863)
+
 [sub_resource type="Theme" id="Theme_wmyap"]
+
+[sub_resource type="Gradient" id="Gradient_tvsah"]
+offsets = PackedFloat32Array(0, 0.23076923, 0.7692308, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_yo3op"]
+gradient = SubResource("Gradient_tvsah")
 
 [node name="AttuneMenu" type="Control" unique_id=1689301925]
 layout_mode = 3
@@ -16,18 +26,47 @@ mouse_filter = 2
 script = ExtResource("1_wmyap")
 
 [node name="Panel" type="Panel" parent="." unique_id=1991151586]
+custom_minimum_size = Vector2(900, 0)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tvsah")
+
+[node name="ColorRect3" type="ColorRect" parent="Panel" unique_id=30096984]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -234.0
+offset_top = 457.0
+offset_right = 234.0
+offset_bottom = 554.0
+grow_horizontal = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Panel" unique_id=1489797961]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -108.0
+offset_top = -38.0
+offset_right = 108.0
+offset_bottom = -13.0
+grow_horizontal = 2
+color = Color(0, 0, 0, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="Panel" unique_id=2060873570]
-custom_minimum_size = Vector2(50, 50)
+custom_minimum_size = Vector2(690, 40)
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
+offset_top = -15.0
+offset_bottom = 66.0
 grow_horizontal = 2
 color = Color(0, 0, 0, 1)
 
@@ -36,13 +75,15 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 58.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TitleLabel" type="Label" parent="Panel/Sort" unique_id=2108860671]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
+theme_override_colors/font_color = Color(0.69461775, 0.47778112, 0, 1)
+theme_override_font_sizes/font_size = 23
 text = "Attune Spells"
 horizontal_alignment = 1
 
@@ -263,17 +304,17 @@ layout_mode = 2
 [node name="SpellName" type="Label" parent="Panel/Sort/BottomDescription" unique_id=498769897]
 unique_name_in_owner = true
 layout_mode = 2
-text = "test"
+text = "No Spells"
 
 [node name="SpellDescription" type="Label" parent="Panel/Sort/BottomDescription" unique_id=2015933215]
 unique_name_in_owner = true
 layout_mode = 2
-text = "test"
+text = "in inventory"
 
-[node name="ColorRect" type="ColorRect" parent="Panel/Sort" unique_id=1708845523]
+[node name="ColorRect" type="TextureRect" parent="Panel/Sort" unique_id=1475849657]
 custom_minimum_size = Vector2(50, 30)
 layout_mode = 2
-color = Color(0, 0, 0, 0.80784315)
+texture = SubResource("GradientTexture2D_yo3op")
 
 [node name="Label" type="Label" parent="Panel/Sort/ColorRect" unique_id=876180672]
 layout_mode = 1

@@ -2,8 +2,10 @@
 
 [ext_resource type="TileSet" uid="uid://8mbq6anwsvba" path="res://art/tilesets/new_tile_set.tres" id="1_bnp4s"]
 [ext_resource type="Script" uid="uid://p788uogavwsf" path="res://scenes/components/TransitionPoint.gd" id="1_fub06"]
+[ext_resource type="Script" uid="uid://b2ub4722t5yj7" path="res://scenes/levels/TestRoomConfig.gd" id="1_msnsw"]
 [ext_resource type="Script" uid="uid://dhi6u661755eg" path="res://scenes/components/TransitionMarker.gd" id="2_0b38q"]
 [ext_resource type="TileSet" uid="uid://8s85at4vgrv" path="res://art/tilesets/epictiles.tres" id="2_8jpmv"]
+[ext_resource type="Resource" uid="uid://dhbl5t2oagtf5" path="res://resources/camera/world002_camera.tres" id="2_l4cwj"]
 [ext_resource type="PackedScene" uid="uid://1rwr7gbdxrin" path="res://scenes/entities/bonfire/bonfire.tscn" id="4_fub06"]
 [ext_resource type="Script" uid="uid://b8ebidmjcomuh" path="res://scenes/levels/DamageZone.gd" id="5_0b38q"]
 [ext_resource type="PackedScene" uid="uid://bc2ftyv842nux" path="res://scenes/entities/ItemPickup.tscn" id="6_8js7t"]
@@ -111,6 +113,8 @@ color_initial_ramp = SubResource("GradientTexture1D_1rxhx")
 
 [node name="world002" type="Node2D" unique_id=175521609]
 y_sort_enabled = true
+script = ExtResource("1_msnsw")
+camera_config = ExtResource("2_l4cwj")
 
 [node name="ground" type="TileMapLayer" parent="." unique_id=1455343773]
 use_parent_material = true
@@ -245,7 +249,7 @@ position = Vector2(249, -301)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="collisions" unique_id=1296872904]
 position = Vector2(-491.00003, 32)
 scale = Vector2(2.8535948, 3.408132)
-polygon = PackedVector2Array(3.9900055, 3, 86.5575, 168.71413, 86.907936, 79.80912, 224.27853, 80.98278, 383.37613, 79.80912, 324.503, 244.41544, 322.75082, 186.31909, 269.13425, 190.13348, 268.08295, 225.34338, 268.43335, 246.46933, 215.16722, 245.8825, 215.16722, 223.28949, 216.9194, 188.66641, 171.71326, 186.02567, 143.67844, 183.67834, 86.5575, 172.82196, 108.990005, 264, 383.99, 286, 384.99, 34)
+polygon = PackedVector2Array(3.9900055, 3, 86.5575, 168.71413, 86.907936, 79.80912, 224.27853, 80.98278, 383.37613, 79.80912, 324.503, 244.41544, 322.75082, 186.31909, 269.13425, 190.13348, 268.08295, 225.34338, 268.43335, 246.46933, 239.18991, 246.14716, 215.16722, 245.8825, 215.16722, 223.28949, 216.9194, 188.66641, 171.71326, 186.02567, 143.67844, 183.67834, 86.5575, 172.82196, 108.990005, 264, 383.99, 286, 384.99, 34)
 
 [node name="DefaultSpawn" type="Node2D" parent="." unique_id=1625421850]
 visible = false
@@ -296,3 +300,6 @@ explosiveness = 0.1
 randomness = 0.14
 fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_l4cwj")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=865705670]
+position = Vector2(926.41077, 1.7926483)

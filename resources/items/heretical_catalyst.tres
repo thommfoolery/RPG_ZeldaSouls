@@ -13,4 +13,5 @@ category = "Weapons"
 stacks = false
 max_stack = 1
 weapon_type = "Heretical"
+can_use = false
 metadata/_custom_type_script = "uid://b7ouuvly1l65f"

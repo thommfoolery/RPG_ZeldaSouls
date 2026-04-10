@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="GameItem" format=3 uid="uid://cyobbo8ytva8r"]
+
+[ext_resource type="Texture2D" uid="uid://2cm55ey3lv31" path="res://art/objects/items/consumables/frost_antidote.png" id="1_vrltv"]
+[ext_resource type="Script" uid="uid://b7ouuvly1l65f" path="res://resources/items/Item.gd" id="2_fstn6"]
+
+[resource]
+script = ExtResource("2_fstn6")
+id = "frost_antidote"
+display_name = "Frost Antidote"
+description = "Removes Frost Build up (not yet in game :(  )"
+icon = ExtResource("1_vrltv")
+is_consumable = true
+effect_type = "StatusClear"
+status_to_clear = "frost"
+metadata/_custom_type_script = "uid://b7ouuvly1l65f"

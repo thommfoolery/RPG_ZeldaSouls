@@ -128,7 +128,7 @@ func _update_left_row(stat_name: String, current_lbl: Label, preview_lbl: Label)
 	var add = queued_levels.get(stat_name, 0)
 	current_lbl.text = str(base)
 	preview_lbl.text = "→ " + str(base + add)
-	preview_lbl.modulate = Color(1.6, 1.4, 0.6) if STAT_NAMES.find(stat_name) == selected_stat_index else Color.WHITE
+	preview_lbl.modulate = Color("ffb300ff") if STAT_NAMES.find(stat_name) == selected_stat_index else Color.WHITE
 
 
 func _update_preview_panel() -> void:
@@ -146,7 +146,7 @@ func _update_preview_panel() -> void:
 				line = "Max HP:          %d" % get_max_hp(final_val)
 			"endurance":
 				line = "Max Stamina:     %d" % get_max_stamina(final_val)
-				lines.append(line if not is_changing else "[color=#ffdd66]" + line + "[/color]")
+				lines.append(line if not is_changing else "[color=#ffb300ff]" + line + "[/color]")
 				line = "Equip Load:      %.1f" % get_equip_load(final_val)
 			"strength":
 				line = "Strength Scaling: %d" % final_val
@@ -159,13 +159,13 @@ func _update_preview_panel() -> void:
 			"attunement":
 				var slots_line = "Spell Slots:       %d" % get_attunement_slots(final_val)
 				var slots_changed = get_attunement_slots(base) != get_attunement_slots(final_val)
-				lines.append(slots_line if not slots_changed else "[color=#ffdd66]" + slots_line + "[/color]")
+				lines.append(slots_line if not slots_changed else "[color=#ffb300ff]" + slots_line + "[/color]")
 				line = "Max Mana:        %d" % get_max_mana(final_val)
 			"luck":
 				line = "Item Discovery:  %d" % (100 + final_val)
 		
 		if is_changing and line != "":
-			line = "[color=#ffdd66]" + line + "[/color]"
+			line = "[color=#ffb300ff]" + line + "[/color]"
 		
 		lines.append(line)
 	

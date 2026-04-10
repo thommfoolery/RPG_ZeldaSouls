@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="GameItem" format=3 uid="uid://byaoor6j2gfci"]
+
+[ext_resource type="Texture2D" uid="uid://ukjyoxgn5kul" path="res://art/objects/items/consumables/death_antidote.png" id="1_ctwgq"]
+[ext_resource type="Script" uid="uid://b7ouuvly1l65f" path="res://resources/items/Item.gd" id="2_xjuif"]
+
+[resource]
+script = ExtResource("2_xjuif")
+id = "death_antidote"
+display_name = "Death Antidote"
+description = "Removes Death Build Up"
+icon = ExtResource("1_ctwgq")
+is_consumable = true
+effect_type = "StatusClear"
+status_to_clear = "instadeath"
+metadata/_custom_type_script = "uid://b7ouuvly1l65f"

@@ -10,6 +10,9 @@ radius = 82.43818
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iqfdi"]
 size = Vector2(41.683167, 17.920792)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fbj6e"]
+size = Vector2(20, 8)
+
 [node name="LootChest" type="StaticBody2D" unique_id=2066414525]
 script = ExtResource("1_iqfdi")
 
@@ -47,3 +50,9 @@ offset_right = 32.0
 offset_bottom = -15.0
 theme_override_font_sizes/font_size = 10
 text = "text"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=559253543]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=202112220]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_fbj6e")

@@ -15,6 +15,7 @@ class_name GameItem
 @export var icon: Texture2D
 @export var category: String = "Consumables"
 @export var stacks: bool = true   # true = normal consumables/ammo, false = unique weapons, bows, rings, etc.
+
 @export var max_stack: int = 99
 @export var weight: float = 0.0
 @export var rarity: int = 1
@@ -24,14 +25,15 @@ class_name GameItem
 @export var consumes_on_use: bool = true
 @export var is_consumable: bool = false
 
-# ─────────────────────────────────────────────────────────────
+
+# BUFF SYSTEM (for equipment)
+@export var buff_effect_id: String = ""   # e.g. "ring_max_health_buff" - links to a positive StatusEffect
+
 # ARMOR SPECIFIC
-# ─────────────────────────────────────────────────────────────
 @export_enum("Head", "Body", "Arms", "Legs") var armor_slot: String = ""
 
-# ─────────────────────────────────────────────────────────────
-# SPELL SPECIFIC (NEW - Step 7)
-# ─────────────────────────────────────────────────────────────
+
+# SPELL SPECIFIC 
 @export_enum("Sorcery", "Miracle", "Pyromancy", "Hex", "Other") var spell_type: String = "Sorcery"
 @export var mana_cost: int = 0
 @export var attunement_slots: int = 1
@@ -68,6 +70,14 @@ class_name GameItem
 @export var requires_quantity: bool = false
 @export var special_component_ref: String = ""
 
+#For antiodotes/Status clearing
+@export var status_to_clear: String = ""      # e.g. "poison", "bleed", "instadeath"
+
+@export var can_use: bool = true
+@export var can_drop: bool = true
+@export var can_discard: bool = true
+
+
 # ─────────────────────────────────────────────────────────────
 # PROJECTILE / RANGED
 # ─────────────────────────────────────────────────────────────
@@ -99,6 +109,7 @@ class_name GameItem
 @export var use_vfx_scene: PackedScene
 @export var use_sound: AudioStream
 @export var use_animation_name: String = ""
+@export var drop_sound: AudioStream = null
 
 # ─────────────────────────────────────────────────────────────
 # FUTURE / DLC / ORGANIZATION
@@ -106,7 +117,13 @@ class_name GameItem
 @export var tags: Array[String] = []
 @export var ammo_type: String = ""
 @export var quantity_per_use: int = 1
+@export var upgrade_level: int = 0   # 0 = base, 1 = +1, etc.
 
+# Helper every UI uses
+func get_upgraded_display_name() -> String:
+	if upgrade_level <= 0:
+		return display_name
+	return "%s +%d" % [display_name, upgrade_level]
 
 # ─────────────────────────────────────────────────────────────
 # LAMP SPECIFIC (data-driven light properties)
