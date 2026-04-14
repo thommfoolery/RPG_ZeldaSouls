@@ -1,6 +1,9 @@
 # scripts/ui/tabs/EquipmentTab.gd
 extends Control
 
+@onready var comparison_tooltip: Panel = $ArmorComparisonTooltip  # add this node as child of the tab
+var _current_slot_being_assigned: int = -1   # ← This was missing / wrong name
+
 signal item_selected(slot_index: int, item: GameItem)
 
 # ─── Sort System ─────────────────────────────────────────────────────
@@ -60,7 +63,7 @@ const NEIGHBORS = {
 	8: {"left": 7, "right": 9, "up": 1, "down": 12},
 	9: {"left": 8, "right": 10, "up": 2, "down": 14},
 	10: {"left": 9, "right": 11, "up": 3, "down": 15},
-	11: {"left": 10, "right": 12, "up": 7, "down": 0},
+	11: {"left": 17, "right": 12, "up": 7, "down": 0},
 	12: {"left": 11, "right": 13, "up": 8, "down": 1},
 	13: {"left": 12, "right": 14, "up": 9, "down": 1},
 	14: {"left": 13, "right": 15, "up": 9, "down": 2},
@@ -82,7 +85,14 @@ func _ready() -> void:
 	if item_list:
 		item_list.item_selected.connect(_on_item_list_selected)
 		item_list.item_activated.connect(_on_item_list_activated)
-		print("[EQUIP-TAB] ItemList signals connected")
+		# Use a timer + selection check for real-time tooltip while navigating
+		var nav_timer = Timer.new()
+		nav_timer.wait_time = 0.05
+		nav_timer.one_shot = false
+		nav_timer.timeout.connect(_update_tooltip_from_current_selection)
+		add_child(nav_timer)
+		nav_timer.start()
+		print("[EQUIP-TAB] ItemList signals + navigation tooltip timer connected")
 
 func _input(event: InputEvent) -> void:
 	if not visible or Global.is_in_menu == false:
@@ -150,17 +160,94 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("equipment_unequip"):
 		_unequip_current_slot()
 		get_viewport().set_input_as_handled()
+##########
+
+func _on_item_focused(index: int) -> void:
+	var hovered_item = _get_item_from_list_index(index)
+	if not hovered_item or not hovered_item.armor_stats:
+		comparison_tooltip.hide_comparison()
+		return
+	
+	var currently_equipped = EquipmentManager.get_equipped_item(_current_slot_being_assigned)
+	comparison_tooltip.show_comparison(currently_equipped, hovered_item)
+
+func _on_item_selected(index: int) -> void:
+	comparison_tooltip.hide_comparison()  # hide when you actually equip
+# Helper to get the actual GameItem from the ItemList index
+func _get_item_from_list_index(index: int) -> GameItem:
+	if index < 0 or index >= item_list.item_count:
+		return null
+	var item_id = item_list.get_item_metadata(index) as String
+	if item_id.is_empty():
+		return null
+	# Load the real item (same way you do elsewhere in the tab)
+	var path = "res://resources/items/" + item_id + ".tres"
+	return load(path) as GameItem
+
+func _update_tooltip_from_current_selection() -> void:
+	if not is_assign_menu_open or not item_list or not comparison_tooltip:
+		comparison_tooltip.hide_comparison()
+		return
+
+	var selected = item_list.get_selected_items()
+	if selected.is_empty():
+		comparison_tooltip.hide_comparison()
+		return
+
+	var index = selected[0]
+	var hovered_item = _get_item_from_list_index(index)
+
+	# Only show tooltip for armor pieces that have defensive stats
+	if not hovered_item or not hovered_item.armor_stats:
+		comparison_tooltip.hide_comparison()
+		return
+
+	var currently_equipped = EquipmentManager.get_equipped_item(_current_slot_being_assigned)
+	comparison_tooltip.show_comparison(currently_equipped, hovered_item)
+###########
 
 # ─── NEW: Refresh assign menu with current sort ─────────────────────
 func _refresh_assign_menu() -> void:
-	if not assign_menu.visible: return
-	_open_assign_menu()  # rebuilds the list with new sort
+	if not assign_menu.visible: 
+		return
+
+	item_list.clear()
+
+	var category = _get_category_for_slot(current_index)
+	var available = _get_sorted_items(category)
+
+	for item in available:
+		var text = item.display_name
+		if item.quantity > 1:
+			text += " x" + str(item.quantity)
+
+		# BONUSES (kept exactly as you had it)
+		if not item.permanent_modifiers.is_empty():
+			text += "   |   "
+			var bonus_parts = []
+			for mod in item.permanent_modifiers:
+				if mod and not mod.display_name.is_empty():
+					bonus_parts.append(mod.display_name)
+			if not bonus_parts.is_empty():
+				text += " + ".join(bonus_parts)
+
+		# ADD THE ITEM
+		var icon = item.icon if item.icon else null
+		item_list.add_item(text, icon)
+		
+		# ← THIS WAS MISSING — THIS FIXES THE CRASH
+		var idx = item_list.item_count - 1
+		item_list.set_item_metadata(idx, item.id)
+
+	if item_list.item_count > 0:
+		item_list.select(0)
+		item_list.call_deferred("grab_focus")
 
 # ─── The rest of your functions (only minimal changes) ───────────────
 func _open_assign_menu() -> void:
+	_current_slot_being_assigned = current_index   # ← This line is critical
 	var display_name = _get_category_name(current_index)
 	var category = _get_category_for_slot(current_index)
-
 	if category == "Armor":
 		var armor_type = _get_armor_type_for_slot(current_index)
 		if armor_type != "":
@@ -175,22 +262,13 @@ func _open_assign_menu() -> void:
 	# Update sort prompt
 	if sort_label:
 		match current_sort_mode:
-			SortMode.DEFAULT:      sort_label.text = "Y: Sort (Default)"
-			SortMode.LAST_ADDED:   sort_label.text = "Y: Sort (Last Added)"
+			SortMode.DEFAULT: sort_label.text = "Y: Sort (Default)"
+			SortMode.LAST_ADDED: sort_label.text = "Y: Sort (Last Added)"
 			SortMode.ALPHABETICAL: sort_label.text = "Y: Sort (Alphabetical)"
 
-	item_list.clear()
-	var available = _get_sorted_items(category)   # ← now uses sorted version
-
-	for item in available:
-		var text = item.display_name
-		if item.quantity > 1:
-			text += " x" + str(item.quantity)
-		item_list.add_item(text, item.icon)
-
-	if item_list.item_count > 0:
-		item_list.select(0)
-		item_list.call_deferred("grab_focus")
+	# Force a full refresh with bonuses
+	_refresh_assign_menu()
+	print("[EQUIP-TAB] Assign menu opened — bonuses should now be visible")
 
 func _get_sorted_items(category: String) -> Array[GameItem]:
 	var items = _get_available_items_for_category(category)
@@ -211,6 +289,7 @@ func _get_sorted_items(category: String) -> Array[GameItem]:
 
 # ─── Rest of your original code (unchanged) ─────────────────────────
 func _close_assign_menu() -> void:
+	comparison_tooltip.hide_comparison()  # clean up tooltip when closing
 	print("[EQUIP-TAB] [MENU-DEBUG] Closing assign menu")
 	is_assign_menu_open = false
 	assign_menu.visible = false
@@ -218,6 +297,7 @@ func _close_assign_menu() -> void:
 
 func _on_item_list_selected(index: int) -> void:
 	print("[EQUIP-TAB] [MENU-DEBUG] ItemList highlighted index ", index)
+	comparison_tooltip.hide_comparison()  # hide when you actually equip
 
 func _on_item_list_activated(index: int) -> void:
 	print("[EQUIP-TAB] [MENU-DEBUG] A activated on list item ", index)
@@ -230,6 +310,7 @@ func _on_item_list_activated(index: int) -> void:
 		else:
 			print("[EQUIP-TAB] Equip blocked")
 	_close_assign_menu()
+	_on_item_selected(index)  # make sure tooltip hides on equip
 
 func _unequip_current_slot() -> void:
 	var success = EquipmentManager.unequip_slot(current_index)
@@ -293,7 +374,22 @@ func _highlight_current_slot() -> void:
 func _update_description() -> void:
 	var item = EquipmentManager.get_equipped_item(current_index)
 	category_label.text = _get_category_name(current_index)
-	item_name_label.text = item.display_name if item else "Empty"
+	
+	if item:
+		item_name_label.text = item.display_name
+		
+		# NEW: Show permanent modifiers
+		var bonus_text = ""
+		if not item.permanent_modifiers.is_empty():
+			bonus_text = "\n"
+			for mod in item.permanent_modifiers:
+				if mod:
+					bonus_text += "• " + mod.display_name + "\n"
+		
+		# Append to the name label or use a separate rich text label if you prefer
+		item_name_label.text += bonus_text
+	else:
+		item_name_label.text = "Empty"
 
 func _get_category_name(index: int) -> String:
 	if index <= 1: return "Right Hand"

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="EquipmentModifier" format=3 uid="uid://t7o22ktb7eva"]
+
+[ext_resource type="Texture2D" uid="uid://bpdv4f7wg5t02" path="res://art/ui/stats/str_buff.png" id="1_ka10j"]
+[ext_resource type="Script" uid="uid://b3nqj4vcdgeds" path="res://resources/equipment/EquipmentModifier.gd" id="1_vgvx6"]
+
+[resource]
+script = ExtResource("1_vgvx6")
+display_name = "+2 Strength"
+icon = ExtResource("1_ka10j")
+modifier_type = "Flat_Levels"
+stat_bonus = "strength"
+flat_levels = 2
+metadata/_custom_type_script = "uid://b3nqj4vcdgeds"

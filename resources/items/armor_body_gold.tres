@@ -1,7 +1,11 @@
 [gd_resource type="Resource" script_class="GameItem" format=3 uid="uid://dbbewmxf65axv"]
 
 [ext_resource type="Texture2D" uid="uid://inft2l625ovx" path="res://art/objects/items/armor/armor_body_gold.png" id="1_27gx1"]
+[ext_resource type="Resource" uid="uid://btch4h2yrjfpg" path="res://resources/armor/gold_helm.tres" id="1_31783"]
 [ext_resource type="Script" uid="uid://b7ouuvly1l65f" path="res://resources/items/Item.gd" id="2_gk1ew"]
+[ext_resource type="Script" uid="uid://b3nqj4vcdgeds" path="res://resources/equipment/EquipmentModifier.gd" id="2_mwn84"]
+[ext_resource type="Resource" uid="uid://ctg5pfcd8rx6q" path="res://resources/equipment/end_levels.tres" id="3_oj1df"]
+[ext_resource type="Resource" uid="uid://bje7yrlc4vnje" path="res://resources/equipment/int_levels.tres" id="4_oj1df"]
 
 [resource]
 script = ExtResource("2_gk1ew")
@@ -14,6 +18,8 @@ category = "Armor"
 stacks = false
 weight = 10.0
 consumes_on_use = false
+permanent_modifiers = Array[ExtResource("2_mwn84")]([ExtResource("3_oj1df"), ExtResource("4_oj1df")])
+armor_stats = ExtResource("1_31783")
 armor_slot = "Body"
 can_use = false
 quantity_per_use = 0

@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://cvfnrewhpywcm" path="res://art/objects/items/item_ui/ArmorIcon.png" id="9_cs7sy"]
 [ext_resource type="Texture2D" uid="uid://b2ofpeuceicwj" path="res://art/objects/items/item_ui/RingsIcon.png" id="10_4dpwa"]
 [ext_resource type="Script" uid="uid://dvk0q8yb7cwqs" path="res://scenes/ui/StatsTab.gd" id="15_cs7sy"]
+[ext_resource type="PackedScene" uid="uid://b3gsblp2cf83k" path="res://scenes/ui/tooltips/ArmorComparisonTooltip.tscn" id="15_h7vri"]
 [ext_resource type="Texture2D" uid="uid://dyfrxfbdlj8gr" path="res://art/ui/stats/vit.png" id="16_rsbeg"]
 [ext_resource type="Texture2D" uid="uid://d3fxwcohcc3av" path="res://art/ui/stats/end.png" id="17_h7vri"]
 [ext_resource type="Texture2D" uid="uid://df2pfpafwhpqj" path="res://art/ui/stats/str.png" id="18_gob0v"]
@@ -783,7 +784,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 3.0
+offset_top = 36.0
 offset_bottom = -41.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -827,15 +828,15 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -535.0
-offset_top = 238.0
+offset_top = 252.0
 offset_right = -171.0
-offset_bottom = 307.0
+offset_bottom = 449.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/outline_size = 2
-theme_override_font_sizes/font_size = 35
+theme_override_font_sizes/font_size = 20
 text = "itemnamelabel"
-vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="CategoryLabel" type="Label" parent="Content/EquipmentPanel/BottomDescription" unique_id=1324322754]
 layout_mode = 1
@@ -850,7 +851,7 @@ offset_right = -523.0
 offset_bottom = 308.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 35
+theme_override_font_sizes/font_size = 20
 text = "categorylabel"
 vertical_alignment = 1
 
@@ -891,7 +892,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -40.0
 offset_top = 26.59
-offset_right = 705.0
+offset_right = 479.0
 offset_bottom = 825.00006
 grow_horizontal = 0
 grow_vertical = 2
@@ -935,398 +936,831 @@ offset_bottom = -9.0
 grow_vertical = 0
 text = "     Hint: D Pad : Movement - A : Select - X : Unequip - B : Close"
 
+[node name="ArmorComparisonTooltip" parent="Content/EquipmentPanel" unique_id=1500753748 instance=ExtResource("15_h7vri")]
+z_index = 5
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -332.0
+offset_top = -409.0
+offset_right = -16.0
+offset_bottom = 392.0
+grow_horizontal = 0
+grow_vertical = 2
+
 [node name="StatsPanel" type="Panel" parent="Content" unique_id=1261166960]
 layout_mode = 2
 script = ExtResource("15_cs7sy")
 metadata/_tab_index = 2
 metadata/_tab_name = ""
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Content/StatsPanel" unique_id=2090377487]
+[node name="MainLayout" type="HBoxContainer" parent="Content/StatsPanel" unique_id=110666838]
 layout_mode = 1
-anchors_preset = 13
-anchor_left = 0.5
-anchor_right = 0.5
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -164.0
-offset_right = 164.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="Content/StatsPanel/VBoxContainer" unique_id=1145984120]
+[node name="emptyvbox" type="VBoxContainer" parent="Content/StatsPanel/MainLayout" unique_id=1015216486]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="StatsVbox" type="VBoxContainer" parent="Content/StatsPanel/MainLayout" unique_id=2090377487]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="Separator3" type="HSeparator" parent="Content/StatsPanel/MainLayout/StatsVbox" unique_id=867947672]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox" unique_id=1145984120]
 modulate = Color(0.81882155, 0.60769516, 0, 1)
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Character Stats:"
 
-[node name="LevelRow" type="HBoxContainer" parent="Content/StatsPanel/VBoxContainer" unique_id=436595156]
+[node name="Separator7" type="HSeparator" parent="Content/StatsPanel/MainLayout/StatsVbox" unique_id=541204585]
 layout_mode = 2
 
-[node name="LevelLabel" type="Label" parent="Content/StatsPanel/VBoxContainer/LevelRow" unique_id=2008901763]
+[node name="LevelRow" type="HBoxContainer" parent="Content/StatsPanel/MainLayout/StatsVbox" unique_id=436595156]
+layout_mode = 2
+
+[node name="LevelLabel" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox/LevelRow" unique_id=2008901763]
 layout_mode = 2
 text = "Level"
 
-[node name="Control" type="Control" parent="Content/StatsPanel/VBoxContainer/LevelRow" unique_id=181567438]
+[node name="Control" type="Control" parent="Content/StatsPanel/MainLayout/StatsVbox/LevelRow" unique_id=181567438]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="LevelValue" type="Label" parent="Content/StatsPanel/VBoxContainer/LevelRow" unique_id=1868249540]
+[node name="LevelValue" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox/LevelRow" unique_id=1868249540]
 unique_name_in_owner = true
 layout_mode = 2
 text = "99"
 
-[node name="SoulsRow" type="HBoxContainer" parent="Content/StatsPanel/VBoxContainer" unique_id=1570680505]
+[node name="SoulsRow" type="HBoxContainer" parent="Content/StatsPanel/MainLayout/StatsVbox" unique_id=1570680505]
 layout_mode = 2
 
-[node name="SoulsLabel" type="Label" parent="Content/StatsPanel/VBoxContainer/SoulsRow" unique_id=1079502018]
+[node name="SoulsLabel" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox/SoulsRow" unique_id=1079502018]
 layout_mode = 2
 text = "Souls"
 
-[node name="Control" type="Control" parent="Content/StatsPanel/VBoxContainer/SoulsRow" unique_id=118262402]
+[node name="Control" type="Control" parent="Content/StatsPanel/MainLayout/StatsVbox/SoulsRow" unique_id=118262402]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="SoulsValue" type="Label" parent="Content/StatsPanel/VBoxContainer/SoulsRow" unique_id=36607318]
+[node name="SoulsValue" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox/SoulsRow" unique_id=36607318]
 unique_name_in_owner = true
 layout_mode = 2
 text = "999,999"
 
-[node name="Separator1" type="HSeparator" parent="Content/StatsPanel/VBoxContainer" unique_id=847097037]
+[node name="EquipLoadRow" type="HBoxContainer" parent="Content/StatsPanel/MainLayout/StatsVbox" unique_id=1553576868]
 layout_mode = 2
 
-[node name="BaseStatsTitle" type="Label" parent="Content/StatsPanel/VBoxContainer" unique_id=181880732]
+[node name="EquipLoadLabel" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox/EquipLoadRow" unique_id=98324164]
+layout_mode = 2
+text = "Equipment Load"
+
+[node name="Control2" type="Control" parent="Content/StatsPanel/MainLayout/StatsVbox/EquipLoadRow" unique_id=1899325375]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="EquipLoadValue" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox/EquipLoadRow" unique_id=544799679]
+unique_name_in_owner = true
+layout_mode = 2
+text = "99"
+
+[node name="Separator1" type="HSeparator" parent="Content/StatsPanel/MainLayout/StatsVbox" unique_id=847097037]
+layout_mode = 2
+
+[node name="BaseStatsTitle" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox" unique_id=181880732]
 modulate = Color(0.81882155, 0.60769516, 0, 1)
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Base Stats:"
 
-[node name="VitalityRow" type="HBoxContainer" parent="Content/StatsPanel/VBoxContainer" unique_id=1319569640]
+[node name="Separator6" type="HSeparator" parent="Content/StatsPanel/MainLayout/StatsVbox" unique_id=571679832]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Content/StatsPanel/VBoxContainer/VitalityRow" unique_id=1016192776]
+[node name="VitalityRow" type="HBoxContainer" parent="Content/StatsPanel/MainLayout/StatsVbox" unique_id=1319569640]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Content/StatsPanel/MainLayout/StatsVbox/VitalityRow" unique_id=1016192776]
 layout_mode = 2
 texture = ExtResource("16_rsbeg")
 
-[node name="VitalityLabel" type="Label" parent="Content/StatsPanel/VBoxContainer/VitalityRow" unique_id=1326468813]
+[node name="VitalityLabel" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox/VitalityRow" unique_id=1326468813]
 layout_mode = 2
+theme_override_font_sizes/font_size = 16
 text = "Vitality"
 
-[node name="Control2" type="Control" parent="Content/StatsPanel/VBoxContainer/VitalityRow" unique_id=643230408]
+[node name="Control2" type="Control" parent="Content/StatsPanel/MainLayout/StatsVbox/VitalityRow" unique_id=643230408]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="VitalityValue" type="Label" parent="Content/StatsPanel/VBoxContainer/VitalityRow" unique_id=1804434090]
+[node name="VitalityValue" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox/VitalityRow" unique_id=248885565]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_font_sizes/font_size = 16
 text = "99"
 
-[node name="EnduranceRow" type="HBoxContainer" parent="Content/StatsPanel/VBoxContainer" unique_id=1053183401]
+[node name="EnduranceRow" type="HBoxContainer" parent="Content/StatsPanel/MainLayout/StatsVbox" unique_id=1053183401]
 layout_mode = 2
 
-[node name="TextureRect7" type="TextureRect" parent="Content/StatsPanel/VBoxContainer/EnduranceRow" unique_id=1758070920]
+[node name="TextureRect7" type="TextureRect" parent="Content/StatsPanel/MainLayout/StatsVbox/EnduranceRow" unique_id=1758070920]
 layout_mode = 2
 texture = ExtResource("17_h7vri")
 
-[node name="EnduranceLabel" type="Label" parent="Content/StatsPanel/VBoxContainer/EnduranceRow" unique_id=1493453321]
+[node name="EnduranceLabel" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox/EnduranceRow" unique_id=1493453321]
 layout_mode = 2
+theme_override_font_sizes/font_size = 16
 text = "Endurance"
 
-[node name="Control2" type="Control" parent="Content/StatsPanel/VBoxContainer/EnduranceRow" unique_id=857598201]
+[node name="Control2" type="Control" parent="Content/StatsPanel/MainLayout/StatsVbox/EnduranceRow" unique_id=857598201]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="EnduranceValue" type="Label" parent="Content/StatsPanel/VBoxContainer/EnduranceRow" unique_id=1404073630]
+[node name="EnduranceValue" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox/EnduranceRow" unique_id=1404073630]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_font_sizes/font_size = 16
 text = "99"
 
-[node name="StrengthRow" type="HBoxContainer" parent="Content/StatsPanel/VBoxContainer" unique_id=1509572750]
+[node name="StrengthRow" type="HBoxContainer" parent="Content/StatsPanel/MainLayout/StatsVbox" unique_id=1509572750]
 layout_mode = 2
 
-[node name="TextureRect3" type="TextureRect" parent="Content/StatsPanel/VBoxContainer/StrengthRow" unique_id=528150548]
+[node name="TextureRect3" type="TextureRect" parent="Content/StatsPanel/MainLayout/StatsVbox/StrengthRow" unique_id=528150548]
 layout_mode = 2
 texture = ExtResource("18_gob0v")
 
-[node name="StrengthLabel" type="Label" parent="Content/StatsPanel/VBoxContainer/StrengthRow" unique_id=701845008]
+[node name="StrengthLabel" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox/StrengthRow" unique_id=701845008]
 layout_mode = 2
+theme_override_font_sizes/font_size = 16
 text = "Strength"
 
-[node name="Control2" type="Control" parent="Content/StatsPanel/VBoxContainer/StrengthRow" unique_id=1554184949]
+[node name="Control2" type="Control" parent="Content/StatsPanel/MainLayout/StatsVbox/StrengthRow" unique_id=1554184949]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="StrengthValue" type="Label" parent="Content/StatsPanel/VBoxContainer/StrengthRow" unique_id=790625592]
+[node name="StrengthValue" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox/StrengthRow" unique_id=790625592]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_font_sizes/font_size = 16
 text = "99"
 
-[node name="DexterityRow" type="HBoxContainer" parent="Content/StatsPanel/VBoxContainer" unique_id=669787965]
+[node name="DexterityRow" type="HBoxContainer" parent="Content/StatsPanel/MainLayout/StatsVbox" unique_id=669787965]
 layout_mode = 2
 
-[node name="TextureRect5" type="TextureRect" parent="Content/StatsPanel/VBoxContainer/DexterityRow" unique_id=852838596]
+[node name="TextureRect5" type="TextureRect" parent="Content/StatsPanel/MainLayout/StatsVbox/DexterityRow" unique_id=852838596]
 layout_mode = 2
 texture = ExtResource("19_075ft")
 
-[node name="DexterityLabel" type="Label" parent="Content/StatsPanel/VBoxContainer/DexterityRow" unique_id=1723063479]
+[node name="DexterityLabel" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox/DexterityRow" unique_id=1723063479]
 layout_mode = 2
+theme_override_font_sizes/font_size = 16
 text = "Dexterity"
 
-[node name="Control2" type="Control" parent="Content/StatsPanel/VBoxContainer/DexterityRow" unique_id=776656104]
+[node name="Control2" type="Control" parent="Content/StatsPanel/MainLayout/StatsVbox/DexterityRow" unique_id=776656104]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="DexterityValue" type="Label" parent="Content/StatsPanel/VBoxContainer/DexterityRow" unique_id=1690698421]
+[node name="DexterityValue" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox/DexterityRow" unique_id=1690698421]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_font_sizes/font_size = 16
 text = "99"
 
-[node name="AttunementRow" type="HBoxContainer" parent="Content/StatsPanel/VBoxContainer" unique_id=885679468]
+[node name="AttunementRow" type="HBoxContainer" parent="Content/StatsPanel/MainLayout/StatsVbox" unique_id=885679468]
 layout_mode = 2
 
-[node name="TextureRect2" type="TextureRect" parent="Content/StatsPanel/VBoxContainer/AttunementRow" unique_id=546667470]
+[node name="TextureRect2" type="TextureRect" parent="Content/StatsPanel/MainLayout/StatsVbox/AttunementRow" unique_id=546667470]
 layout_mode = 2
 texture = ExtResource("20_xlhyu")
 
-[node name="AttunementLabel" type="Label" parent="Content/StatsPanel/VBoxContainer/AttunementRow" unique_id=1997257005]
+[node name="AttunementLabel" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox/AttunementRow" unique_id=1997257005]
 layout_mode = 2
+theme_override_font_sizes/font_size = 16
 text = "Attunement"
 
-[node name="Control2" type="Control" parent="Content/StatsPanel/VBoxContainer/AttunementRow" unique_id=891352319]
+[node name="Control2" type="Control" parent="Content/StatsPanel/MainLayout/StatsVbox/AttunementRow" unique_id=891352319]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="AttunementValue" type="Label" parent="Content/StatsPanel/VBoxContainer/AttunementRow" unique_id=1518361301]
+[node name="AttunementValue" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox/AttunementRow" unique_id=1518361301]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_font_sizes/font_size = 16
 text = "99"
 
-[node name="IntelligenceRow" type="HBoxContainer" parent="Content/StatsPanel/VBoxContainer" unique_id=1989532567]
+[node name="IntelligenceRow" type="HBoxContainer" parent="Content/StatsPanel/MainLayout/StatsVbox" unique_id=1989532567]
 layout_mode = 2
 
-[node name="TextureRect4" type="TextureRect" parent="Content/StatsPanel/VBoxContainer/IntelligenceRow" unique_id=1156349820]
+[node name="TextureRect4" type="TextureRect" parent="Content/StatsPanel/MainLayout/StatsVbox/IntelligenceRow" unique_id=1156349820]
 layout_mode = 2
 texture = ExtResource("21_x0aya")
 
-[node name="IntelligenceLabel" type="Label" parent="Content/StatsPanel/VBoxContainer/IntelligenceRow" unique_id=1604425840]
+[node name="IntelligenceLabel" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox/IntelligenceRow" unique_id=1604425840]
 layout_mode = 2
+theme_override_font_sizes/font_size = 16
 text = "Intelligence"
 
-[node name="Control2" type="Control" parent="Content/StatsPanel/VBoxContainer/IntelligenceRow" unique_id=1625812230]
+[node name="Control2" type="Control" parent="Content/StatsPanel/MainLayout/StatsVbox/IntelligenceRow" unique_id=1625812230]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="IntelligenceValue" type="Label" parent="Content/StatsPanel/VBoxContainer/IntelligenceRow" unique_id=1466011994]
+[node name="IntelligenceValue" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox/IntelligenceRow" unique_id=1466011994]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_font_sizes/font_size = 16
 text = "99"
 
-[node name="FaithRow" type="HBoxContainer" parent="Content/StatsPanel/VBoxContainer" unique_id=1102818852]
+[node name="FaithRow" type="HBoxContainer" parent="Content/StatsPanel/MainLayout/StatsVbox" unique_id=1102818852]
 layout_mode = 2
 
-[node name="TextureRect6" type="TextureRect" parent="Content/StatsPanel/VBoxContainer/FaithRow" unique_id=2070578107]
+[node name="TextureRect6" type="TextureRect" parent="Content/StatsPanel/MainLayout/StatsVbox/FaithRow" unique_id=2070578107]
 layout_mode = 2
 texture = ExtResource("22_al3la")
 
-[node name="FaithLabel" type="Label" parent="Content/StatsPanel/VBoxContainer/FaithRow" unique_id=338353897]
+[node name="FaithLabel" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox/FaithRow" unique_id=338353897]
 layout_mode = 2
+theme_override_font_sizes/font_size = 16
 text = "Faith"
 
-[node name="Control2" type="Control" parent="Content/StatsPanel/VBoxContainer/FaithRow" unique_id=1374887408]
+[node name="Control2" type="Control" parent="Content/StatsPanel/MainLayout/StatsVbox/FaithRow" unique_id=1374887408]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="FaithValue" type="Label" parent="Content/StatsPanel/VBoxContainer/FaithRow" unique_id=1818401867]
+[node name="FaithValue" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox/FaithRow" unique_id=1818401867]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_font_sizes/font_size = 16
 text = "99"
 
-[node name="LuckRow" type="HBoxContainer" parent="Content/StatsPanel/VBoxContainer" unique_id=2049573336]
+[node name="LuckRow" type="HBoxContainer" parent="Content/StatsPanel/MainLayout/StatsVbox" unique_id=2049573336]
 layout_mode = 2
 
-[node name="TextureRect7" type="TextureRect" parent="Content/StatsPanel/VBoxContainer/LuckRow" unique_id=1052275263]
+[node name="TextureRect7" type="TextureRect" parent="Content/StatsPanel/MainLayout/StatsVbox/LuckRow" unique_id=1052275263]
 layout_mode = 2
 texture = ExtResource("23_ce0gr")
 
-[node name="LuckLabel" type="Label" parent="Content/StatsPanel/VBoxContainer/LuckRow" unique_id=1256808659]
+[node name="LuckLabel" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox/LuckRow" unique_id=1256808659]
 layout_mode = 2
+theme_override_font_sizes/font_size = 16
 text = "Luck"
 
-[node name="Control2" type="Control" parent="Content/StatsPanel/VBoxContainer/LuckRow" unique_id=338074212]
+[node name="Control2" type="Control" parent="Content/StatsPanel/MainLayout/StatsVbox/LuckRow" unique_id=338074212]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="LuckValue" type="Label" parent="Content/StatsPanel/VBoxContainer/LuckRow" unique_id=635149422]
+[node name="LuckValue" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox/LuckRow" unique_id=635149422]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_font_sizes/font_size = 16
 text = "99"
 
-[node name="Separator2" type="HSeparator" parent="Content/StatsPanel/VBoxContainer" unique_id=48843815]
+[node name="Separator2" type="HSeparator" parent="Content/StatsPanel/MainLayout/StatsVbox" unique_id=48843815]
 layout_mode = 2
 
-[node name="DerivedStatsTitle" type="Label" parent="Content/StatsPanel/VBoxContainer" unique_id=2011795318]
+[node name="DerivedStatsTitle" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox" unique_id=2011795318]
 modulate = Color(0.81882155, 0.60769516, 0, 1)
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Derived Stats:"
 
-[node name="MaxHPRow" type="HBoxContainer" parent="Content/StatsPanel/VBoxContainer" unique_id=1201932682]
+[node name="Separator5" type="HSeparator" parent="Content/StatsPanel/MainLayout/StatsVbox" unique_id=828787705]
 layout_mode = 2
 
-[node name="MaxHPLabel" type="Label" parent="Content/StatsPanel/VBoxContainer/MaxHPRow" unique_id=1176654730]
+[node name="MaxHPRow" type="HBoxContainer" parent="Content/StatsPanel/MainLayout/StatsVbox" unique_id=1201932682]
+layout_mode = 2
+
+[node name="MaxHPLabel" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox/MaxHPRow" unique_id=1176654730]
 layout_mode = 2
 text = "Max HP"
 
-[node name="Control2" type="Control" parent="Content/StatsPanel/VBoxContainer/MaxHPRow" unique_id=772130661]
+[node name="Control2" type="Control" parent="Content/StatsPanel/MainLayout/StatsVbox/MaxHPRow" unique_id=772130661]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MaxHPValue" type="Label" parent="Content/StatsPanel/VBoxContainer/MaxHPRow" unique_id=836870020]
+[node name="MaxHPValue" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox/MaxHPRow" unique_id=836870020]
 unique_name_in_owner = true
 layout_mode = 2
 text = "99"
 
-[node name="MaxStaminaRow" type="HBoxContainer" parent="Content/StatsPanel/VBoxContainer" unique_id=1774170298]
+[node name="MaxStaminaRow" type="HBoxContainer" parent="Content/StatsPanel/MainLayout/StatsVbox" unique_id=1774170298]
 layout_mode = 2
 
-[node name="MaxStaminaLabel" type="Label" parent="Content/StatsPanel/VBoxContainer/MaxStaminaRow" unique_id=10709220]
+[node name="MaxStaminaLabel" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox/MaxStaminaRow" unique_id=10709220]
 layout_mode = 2
 text = "Max Stamina"
 
-[node name="Control2" type="Control" parent="Content/StatsPanel/VBoxContainer/MaxStaminaRow" unique_id=691279026]
+[node name="Control2" type="Control" parent="Content/StatsPanel/MainLayout/StatsVbox/MaxStaminaRow" unique_id=691279026]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MaxStaminaValue" type="Label" parent="Content/StatsPanel/VBoxContainer/MaxStaminaRow" unique_id=1198510087]
+[node name="MaxStaminaValue" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox/MaxStaminaRow" unique_id=1198510087]
 unique_name_in_owner = true
 layout_mode = 2
 text = "99"
 
-[node name="EquipLoadRow" type="HBoxContainer" parent="Content/StatsPanel/VBoxContainer" unique_id=1553576868]
+[node name="MaxManaRow" type="HBoxContainer" parent="Content/StatsPanel/MainLayout/StatsVbox" unique_id=1261463954]
 layout_mode = 2
 
-[node name="EquipLoadLabel" type="Label" parent="Content/StatsPanel/VBoxContainer/EquipLoadRow" unique_id=98324164]
-layout_mode = 2
-text = "Equipment Load"
-
-[node name="Control2" type="Control" parent="Content/StatsPanel/VBoxContainer/EquipLoadRow" unique_id=1899325375]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="EquipLoadValue" type="Label" parent="Content/StatsPanel/VBoxContainer/EquipLoadRow" unique_id=544799679]
-unique_name_in_owner = true
-layout_mode = 2
-text = "99"
-
-[node name="MaxManaRow" type="HBoxContainer" parent="Content/StatsPanel/VBoxContainer" unique_id=1261463954]
-layout_mode = 2
-
-[node name="MaxManaLabel" type="Label" parent="Content/StatsPanel/VBoxContainer/MaxManaRow" unique_id=1167245536]
+[node name="MaxManaLabel" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox/MaxManaRow" unique_id=1167245536]
 layout_mode = 2
 text = "Max Mana"
 
-[node name="Control2" type="Control" parent="Content/StatsPanel/VBoxContainer/MaxManaRow" unique_id=930423334]
+[node name="Control2" type="Control" parent="Content/StatsPanel/MainLayout/StatsVbox/MaxManaRow" unique_id=930423334]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MaxManaValue" type="Label" parent="Content/StatsPanel/VBoxContainer/MaxManaRow" unique_id=473397600]
+[node name="MaxManaValue" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox/MaxManaRow" unique_id=473397600]
 unique_name_in_owner = true
 layout_mode = 2
 text = "99"
 
-[node name="SpellSlotsRow" type="HBoxContainer" parent="Content/StatsPanel/VBoxContainer" unique_id=1308909298]
+[node name="SpellSlotsRow" type="HBoxContainer" parent="Content/StatsPanel/MainLayout/StatsVbox" unique_id=1308909298]
 layout_mode = 2
 
-[node name="SpellSlotsLabel" type="Label" parent="Content/StatsPanel/VBoxContainer/SpellSlotsRow" unique_id=1568029535]
+[node name="SpellSlotsLabel" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox/SpellSlotsRow" unique_id=1568029535]
 layout_mode = 2
 text = "Spell Slots"
 
-[node name="Control2" type="Control" parent="Content/StatsPanel/VBoxContainer/SpellSlotsRow" unique_id=1100570842]
+[node name="Control2" type="Control" parent="Content/StatsPanel/MainLayout/StatsVbox/SpellSlotsRow" unique_id=1100570842]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="SpellSlotsValue" type="Label" parent="Content/StatsPanel/VBoxContainer/SpellSlotsRow" unique_id=499628466]
+[node name="SpellSlotsValue" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox/SpellSlotsRow" unique_id=499628466]
 unique_name_in_owner = true
 layout_mode = 2
 text = "99"
 
-[node name="StrengthScalingRow" type="HBoxContainer" parent="Content/StatsPanel/VBoxContainer" unique_id=1029917344]
+[node name="StrengthScalingRow" type="HBoxContainer" parent="Content/StatsPanel/MainLayout/StatsVbox" unique_id=1029917344]
 layout_mode = 2
 
-[node name="StrengthScalingLabel" type="Label" parent="Content/StatsPanel/VBoxContainer/StrengthScalingRow" unique_id=1191756217]
+[node name="StrengthScalingLabel" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox/StrengthScalingRow" unique_id=1191756217]
 layout_mode = 2
 text = "Strength Scaling"
 
-[node name="Control2" type="Control" parent="Content/StatsPanel/VBoxContainer/StrengthScalingRow" unique_id=2022654198]
+[node name="Control2" type="Control" parent="Content/StatsPanel/MainLayout/StatsVbox/StrengthScalingRow" unique_id=2022654198]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="StrScalingValue" type="Label" parent="Content/StatsPanel/VBoxContainer/StrengthScalingRow" unique_id=348940184]
+[node name="StrScalingValue" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox/StrengthScalingRow" unique_id=348940184]
 unique_name_in_owner = true
 layout_mode = 2
 text = "99"
 
-[node name="DexterityScalingRow" type="HBoxContainer" parent="Content/StatsPanel/VBoxContainer" unique_id=771149552]
+[node name="DexterityScalingRow" type="HBoxContainer" parent="Content/StatsPanel/MainLayout/StatsVbox" unique_id=771149552]
 layout_mode = 2
 
-[node name="DexterityScalingLabel" type="Label" parent="Content/StatsPanel/VBoxContainer/DexterityScalingRow" unique_id=182005474]
+[node name="DexterityScalingLabel" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox/DexterityScalingRow" unique_id=182005474]
 layout_mode = 2
 text = "Dexterity Scaling"
 
-[node name="Control2" type="Control" parent="Content/StatsPanel/VBoxContainer/DexterityScalingRow" unique_id=739742658]
+[node name="Control2" type="Control" parent="Content/StatsPanel/MainLayout/StatsVbox/DexterityScalingRow" unique_id=739742658]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="DexScalingValue" type="Label" parent="Content/StatsPanel/VBoxContainer/DexterityScalingRow" unique_id=400620293]
+[node name="DexScalingValue" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox/DexterityScalingRow" unique_id=400620293]
 unique_name_in_owner = true
 layout_mode = 2
 text = "99"
 
-[node name="IntelligenceScalingRow" type="HBoxContainer" parent="Content/StatsPanel/VBoxContainer" unique_id=186929309]
+[node name="IntelligenceScalingRow" type="HBoxContainer" parent="Content/StatsPanel/MainLayout/StatsVbox" unique_id=186929309]
 layout_mode = 2
 
-[node name="IntelligenceScalingLabel" type="Label" parent="Content/StatsPanel/VBoxContainer/IntelligenceScalingRow" unique_id=1539623456]
+[node name="IntelligenceScalingLabel" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox/IntelligenceScalingRow" unique_id=1539623456]
 layout_mode = 2
 text = "Intelligence Scaling"
 
-[node name="Control2" type="Control" parent="Content/StatsPanel/VBoxContainer/IntelligenceScalingRow" unique_id=1239544055]
+[node name="Control2" type="Control" parent="Content/StatsPanel/MainLayout/StatsVbox/IntelligenceScalingRow" unique_id=1239544055]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="IntScalingValue" type="Label" parent="Content/StatsPanel/VBoxContainer/IntelligenceScalingRow" unique_id=1554896119]
+[node name="IntScalingValue" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox/IntelligenceScalingRow" unique_id=1554896119]
 unique_name_in_owner = true
 layout_mode = 2
 text = "99"
 
-[node name="FaithScalingRow" type="HBoxContainer" parent="Content/StatsPanel/VBoxContainer" unique_id=435305833]
+[node name="FaithScalingRow" type="HBoxContainer" parent="Content/StatsPanel/MainLayout/StatsVbox" unique_id=435305833]
 layout_mode = 2
 
-[node name="FaithScalingLabel" type="Label" parent="Content/StatsPanel/VBoxContainer/FaithScalingRow" unique_id=1141929002]
+[node name="FaithScalingLabel" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox/FaithScalingRow" unique_id=1141929002]
 layout_mode = 2
 text = "Faith Scaling"
 
-[node name="Control2" type="Control" parent="Content/StatsPanel/VBoxContainer/FaithScalingRow" unique_id=764870935]
+[node name="Control2" type="Control" parent="Content/StatsPanel/MainLayout/StatsVbox/FaithScalingRow" unique_id=764870935]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="FaithScalingValue" type="Label" parent="Content/StatsPanel/VBoxContainer/FaithScalingRow" unique_id=1053183599]
+[node name="FaithScalingValue" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox/FaithScalingRow" unique_id=1053183599]
 unique_name_in_owner = true
 layout_mode = 2
 text = "99"
 
-[node name="LuckItemDiscoveryRow" type="HBoxContainer" parent="Content/StatsPanel/VBoxContainer" unique_id=1310813112]
+[node name="HSeparator" type="HSeparator" parent="Content/StatsPanel/MainLayout/StatsVbox" unique_id=1384389907]
 layout_mode = 2
 
-[node name="LuckItemDiscoveryLabel" type="Label" parent="Content/StatsPanel/VBoxContainer/LuckItemDiscoveryRow" unique_id=1699093646]
+[node name="HPRegenRow" type="HBoxContainer" parent="Content/StatsPanel/MainLayout/StatsVbox" unique_id=2108052550]
+layout_mode = 2
+
+[node name="HPRegenLabel" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox/HPRegenRow" unique_id=2070031724]
+layout_mode = 2
+text = "HP Regen Rate"
+
+[node name="Control2" type="Control" parent="Content/StatsPanel/MainLayout/StatsVbox/HPRegenRow" unique_id=977899835]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HPRegenValue" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox/HPRegenRow" unique_id=1313035383]
+unique_name_in_owner = true
+layout_mode = 2
+text = "99"
+
+[node name="ManaRegenRow" type="HBoxContainer" parent="Content/StatsPanel/MainLayout/StatsVbox" unique_id=407443148]
+layout_mode = 2
+
+[node name="ManaRegenLabel" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox/ManaRegenRow" unique_id=1962860626]
+layout_mode = 2
+text = "Mana Regen Rate"
+
+[node name="Control2" type="Control" parent="Content/StatsPanel/MainLayout/StatsVbox/ManaRegenRow" unique_id=1183802804]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ManaRegenValue" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox/ManaRegenRow" unique_id=1613588257]
+unique_name_in_owner = true
+layout_mode = 2
+text = "99"
+
+[node name="StaminaRegenRow" type="HBoxContainer" parent="Content/StatsPanel/MainLayout/StatsVbox" unique_id=1025338831]
+layout_mode = 2
+
+[node name="StaminaRegenLabel" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox/StaminaRegenRow" unique_id=1536629087]
+layout_mode = 2
+text = "Stamina Regen Rate"
+
+[node name="Control2" type="Control" parent="Content/StatsPanel/MainLayout/StatsVbox/StaminaRegenRow" unique_id=1998270953]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="StaminaRegenValue" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox/StaminaRegenRow" unique_id=2094266679]
+unique_name_in_owner = true
+layout_mode = 2
+text = "99"
+
+[node name="Separator4" type="HSeparator" parent="Content/StatsPanel/MainLayout/StatsVbox" unique_id=1090261158]
+layout_mode = 2
+
+[node name="space2" type="VBoxContainer" parent="Content/StatsPanel/MainLayout" unique_id=402968425]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="StatsVbox2" type="VBoxContainer" parent="Content/StatsPanel/MainLayout" unique_id=616982915]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="Separator4" type="HSeparator" parent="Content/StatsPanel/MainLayout/StatsVbox2" unique_id=129777891]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox2" unique_id=1408796034]
+modulate = Color(0.81882155, 0.60769516, 0, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Offensive Stats:"
+
+[node name="Separator9" type="HSeparator" parent="Content/StatsPanel/MainLayout/StatsVbox2" unique_id=797421761]
+layout_mode = 2
+
+[node name="PhysicalDefenseRow2" type="HBoxContainer" parent="Content/StatsPanel/MainLayout/StatsVbox2" unique_id=420799079]
+layout_mode = 2
+
+[node name="PhysicalDefenseLabel" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox2/PhysicalDefenseRow2" unique_id=789986683]
+layout_mode = 2
+text = "Right Hand slot 1"
+
+[node name="Control2" type="Control" parent="Content/StatsPanel/MainLayout/StatsVbox2/PhysicalDefenseRow2" unique_id=566964948]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PhysicalDefenseValue" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox2/PhysicalDefenseRow2" unique_id=1763368249]
+layout_mode = 2
+text = "x"
+
+[node name="PhysicalDefenseRow3" type="HBoxContainer" parent="Content/StatsPanel/MainLayout/StatsVbox2" unique_id=100805990]
+layout_mode = 2
+
+[node name="PhysicalDefenseLabel" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox2/PhysicalDefenseRow3" unique_id=807526276]
+layout_mode = 2
+text = "Right Hand slot 2"
+
+[node name="Control2" type="Control" parent="Content/StatsPanel/MainLayout/StatsVbox2/PhysicalDefenseRow3" unique_id=252327492]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PhysicalDefenseValue" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox2/PhysicalDefenseRow3" unique_id=567178098]
+layout_mode = 2
+text = "x"
+
+[node name="PhysicalDefenseRow5" type="HBoxContainer" parent="Content/StatsPanel/MainLayout/StatsVbox2" unique_id=1576200052]
+layout_mode = 2
+
+[node name="PhysicalDefenseLabel" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox2/PhysicalDefenseRow5" unique_id=1974055018]
+layout_mode = 2
+text = "Left Hand slot 1"
+
+[node name="Control2" type="Control" parent="Content/StatsPanel/MainLayout/StatsVbox2/PhysicalDefenseRow5" unique_id=990651686]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PhysicalDefenseValue" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox2/PhysicalDefenseRow5" unique_id=1795062593]
+layout_mode = 2
+text = "x"
+
+[node name="PhysicalDefenseRow4" type="HBoxContainer" parent="Content/StatsPanel/MainLayout/StatsVbox2" unique_id=873694647]
+layout_mode = 2
+
+[node name="PhysicalDefenseLabel" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox2/PhysicalDefenseRow4" unique_id=710601100]
+layout_mode = 2
+text = "Left Hand slot 2"
+
+[node name="Control2" type="Control" parent="Content/StatsPanel/MainLayout/StatsVbox2/PhysicalDefenseRow4" unique_id=2126275555]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PhysicalDefenseValue" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox2/PhysicalDefenseRow4" unique_id=917684039]
+layout_mode = 2
+text = "x"
+
+[node name="Control" type="Control" parent="Content/StatsPanel/MainLayout/StatsVbox2" unique_id=1826626487]
+layout_mode = 2
+
+[node name="Separator3" type="HSeparator" parent="Content/StatsPanel/MainLayout/StatsVbox2" unique_id=1691058012]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox2" unique_id=1029065277]
+modulate = Color(0.81882155, 0.60769516, 0, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Defensive Stats:"
+
+[node name="Separator7" type="HSeparator" parent="Content/StatsPanel/MainLayout/StatsVbox2" unique_id=1381688159]
+layout_mode = 2
+
+[node name="PhysicalDefenseRow" type="HBoxContainer" parent="Content/StatsPanel/MainLayout/StatsVbox2" unique_id=2093795451]
+layout_mode = 2
+
+[node name="PhysicalDefenseLabel" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox2/PhysicalDefenseRow" unique_id=891290585]
+layout_mode = 2
+text = "Physical Defense"
+
+[node name="Control2" type="Control" parent="Content/StatsPanel/MainLayout/StatsVbox2/PhysicalDefenseRow" unique_id=797633337]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PhysicalDefenseValue" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox2/PhysicalDefenseRow" unique_id=1239099953]
+unique_name_in_owner = true
+layout_mode = 2
+text = "99"
+
+[node name="PhysicalDefenseRow6" type="HBoxContainer" parent="Content/StatsPanel/MainLayout/StatsVbox2" unique_id=612661076]
+layout_mode = 2
+
+[node name="PhysicalDefenseLabel" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox2/PhysicalDefenseRow6" unique_id=648229889]
+layout_mode = 2
+text = "x Defense"
+
+[node name="Control2" type="Control" parent="Content/StatsPanel/MainLayout/StatsVbox2/PhysicalDefenseRow6" unique_id=1671160462]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PhysicalDefenseValue" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox2/PhysicalDefenseRow6" unique_id=793269922]
+layout_mode = 2
+text = "x"
+
+[node name="PhysicalDefenseRow7" type="HBoxContainer" parent="Content/StatsPanel/MainLayout/StatsVbox2" unique_id=1572707160]
+layout_mode = 2
+
+[node name="PhysicalDefenseLabel" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox2/PhysicalDefenseRow7" unique_id=624706675]
+layout_mode = 2
+text = "x Defense"
+
+[node name="Control2" type="Control" parent="Content/StatsPanel/MainLayout/StatsVbox2/PhysicalDefenseRow7" unique_id=553645804]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PhysicalDefenseValue" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox2/PhysicalDefenseRow7" unique_id=376500836]
+layout_mode = 2
+text = "x"
+
+[node name="PhysicalDefenseRow8" type="HBoxContainer" parent="Content/StatsPanel/MainLayout/StatsVbox2" unique_id=404555161]
+layout_mode = 2
+
+[node name="PhysicalDefenseLabel" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox2/PhysicalDefenseRow8" unique_id=2046451625]
+layout_mode = 2
+text = "x Defense"
+
+[node name="Control2" type="Control" parent="Content/StatsPanel/MainLayout/StatsVbox2/PhysicalDefenseRow8" unique_id=326545977]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PhysicalDefenseValue" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox2/PhysicalDefenseRow8" unique_id=1505601031]
+layout_mode = 2
+text = "x"
+
+[node name="MagicDefenseRow" type="HBoxContainer" parent="Content/StatsPanel/MainLayout/StatsVbox2" unique_id=1486858421]
+layout_mode = 2
+
+[node name="MagicDefenseLabel" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox2/MagicDefenseRow" unique_id=936121876]
+layout_mode = 2
+text = "Magic Defense"
+
+[node name="Control2" type="Control" parent="Content/StatsPanel/MainLayout/StatsVbox2/MagicDefenseRow" unique_id=78637888]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MagicDefenseValue" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox2/MagicDefenseRow" unique_id=584360764]
+unique_name_in_owner = true
+layout_mode = 2
+text = "99"
+
+[node name="FireDefenseRow" type="HBoxContainer" parent="Content/StatsPanel/MainLayout/StatsVbox2" unique_id=8652035]
+layout_mode = 2
+
+[node name="FireDefenseLabel" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox2/FireDefenseRow" unique_id=149434481]
+layout_mode = 2
+text = "Fire Defense"
+
+[node name="Control2" type="Control" parent="Content/StatsPanel/MainLayout/StatsVbox2/FireDefenseRow" unique_id=1095351545]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="FireDefenseValue" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox2/FireDefenseRow" unique_id=1892779373]
+unique_name_in_owner = true
+layout_mode = 2
+text = "99"
+
+[node name="LightningDefenseRow" type="HBoxContainer" parent="Content/StatsPanel/MainLayout/StatsVbox2" unique_id=1398301785]
+layout_mode = 2
+
+[node name="LightningDefenseLabel" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox2/LightningDefenseRow" unique_id=1544807019]
+layout_mode = 2
+text = "Lightning Defense"
+
+[node name="Control2" type="Control" parent="Content/StatsPanel/MainLayout/StatsVbox2/LightningDefenseRow" unique_id=1118687484]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LightningDefenseValue" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox2/LightningDefenseRow" unique_id=760263368]
+unique_name_in_owner = true
+layout_mode = 2
+text = "99"
+
+[node name="HolyDefenseRow" type="HBoxContainer" parent="Content/StatsPanel/MainLayout/StatsVbox2" unique_id=614142562]
+layout_mode = 2
+
+[node name="HolyDefenseLabel" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox2/HolyDefenseRow" unique_id=1774175511]
+layout_mode = 2
+text = "Holy Defense"
+
+[node name="Control2" type="Control" parent="Content/StatsPanel/MainLayout/StatsVbox2/HolyDefenseRow" unique_id=183490857]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HolyDefenseValue" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox2/HolyDefenseRow" unique_id=1173420428]
+unique_name_in_owner = true
+layout_mode = 2
+text = "99"
+
+[node name="StatusResistanceRow" type="HBoxContainer" parent="Content/StatsPanel/MainLayout/StatsVbox2" unique_id=1039955705]
+layout_mode = 2
+
+[node name="StatusResistanceLabel" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox2/StatusResistanceRow" unique_id=660458278]
+layout_mode = 2
+text = "Status Resistance"
+
+[node name="Control2" type="Control" parent="Content/StatsPanel/MainLayout/StatsVbox2/StatusResistanceRow" unique_id=51552503]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="StatusResistanceValue" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox2/StatusResistanceRow" unique_id=1582392315]
+unique_name_in_owner = true
+layout_mode = 2
+text = "99"
+
+[node name="StatusResistanceRow2" type="HBoxContainer" parent="Content/StatsPanel/MainLayout/StatsVbox2" unique_id=1258143856]
+layout_mode = 2
+
+[node name="StatusResistanceLabel" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox2/StatusResistanceRow2" unique_id=1386928121]
+layout_mode = 2
+text = "x Resistance"
+
+[node name="Control2" type="Control" parent="Content/StatsPanel/MainLayout/StatsVbox2/StatusResistanceRow2" unique_id=595948102]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="StatusResistanceValue" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox2/StatusResistanceRow2" unique_id=1096169493]
+layout_mode = 2
+text = "x"
+
+[node name="StatusResistanceRow3" type="HBoxContainer" parent="Content/StatsPanel/MainLayout/StatsVbox2" unique_id=1800771632]
+layout_mode = 2
+
+[node name="StatusResistanceLabel" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox2/StatusResistanceRow3" unique_id=640621579]
+layout_mode = 2
+text = "x Resistance"
+
+[node name="Control2" type="Control" parent="Content/StatsPanel/MainLayout/StatsVbox2/StatusResistanceRow3" unique_id=684323145]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="StatusResistanceValue" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox2/StatusResistanceRow3" unique_id=2004750363]
+layout_mode = 2
+text = "x"
+
+[node name="StatusResistanceRow4" type="HBoxContainer" parent="Content/StatsPanel/MainLayout/StatsVbox2" unique_id=1752190281]
+layout_mode = 2
+
+[node name="StatusResistanceLabel" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox2/StatusResistanceRow4" unique_id=186896619]
+layout_mode = 2
+text = "x Resistance"
+
+[node name="Control2" type="Control" parent="Content/StatsPanel/MainLayout/StatsVbox2/StatusResistanceRow4" unique_id=739597299]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="StatusResistanceValue" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox2/StatusResistanceRow4" unique_id=1062720769]
+layout_mode = 2
+text = "x"
+
+[node name="Separator8" type="HSeparator" parent="Content/StatsPanel/MainLayout/StatsVbox2" unique_id=1072476688]
+layout_mode = 2
+
+[node name="PoiseRow" type="HBoxContainer" parent="Content/StatsPanel/MainLayout/StatsVbox2" unique_id=1892557591]
+layout_mode = 2
+
+[node name="PoiseLabel" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox2/PoiseRow" unique_id=828269139]
+layout_mode = 2
+text = "Poise"
+
+[node name="Control2" type="Control" parent="Content/StatsPanel/MainLayout/StatsVbox2/PoiseRow" unique_id=1200822629]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PoiseValue" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox2/PoiseRow" unique_id=1447726719]
+unique_name_in_owner = true
+layout_mode = 2
+text = "99"
+
+[node name="LuckItemDiscoveryRow" type="HBoxContainer" parent="Content/StatsPanel/MainLayout/StatsVbox2" unique_id=1310813112]
+layout_mode = 2
+
+[node name="LuckItemDiscoveryLabel" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox2/LuckItemDiscoveryRow" unique_id=1699093646]
 layout_mode = 2
 text = "Item Discovery"
 
-[node name="Control2" type="Control" parent="Content/StatsPanel/VBoxContainer/LuckItemDiscoveryRow" unique_id=807363672]
+[node name="Control2" type="Control" parent="Content/StatsPanel/MainLayout/StatsVbox2/LuckItemDiscoveryRow" unique_id=807363672]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="LuckDiscoveryValue" type="Label" parent="Content/StatsPanel/VBoxContainer/LuckItemDiscoveryRow" unique_id=642358102]
+[node name="LuckDiscoveryValue" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox2/LuckItemDiscoveryRow" unique_id=642358102]
 unique_name_in_owner = true
 layout_mode = 2
 text = "99"
+
+[node name="Separator10" type="HSeparator" parent="Content/StatsPanel/MainLayout/StatsVbox2" unique_id=60682508]
+layout_mode = 2
+
+[node name="space" type="VBoxContainer" parent="Content/StatsPanel/MainLayout" unique_id=1739221445]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="BonusesVBox" type="VBoxContainer" parent="Content/StatsPanel/MainLayout" unique_id=1698830384]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="Separator8" type="HSeparator" parent="Content/StatsPanel/MainLayout/BonusesVBox" unique_id=1948421613]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Content/StatsPanel/MainLayout/BonusesVBox" unique_id=499837104]
+modulate = Color(0.81882155, 0.60769516, 0, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Active Equipment Bonuses:"
+
+[node name="Separator9" type="HSeparator" parent="Content/StatsPanel/MainLayout/BonusesVBox" unique_id=1701384479]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Content/StatsPanel/MainLayout/BonusesVBox" unique_id=2042202444]
+custom_minimum_size = Vector2(0, 800)
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="ActiveBonusesContainer" type="VBoxContainer" parent="Content/StatsPanel/MainLayout/BonusesVBox/ScrollContainer" unique_id=1094472268]
+layout_mode = 2
 
 [node name="SystemPanel" type="Panel" parent="Content" unique_id=159159143]
 visible = false

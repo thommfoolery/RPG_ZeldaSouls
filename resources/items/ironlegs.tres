@@ -1,7 +1,10 @@
 [gd_resource type="Resource" script_class="GameItem" format=3 uid="uid://kfv24pmkewow"]
 
+[ext_resource type="Resource" uid="uid://cmqht34qse1r1" path="res://resources/armor/iron_helm.tres" id="1_kajnh"]
 [ext_resource type="Texture2D" uid="uid://clkd333dky2q5" path="res://art/objects/items/armor/ironlegs.png" id="1_nwqvo"]
 [ext_resource type="Script" uid="uid://b7ouuvly1l65f" path="res://resources/items/Item.gd" id="2_n78gq"]
+[ext_resource type="Script" uid="uid://b3nqj4vcdgeds" path="res://resources/equipment/EquipmentModifier.gd" id="3_olalh"]
+[ext_resource type="Resource" uid="uid://byqkxbpjtjoku" path="res://resources/equipment/max_item_discovery.tres" id="4_olalh"]
 
 [resource]
 script = ExtResource("2_n78gq")
@@ -12,8 +15,9 @@ icon = ExtResource("1_nwqvo")
 category = "Armor"
 stacks = false
 weight = 10.0
+permanent_modifiers = Array[ExtResource("3_olalh")]([ExtResource("4_olalh")])
+armor_stats = ExtResource("1_kajnh")
 armor_slot = "Legs"
 can_use = false
 quantity_per_use = 0
-upgrade_level = null
 metadata/_custom_type_script = "uid://b7ouuvly1l65f"

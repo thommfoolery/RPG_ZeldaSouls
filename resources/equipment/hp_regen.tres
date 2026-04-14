@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="EquipmentModifier" format=3 uid="uid://cns8ueqj5m5cx"]
+
+[ext_resource type="Script" uid="uid://b3nqj4vcdgeds" path="res://resources/equipment/EquipmentModifier.gd" id="1_nxx8d"]
+[ext_resource type="Texture2D" uid="uid://ds6vwdyfkix50" path="res://art/ui/stats/vit_regen.png" id="1_taiel"]
+
+[resource]
+script = ExtResource("1_nxx8d")
+display_name = "HP Regen +5/s"
+icon = ExtResource("1_taiel")
+modifier_type = "Over_Time"
+stat_type = "hp_regen_rate"
+flat_value = 5.0
+stat_bonus = null
+flat_levels = null
+is_over_time = true
+tick_rate = 1.0
+tick_value = 5.0
+metadata/_custom_type_script = "uid://b3nqj4vcdgeds"

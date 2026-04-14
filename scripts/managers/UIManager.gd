@@ -4,7 +4,6 @@ extends CanvasLayer
 signal ui_closed(menu_type: String)
 signal character_menu_closed   # NEW: for safe auto-save
 
-@export var rest_menu_scene: PackedScene
 
 # ─── Dynamic UI Elements (pickup + prompt) ─────────────────────────────
 var interact_prompt: Label
@@ -22,8 +21,6 @@ func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	print("[UIManager] Ready - managing UI now")
 	_create_ui_elements() # Creates prompt + notification safely
-	if not rest_menu_scene:
-		rest_menu_scene = preload("res://scenes/ui/rest_menu.tscn")
 
 
 func _create_ui_elements() -> void:

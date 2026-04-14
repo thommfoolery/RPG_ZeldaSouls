@@ -167,7 +167,7 @@ show_percentage = false
 script = ExtResource("2_136eg")
 progress_bar = NodePath("..")
 base_max_value = 90.0
-max_expected_value = 160.0
+max_expected_value = 250.0
 
 [node name="HealthBar" type="ProgressBar" parent="HUDContainer" unique_id=442479151]
 unique_name_in_owner = true
@@ -187,7 +187,8 @@ unique_name_in_owner = true
 script = ExtResource("2_136eg")
 progress_bar = NodePath("..")
 max_width = 900.0
-max_expected_value = 1600.0
+max_expected_value = 2000.0
+growth_aggression = 1.2
 
 [node name="ManaBar" type="ProgressBar" parent="HUDContainer" unique_id=329103787]
 unique_name_in_owner = true
@@ -209,7 +210,7 @@ progress_bar = NodePath("..")
 min_width = 220.0
 max_width = 580.0
 base_max_value = 80.0
-max_expected_value = 450.0
+max_expected_value = 600.0
 growth_aggression = 1.2
 
 [node name="SavingIcon" type="Control" parent="." unique_id=1295497736]
@@ -710,9 +711,9 @@ autowrap_mode = 3
 layout_mode = 3
 anchors_preset = 0
 offset_left = 28.0
-offset_top = 271.0
+offset_top = 202.0
 offset_right = 605.0
-offset_bottom = 602.0
+offset_bottom = 371.0
 script = ExtResource("6_gss2c")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="StatusBarsHUD" unique_id=735724544]
@@ -721,13 +722,13 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = -84.5
-offset_right = -335.0
-offset_bottom = 84.5
+offset_right = -323.0
+offset_bottom = -84.5
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ActiveEfffectsVBox" type="VBoxContainer" parent="StatusBarsHUD/VBoxContainer" unique_id=541677144]
-custom_minimum_size = Vector2(0, 500)
+custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
 
 [node name="BuffHUD" type="Control" parent="." unique_id=574683442]
@@ -744,5 +745,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 5.0
+offset_bottom = 12.0
 grow_horizontal = 2
 grow_vertical = 2

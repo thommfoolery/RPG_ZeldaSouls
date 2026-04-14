@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="EquipmentModifier" format=3 uid="uid://b85avmxrmkecy"]
+
+[ext_resource type="Texture2D" uid="uid://dq4xf8kywocwe" path="res://art/ui/stats/stamina_regen.png" id="1_h73gw"]
+[ext_resource type="Script" uid="uid://b3nqj4vcdgeds" path="res://resources/equipment/EquipmentModifier.gd" id="1_ms1n3"]
+
+[resource]
+script = ExtResource("1_ms1n3")
+display_name = "Stamina Regen +25/s"
+icon = ExtResource("1_h73gw")
+stat_type = "stamina_regen_rate"
+flat_value = 25.0
+metadata/_custom_type_script = "uid://b3nqj4vcdgeds"

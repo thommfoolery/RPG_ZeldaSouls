@@ -2,16 +2,21 @@
 
 [ext_resource type="Texture2D" uid="uid://c4f1xcmgyaq7k" path="res://art/objects/items/consumables/ironpearlring.png" id="1_fwg7i"]
 [ext_resource type="Script" uid="uid://b7ouuvly1l65f" path="res://resources/items/Item.gd" id="1_ysk0a"]
+[ext_resource type="Script" uid="uid://b3nqj4vcdgeds" path="res://resources/equipment/EquipmentModifier.gd" id="2_p702r"]
+[ext_resource type="Resource" uid="uid://cwbs7jdebjrlx" path="res://resources/equipment/mana_regen.tres" id="3_nn5x4"]
+[ext_resource type="Resource" uid="uid://c48xdvjem1nx2" path="res://resources/equipment/max_mana.tres" id="4_nn5x4"]
 
 [resource]
 script = ExtResource("1_ysk0a")
 id = "ironpearlring"
-display_name = "Iron Pearl Ring"
-description = "Fancy Drawing, huh?"
+display_name = "Pearl Mana Ring"
+description = "Fancy Drawing, huh? This thing will make your Mana regen and increase your max mana pool, or so I've been told"
 icon = ExtResource("1_fwg7i")
 category = "Rings"
 stacks = false
 weight = 2.0
 rarity = 100
+buff_effect_id = "ring_mana_regen_buff"
+permanent_modifiers = Array[ExtResource("2_p702r")]([ExtResource("3_nn5x4"), ExtResource("4_nn5x4")])
 can_use = false
 metadata/_custom_type_script = "uid://b7ouuvly1l65f"

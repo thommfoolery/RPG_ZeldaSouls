@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="EquipmentModifier" format=3 uid="uid://csywnafc05sxe"]
+
+[ext_resource type="Script" uid="uid://b3nqj4vcdgeds" path="res://resources/equipment/EquipmentModifier.gd" id="1_1c7js"]
+[ext_resource type="Texture2D" uid="uid://yewequpdh4ti" path="res://art/icons/statuseffect/health_buff.png" id="1_56icr"]
+
+[resource]
+script = ExtResource("1_1c7js")
+display_name = "Max Health +30"
+icon = ExtResource("1_56icr")
+stat_type = "max_health"
+flat_value = 30.0
+stat_bonus = null
+flat_levels = null
+metadata/_custom_type_script = "uid://b3nqj4vcdgeds"

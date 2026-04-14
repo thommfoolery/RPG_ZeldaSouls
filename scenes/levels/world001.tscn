@@ -22,7 +22,9 @@
 [ext_resource type="Resource" uid="uid://co0jhtyx8w4be" path="res://resources/items/smithingstone_large.tres" id="13_go3h1"]
 [ext_resource type="Resource" uid="uid://c8j81myk60722" path="res://resources/items/smithingstone.tres" id="14_8pu2u"]
 [ext_resource type="Resource" uid="uid://brmj51wirbcuo" path="res://resources/items/lamp.tres" id="15_b6sta"]
+[ext_resource type="Resource" uid="uid://1fh27b7rmhi" path="res://resources/items/vinering.tres" id="16_akb06"]
 [ext_resource type="Resource" uid="uid://3jcle1cbcfou" path="res://resources/items/homebone_golden.tres" id="16_ngfsv"]
+[ext_resource type="Resource" uid="uid://ddv1ruo8ufs2j" path="res://resources/items/spellring.tres" id="17_ei2e6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_einaj"]
 size = Vector2(924, 608)
@@ -93,7 +95,7 @@ gradient = SubResource("Gradient_go3h1")
 fill_from = Vector2(1, 1)
 fill_to = Vector2(1, 0.021367522)
 
-[node name="world001" type="Node2D" unique_id=2098985489]
+[node name="DefaultSpawn" type="Node2D" unique_id=2098985489]
 script = ExtResource("1_4f3xa")
 camera_config = ExtResource("2_4f3xa")
 
@@ -296,15 +298,27 @@ texture = SubResource("GradientTexture2D_akb06")
 
 [node name="ItemPickup2" parent="ysort" unique_id=1276688924 instance=ExtResource("9_odqca")]
 y_sort_enabled = true
-position = Vector2(124, 141)
+position = Vector2(65, 37)
 item = ExtResource("10_b6sta")
 pickup_id = "world001_ironpearlring"
 
 [node name="ItemPickup3" parent="ysort" unique_id=538585345 instance=ExtResource("9_odqca")]
 y_sort_enabled = true
-position = Vector2(363, 133)
+position = Vector2(37, 75)
 item = ExtResource("11_ngfsv")
 pickup_id = "world001_goldenring"
+
+[node name="ItemPickup7" parent="ysort" unique_id=500788309 instance=ExtResource("9_odqca")]
+y_sort_enabled = true
+position = Vector2(74, 121)
+item = ExtResource("16_akb06")
+pickup_id = "world001_vinering"
+
+[node name="ItemPickup9" parent="ysort" unique_id=976613431 instance=ExtResource("9_odqca")]
+y_sort_enabled = true
+position = Vector2(38, 121)
+item = ExtResource("17_ei2e6")
+pickup_id = "world001_spellring"
 
 [node name="ItemPickup4" parent="ysort" unique_id=422187717 instance=ExtResource("9_odqca")]
 y_sort_enabled = true
@@ -343,7 +357,7 @@ target_area_id = "world_002"
 spawn_marker_name = "cliffside"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="cliffside_transition_point" unique_id=357582663]
-position = Vector2(-9, -25)
+position = Vector2(-9, -61)
 shape = SubResource("RectangleShape2D_71j4m")
 
 [node name="DefaultSpawn" type="Node2D" parent="." unique_id=2098478332]
@@ -379,3 +393,4 @@ required_key_id = "test_key_001"
 position = Vector2(328.5, -78)
 scale = Vector2(7.1406255, 2.5312498)
 texture = SubResource("GradientTexture2D_8pu2u")
+metadata/_edit_lock_ = true

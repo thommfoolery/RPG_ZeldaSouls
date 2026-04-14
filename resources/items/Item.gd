@@ -26,8 +26,11 @@ class_name GameItem
 @export var is_consumable: bool = false
 
 
-# BUFF SYSTEM (for equipment)
+######################### BUFF SYSTEM (for equipment) #legacy - plan to replace
 @export var buff_effect_id: String = ""   # e.g. "ring_max_health_buff" - links to a positive StatusEffect
+## the new system we want to replace the above ^^^
+@export var permanent_modifiers: Array[EquipmentModifier] = []
+@export var armor_stats: ArmorStats = null
 
 # ARMOR SPECIFIC
 @export_enum("Head", "Body", "Arms", "Legs") var armor_slot: String = ""

@@ -39,4 +39,3 @@ func update_bar(new_max_value: float) -> void:
 	progress_bar.size.x = new_width
 	progress_bar.custom_minimum_size.x = new_width
 	
-	print("[DynamicStatBar] Bar grown to width ", new_width, " for max value ", new_max_value)

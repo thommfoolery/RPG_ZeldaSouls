@@ -9,6 +9,7 @@ class_name StatusEffect
 @export var color: Color = Color.WHITE
 
 # Type
+@export var is_permanent: bool = false   # Equipment buffs = true, timed/negative = false
 @export var is_positive: bool = true            # true = Buff Bar, false = Status Bar
 @export var is_mortal: bool = false             # Instadeath
 

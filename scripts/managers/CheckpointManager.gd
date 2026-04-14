@@ -37,47 +37,49 @@ func has_valid_checkpoint() -> bool:
 
 
 func respawn() -> void:
-	print("[CheckpointManager] respawn() called | target scene: ", current_scene_path.get_file() if current_scene_path else "[none]")
-	
+	print("[CheckpointManager] === RESPAWN START ===")
+	print("  └─ target scene: ", current_scene_path.get_file() if current_scene_path else "[none]")
+	print("  └─ current_spawn_position: ", current_spawn_position)
+	print("  └─ is_death_respawn BEFORE: ", Global.is_death_respawn)
+
 	var target_scene = current_scene_path
 	var target_pos = current_spawn_position
-	
-	# Use initial checkpoint as fallback if no bonfire has ever been rested at
+
+	# Initial fallback if never rested at a real bonfire
 	if target_scene.is_empty() and not initial_spawn_scene.is_empty():
 		target_scene = initial_spawn_scene
 		target_pos = initial_spawn_position
 		print("[CheckpointManager] Using INITIAL checkpoint fallback (first death)")
-	
+
+	Global.is_death_respawn = true
+
 	await TransitionManager.blackout_then(func():
-		var current_scene = get_tree().current_scene
-		var current_path = current_scene.scene_file_path if current_scene else ""
-		
+		var current_scene_node = get_tree().current_scene
+		var current_path = current_scene_node.scene_file_path if current_scene_node else ""
+
 		if current_path != target_scene and not target_scene.is_empty():
 			print("[CheckpointManager] DIFFERENT SCENE - forcing change to ", target_scene.get_file())
+			# ── NEW: Set pending so Orchestrator resolver will use the exact bonfire pos ──
+			SceneEntryOrchestrator.pending_death_respawn = {"target_pos": target_pos}
 			get_tree().change_scene_to_file(target_scene)
-			await get_tree().create_timer(0.4).timeout
-		
-		var player = get_tree().get_first_node_in_group("player")
-		if player and is_instance_valid(player):
-			player.global_position = target_pos
-			print("[CheckpointManager] Player positioned at: ", target_pos.round())
-		
-		if Global.is_death_respawn:
-			PlayerStats.souls_carried = 0
-			PlayerStats.souls_changed.emit(0)
-			print("[CheckpointManager] FORCED souls = 0 after death respawn")
-		
-		Global.is_death_respawn = false
-		StatusEffectManager.on_player_respawned()
-		# ─── AUTOSAVE AFTER FADE FINISHES (minimal one-line addition) ───
-		if SaveManager:
-			SaveManager.request_save()
-			print("[CheckpointManager] Autosave triggered after respawn fade complete — bonfire position now persisted to disk")
-		
-		print("[CheckpointManager] Respawn complete - death flags cleared")
-	, 0.25, 0.35)
-	
-	print("[CheckpointManager] respawn() FINISHED")
+			await get_tree().create_timer(0.5).timeout
+			print("[CheckpointManager] Scene change completed — Orchestrator will use pending_death_respawn")
+		else:
+			# SAME SCENE — keep our existing force (already working)
+			print("[CheckpointManager] SAME SCENE - no change needed, forcing reposition")
+			await get_tree().process_frame
+			await get_tree().process_frame
+			print("[CheckpointManager] Forcing resolver after respawn (same-scene only)")
+			var final_pos = PlayerPositionResolver.resolve_spawn_position()
+			var player = PlayerManager.current_player
+			if player and is_instance_valid(player):
+				player.global_position = final_pos
+				print("[CheckpointManager] FORCED player position to: ", final_pos.round())
+
+		# We no longer clear the flag here — Orchestrator now owns clearing for both paths
+		, 0.25, 0.4)
+
+	print("[CheckpointManager] === RESPAWN FINISHED ===")
 	
 
 

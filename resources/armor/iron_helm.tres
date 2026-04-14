@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ArmorStats" format=3 uid="uid://cmqht34qse1r1"]
+
+[ext_resource type="Script" uid="uid://dihxnijdnpyc4" path="res://resources/armor/ArmorStats.gd" id="1_oi2hu"]
+
+[resource]
+script = ExtResource("1_oi2hu")
+physical_defense = 8.0
+magic_defense = 4.0
+fire_defense = 8.0
+lightning_defense = 1.0
+holy_defense = 4.0
+status_resistance = 1.5
+poise = 4.0
+metadata/_custom_type_script = "uid://dihxnijdnpyc4"

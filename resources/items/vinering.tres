@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="GameItem" format=3 uid="uid://1fh27b7rmhi"]
+
+[ext_resource type="Texture2D" uid="uid://oajftn3npfu1" path="res://art/objects/items/Rings/vine_ring.png" id="1_ujqwu"]
+[ext_resource type="Script" uid="uid://b3nqj4vcdgeds" path="res://resources/equipment/EquipmentModifier.gd" id="2_jcomw"]
+[ext_resource type="Resource" uid="uid://b85avmxrmkecy" path="res://resources/equipment/stamina_regen.tres" id="3_vtth2"]
+[ext_resource type="Resource" uid="uid://cc3t3oav7wxla" path="res://resources/equipment/max_stamina.tres" id="4_vtth2"]
+[ext_resource type="Script" uid="uid://b7ouuvly1l65f" path="res://resources/items/Item.gd" id="5_mvxua"]
+
+[resource]
+script = ExtResource("5_mvxua")
+id = "vinering"
+display_name = "Vine Ring"
+description = "Ring of vines - Enhances stamina regeneration rate."
+icon = ExtResource("1_ujqwu")
+category = "Rings"
+stacks = false
+weight = 2.0
+rarity = 100
+consumes_on_use = false
+permanent_modifiers = Array[ExtResource("2_jcomw")]([ExtResource("3_vtth2"), ExtResource("4_vtth2")])
+can_use = false
+metadata/_custom_type_script = "uid://b7ouuvly1l65f"

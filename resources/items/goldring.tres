@@ -2,17 +2,22 @@
 
 [ext_resource type="Texture2D" uid="uid://b7bg8xqmtymex" path="res://art/objects/items/consumables/goldring.png" id="1_qbk4c"]
 [ext_resource type="Script" uid="uid://b7ouuvly1l65f" path="res://resources/items/Item.gd" id="2_fa2xy"]
+[ext_resource type="Script" uid="uid://b3nqj4vcdgeds" path="res://resources/equipment/EquipmentModifier.gd" id="2_kxj0g"]
+[ext_resource type="Resource" uid="uid://csywnafc05sxe" path="res://resources/equipment/max_health.tres" id="3_1f7wh"]
+[ext_resource type="Resource" uid="uid://cns8ueqj5m5cx" path="res://resources/equipment/hp_regen.tres" id="4_1f7wh"]
 
 [resource]
 script = ExtResource("2_fa2xy")
 id = "goldring"
-display_name = "Gold Ring"
-description = "The other ring, less fancy"
+display_name = "Health Ring"
+description = "The other ring, less fancy. Has been said to increase one's HP pool."
 icon = ExtResource("1_qbk4c")
 category = "Rings"
 stacks = false
 weight = 2.0
 rarity = 100
 consumes_on_use = false
+buff_effect_id = "ring_max_health_buff"
+permanent_modifiers = Array[ExtResource("2_kxj0g")]([ExtResource("4_1f7wh"), ExtResource("3_1f7wh")])
 can_use = false
 metadata/_custom_type_script = "uid://b7ouuvly1l65f"

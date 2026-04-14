@@ -4,45 +4,48 @@ extends Control
 @onready var container: HBoxContainer = $HBoxContainer
 
 func _ready() -> void:
-	StatusEffectManager.effect_applied.connect(_on_effect_applied)
-	StatusEffectManager.effect_removed.connect(_on_effect_removed)
-	
-	# Listen for equipment changes
-	if EquipmentManager:
-		EquipmentManager.equipped_changed.connect(_on_equipment_changed)
+	_connect_to_equipment()
+	call_deferred("rebuild_icons")
 
+func _connect_to_equipment() -> void:
+	if EquipmentManager.equipped_changed.is_connected(_on_equipped_changed):
+		EquipmentManager.equipped_changed.disconnect(_on_equipped_changed)
+	EquipmentManager.equipped_changed.connect(_on_equipped_changed)
 
-func _on_effect_applied(effect: StatusEffect, active: StatusEffectManager.ActiveEffect) -> void:
-	if not effect.is_positive:
+func _on_equipped_changed(_slot_index: int, _new_item: GameItem) -> void:
+	rebuild_icons()
+
+func rebuild_icons() -> void:
+	if not is_instance_valid(container):
 		return
 	
-	_create_or_update_icon(effect)
-
-
-func _on_effect_removed(effect_id: String) -> void:
-	var icon = container.get_node_or_null("Icon_" + effect_id)
-	if icon:
-		icon.queue_free()
-
-
-func _create_or_update_icon(effect: StatusEffect) -> void:
-	var icon = container.get_node_or_null("Icon_" + effect.id)
-	if not icon:
-		icon = TextureRect.new()
-		icon.name = "Icon_" + effect.id
-		icon.custom_minimum_size = Vector2(52, 52)
-		icon.expand_mode = TextureRect.EXPAND_FIT_WIDTH_PROPORTIONAL
-		icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-		container.add_child(icon)
+	# Clear old icons safely
+	for child in container.get_children():
+		child.queue_free()
 	
-	icon.texture = effect.icon
-	icon.modulate = effect.color if effect.color != Color.WHITE else Color(1, 1, 1, 1)
-	icon.tooltip_text = effect.display_name
+	# Add icon for every equipped item that has permanent modifiers
+	for i in EquipmentManager.SLOT_COUNT:
+		var item = EquipmentManager.get_equipped_item(i)
+		if not item or item.permanent_modifiers.is_empty():
+			continue
+		
+		# Support multiple modifiers per item (one icon per modifier)
+		for modifier in item.permanent_modifiers:
+			if not modifier or not modifier.icon:
+				continue
+				
+			var icon = TextureRect.new()
+			icon.name = "Icon_" + modifier.display_name
+			icon.custom_minimum_size = Vector2(52, 52)
+			icon.expand_mode = TextureRect.EXPAND_FIT_WIDTH_PROPORTIONAL
+			icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+			
+			icon.texture = modifier.icon
+			icon.modulate = modifier.color if modifier.color != Color.WHITE else Color(1, 1, 1, 1)
+			icon.tooltip_text = modifier.display_name
+			
+			container.add_child(icon)
 
-
-# ─── EQUIPMENT BUFF HANDLING ───
-func _on_equipment_changed(slot_index: int, new_item: GameItem) -> void:
-	# For now we only care about rings. Expand later for armor/weapons if needed.
-	if new_item and new_item.category == "Rings":
-		# The actual buff application happens in EquipmentManager / ring scripts
-		pass
+func _exit_tree() -> void:
+	if EquipmentManager.equipped_changed.is_connected(_on_equipped_changed):
+		EquipmentManager.equipped_changed.disconnect(_on_equipped_changed)

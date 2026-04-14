@@ -6,7 +6,7 @@ const MAX_UPGRADE_LEVEL = 12   # ← NEW for Estus upgrades
 var is_initial_load: bool = true
 
 # Basic stats
-var level: int = 4
+var level: int = 5
 var souls_carried: int = 500000
 
 # Core stats
@@ -320,11 +320,14 @@ func update_stat(stat_name: String, new_value: int) -> void:
 	stat_changed.emit(stat_name, new_value)
 
 func update_attunement_slots() -> void:
-	var new_slots = StatCalculator.get_attunement_slots(attunement)
-	if new_slots != attunement_slots_unlocked:
-		attunement_slots_unlocked = new_slots
-		# Resize attuned_spells array safely
-		attuned_spells.resize(attunement_slots_unlocked)
+	var old_slots = attunement_slots_unlocked
+	attunement_slots_unlocked = StatCalculator.get_attunement_slots()
+	
+	if attunement_slots_unlocked != old_slots:
+		print("[PlayerStats] Attunement slots changed: %d → %d  (effective att=%d, flat_bonus=%d)" % 
+			  [old_slots, attunement_slots_unlocked, 
+			   StatCalculator.get_effective_stat("attunement"), 
+			   StatCalculator.get_flat_attunement_slot_bonus()])
 		attunement_slots_changed.emit()
-		attunement_changed.emit()
-		print("[PlayerStats] Attunement slots updated to ", attunement_slots_unlocked)
+	else:
+		print("[PlayerStats] Attunement slots unchanged (%d)" % attunement_slots_unlocked)

@@ -25,6 +25,12 @@ func _ready() -> void:
 	
 	stamina_changed.emit(current_stamina, max_stamina)
 	call_deferred("_update_dynamic_bar")   # ← This was missing
+		# Safety: force sync with StatCalculator after ready
+	if StatCalculator:
+		max_stamina = StatCalculator.get_max_stamina()
+		stamina_changed.emit(current_stamina, max_stamina)
+		call_deferred("_update_dynamic_bar")
+		print("[StaminaComponent] Forced sync with StatCalculator in _ready → max =", max_stamina)
 
 
 func _enter_tree() -> void:

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="EquipmentModifier" format=3 uid="uid://bcix3su2gcr00"]
+
+[ext_resource type="Texture2D" uid="uid://nsoy4h3vha51" path="res://art/ui/stats/att_buff.png" id="1_2ot8p"]
+[ext_resource type="Script" uid="uid://b3nqj4vcdgeds" path="res://resources/equipment/EquipmentModifier.gd" id="2_bubbe"]
+
+[resource]
+script = ExtResource("2_bubbe")
+display_name = "+2 Attunement"
+icon = ExtResource("1_2ot8p")
+modifier_type = "Flat_Levels"
+stat_bonus = "attunement"
+flat_levels = 2
+metadata/_custom_type_script = "uid://b3nqj4vcdgeds"

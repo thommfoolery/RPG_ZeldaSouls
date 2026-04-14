@@ -144,6 +144,7 @@ marker_id = "cliffside"
 [node name="DamageZone4" type="Area2D" parent="ysort" unique_id=2058768913]
 position = Vector2(282, 365)
 script = ExtResource("5_0b38q")
+damage_per_sec = 80.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ysort/DamageZone4" unique_id=1383699073]
 position = Vector2(83, 86)
@@ -240,7 +241,7 @@ target_area_id = "world_001"
 spawn_marker_name = "from_cliffside"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="cliffside_exitpoint" unique_id=1999139444]
-position = Vector2(176, 111)
+position = Vector2(176, 143)
 shape = SubResource("RectangleShape2D_e10jm")
 
 [node name="collisions" type="StaticBody2D" parent="." unique_id=1706850621]

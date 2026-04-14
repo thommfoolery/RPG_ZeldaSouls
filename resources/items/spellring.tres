@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="GameItem" format=3 uid="uid://ddv1ruo8ufs2j"]
+
+[ext_resource type="Texture2D" uid="uid://bpfy5nteot4sw" path="res://art/objects/items/Rings/spell_ring.png" id="1_r44nj"]
+[ext_resource type="Script" uid="uid://b3nqj4vcdgeds" path="res://resources/equipment/EquipmentModifier.gd" id="2_hnqkl"]
+[ext_resource type="Resource" uid="uid://dhn82u1e6qcf3" path="res://resources/equipment/spell_ring.tres" id="3_ev18j"]
+[ext_resource type="Resource" uid="uid://i6fmqitxh6b3" path="res://resources/equipment/poise_bonus.tres" id="4_ev18j"]
+[ext_resource type="Script" uid="uid://b7ouuvly1l65f" path="res://resources/items/Item.gd" id="6_xy658"]
+
+[resource]
+script = ExtResource("6_xy658")
+id = "spellring"
+display_name = "Spell Ring"
+description = "Spell Slot unlocked"
+icon = ExtResource("1_r44nj")
+category = "Rings"
+stacks = false
+weight = 2.0
+rarity = 100
+consumes_on_use = false
+permanent_modifiers = Array[ExtResource("2_hnqkl")]([ExtResource("3_ev18j"), ExtResource("4_ev18j")])
+can_use = false
+metadata/_custom_type_script = "uid://b7ouuvly1l65f"

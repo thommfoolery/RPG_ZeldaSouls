@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="EquipmentModifier" format=3 uid="uid://cwbs7jdebjrlx"]
+
+[ext_resource type="Texture2D" uid="uid://dblw5g0dnseuy" path="res://art/ui/stats/mana_regen.png" id="1_63jqe"]
+[ext_resource type="Script" uid="uid://b3nqj4vcdgeds" path="res://resources/equipment/EquipmentModifier.gd" id="1_jo3v7"]
+
+[resource]
+script = ExtResource("1_jo3v7")
+display_name = "Mana Regen +0.5/s"
+icon = ExtResource("1_63jqe")
+modifier_type = "Over_Time"
+stat_type = "mana_regen_rate"
+flat_value = 1.0
+is_over_time = true
+tick_rate = 0.5
+tick_value = 1.0
+metadata/_custom_type_script = "uid://b3nqj4vcdgeds"
