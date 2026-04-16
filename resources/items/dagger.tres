@@ -2,6 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://wln3s7mknp7e" path="res://art/objects/items/weapons/dagger.png" id="1_25keo"]
 [ext_resource type="Script" uid="uid://b7ouuvly1l65f" path="res://resources/items/Item.gd" id="1_mkiuy"]
+[ext_resource type="Script" uid="uid://b3nqj4vcdgeds" path="res://resources/equipment_modifiers/EquipmentModifier.gd" id="2_fgw4y"]
+[ext_resource type="Resource" uid="uid://b5omuh8tdf41b" path="res://resources/weapon_stats/dagger.tres" id="4_luexb"]
 
 [resource]
 script = ExtResource("1_mkiuy")
@@ -13,8 +15,8 @@ category = "Weapons"
 stacks = false
 weight = 0.5
 consumes_on_use = false
+weapon_stats = ExtResource("4_luexb")
 damage = 5
 can_use = false
 quantity_per_use = 0
-upgrade_level = null
 metadata/_custom_type_script = "uid://b7ouuvly1l65f"

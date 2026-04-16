@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="EquipmentModifier" format=3 uid="uid://cc3t3oav7wxla"]
 
 [ext_resource type="Texture2D" uid="uid://dq2fk5iv82td1" path="res://art/icons/statuseffect/stamina_buff.png" id="1_kx0vj"]
-[ext_resource type="Script" uid="uid://b3nqj4vcdgeds" path="res://resources/equipment/EquipmentModifier.gd" id="2_jxwan"]
+[ext_resource type="Script" uid="uid://b3nqj4vcdgeds" path="res://resources/equipment_modifiers/EquipmentModifier.gd" id="2_jxwan"]
 
 [resource]
 script = ExtResource("2_jxwan")

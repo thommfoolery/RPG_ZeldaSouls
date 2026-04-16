@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="GameItem" format=3 uid="uid://blavsp6i5hmv3"]
+
+[ext_resource type="Texture2D" uid="uid://c4ne0m4la3bf4" path="res://art/objects/items/weapons/dagger_holy.png" id="1_gfc33"]
+[ext_resource type="Script" uid="uid://b3nqj4vcdgeds" path="res://resources/equipment_modifiers/EquipmentModifier.gd" id="2_6fhgx"]
+[ext_resource type="Script" uid="uid://b7ouuvly1l65f" path="res://resources/items/Item.gd" id="3_phq1j"]
+[ext_resource type="Resource" uid="uid://0bcyjxm3fsxw" path="res://resources/weapon_stats/dagger_holy.tres" id="4_6fhgx"]
+
+[resource]
+script = ExtResource("3_phq1j")
+id = "dagger_holy"
+display_name = "Holy Dagger"
+description = "\"You call that a knife?\" + Holy"
+icon = ExtResource("1_gfc33")
+category = "Weapons"
+stacks = false
+weight = 0.5
+consumes_on_use = false
+weapon_stats = ExtResource("4_6fhgx")
+damage = 5
+can_use = false
+quantity_per_use = 0
+metadata/_custom_type_script = "uid://b7ouuvly1l65f"

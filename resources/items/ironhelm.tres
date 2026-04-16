@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cyn3o50683cux" path="res://art/objects/items/armor/ironhelm.png" id="1_a7b8m"]
 [ext_resource type="Script" uid="uid://b7ouuvly1l65f" path="res://resources/items/Item.gd" id="1_mg01o"]
 [ext_resource type="Resource" uid="uid://cmqht34qse1r1" path="res://resources/armor/iron_helm.tres" id="1_rg85n"]
-[ext_resource type="Script" uid="uid://b3nqj4vcdgeds" path="res://resources/equipment/EquipmentModifier.gd" id="3_k1byt"]
+[ext_resource type="Script" uid="uid://b3nqj4vcdgeds" path="res://resources/equipment_modifiers/EquipmentModifier.gd" id="3_k1byt"]
 
 [resource]
 script = ExtResource("1_mg01o")

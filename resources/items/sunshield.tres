@@ -2,6 +2,14 @@
 
 [ext_resource type="Texture2D" uid="uid://bxyqg6rakyv70" path="res://art/objects/items/weapons/sunsheild.png" id="1_6golp"]
 [ext_resource type="Script" uid="uid://b7ouuvly1l65f" path="res://resources/items/Item.gd" id="1_6okw0"]
+[ext_resource type="Script" uid="uid://b3nqj4vcdgeds" path="res://resources/equipment_modifiers/EquipmentModifier.gd" id="2_cc8ad"]
+[ext_resource type="Script" uid="uid://dwwbga07l4r5k" path="res://resources/weapon_stats/WeaponStats.gd" id="4_os486"]
+
+[sub_resource type="Resource" id="Resource_xlkab"]
+script = ExtResource("4_os486")
+base_physical = 5.0
+required_strength = 12
+metadata/_custom_type_script = "uid://dwwbga07l4r5k"
 
 [resource]
 script = ExtResource("1_6okw0")
@@ -12,6 +20,7 @@ icon = ExtResource("1_6golp")
 category = "Weapons"
 stacks = false
 weight = 10.0
+weapon_type = "Other"
+weapon_stats = SubResource("Resource_xlkab")
 can_use = false
-upgrade_level = null
 metadata/_custom_type_script = "uid://b7ouuvly1l65f"

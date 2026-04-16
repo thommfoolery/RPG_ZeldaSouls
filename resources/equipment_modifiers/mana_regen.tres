@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="EquipmentModifier" format=3 uid="uid://cwbs7jdebjrlx"]
 
 [ext_resource type="Texture2D" uid="uid://dblw5g0dnseuy" path="res://art/ui/stats/mana_regen.png" id="1_63jqe"]
-[ext_resource type="Script" uid="uid://b3nqj4vcdgeds" path="res://resources/equipment/EquipmentModifier.gd" id="1_jo3v7"]
+[ext_resource type="Script" uid="uid://b3nqj4vcdgeds" path="res://resources/equipment_modifiers/EquipmentModifier.gd" id="1_jo3v7"]
 
 [resource]
 script = ExtResource("1_jo3v7")

@@ -30,6 +30,8 @@ signal menu_closed
 @onready var preview_stats: RichTextLabel = %PreviewStats
 @onready var confirm_button: Button = %ConfirmButton
 @onready var exit_button: Button = %ExitButton
+# Even more Right 
+@onready var preview_attack_stats: RichTextLabel = %PreviewAttackStats
 
 var queued_levels: Dictionary = {
 	"vitality": 0, "endurance": 0, "strength": 0, "dexterity": 0,
@@ -121,6 +123,7 @@ func _refresh_all_display() -> void:
 	_update_left_row("luck", luck_current, luck_preview)
 
 	_update_preview_panel()
+	_update_weapon_preview()
 
 
 func _update_left_row(stat_name: String, current_lbl: Label, preview_lbl: Label) -> void:
@@ -217,6 +220,62 @@ func _update_preview_panel() -> void:
 	lines.append(status_line)
 	
 	preview_stats.text = "\n".join(lines)
+	_update_weapon_preview()
+
+func _update_weapon_preview() -> void:
+	if not is_instance_valid(preview_attack_stats):
+		print("[LEVELUP-WEAPON-PREVIEW] CRITICAL: preview_attack_stats var invalid!")
+		return
+
+	print("[LEVELUP-WEAPON-PREVIEW] === START (per-slot gold) ===")
+	
+	var lines = []
+	var slot_data = [
+		[0, "Right Hand 1"],
+		[1, "Right Hand 2"],
+		[7, "Left Hand 1"],
+		[8, "Left Hand 2"]
+	]
+	
+	for entry in slot_data:
+		var slot_idx = entry[0]
+		var slot_name = entry[1]
+		var item = EquipmentManager.get_equipped_item(slot_idx)
+		
+		if not item or not item.weapon_stats:
+			lines.append("%s: —" % slot_name)
+			continue
+		
+		# Save current real stats
+		var old_strength = PlayerStats.strength
+		var old_dexterity = PlayerStats.dexterity
+		var old_intelligence = PlayerStats.intelligence
+		var old_faith = PlayerStats.faith
+		
+		# === 1. Calculate BASE AR (no queued levels) ===
+		var base_ar = StatCalculator.get_attack_rating(item)
+		
+		# === 2. Apply queued levels and calculate new AR ===
+		PlayerStats.strength     = old_strength + queued_levels.get("strength", 0)
+		PlayerStats.dexterity    = old_dexterity + queued_levels.get("dexterity", 0)
+		PlayerStats.intelligence = old_intelligence + queued_levels.get("intelligence", 0)
+		PlayerStats.faith        = old_faith + queued_levels.get("faith", 0)
+		
+		var queued_ar = StatCalculator.get_attack_rating(item)
+		
+		# Restore original stats
+		PlayerStats.strength     = old_strength
+		PlayerStats.dexterity    = old_dexterity
+		PlayerStats.intelligence = old_intelligence
+		PlayerStats.faith        = old_faith
+		
+		# Per-slot gold: only gold if AR actually increased
+		var color = "#ffb300ff" if queued_ar > base_ar else "#ffffff"
+		
+		
+		lines.append("%s: [color=%s]%d[/color]" % [slot_name, color, queued_ar])
+	
+	preview_attack_stats.text = "\n".join(lines)
 
 # ── Scaling functions for Preview Panel (PURE BASE ONLY - no equipment modifiers) ──
 # This makes the preview show "what this level-up gives me in isolation"
@@ -247,6 +306,7 @@ func _calculate_cost_from_queued(temp_queued: Dictionary) -> int:
 	for i in range(total_points):
 		cost += PlayerStats.get_stat_cost(current_level + i)
 	return cost
+
 
 func _on_confirm_pressed() -> void:
 	var cost = _calculate_total_cost()

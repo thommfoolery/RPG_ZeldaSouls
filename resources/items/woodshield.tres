@@ -2,6 +2,15 @@
 
 [ext_resource type="Texture2D" uid="uid://cvk4i22iroxnt" path="res://art/objects/items/weapons/woodsheild.png" id="1_7t4k0"]
 [ext_resource type="Script" uid="uid://b7ouuvly1l65f" path="res://resources/items/Item.gd" id="1_j8a0o"]
+[ext_resource type="Script" uid="uid://b3nqj4vcdgeds" path="res://resources/equipment_modifiers/EquipmentModifier.gd" id="2_ble7k"]
+[ext_resource type="Script" uid="uid://dwwbga07l4r5k" path="res://resources/weapon_stats/WeaponStats.gd" id="4_d8d5t"]
+
+[sub_resource type="Resource" id="Resource_7135j"]
+script = ExtResource("4_d8d5t")
+base_physical = 5.0
+weight = 2.0
+required_strength = 5
+metadata/_custom_type_script = "uid://dwwbga07l4r5k"
 
 [resource]
 script = ExtResource("1_j8a0o")
@@ -12,9 +21,10 @@ icon = ExtResource("1_7t4k0")
 category = "Weapons"
 stacks = false
 weight = 5.0
+weapon_type = "Other"
+weapon_stats = SubResource("Resource_7135j")
 can_use = false
 can_drop = false
 can_discard = false
 quantity_per_use = 0
-upgrade_level = null
 metadata/_custom_type_script = "uid://b7ouuvly1l65f"

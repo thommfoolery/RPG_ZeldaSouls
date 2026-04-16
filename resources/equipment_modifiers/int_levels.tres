@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="EquipmentModifier" format=3 uid="uid://bje7yrlc4vnje"]
 
 [ext_resource type="Texture2D" uid="uid://o52drkalf64v" path="res://art/ui/stats/fai_buff.png" id="1_cjrmj"]
-[ext_resource type="Script" uid="uid://b3nqj4vcdgeds" path="res://resources/equipment/EquipmentModifier.gd" id="2_ra1o0"]
+[ext_resource type="Script" uid="uid://b3nqj4vcdgeds" path="res://resources/equipment_modifiers/EquipmentModifier.gd" id="2_ra1o0"]
 
 [resource]
 script = ExtResource("2_ra1o0")

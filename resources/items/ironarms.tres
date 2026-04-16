@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://ba0qhrefe7g3s" path="res://art/objects/items/armor/irongloves.png" id="1_120bc"]
 [ext_resource type="Resource" uid="uid://cmqht34qse1r1" path="res://resources/armor/iron_helm.tres" id="1_ehslm"]
 [ext_resource type="Script" uid="uid://b7ouuvly1l65f" path="res://resources/items/Item.gd" id="2_r1h0x"]
-[ext_resource type="Script" uid="uid://b3nqj4vcdgeds" path="res://resources/equipment/EquipmentModifier.gd" id="3_1og8f"]
-[ext_resource type="Resource" uid="uid://cyqub2o7ojwfu" path="res://resources/equipment/luck_levels.tres" id="4_1og8f"]
+[ext_resource type="Script" uid="uid://b3nqj4vcdgeds" path="res://resources/equipment_modifiers/EquipmentModifier.gd" id="3_1og8f"]
+[ext_resource type="Resource" uid="uid://cyqub2o7ojwfu" path="res://resources/equipment_modifiers/luck_levels.tres" id="4_1og8f"]
 
 [resource]
 script = ExtResource("2_r1h0x")

@@ -2,9 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://b7bg8xqmtymex" path="res://art/objects/items/consumables/goldring.png" id="1_qbk4c"]
 [ext_resource type="Script" uid="uid://b7ouuvly1l65f" path="res://resources/items/Item.gd" id="2_fa2xy"]
-[ext_resource type="Script" uid="uid://b3nqj4vcdgeds" path="res://resources/equipment/EquipmentModifier.gd" id="2_kxj0g"]
-[ext_resource type="Resource" uid="uid://csywnafc05sxe" path="res://resources/equipment/max_health.tres" id="3_1f7wh"]
-[ext_resource type="Resource" uid="uid://cns8ueqj5m5cx" path="res://resources/equipment/hp_regen.tres" id="4_1f7wh"]
+[ext_resource type="Script" uid="uid://b3nqj4vcdgeds" path="res://resources/equipment_modifiers/EquipmentModifier.gd" id="2_kxj0g"]
+[ext_resource type="Resource" uid="uid://csywnafc05sxe" path="res://resources/equipment_modifiers/max_health.tres" id="3_1f7wh"]
+[ext_resource type="Resource" uid="uid://cns8ueqj5m5cx" path="res://resources/equipment_modifiers/hp_regen.tres" id="4_1f7wh"]
 
 [resource]
 script = ExtResource("2_fa2xy")

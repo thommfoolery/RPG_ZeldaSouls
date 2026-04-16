@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="EquipmentModifier" format=3 uid="uid://byqkxbpjtjoku"]
 
 [ext_resource type="Texture2D" uid="uid://4sws1corlrgf" path="res://art/ui/stats/luck.png" id="1_0djmb"]
-[ext_resource type="Script" uid="uid://b3nqj4vcdgeds" path="res://resources/equipment/EquipmentModifier.gd" id="2_fdrub"]
+[ext_resource type="Script" uid="uid://b3nqj4vcdgeds" path="res://resources/equipment_modifiers/EquipmentModifier.gd" id="2_fdrub"]
 
 [resource]
 script = ExtResource("2_fdrub")

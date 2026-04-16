@@ -21,18 +21,24 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 8
 
+[node name="HSeparator2" type="HSeparator" parent="MainVBox" unique_id=1592785357]
+layout_mode = 2
+
 [node name="TitleLabel" type="Label" parent="MainVBox" unique_id=1418640677]
 unique_name_in_owner = true
 layout_mode = 2
 text = "test"
 horizontal_alignment = 1
 
+[node name="HSeparator" type="HSeparator" parent="MainVBox" unique_id=2108566777]
+layout_mode = 2
+
 [node name="StatsScroll" type="ScrollContainer" parent="MainVBox" unique_id=974817619]
-custom_minimum_size = Vector2(0, 300)
+custom_minimum_size = Vector2(0, 800)
 layout_mode = 2
 
 [node name="StatsContainer" type="VBoxContainer" parent="MainVBox/StatsScroll" unique_id=1845607684]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(280, 300)
+custom_minimum_size = Vector2(280, 800)
 layout_mode = 2
 theme_override_constants/separation = 4

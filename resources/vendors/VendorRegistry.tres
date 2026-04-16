@@ -11,6 +11,10 @@
 [ext_resource type="Resource" uid="uid://byaoor6j2gfci" path="res://resources/items/death_antidote.tres" id="8_r62yn"]
 [ext_resource type="Resource" uid="uid://cyobbo8ytva8r" path="res://resources/items/frost_antidote.tres" id="9_dmwkh"]
 [ext_resource type="Resource" uid="uid://df51v0gmrtptp" path="res://resources/items/poison_antidote.tres" id="10_bnsj3"]
+[ext_resource type="Resource" uid="uid://irx3fwm1ojk1" path="res://resources/items/dagger_fire.tres" id="11_gfv5i"]
+[ext_resource type="Resource" uid="uid://blavsp6i5hmv3" path="res://resources/items/dagger_holy.tres" id="12_ai1ma"]
+[ext_resource type="Resource" uid="uid://dw2ovhxmyhbea" path="res://resources/items/dagger_magic.tres" id="13_yxt32"]
+[ext_resource type="Resource" uid="uid://b4g56p2n35soi" path="res://resources/items/dagger_lightning.tres" id="14_r4mqg"]
 
 [sub_resource type="Resource" id="Resource_iw5ui"]
 script = ExtResource("2_wigrp")
@@ -66,13 +70,37 @@ buy_price = 10
 current_stock = 10
 metadata/_custom_type_script = "uid://f0y4ph71vtpr"
 
+[sub_resource type="Resource" id="Resource_ojmxk"]
+script = ExtResource("2_wigrp")
+item = ExtResource("11_gfv5i")
+current_stock = 2
+metadata/_custom_type_script = "uid://f0y4ph71vtpr"
+
+[sub_resource type="Resource" id="Resource_ferbg"]
+script = ExtResource("2_wigrp")
+item = ExtResource("12_ai1ma")
+current_stock = 2
+metadata/_custom_type_script = "uid://f0y4ph71vtpr"
+
+[sub_resource type="Resource" id="Resource_yveih"]
+script = ExtResource("2_wigrp")
+item = ExtResource("13_yxt32")
+current_stock = 2
+metadata/_custom_type_script = "uid://f0y4ph71vtpr"
+
+[sub_resource type="Resource" id="Resource_aewni"]
+script = ExtResource("2_wigrp")
+item = ExtResource("14_r4mqg")
+current_stock = 2
+metadata/_custom_type_script = "uid://f0y4ph71vtpr"
+
 [sub_resource type="Resource" id="Resource_ymhim"]
 script = ExtResource("1_6lcbe")
 vendor_id = "blacksmith_01"
 display_name = "Old Blacksmith"
 greeting = "Got some fine steel for ye... What are you buying?"
 portrait = ExtResource("2_xc2aq")
-shop_listings = Array[ExtResource("2_wigrp")]([SubResource("Resource_iw5ui"), SubResource("Resource_cko2e"), SubResource("Resource_mxxfn"), SubResource("Resource_gfv5i"), SubResource("Resource_ai1ma"), SubResource("Resource_yxt32"), SubResource("Resource_r4mqg")])
+shop_listings = Array[ExtResource("2_wigrp")]([SubResource("Resource_iw5ui"), SubResource("Resource_cko2e"), SubResource("Resource_mxxfn"), SubResource("Resource_gfv5i"), SubResource("Resource_ai1ma"), SubResource("Resource_yxt32"), SubResource("Resource_r4mqg"), SubResource("Resource_ojmxk"), SubResource("Resource_ferbg"), SubResource("Resource_yveih"), SubResource("Resource_aewni")])
 metadata/_custom_type_script = "uid://dauwtpuooxaq8"
 
 [resource]

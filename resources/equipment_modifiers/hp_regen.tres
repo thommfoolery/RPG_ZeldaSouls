@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="EquipmentModifier" format=3 uid="uid://cns8ueqj5m5cx"]
 
-[ext_resource type="Script" uid="uid://b3nqj4vcdgeds" path="res://resources/equipment/EquipmentModifier.gd" id="1_nxx8d"]
+[ext_resource type="Script" uid="uid://b3nqj4vcdgeds" path="res://resources/equipment_modifiers/EquipmentModifier.gd" id="1_nxx8d"]
 [ext_resource type="Texture2D" uid="uid://ds6vwdyfkix50" path="res://art/ui/stats/vit_regen.png" id="1_taiel"]
 
 [resource]

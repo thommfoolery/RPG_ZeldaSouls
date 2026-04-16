@@ -2,10 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://dmq5wxu2utgx3" path="res://art/objects/items/armor/armor_gloves_gold.png" id="1_h6bng"]
 [ext_resource type="Resource" uid="uid://btch4h2yrjfpg" path="res://resources/armor/gold_helm.tres" id="1_h6u6h"]
-[ext_resource type="Script" uid="uid://b3nqj4vcdgeds" path="res://resources/equipment/EquipmentModifier.gd" id="2_lkgnd"]
+[ext_resource type="Script" uid="uid://b3nqj4vcdgeds" path="res://resources/equipment_modifiers/EquipmentModifier.gd" id="2_lkgnd"]
 [ext_resource type="Script" uid="uid://b7ouuvly1l65f" path="res://resources/items/Item.gd" id="2_vsmmj"]
-[ext_resource type="Resource" uid="uid://bcix3su2gcr00" path="res://resources/equipment/att_levels.tres" id="3_lkgnd"]
-[ext_resource type="Resource" uid="uid://dtvh0m0wark0j" path="res://resources/equipment/faith_levels.tres" id="4_144lm"]
+[ext_resource type="Resource" uid="uid://bcix3su2gcr00" path="res://resources/equipment_modifiers/att_levels.tres" id="3_lkgnd"]
+[ext_resource type="Resource" uid="uid://dtvh0m0wark0j" path="res://resources/equipment_modifiers/faith_levels.tres" id="4_144lm"]
 
 [resource]
 script = ExtResource("2_vsmmj")

@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="EquipmentModifier" format=3 uid="uid://b85avmxrmkecy"]
 
 [ext_resource type="Texture2D" uid="uid://dq4xf8kywocwe" path="res://art/ui/stats/stamina_regen.png" id="1_h73gw"]
-[ext_resource type="Script" uid="uid://b3nqj4vcdgeds" path="res://resources/equipment/EquipmentModifier.gd" id="1_ms1n3"]
+[ext_resource type="Script" uid="uid://b3nqj4vcdgeds" path="res://resources/equipment_modifiers/EquipmentModifier.gd" id="1_ms1n3"]
 
 [resource]
 script = ExtResource("1_ms1n3")

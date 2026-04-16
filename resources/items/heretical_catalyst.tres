@@ -2,6 +2,22 @@
 
 [ext_resource type="Script" uid="uid://b7ouuvly1l65f" path="res://resources/items/Item.gd" id="1_2odeo"]
 [ext_resource type="Texture2D" uid="uid://33maaheu4efi" path="res://art/objects/items/casting_tools/heretical_catalyst.png" id="1_ifa7b"]
+[ext_resource type="Script" uid="uid://b3nqj4vcdgeds" path="res://resources/equipment_modifiers/EquipmentModifier.gd" id="2_37v6r"]
+[ext_resource type="Script" uid="uid://dwwbga07l4r5k" path="res://resources/weapon_stats/WeaponStats.gd" id="4_pewer"]
+
+[sub_resource type="Resource" id="Resource_46hmh"]
+script = ExtResource("4_pewer")
+base_physical = 5.0
+base_magic = 5.0
+base_fire = 5.0
+base_lightning = 5.0
+base_holy = 5.0
+int_scaling = 3
+faith_scaling = 3
+spell_scaling_power = 75.0
+required_intelligence = 15
+required_faith = 15
+metadata/_custom_type_script = "uid://dwwbga07l4r5k"
 
 [resource]
 script = ExtResource("1_2odeo")
@@ -13,5 +29,6 @@ category = "Weapons"
 stacks = false
 max_stack = 1
 weapon_type = "Heretical"
+weapon_stats = SubResource("Resource_46hmh")
 can_use = false
 metadata/_custom_type_script = "uid://b7ouuvly1l65f"

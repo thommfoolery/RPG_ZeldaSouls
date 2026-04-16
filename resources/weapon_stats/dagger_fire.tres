@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="WeaponStats" format=3 uid="uid://ely0kh51lbi5"]
+
+[ext_resource type="Script" uid="uid://dwwbga07l4r5k" path="res://resources/weapon_stats/WeaponStats.gd" id="1_qda04"]
+
+[resource]
+script = ExtResource("1_qda04")
+base_physical = 90.0
+base_fire = 10.0
+str_scaling = 1
+dex_scaling = 2
+faith_scaling = 2
+poise_damage = 1.0
+required_dexterity = 7
+required_faith = 7
+metadata/_custom_type_script = "uid://dwwbga07l4r5k"

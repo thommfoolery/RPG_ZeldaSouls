@@ -3,8 +3,8 @@
 [ext_resource type="Resource" uid="uid://cmqht34qse1r1" path="res://resources/armor/iron_helm.tres" id="1_rmcbx"]
 [ext_resource type="Texture2D" uid="uid://tye5lmtaqe32" path="res://art/objects/items/armor/ironbody.png" id="1_ux3lc"]
 [ext_resource type="Script" uid="uid://b7ouuvly1l65f" path="res://resources/items/Item.gd" id="2_l544r"]
-[ext_resource type="Script" uid="uid://b3nqj4vcdgeds" path="res://resources/equipment/EquipmentModifier.gd" id="3_h81nb"]
-[ext_resource type="Resource" uid="uid://dsuqjp0fayo5n" path="res://resources/equipment/max_equipment_load.tres" id="4_h81nb"]
+[ext_resource type="Script" uid="uid://b3nqj4vcdgeds" path="res://resources/equipment_modifiers/EquipmentModifier.gd" id="3_h81nb"]
+[ext_resource type="Resource" uid="uid://dsuqjp0fayo5n" path="res://resources/equipment_modifiers/max_equipment_load.tres" id="4_h81nb"]
 
 [resource]
 script = ExtResource("2_l544r")

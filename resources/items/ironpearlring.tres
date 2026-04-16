@@ -2,9 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://c4f1xcmgyaq7k" path="res://art/objects/items/consumables/ironpearlring.png" id="1_fwg7i"]
 [ext_resource type="Script" uid="uid://b7ouuvly1l65f" path="res://resources/items/Item.gd" id="1_ysk0a"]
-[ext_resource type="Script" uid="uid://b3nqj4vcdgeds" path="res://resources/equipment/EquipmentModifier.gd" id="2_p702r"]
-[ext_resource type="Resource" uid="uid://cwbs7jdebjrlx" path="res://resources/equipment/mana_regen.tres" id="3_nn5x4"]
-[ext_resource type="Resource" uid="uid://c48xdvjem1nx2" path="res://resources/equipment/max_mana.tres" id="4_nn5x4"]
+[ext_resource type="Script" uid="uid://b3nqj4vcdgeds" path="res://resources/equipment_modifiers/EquipmentModifier.gd" id="2_p702r"]
+[ext_resource type="Resource" uid="uid://cwbs7jdebjrlx" path="res://resources/equipment_modifiers/mana_regen.tres" id="3_nn5x4"]
+[ext_resource type="Resource" uid="uid://c48xdvjem1nx2" path="res://resources/equipment_modifiers/max_mana.tres" id="4_nn5x4"]
 
 [resource]
 script = ExtResource("1_ysk0a")

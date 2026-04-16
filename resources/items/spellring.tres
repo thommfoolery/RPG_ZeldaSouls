@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="GameItem" format=3 uid="uid://ddv1ruo8ufs2j"]
 
 [ext_resource type="Texture2D" uid="uid://bpfy5nteot4sw" path="res://art/objects/items/Rings/spell_ring.png" id="1_r44nj"]
-[ext_resource type="Script" uid="uid://b3nqj4vcdgeds" path="res://resources/equipment/EquipmentModifier.gd" id="2_hnqkl"]
-[ext_resource type="Resource" uid="uid://dhn82u1e6qcf3" path="res://resources/equipment/spell_ring.tres" id="3_ev18j"]
-[ext_resource type="Resource" uid="uid://i6fmqitxh6b3" path="res://resources/equipment/poise_bonus.tres" id="4_ev18j"]
+[ext_resource type="Script" uid="uid://b3nqj4vcdgeds" path="res://resources/equipment_modifiers/EquipmentModifier.gd" id="2_hnqkl"]
+[ext_resource type="Resource" uid="uid://dhn82u1e6qcf3" path="res://resources/equipment_modifiers/spell_ring.tres" id="3_ev18j"]
+[ext_resource type="Resource" uid="uid://i6fmqitxh6b3" path="res://resources/equipment_modifiers/poise_bonus.tres" id="4_ev18j"]
 [ext_resource type="Script" uid="uid://b7ouuvly1l65f" path="res://resources/items/Item.gd" id="6_xy658"]
 
 [resource]

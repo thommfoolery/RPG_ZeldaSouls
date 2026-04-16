@@ -2,6 +2,17 @@
 
 [ext_resource type="Script" uid="uid://b7ouuvly1l65f" path="res://resources/items/Item.gd" id="1_pwdn8"]
 [ext_resource type="Texture2D" uid="uid://csnwwoh0noda2" path="res://art/objects/items/casting_tools/staff_basic.png" id="1_r5d5s"]
+[ext_resource type="Script" uid="uid://b3nqj4vcdgeds" path="res://resources/equipment_modifiers/EquipmentModifier.gd" id="2_rj5ym"]
+[ext_resource type="Script" uid="uid://dwwbga07l4r5k" path="res://resources/weapon_stats/WeaponStats.gd" id="4_3u3ja"]
+
+[sub_resource type="Resource" id="Resource_ifl72"]
+script = ExtResource("4_3u3ja")
+base_physical = 5.0
+base_magic = 5.0
+int_scaling = 4
+spell_scaling_power = 80.0
+required_intelligence = 12
+metadata/_custom_type_script = "uid://dwwbga07l4r5k"
 
 [resource]
 script = ExtResource("1_pwdn8")
@@ -12,5 +23,6 @@ icon = ExtResource("1_r5d5s")
 category = "Weapons"
 stacks = false
 weapon_type = "Staff"
+weapon_stats = SubResource("Resource_ifl72")
 can_use = false
 metadata/_custom_type_script = "uid://b7ouuvly1l65f"

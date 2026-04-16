@@ -133,6 +133,10 @@ horizontal_scroll_mode = 0
 [node name="ItemGrid" type="GridContainer" parent="Content/ItemsPanel/MainContainer/ItemScroll" unique_id=1204877762]
 custom_minimum_size = Vector2(400, 300)
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/h_separation = 14
+theme_override_constants/v_separation = 4
 
 [node name="DetailsPanel" type="Panel" parent="Content/ItemsPanel/MainContainer" unique_id=1364372063]
 layout_mode = 2
@@ -183,14 +187,29 @@ autowrap_mode = 3
 
 [node name="QuantitySelector" type="Control" parent="Content/ItemsPanel" unique_id=1413993566]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -129.0
+offset_top = -75.5
+offset_right = 129.0
+offset_bottom = 75.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Content/ItemsPanel/QuantitySelector" unique_id=1840563526]
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -68.0
+offset_top = -18.5
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
 [node name="QTYLabel" type="Label" parent="Content/ItemsPanel/QuantitySelector" unique_id=1945236245]
 unique_name_in_owner = true
@@ -225,7 +244,7 @@ alignment = 1
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
-text = "Confirm"
+text = "A - Confirm"
 
 [node name="HSeparator3" type="HSeparator" parent="Content/ItemsPanel/QuantitySelector/HBoxContainer" unique_id=703137666]
 layout_mode = 2
@@ -234,8 +253,16 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
-text = "Cancel
+text = "B: Cancel
 "
+
+[node name="Label" type="Label" parent="Content/ItemsPanel/QuantitySelector" unique_id=52479433]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 25.0
+offset_right = 243.0
+offset_bottom = 48.0
+text = "DPAD UP/DOWN : ADJUST QTY"
 
 [node name="ContextMenu" type="Control" parent="Content/ItemsPanel" unique_id=1415408194]
 unique_name_in_owner = true
@@ -890,9 +917,9 @@ anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -40.0
+offset_left = -136.0
 offset_top = 26.59
-offset_right = 479.0
+offset_right = 806.0
 offset_bottom = 825.00006
 grow_horizontal = 0
 grow_vertical = 2
@@ -944,9 +971,9 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -332.0
+offset_left = 0.0
 offset_top = -409.0
-offset_right = -16.0
+offset_right = 334.0
 offset_bottom = 392.0
 grow_horizontal = 0
 grow_vertical = 2
@@ -1435,63 +1462,67 @@ text = "Offensive Stats:"
 [node name="Separator9" type="HSeparator" parent="Content/StatsPanel/MainLayout/StatsVbox2" unique_id=797421761]
 layout_mode = 2
 
-[node name="PhysicalDefenseRow2" type="HBoxContainer" parent="Content/StatsPanel/MainLayout/StatsVbox2" unique_id=420799079]
+[node name="RightHand1ARRow" type="HBoxContainer" parent="Content/StatsPanel/MainLayout/StatsVbox2" unique_id=420799079]
 layout_mode = 2
 
-[node name="PhysicalDefenseLabel" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox2/PhysicalDefenseRow2" unique_id=789986683]
+[node name="RightHand1ARLabel" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox2/RightHand1ARRow" unique_id=789986683]
 layout_mode = 2
 text = "Right Hand slot 1"
 
-[node name="Control2" type="Control" parent="Content/StatsPanel/MainLayout/StatsVbox2/PhysicalDefenseRow2" unique_id=566964948]
+[node name="Control2" type="Control" parent="Content/StatsPanel/MainLayout/StatsVbox2/RightHand1ARRow" unique_id=566964948]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="PhysicalDefenseValue" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox2/PhysicalDefenseRow2" unique_id=1763368249]
+[node name="RightHand1ARValue" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox2/RightHand1ARRow" unique_id=1763368249]
+unique_name_in_owner = true
 layout_mode = 2
 text = "x"
 
-[node name="PhysicalDefenseRow3" type="HBoxContainer" parent="Content/StatsPanel/MainLayout/StatsVbox2" unique_id=100805990]
+[node name="RightHand2ARRow" type="HBoxContainer" parent="Content/StatsPanel/MainLayout/StatsVbox2" unique_id=100805990]
 layout_mode = 2
 
-[node name="PhysicalDefenseLabel" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox2/PhysicalDefenseRow3" unique_id=807526276]
+[node name="RightHand2ARLabel" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox2/RightHand2ARRow" unique_id=807526276]
 layout_mode = 2
 text = "Right Hand slot 2"
 
-[node name="Control2" type="Control" parent="Content/StatsPanel/MainLayout/StatsVbox2/PhysicalDefenseRow3" unique_id=252327492]
+[node name="Control2" type="Control" parent="Content/StatsPanel/MainLayout/StatsVbox2/RightHand2ARRow" unique_id=252327492]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="PhysicalDefenseValue" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox2/PhysicalDefenseRow3" unique_id=567178098]
+[node name="RightHand2ARValue" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox2/RightHand2ARRow" unique_id=567178098]
+unique_name_in_owner = true
 layout_mode = 2
 text = "x"
 
-[node name="PhysicalDefenseRow5" type="HBoxContainer" parent="Content/StatsPanel/MainLayout/StatsVbox2" unique_id=1576200052]
+[node name="LeftHand1ARRow" type="HBoxContainer" parent="Content/StatsPanel/MainLayout/StatsVbox2" unique_id=1576200052]
 layout_mode = 2
 
-[node name="PhysicalDefenseLabel" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox2/PhysicalDefenseRow5" unique_id=1974055018]
+[node name="LeftHand1ARLabel" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox2/LeftHand1ARRow" unique_id=1974055018]
 layout_mode = 2
 text = "Left Hand slot 1"
 
-[node name="Control2" type="Control" parent="Content/StatsPanel/MainLayout/StatsVbox2/PhysicalDefenseRow5" unique_id=990651686]
+[node name="Control2" type="Control" parent="Content/StatsPanel/MainLayout/StatsVbox2/LeftHand1ARRow" unique_id=990651686]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="PhysicalDefenseValue" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox2/PhysicalDefenseRow5" unique_id=1795062593]
+[node name="LeftHand1ARValue" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox2/LeftHand1ARRow" unique_id=1795062593]
+unique_name_in_owner = true
 layout_mode = 2
 text = "x"
 
-[node name="PhysicalDefenseRow4" type="HBoxContainer" parent="Content/StatsPanel/MainLayout/StatsVbox2" unique_id=873694647]
+[node name="LeftHand2ARRow" type="HBoxContainer" parent="Content/StatsPanel/MainLayout/StatsVbox2" unique_id=873694647]
 layout_mode = 2
 
-[node name="PhysicalDefenseLabel" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox2/PhysicalDefenseRow4" unique_id=710601100]
+[node name="LeftHand2ARLabel" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox2/LeftHand2ARRow" unique_id=710601100]
 layout_mode = 2
 text = "Left Hand slot 2"
 
-[node name="Control2" type="Control" parent="Content/StatsPanel/MainLayout/StatsVbox2/PhysicalDefenseRow4" unique_id=2126275555]
+[node name="Control2" type="Control" parent="Content/StatsPanel/MainLayout/StatsVbox2/LeftHand2ARRow" unique_id=2126275555]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="PhysicalDefenseValue" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox2/PhysicalDefenseRow4" unique_id=917684039]
+[node name="LeftHand2ARValue" type="Label" parent="Content/StatsPanel/MainLayout/StatsVbox2/LeftHand2ARRow" unique_id=917684039]
+unique_name_in_owner = true
 layout_mode = 2
 text = "x"
 

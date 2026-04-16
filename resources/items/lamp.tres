@@ -2,6 +2,19 @@
 
 [ext_resource type="Texture2D" uid="uid://csf31q7r4qqn6" path="res://art/objects/items/weapons/lamp.png" id="1_4d6kc"]
 [ext_resource type="Script" uid="uid://b7ouuvly1l65f" path="res://resources/items/Item.gd" id="1_s6t7c"]
+[ext_resource type="Script" uid="uid://b3nqj4vcdgeds" path="res://resources/equipment_modifiers/EquipmentModifier.gd" id="2_yd048"]
+[ext_resource type="Script" uid="uid://dwwbga07l4r5k" path="res://resources/weapon_stats/WeaponStats.gd" id="4_p52ve"]
+
+[sub_resource type="Resource" id="Resource_4ef6r"]
+script = ExtResource("4_p52ve")
+base_physical = 10.0
+base_fire = 10.0
+str_scaling = 1
+faith_scaling = 1
+weight = 8.0
+required_strength = 8
+required_faith = 8
+metadata/_custom_type_script = "uid://dwwbga07l4r5k"
 
 [resource]
 script = ExtResource("1_s6t7c")
@@ -12,6 +25,7 @@ icon = ExtResource("1_4d6kc")
 category = "Weapons"
 stacks = false
 weapon_type = "Other"
+weapon_stats = SubResource("Resource_4ef6r")
 can_use = false
 is_lamp = true
 lamp_energy = 1.0

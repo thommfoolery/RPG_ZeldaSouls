@@ -452,14 +452,24 @@ vertical_alignment = 2
 [node name="HSeparator" type="HSeparator" parent="MainPanel/ContentHBox/PreviewPanel/PreviewVBox" unique_id=1862657690]
 layout_mode = 2
 
-[node name="PreviewStats" type="RichTextLabel" parent="MainPanel/ContentHBox/PreviewPanel/PreviewVBox" unique_id=2140662419]
+[node name="HBoxContainer" type="HBoxContainer" parent="MainPanel/ContentHBox/PreviewPanel/PreviewVBox" unique_id=1666275009]
+layout_mode = 2
+
+[node name="PreviewStats" type="RichTextLabel" parent="MainPanel/ContentHBox/PreviewPanel/PreviewVBox/HBoxContainer" unique_id=2140662419]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(400, 390)
+custom_minimum_size = Vector2(240, 390)
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 17
 bbcode_enabled = true
 text = "PreviewCost"
-vertical_alignment = 2
+
+[node name="PreviewAttackStats" type="RichTextLabel" parent="MainPanel/ContentHBox/PreviewPanel/PreviewVBox/HBoxContainer" unique_id=175907654]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(240, 390)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 17
+bbcode_enabled = true
+text = "PreviewCost"
 
 [node name="HSeparator2" type="HSeparator" parent="MainPanel/ContentHBox/PreviewPanel/PreviewVBox" unique_id=786520129]
 layout_mode = 2

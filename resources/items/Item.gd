@@ -58,6 +58,7 @@ class_name GameItem
 	"Axe", "Hammer", "Spear", "Bow", "Heretical",
 	"Staff", "Chime", "Fist", "Other"
 ) var weapon_type: String = "Straight Sword"
+@export var weapon_stats: WeaponStats = null
 @export var damage: int = 0
 @export var scaling: String = ""
 @export var requirements: Dictionary = {}

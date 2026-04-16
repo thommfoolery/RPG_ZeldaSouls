@@ -164,12 +164,18 @@ func _input(event: InputEvent) -> void:
 
 func _on_item_focused(index: int) -> void:
 	var hovered_item = _get_item_from_list_index(index)
-	if not hovered_item or not hovered_item.armor_stats:
+	if not hovered_item:
 		comparison_tooltip.hide_comparison()
 		return
 	
 	var currently_equipped = EquipmentManager.get_equipped_item(_current_slot_being_assigned)
-	comparison_tooltip.show_comparison(currently_equipped, hovered_item)
+	
+	if hovered_item.weapon_stats:
+		comparison_tooltip.show_weapon_comparison(currently_equipped, hovered_item)
+	elif hovered_item.armor_stats:
+		comparison_tooltip.show_comparison(currently_equipped, hovered_item)
+	else:
+		comparison_tooltip.hide_comparison()
 
 func _on_item_selected(index: int) -> void:
 	comparison_tooltip.hide_comparison()  # hide when you actually equip
@@ -196,14 +202,19 @@ func _update_tooltip_from_current_selection() -> void:
 
 	var index = selected[0]
 	var hovered_item = _get_item_from_list_index(index)
-
-	# Only show tooltip for armor pieces that have defensive stats
-	if not hovered_item or not hovered_item.armor_stats:
+	if not hovered_item:
 		comparison_tooltip.hide_comparison()
 		return
 
 	var currently_equipped = EquipmentManager.get_equipped_item(_current_slot_being_assigned)
-	comparison_tooltip.show_comparison(currently_equipped, hovered_item)
+
+	# NEW: Support both weapons and armor
+	if hovered_item.weapon_stats:
+		comparison_tooltip.show_weapon_comparison(currently_equipped, hovered_item)
+	elif hovered_item.armor_stats:
+		comparison_tooltip.show_comparison(currently_equipped, hovered_item)
+	else:
+		comparison_tooltip.hide_comparison()
 ###########
 
 # ─── NEW: Refresh assign menu with current sort ─────────────────────

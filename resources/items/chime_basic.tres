@@ -2,6 +2,17 @@
 
 [ext_resource type="Texture2D" uid="uid://cu2kayergucet" path="res://art/objects/items/casting_tools/chime_basic.png" id="1_45vy6"]
 [ext_resource type="Script" uid="uid://b7ouuvly1l65f" path="res://resources/items/Item.gd" id="1_i3832"]
+[ext_resource type="Script" uid="uid://b3nqj4vcdgeds" path="res://resources/equipment_modifiers/EquipmentModifier.gd" id="2_4jkc8"]
+[ext_resource type="Script" uid="uid://dwwbga07l4r5k" path="res://resources/weapon_stats/WeaponStats.gd" id="4_mpiwc"]
+
+[sub_resource type="Resource" id="Resource_ndpo0"]
+script = ExtResource("4_mpiwc")
+base_physical = 5.0
+base_holy = 10.0
+int_scaling = 4
+spell_scaling_power = 75.0
+required_intelligence = 10
+metadata/_custom_type_script = "uid://dwwbga07l4r5k"
 
 [resource]
 script = ExtResource("1_i3832")
@@ -14,5 +25,6 @@ stacks = false
 max_stack = 1
 consumes_on_use = false
 weapon_type = "Chime"
+weapon_stats = SubResource("Resource_ndpo0")
 can_use = false
 metadata/_custom_type_script = "uid://b7ouuvly1l65f"

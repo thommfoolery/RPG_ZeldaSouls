@@ -3,9 +3,9 @@
 [ext_resource type="Resource" uid="uid://btch4h2yrjfpg" path="res://resources/armor/gold_helm.tres" id="1_ekwpc"]
 [ext_resource type="Texture2D" uid="uid://b7q62o278l4ud" path="res://art/objects/items/armor/armor_legs_gold.png" id="1_etbqs"]
 [ext_resource type="Script" uid="uid://b7ouuvly1l65f" path="res://resources/items/Item.gd" id="2_6axgf"]
-[ext_resource type="Script" uid="uid://b3nqj4vcdgeds" path="res://resources/equipment/EquipmentModifier.gd" id="2_agoyp"]
-[ext_resource type="Resource" uid="uid://d06aq8yh2kvxp" path="res://resources/equipment/vit_levels.tres" id="3_a7cu3"]
-[ext_resource type="Resource" uid="uid://b8xaj00ey7j8f" path="res://resources/equipment/dex_levels.tres" id="4_a7cu3"]
+[ext_resource type="Script" uid="uid://b3nqj4vcdgeds" path="res://resources/equipment_modifiers/EquipmentModifier.gd" id="2_agoyp"]
+[ext_resource type="Resource" uid="uid://d06aq8yh2kvxp" path="res://resources/equipment_modifiers/vit_levels.tres" id="3_a7cu3"]
+[ext_resource type="Resource" uid="uid://b8xaj00ey7j8f" path="res://resources/equipment_modifiers/dex_levels.tres" id="4_a7cu3"]
 
 [resource]
 script = ExtResource("2_6axgf")

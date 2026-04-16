@@ -32,6 +32,10 @@ extends Panel
 @onready var holy_defense_value: Label = %HolyDefenseValue
 @onready var status_resistance_value: Label = %StatusResistanceValue
 @onready var poise_value: Label = %PoiseValue
+@onready var right_hand1_ar_value: Label = %RightHand1ARValue  
+@onready var right_hand2_ar_value: Label = %RightHand2ARValue
+@onready var left_hand1_ar_value: Label = %LeftHand1ARValue
+@onready var left_hand2_ar_value: Label = %LeftHand2ARValue
 
 # New references for bonuses panel
 @onready var active_bonuses_container: VBoxContainer = $MainLayout/BonusesVBox/ScrollContainer/ActiveBonusesContainer
@@ -128,6 +132,22 @@ func _refresh_stats_tab() -> void:
 	if poise_value:
 		poise_value.text = "%.1f" % StatCalculator.get_poise()
 	
+		# === Hand Slot Attack Ratings ===
+	# Right Hand 1
+	var rh1_item = EquipmentManager.get_equipped_item(0)  # slot 0 = Right Hand 1
+	right_hand1_ar_value.text = str(StatCalculator.get_attack_rating(rh1_item)) if rh1_item and rh1_item.weapon_stats else "—"
+
+	# Right Hand 2
+	var rh2_item = EquipmentManager.get_equipped_item(1)  # slot 1 = Right Hand 2
+	right_hand2_ar_value.text = str(StatCalculator.get_attack_rating(rh2_item)) if rh2_item and rh2_item.weapon_stats else "—"
+
+	# Left Hand 1
+	var lh1_item = EquipmentManager.get_equipped_item(7)   # slot 7 = Left Hand 1
+	left_hand1_ar_value.text = str(StatCalculator.get_attack_rating(lh1_item)) if lh1_item and lh1_item.weapon_stats else "—"
+
+	# Left Hand 2
+	var lh2_item = EquipmentManager.get_equipped_item(8)   # slot 8 = Left Hand 2
+	left_hand2_ar_value.text = str(StatCalculator.get_attack_rating(lh2_item)) if lh2_item and lh2_item.weapon_stats else "—"
 	# NEW: Refresh active equipment bonuses
 	_refresh_active_equipment_bonuses()
 	
